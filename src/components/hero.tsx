@@ -44,6 +44,7 @@ export default function Hero() {
           }`}
           data-ai-hint={image.hint}
           priority={index === 0}
+          onContextMenu={(e) => e.preventDefault()}
         />
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/30 md:to-transparent z-10" />

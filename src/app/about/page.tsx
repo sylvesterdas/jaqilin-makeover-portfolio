@@ -35,6 +35,7 @@ export default function AboutPage() {
                   fill
                   className="object-cover object-top"
                   data-ai-hint="woman portrait"
+                  onContextMenu={(e) => e.preventDefault()}
                 />
                 <div className="absolute inset-0 bg-gradient-radial from-transparent to-black/50" />
               </div>

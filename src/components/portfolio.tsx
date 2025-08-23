@@ -1,3 +1,4 @@
+'use client';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -37,6 +38,7 @@ function Gallery({ category }: { category: keyof typeof portfolioItems }) {
                 height={800}
                 className="w-full h-auto object-cover transform hover:scale-110 transition-transform duration-500"
                 data-ai-hint={item.hint}
+                onContextMenu={(e) => e.preventDefault()}
               />
             </CardContent>
           </Card>
