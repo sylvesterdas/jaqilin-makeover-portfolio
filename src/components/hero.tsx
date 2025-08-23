@@ -9,7 +9,7 @@ export default function Hero() {
         src="/images/hero-background.jpg"
         alt="Background of a beautifully decorated wedding setting"
         fill
-        className="object-cover z-0"
+        className="object-cover object-right z-0"
         data-ai-hint="bride makeup"
         priority
       />
