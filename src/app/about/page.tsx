@@ -36,6 +36,7 @@ export default function AboutPage() {
                   className="object-cover object-top"
                   data-ai-hint="woman portrait"
                 />
+                <div className="absolute inset-0 bg-gradient-radial from-transparent to-black/50" />
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <h1 className="font-headline text-5xl md:text-6xl text-primary">About Jaqilin</h1>
