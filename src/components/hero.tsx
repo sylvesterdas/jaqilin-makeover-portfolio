@@ -21,7 +21,7 @@ export default function Hero() {
           Professional Makeup Artist
         </p>
         <p className="mt-2 text-lg md:text-xl text-foreground/80">
-          Based in Kanjiramkulam, Trivandrum
+          Based in Trivandrum
         </p>
         <div className="mt-8 flex justify-center gap-4">
           <Button size="lg" asChild className="bg-primary text-primary-foreground hover:bg-accent">

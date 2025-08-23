@@ -6,11 +6,11 @@ import { cn } from '@/lib/utils';
 export const metadata: Metadata = {
   title: 'Jaqilin Makeover | Professional Makeup Artist in Trivandrum',
   description:
-    'Jaqilin Makeover offers professional wedding makeup, guest makeup, saree draping, and fashion show preparation services in Trivandrum, Kollam, and Nagercoil. Based in Kanjiramkulam, Trivandrum.',
+    'Jaqilin Makeover offers professional wedding makeup, guest makeup, saree draping, and fashion show preparation services in Trivandrum, Kollam, and Nagercoil. Based in Trivandrum.',
   keywords: [
     'makeup artist trivandrum',
     'wedding makeup trivandrum',
-    'bridal makeup kanjiramkulam',
+    'bridal makeup trivandrum',
     'guest makeup kollam',
     'saree draping nagercoil',
     'fashion show makeup trivandrum',

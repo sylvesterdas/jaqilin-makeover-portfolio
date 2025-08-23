@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <h3 className="font-headline text-2xl font-bold text-primary mb-2">Jaqilin Makeover</h3>
             <p className="text-foreground/70">LJS Works</p>
-            <p className="text-foreground/70">Kanjiramkulam, Trivandrum</p>
+            <p className="text-foreground/70">Trivandrum</p>
             <p className="text-foreground/70">Age: 26</p>
           </div>
           <div>
