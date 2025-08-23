@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     'LJS Works',
   ],
   icons: {
-    icon: '/logo.jpg',
+    icon: '/logo.png',
   },
 };
 
