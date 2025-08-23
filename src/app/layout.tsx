@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
@@ -57,7 +58,7 @@ export default function RootLayout({
     '@id': 'https://www.jaqilinmakeover.com',
     url: 'https://www.jaqilinmakeover.com',
     telephone: '+91 73564 83404',
-    email: 'contact@jaqilinmua.com',
+    email: 'contact@jaqilinmakeover.com',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Kanjiramkulam',

@@ -1,3 +1,4 @@
+
 import { Instagram, Mail, Phone } from 'lucide-react';
 
 export default function Footer() {
@@ -20,9 +21,9 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@jaqilinmua.com" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
+                <a href="mailto:contact@jaqilinmakeover.com" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
                   <Mail size={16} />
-                  <span>contact@jaqilinmua.com</span>
+                  <span>contact@jaqilinmakeover.com</span>
                 </a>
               </li>
             </ul>
