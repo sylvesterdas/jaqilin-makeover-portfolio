@@ -6,7 +6,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
         <a href="#" className="flex items-center gap-2 font-headline text-2xl font-bold text-primary">
-          <Image src="/logo.png" alt="Jaqilin Makeover Logo" width={32} height={32} data-ai-hint="logo monogram" />
+          <Image src="/logo.jpg" alt="Jaqilin Makeover Logo" width={32} height={32} data-ai-hint="logo monogram" />
           <span>Jaqilin Makeover</span>
         </a>
         <nav className="hidden md:flex items-center space-x-4">
