@@ -31,7 +31,7 @@ export default function Hero() {
       className="relative w-full h-[80vh] min-h-[500px] flex flex-col justify-end md:flex-row md:items-center md:justify-start text-center md:text-left overflow-hidden"
     >
       <Carousel
-        className="absolute inset-0 z-0"
+        className="absolute inset-0 z-0 h-full w-full"
         plugins={[
           Autoplay({
             delay: 5000,
@@ -44,7 +44,7 @@ export default function Hero() {
       >
         <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="h-full">
+            <CarouselItem key={index} className="h-full w-full">
               <Image
                 src={image.src}
                 alt={image.alt}
