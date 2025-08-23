@@ -30,43 +30,38 @@ const portfolioItems = {
 };
 
 function Gallery({ category }: { category: keyof typeof portfolioItems }) {
-  // The 'guests' category is intentionally left out for now.
-  if (category === 'guests') return null;
-
   return (
-    <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {portfolioItems[category].map((item, index) => (
-        <div key={index} className="break-inside-avoid">
-          <Card className="overflow-hidden border-border/50">
-            <CardContent className="p-0">
-              {item.type === 'image' ? (
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  width={600}
-                  height={800}
-                  className="w-full h-auto object-cover transform hover:scale-110 transition-transform duration-500"
-                  data-ai-hint={item.hint}
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              ) : (
-                <video
-                  src={item.src}
-                  width="600"
-                  height="800"
-                  className="w-full h-auto object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  onContextMenu={(e) => e.preventDefault()}
-                >
-                  Your browser does not support the video tag.
-                </video>
-              )}
-            </CardContent>
-          </Card>
-        </div>
+        <Card key={index} className="overflow-hidden border-border/50 group">
+          <CardContent className="p-0 aspect-[9/16]">
+            {item.type === 'image' ? (
+              <Image
+                src={item.src}
+                alt={item.alt}
+                width={600}
+                height={800}
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                data-ai-hint={item.hint}
+                onContextMenu={(e) => e.preventDefault()}
+              />
+            ) : (
+              <video
+                src={item.src}
+                width="600"
+                height="800"
+                className="w-full h-full object-cover"
+                autoPlay
+                loop
+                muted
+                playsInline
+                onContextMenu={(e) => e.preventDefault()}
+              >
+                Your browser does not support the video tag.
+              </video>
+            )}
+          </CardContent>
+        </Card>
       ))}
     </div>
   );
