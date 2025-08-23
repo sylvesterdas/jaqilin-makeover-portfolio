@@ -2,14 +2,7 @@
 'use client';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
+import { useState, useEffect } from 'react';
 
 const heroImages = [
   {
@@ -25,41 +18,35 @@ const heroImages = [
 ];
 
 export default function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section
       id="home"
       className="relative w-full h-[80vh] min-h-[500px] flex flex-col justify-end md:justify-center text-center md:text-left overflow-hidden"
     >
-      <Carousel
-        className="absolute inset-0 z-0 h-full w-full"
-        plugins={[
-          Autoplay({
-            delay: 5000,
-            stopOnInteraction: true,
-          }),
-        ]}
-        opts={{
-          loop: true,
-        }}
-      >
-        <CarouselContent className="h-full">
-          {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="relative h-full w-full">
-              <Image
-                src={image.src}
-                alt={image.alt}
-                fill
-                className="object-cover object-right"
-                data-ai-hint={image.hint}
-                priority={index === 0}
-              />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/60 md:to-transparent z-10" />
-        <CarouselPrevious className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-30" />
-        <CarouselNext className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-30" />
-      </Carousel>
+      {heroImages.map((image, index) => (
+        <Image
+          key={index}
+          src={image.src}
+          alt={image.alt}
+          fill
+          className={`object-cover object-right transition-opacity duration-1000 ease-in-out ${
+            index === currentIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          data-ai-hint={image.hint}
+          priority={index === 0}
+        />
+      ))}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/60 md:to-transparent z-10" />
 
       <div className="relative z-20 container mx-auto px-4 pb-12 md:pb-0">
         <div className="max-w-xl">
