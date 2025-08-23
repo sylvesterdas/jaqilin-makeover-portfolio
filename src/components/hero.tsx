@@ -31,7 +31,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full h-[80vh] min-h-[500px] flex flex-col justify-end md:justify-center text-center md:text-left overflow-hidden"
+      className="relative w-full h-[100svh] flex flex-col justify-end md:justify-center text-center md:text-left overflow-hidden"
     >
       {heroImages.map((image, index) => (
         <Image
@@ -39,7 +39,7 @@ export default function Hero() {
           src={image.src}
           alt={image.alt}
           fill
-          className={`object-cover object-right transition-opacity duration-1000 ease-in-out ${
+          className={`object-cover object-center md:object-right transition-opacity duration-1000 ease-in-out ${
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
           data-ai-hint={image.hint}
