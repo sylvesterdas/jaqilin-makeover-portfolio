@@ -17,9 +17,6 @@ export default function Header() {
             <a href="/#portfolio" className="text-foreground/80 hover:text-primary">Portfolio</a>
           </Button>
           <Button variant="link" asChild>
-            <a href="/about" className="text-foreground/80 hover:text-primary">About</a>
-          </Button>
-          <Button variant="link" asChild>
             <a href="/#contact" className="text-foreground/80 hover:text-primary">Contact</a>
           </Button>
         </nav>

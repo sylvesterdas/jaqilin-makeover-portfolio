@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: '/logo.jpg',
-    shortcut: '/logo.jpg',
-    apple: '/logo.jpg',
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
   },
 };
 
@@ -54,7 +54,7 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Jaqilin Makeover',
-    image: 'https://www.jaqilinmakeover.com/logo.jpg',
+    image: 'https://www.jaqilinmakeover.com/logo.png',
     '@id': 'https://www.jaqilinmakeover.com',
     url: 'https://www.jaqilinmakeover.com',
     telephone: '+91 73564 83404',
