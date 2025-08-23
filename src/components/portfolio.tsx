@@ -4,22 +4,22 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const portfolioItems = {
   weddings: [
-    { src: 'https://placehold.co/600x800.png', alt: 'Bride with elegant makeup', hint: 'bride makeup' },
-    { src: 'https://placehold.co/800x600.png', alt: 'Close-up of bridal eye makeup', hint: 'bridal makeup' },
-    { src: 'https://placehold.co/600x800.png', alt: 'Happy bride on her wedding day', hint: 'indian bride' },
-    { src: 'https://placehold.co/600x800.png', alt: 'Bride showing her full wedding attire', hint: 'wedding dress' },
+    { src: '/images/portfolio/weddings/1.jpg', alt: 'Bride with elegant makeup', hint: 'bride makeup' },
+    { src: '/images/portfolio/weddings/2.jpg', alt: 'Close-up of bridal eye makeup', hint: 'bridal makeup' },
+    { src: '/images/portfolio/weddings/3.jpg', alt: 'Happy bride on her wedding day', hint: 'indian bride' },
+    { src: '/images/portfolio/weddings/4.jpg', alt: 'Bride showing her full wedding attire', hint: 'wedding dress' },
   ],
   guests: [
-    { src: 'https://placehold.co/600x800.png', alt: 'Wedding guest with subtle makeup', hint: 'woman portrait' },
-    { src: 'https://placehold.co/600x800.png', alt: 'Group of bridesmaids with matching makeup', hint: 'group photo' },
+    { src: '/images/portfolio/guests/1.jpg', alt: 'Wedding guest with subtle makeup', hint: 'woman portrait' },
+    { src: '/images/portfolio/guests/2.jpg', alt: 'Group of bridesmaids with matching makeup', hint: 'group photo' },
   ],
   draping: [
-    { src: 'https://placehold.co/600x800.png', alt: 'Woman in an elegantly draped saree', hint: 'indian saree' },
-    { src: 'https://placehold.co/600x800.png', alt: 'Close-up of a saree pleats', hint: 'saree draping' },
+    { src: '/images/portfolio/draping/1.jpg', alt: 'Woman in an elegantly draped saree', hint: 'indian saree' },
+    { src: '/images/portfolio/draping/2.jpg', alt: 'Close-up of a saree pleats', hint: 'saree draping' },
   ],
   fashion: [
-    { src: 'https://placehold.co/600x800.png', alt: 'Model with avant-garde fashion makeup', hint: 'fashion model' },
-    { src: 'https://placehold.co/600x800.png', alt: 'Model on a runway with dramatic makeup', hint: 'runway model' },
+    { src: '/images/portfolio/fashion/1.jpg', alt: 'Model with avant-garde fashion makeup', hint: 'fashion model' },
+    { src: '/images/portfolio/fashion/2.jpg', alt: 'Model on a runway with dramatic makeup', hint: 'runway model' },
   ],
 };
 
