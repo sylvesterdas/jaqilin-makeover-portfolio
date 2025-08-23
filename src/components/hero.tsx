@@ -42,9 +42,9 @@ export default function Hero() {
           loop: true,
         }}
       >
-        <CarouselContent>
+        <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem key={index} className="h-full">
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -56,11 +56,10 @@ export default function Hero() {
             </CarouselItem>
           ))}
         </CarouselContent>
-         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/60 md:to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/60 md:to-transparent z-10" />
         <CarouselPrevious className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 z-30" />
         <CarouselNext className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-30" />
       </Carousel>
-
 
       <div className="relative z-20 container mx-auto px-4 pb-12 md:pb-0 md:px-4 text-white">
         <div className="max-w-xl">
