@@ -42,9 +42,9 @@ export default function Hero() {
           loop: true,
         }}
       >
-        <CarouselContent className="h-full">
+        <CarouselContent>
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="relative h-full w-full">
+            <CarouselItem key={index} className="relative">
               <Image
                 src={image.src}
                 alt={image.alt}
