@@ -9,7 +9,6 @@ export default function Footer() {
             <h3 className="font-headline text-2xl font-bold text-primary mb-2">Jaqilin Makeover</h3>
             <p className="text-foreground/70">LJS Works</p>
             <p className="text-foreground/70">Trivandrum</p>
-            <p className="text-foreground/70">Age: 26</p>
           </div>
           <div>
             <h3 className="font-headline text-xl font-semibold mb-2">Contact Me</h3>
