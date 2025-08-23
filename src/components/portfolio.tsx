@@ -5,41 +5,65 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const portfolioItems = {
   weddings: [
-    { src: '/images/portfolio/weddings/1.jpg', alt: 'Bride with elegant makeup', hint: 'bride makeup' },
-    { src: '/images/portfolio/weddings/2.jpg', alt: 'Close-up of bridal eye makeup', hint: 'bridal makeup' },
-    { src: '/images/portfolio/weddings/3.jpg', alt: 'Happy bride on her wedding day', hint: 'indian bride' },
-    { src: '/images/portfolio/weddings/4.jpg', alt: 'Bride showing her full wedding attire', hint: 'wedding dress' },
+    { type: 'image', src: '/images/portfolio/weddings/1.jpg', alt: 'Bride with elegant makeup', hint: 'bride makeup' },
+    { type: 'image', src: '/images/portfolio/weddings/2.jpg', alt: 'Close-up of bridal eye makeup', hint: 'bridal makeup' },
+    { type: 'image', src: '/images/portfolio/weddings/3.jpg', alt: 'Happy bride on her wedding day', hint: 'indian bride' },
+    { type: 'image', src: '/images/portfolio/weddings/4.jpg', alt: 'Bride showing her full wedding attire', hint: 'wedding dress' },
   ],
-  guests: [
-    { src: '/images/portfolio/guests/1.jpg', alt: 'Wedding guest with subtle makeup', hint: 'woman portrait' },
-    { src: '/images/portfolio/guests/2.jpg', alt: 'Group of bridesmaids with matching makeup', hint: 'group photo' },
+  hairstyles: [
+    { type: 'image', src: '/images/portfolio/hairstyles/1.jpg', alt: 'Elegant bridal hairstyle', hint: 'bridal hairstyle' },
+    { type: 'video', src: '/videos/portfolio/hairstyles/1.mp4', alt: 'Video of a stylish hairdo', hint: 'hairstyle video' },
+    { type: 'image', src: '/images/portfolio/hairstyles/2.jpg', alt: 'Close-up of intricate hair design', hint: 'intricate hairstyle' },
+    { type: 'video', src: '/videos/portfolio/hairstyles/2.mp4', alt: 'Video showcasing a beautiful hairstyle', hint: 'hairstyle showcase' },
+    { type: 'image', src: '/images/portfolio/hairstyles/3.jpg', alt: 'Modern hairstyle for an event', hint: 'modern hairstyle' },
   ],
   draping: [
-    { src: '/images/portfolio/draping/1.jpg', alt: 'Woman in an elegantly draped saree', hint: 'indian saree' },
-    { src: '/images/portfolio/draping/2.jpg', alt: 'Close-up of a saree pleats', hint: 'saree draping' },
+    { type: 'image', src: '/images/portfolio/draping/1.jpg', alt: 'Woman in an elegantly draped saree', hint: 'indian saree' },
+    { type: 'image', src: '/images/portfolio/draping/2.jpg', alt: 'Woman in an elegantly draped saree', hint: 'saree draping' },
+    { type: 'image', src: '/images/portfolio/draping/3.jpg', alt: 'Woman in an elegantly draped saree', hint: 'kerala hindu bride saree draping' },
   ],
   fashion: [
-    { src: '/images/portfolio/fashion/1.jpg', alt: 'Model with avant-garde fashion makeup', hint: 'fashion model' },
-    { src: '/images/portfolio/fashion/2.jpg', alt: 'Model on a runway with dramatic makeup', hint: 'runway model' },
+    { type: 'image', src: '/images/portfolio/fashion/1.jpg', alt: 'Model with avant-garde fashion makeup', hint: 'fashion model' },
+    { type: 'image', src: '/images/portfolio/fashion/2.jpg', alt: 'Model on a runway with cool hairstyle', hint: 'runway model' },
+    { type: 'image', src: '/images/portfolio/fashion/3.jpg', alt: 'Model with avant-garde fashion makeup', hint: 'runway model' },
   ],
 };
 
 function Gallery({ category }: { category: keyof typeof portfolioItems }) {
+  // The 'guests' category is intentionally left out for now.
+  if (category === 'guests') return null;
+
   return (
     <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
       {portfolioItems[category].map((item, index) => (
         <div key={index} className="break-inside-avoid">
           <Card className="overflow-hidden border-border/50">
             <CardContent className="p-0">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={600}
-                height={800}
-                className="w-full h-auto object-cover transform hover:scale-110 transition-transform duration-500"
-                data-ai-hint={item.hint}
-                onContextMenu={(e) => e.preventDefault()}
-              />
+              {item.type === 'image' ? (
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  width={600}
+                  height={800}
+                  className="w-full h-auto object-cover transform hover:scale-110 transition-transform duration-500"
+                  data-ai-hint={item.hint}
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+              ) : (
+                <video
+                  src={item.src}
+                  width="600"
+                  height="800"
+                  className="w-full h-auto object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  onContextMenu={(e) => e.preventDefault()}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              )}
             </CardContent>
           </Card>
         </div>
@@ -59,12 +83,12 @@ export default function Portfolio() {
         <Tabs defaultValue="weddings" className="w-full">
           <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 mb-8">
             <TabsTrigger value="weddings">Wedding Makeovers</TabsTrigger>
-            <TabsTrigger value="guests">Guest Makeup</TabsTrigger>
+            <TabsTrigger value="hairstyles">Hairstyles</TabsTrigger>
             <TabsTrigger value="draping">Saree Draping</TabsTrigger>
             <TabsTrigger value="fashion">Fashion Shows</TabsTrigger>
           </TabsList>
           <TabsContent value="weddings"><Gallery category="weddings" /></TabsContent>
-          <TabsContent value="guests"><Gallery category="guests" /></TabsContent>
+          <TabsContent value="hairstyles"><Gallery category="hairstyles" /></TabsContent>
           <TabsContent value="draping"><Gallery category="draping" /></TabsContent>
           <TabsContent value="fashion"><Gallery category="fashion" /></TabsContent>
         </Tabs>
