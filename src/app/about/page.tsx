@@ -16,14 +16,14 @@ export default function AboutPage() {
                   src="/images/profile.jpg"
                   alt="Jaqilin S"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top md:object-center"
                   data-ai-hint="woman portrait"
                 />
               </div>
               <div className="p-8 md:p-12 flex flex-col justify-center">
                 <h1 className="font-headline text-5xl md:text-6xl text-primary">About Jaqilin</h1>
                 <p className="mt-4 text-lg text-foreground/80">
-                  My name is Jaqilin S, and I am the creative force behind Jaqilin Makeover. At 26 years old, I have dedicated myself to the art of makeup, bringing out the unique beauty in every individual I work with.
+                  My name is Jaqilin S, and at 26 years old, I am the creative force behind Jaqilin Makeover.
                 </p>
                 <p className="mt-4 text-lg text-foreground/80">
                   Based in Kanjiramkulam, Trivandrum, my passion is crafting unforgettable looks for weddings, special occasions, and fashion events. Under my business, LJS Works, I strive to provide a professional and personal experience for all my clients.
