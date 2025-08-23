@@ -44,7 +44,7 @@ export default function AboutPage() {
                   My name is Jaqilin S, and {age !== null ? `at ${age} years old,` : ''} I am the creative force behind Jaqilin Makeover.
                 </p>
                 <p className="mt-4 text-lg text-foreground/80">
-                  Based in Kanjiramkulam, Trivandrum, my passion is crafting unforgettable looks for weddings, special occasions, and fashion events. Under my business, LJS Works, I strive to provide a professional and personal experience for all my clients.
+                  Based in Kanjiramkulam, Trivandrum, my passion is crafting unforgettable looks for weddings, special occasions, and fashion events. Jaqilin Makeover is a product of LJS Works, a registered Indian sole proprietorship (UDYAM-KL-12-0112903). I strive to provide a professional and personal experience for all my clients.
                 </p>
                 <p className="mt-4 text-lg text-foreground/80">
                   My goal is to make you feel confident, beautiful, and ready for your spotlight moment.

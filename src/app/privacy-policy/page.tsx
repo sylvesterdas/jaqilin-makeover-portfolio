@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
             </CardHeader>
             <CardContent className="prose prose-invert prose-lg max-w-none text-foreground/80 space-y-4">
               <p>
-                Welcome to Jaqilin Makeover. This Privacy Policy outlines how LJS Works, a sole proprietorship of Jaqilin S, collects, uses, maintains, and discloses information collected from users (each, a "User") of the https://www.jaqilinmakeover.com website ("Site"). This privacy policy applies to the Site and all products and services offered by Jaqilin Makeover.
+                Welcome to Jaqilin Makeover. This Privacy Policy outlines how LJS Works, a registered Indian sole proprietorship (UDYAM-KL-12-0112903) under Jaqilin S, collects, uses, maintains, and discloses information collected from users (each, a "User") of the https://www.jaqilinmakeover.com website ("Site"). This privacy policy applies to the Site and all products and services offered by Jaqilin Makeover.
               </p>
 
               <h2 className="font-headline text-2xl text-primary pt-4">1. Information We Collect</h2>
