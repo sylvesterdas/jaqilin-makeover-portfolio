@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 import { cn } from '@/lib/utils';
+import ScrollToTop from '@/components/scroll-to-top';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.jaqilinmakeover.com'),
@@ -39,9 +40,9 @@ export const metadata: Metadata = {
     type: 'website',
   },
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    icon: '/logo.jpg',
+    shortcut: '/logo.jpg',
+    apple: '/logo.jpg',
   },
 };
 
@@ -117,6 +118,7 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
+        <ScrollToTop />
       </body>
     </html>
   );
