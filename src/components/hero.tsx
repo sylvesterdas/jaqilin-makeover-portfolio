@@ -28,7 +28,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative w-full h-[80vh] min-h-[500px] flex flex-col justify-end md:flex-row md:items-center md:justify-start text-center md:text-left overflow-hidden"
+      className="relative w-full h-[80vh] min-h-[500px] flex flex-col justify-end md:justify-center text-center md:text-left overflow-hidden"
     >
       <Carousel
         className="absolute inset-0 z-0 h-full w-full"
@@ -44,7 +44,7 @@ export default function Hero() {
       >
         <CarouselContent className="h-full">
           {heroImages.map((image, index) => (
-            <CarouselItem key={index} className="h-full w-full">
+            <CarouselItem key={index} className="relative h-full w-full">
               <Image
                 src={image.src}
                 alt={image.alt}
@@ -61,7 +61,7 @@ export default function Hero() {
         <CarouselNext className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 z-30" />
       </Carousel>
 
-      <div className="relative z-20 container mx-auto px-4 pb-12 md:pb-0 md:px-4 text-white">
+      <div className="relative z-20 container mx-auto px-4 pb-12 md:pb-0">
         <div className="max-w-xl">
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl text-primary drop-shadow-md">
             Jaqilin S
