@@ -17,6 +17,9 @@ export const metadata: Metadata = {
     'Jaqilin Makeover',
     'LJS Works',
   ],
+  icons: {
+    icon: '/logo.jpg',
+  },
 };
 
 export default function RootLayout({
