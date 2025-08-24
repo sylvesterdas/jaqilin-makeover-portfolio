@@ -43,7 +43,6 @@ export default function Hero() {
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
           data-ai-hint={image.hint}
-          priority={index === 0}
           onContextMenu={(e) => e.preventDefault()}
         />
       ))}
