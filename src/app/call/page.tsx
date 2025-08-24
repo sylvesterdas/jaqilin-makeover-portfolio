@@ -2,20 +2,10 @@
 'use client';
 
 import { useEffect } from 'react';
-import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { Phone } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
-
-// This page is not intended to be indexed by search engines.
-export const metadata: Metadata = {
-  title: 'Contact Jaqilin Makeover',
-  robots: {
-    index: false,
-    follow: false,
-  },
-};
 
 export default function CallPage() {
   const phoneNumber = '+917356483404';
