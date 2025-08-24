@@ -49,6 +49,12 @@ export const metadata: Metadata = {
         alt: 'Bridal makeup by Jaqilin Makeover',
       },
       {
+        url: '/images/hero-background1.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Stunning bridal look by Jaqilin Makeover',
+      },
+      {
         url: '/images/portfolio/weddings/1.jpg',
         width: 1200,
         height: 1800,
