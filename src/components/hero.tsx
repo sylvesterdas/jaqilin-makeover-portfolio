@@ -43,6 +43,7 @@ export default function Hero() {
             index === currentIndex ? 'opacity-100' : 'opacity-0'
           }`}
           data-ai-hint={image.hint}
+          priority={index === 0}
           onContextMenu={(e) => e.preventDefault()}
         />
       ))}
@@ -55,6 +56,9 @@ export default function Hero() {
           </h1>
           <p className="mt-4 font-headline text-2xl md:text-3xl text-foreground">
             Professional Makeup Artist
+          </p>
+           <p className="mt-1 font-body text-xl md:text-2xl text-foreground/90">
+            പ്രൊഫഷണൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്
           </p>
           <p className="mt-2 text-lg md:text-xl text-foreground/80">
             Based in Trivandrum
