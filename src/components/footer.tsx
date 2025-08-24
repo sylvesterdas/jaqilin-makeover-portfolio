@@ -11,7 +11,7 @@ const WhatsAppIcon = () => (
       alt="WhatsApp" 
       width={16} 
       height={16} 
-      className="inline-block"
+      className="inline-block invert"
     />
 );
 
