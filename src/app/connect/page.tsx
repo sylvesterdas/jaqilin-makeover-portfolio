@@ -88,6 +88,11 @@ export default function ConnectPage() {
       </Card>
       <footer className="mt-8 text-center text-sm text-foreground/60">
         <p>&copy; {new Date().getFullYear()} Jaqilin Makeover. All Rights Reserved. / എല്ലാ അവകാശങ്ങളും നിക്ഷിപ്തം.</p>
+        <p className="mt-2">
+            <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">About</a>
+            <span className="mx-2">|</span>
+            <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">Privacy Policy</a>
+        </p>
       </footer>
     </div>
   );
