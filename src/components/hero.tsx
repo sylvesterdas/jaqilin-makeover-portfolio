@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 
 const heroImages = [
   {
-    src: '/images/hero-background.jpeg',
+    src: '/images/hero-background.jpg',
     alt: 'Background of a beautifully decorated wedding setting',
     hint: 'bride makeup',
   },

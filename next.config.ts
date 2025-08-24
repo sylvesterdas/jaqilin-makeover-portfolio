@@ -16,13 +16,7 @@ const nextConfig: NextConfig = {
         hostname: 'www.jaqilinmakeover.com',
         port: '',
         pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: '*.cloudworkstations.dev',
-        port: '',
-        pathname: '/**',
-      },
+      }
     ],
   },
   allowedDevOrigins: ['*.cluster-y3k7ko3fang56qzieg3trwgyfg.cloudworkstations.dev'],
