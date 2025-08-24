@@ -1,5 +1,6 @@
 
 import { Instagram, Mail, Phone } from 'lucide-react';
+import EmailLink from './email-link';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -42,10 +43,12 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:contact@jaqilinmakeover.com" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
-                  <Mail size={16} />
-                  <span>contact@jaqilinmakeover.com</span>
-                </a>
+                <EmailLink
+                  user="contact"
+                  domain="jaqilinmakeover.com"
+                  icon={true}
+                  className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors"
+                />
               </li>
             </ul>
           </div>

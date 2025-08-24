@@ -1,4 +1,5 @@
 
+import EmailLink from '@/components/email-link';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -67,7 +68,7 @@ export default function PrivacyPolicyPage() {
               <p>
                 LJS Works (Jaqilin Makeover)<br />
                 Kanjiramkulam, Trivandrum<br />
-                <a href="mailto:contact@jaqilinmakeover.com" className="text-primary hover:underline">contact@jaqilinmakeover.com</a>
+                <EmailLink user="contact" domain="jaqilinmakeover.com" className="text-primary hover:underline" />
               </p>
             </CardContent>
           </Card>
