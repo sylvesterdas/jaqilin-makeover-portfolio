@@ -52,6 +52,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Jaqilin Makeover | Professional Makeup Artist in Trivandrum',
+    description: 'Elegant and professional makeup services for weddings, events, and fashion shows in and around Trivandrum.',
+    images: ['/images/hero-background.jpg'],
+    creator: '@jaqilinmua',
+  },
   icons: {
     icon: '/logo.png',
     shortcut: '/logo.png',
