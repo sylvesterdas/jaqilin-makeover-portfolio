@@ -18,7 +18,7 @@ const WhatsAppIcon = () => (
 
 const heroImages = [
   {
-    src: '/images/hero-background.jpg',
+    src: '/images/hero-background.jpeg',
     alt: 'Background of a beautifully decorated wedding setting',
     hint: 'bride makeup',
   },
@@ -86,7 +86,6 @@ export default function ConnectPage() {
               height={96}
               className="rounded-full border-2 border-primary shadow-lg"
               data-ai-hint="logo monogram"
-              priority
             />
             <h1 className="mt-4 font-headline text-4xl text-primary drop-shadow-md">
               Jaqilin Makeover
