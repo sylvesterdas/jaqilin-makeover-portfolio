@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Globe, Instagram, Phone } from 'lucide-react';
 import Image from 'next/image';
-import { useTranslations } from 'next-intl';
 import LanguageSwitcher from '@/components/language-switcher';
 
 const WhatsAppIcon = () => (
@@ -19,7 +18,6 @@ const WhatsAppIcon = () => (
 );
 
 export default function ConnectPage() {
-  const t = useTranslations('ConnectPage');
   const [links, setLinks] = useState({
     call: '',
     whatsapp: '',
@@ -55,24 +53,24 @@ export default function ConnectPage() {
           priority
         />
         <h1 className="mt-4 font-headline text-4xl text-primary">
-          {t('title')}
+          Jaqilin Makeover
         </h1>
-        <p className="text-foreground/80">{t('subtitle')}</p>
+        <p className="text-foreground/80">Professional Makeup Artist</p>
       </div>
       <Card className="w-full max-w-sm bg-card border-primary/20 shadow-lg">
         <CardContent className="p-6">
           <div className="flex flex-col space-y-4">
             <Button size="lg" asChild className="justify-start text-lg h-14">
               <a href={links.call}>
-                <Phone className="mr-4 size-8" /> {t('call')}
+                <Phone className="mr-4 size-8" /> Call
               </a>
             </Button>
             <Button size="lg" asChild className="justify-start text-lg h-14">
               <a href={links.whatsapp} target="_blank" rel="noopener noreferrer">
                 <div className="mr-4">
                   <WhatsAppIcon />
-                </div>{' '}
-                {t('whatsapp')}
+                </div>
+                WhatsApp
               </a>
             </Button>
             <Button size="lg" asChild className="justify-start text-lg h-14">
@@ -81,19 +79,19 @@ export default function ConnectPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="mr-4 size-8" /> {t('instagram')}
+                <Instagram className="mr-4 size-8" /> Instagram
               </a>
             </Button>
             <Button size="lg" asChild className="justify-start text-lg h-14">
               <a href={links.website}>
-                <Globe className="mr-4 size-8" /> {t('website')}
+                <Globe className="mr-4 size-8" /> Website
               </a>
             </Button>
           </div>
         </CardContent>
       </Card>
       <footer className="mt-8 text-center text-sm text-foreground/60">
-        <p>{t('copyright', { year: new Date().getFullYear() })}</p>
+        <p>&copy; {new Date().getFullYear()} Jaqilin Makeover. All Rights Reserved.</p>
       </footer>
     </div>
   );

@@ -6,7 +6,6 @@ import { cn } from '@/lib/utils';
 import ScrollToTop from '@/components/scroll-to-top';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { NextIntlClientProvider, useMessages } from 'next-intl';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.jaqilinmakeover.com'),
@@ -84,7 +83,6 @@ export default function RootLayout({
   children: React.ReactNode;
   params: {locale: string};
 }>) {
-  const messages = useMessages();
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -150,13 +148,11 @@ export default function RootLayout({
           'min-h-screen bg-background font-body text-foreground antialiased'
         )}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
           {children}
           <Toaster />
           <ScrollToTop />
           <Analytics />
           <SpeedInsights />
-        </NextIntlClientProvider>
       </body>
     </html>
   );
