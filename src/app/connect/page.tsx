@@ -90,14 +90,14 @@ export default function ConnectPage() {
             <h1 className="mt-4 font-headline text-4xl text-primary drop-shadow-md">
               Jaqilin Makeover
             </h1>
-            <p className="text-foreground/80 text-center">Professional Makeup Artist / പ്രൊഫഷണൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്</p>
+            <p className="text-foreground/80 text-center">Professional Makeup Artist</p>
           </div>
           <Card className="w-full max-w-sm bg-card/80 backdrop-blur-sm border-primary/20 shadow-lg">
             <CardContent className="p-6">
               <div className="flex flex-col space-y-4">
                 <Button size="lg" asChild className="justify-start text-lg h-14">
                   <a href={links.call}>
-                    <Phone className="mr-4 size-6" /> Call / വിളിക്കുക
+                    <Phone className="mr-4 size-6" /> Call
                   </a>
                 </Button>
                 <Button size="lg" asChild className="justify-start text-lg h-14">
@@ -105,7 +105,7 @@ export default function ConnectPage() {
                     <div className="mr-4">
                       <WhatsAppIcon />
                     </div>
-                    WhatsApp / വാട്ട്സ്ആപ്പ്
+                    WhatsApp
                   </a>
                 </Button>
                 <Button size="lg" asChild className="justify-start text-lg h-14">
@@ -114,12 +114,12 @@ export default function ConnectPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Instagram className="mr-4 size-6" /> Instagram / ഇൻസ്റ്റാഗ്രാം
+                    <Instagram className="mr-4 size-6" /> Instagram
                   </a>
                 </Button>
                 <Button size="lg" asChild className="justify-start text-lg h-14">
                   <a href={links.website}>
-                    <Globe className="mr-4 size-6" /> Website / വെബ്സൈറ്റ്
+                    <Globe className="mr-4 size-6" /> Website
                   </a>
                 </Button>
               </div>
