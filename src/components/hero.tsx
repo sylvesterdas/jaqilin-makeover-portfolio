@@ -32,7 +32,6 @@ export default function Hero() {
     <section
       id="home"
       className="relative w-full h-[100svh] flex flex-col justify-end md:justify-center text-center md:text-left overflow-hidden"
-      suppressHydrationWarning
     >
       {heroImages.map((image, index) => (
         <Image
