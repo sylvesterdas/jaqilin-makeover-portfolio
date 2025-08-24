@@ -18,7 +18,7 @@ const WhatsAppIcon = () => (
 
 const heroImages = [
   {
-    src: '/images/hero-background.jpg',
+    src: '/images/hero-background.jpeg',
     alt: 'Background of a beautifully decorated wedding setting',
     hint: 'bride makeup',
   },
@@ -98,7 +98,7 @@ export default function ConnectPage() {
               <div className="flex flex-col space-y-4">
                 <Button size="lg" asChild className="justify-start text-lg h-14">
                   <a href={links.call}>
-                    <Phone className="mr-4 size-6" /> Call
+                    <Phone className="mr-4 size-6" /> Call / വിളിക്കുക
                   </a>
                 </Button>
                 <Button size="lg" asChild className="justify-start text-lg h-14">
@@ -106,7 +106,7 @@ export default function ConnectPage() {
                     <div className="mr-4">
                       <WhatsAppIcon />
                     </div>
-                    WhatsApp
+                    WhatsApp / വാട്സാപ്പ്
                   </a>
                 </Button>
                 <Button size="lg" asChild className="justify-start text-lg h-14">
@@ -115,12 +115,12 @@ export default function ConnectPage() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <Instagram className="mr-4 size-6" /> Instagram
+                    <Instagram className="mr-4 size-6" /> Instagram / ഇൻസ്റ്റാഗ്രാം
                   </a>
                 </Button>
                 <Button size="lg" asChild className="justify-start text-lg h-14">
                   <a href={links.website}>
-                    <Globe className="mr-4 size-6" /> Website
+                    <Globe className="mr-4 size-6" /> Website / വെബ്സൈറ്റ്
                   </a>
                 </Button>
               </div>
