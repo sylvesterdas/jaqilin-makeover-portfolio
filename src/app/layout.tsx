@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import ScrollToTop from '@/components/scroll-to-top';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.jaqilinmakeover.com'),
@@ -130,6 +131,7 @@ export default function RootLayout({
         {children}
         <Toaster />
         <ScrollToTop />
+        <Analytics />
       </body>
     </html>
   );
