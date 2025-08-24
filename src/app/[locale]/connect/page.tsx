@@ -13,8 +13,8 @@ const WhatsAppIcon = () => (
   <Image
     src="/images/icons/whatsapp-black.svg"
     alt="WhatsApp"
-    width={24}
-    height={24}
+    width={32}
+    height={32}
   />
 );
 
@@ -64,7 +64,7 @@ export default function ConnectPage() {
           <div className="flex flex-col space-y-4">
             <Button size="lg" asChild className="justify-start text-lg h-14">
               <a href={links.call}>
-                <Phone className="mr-4 h-6 w-6" /> {t('call')}
+                <Phone className="mr-4 size-8" /> {t('call')}
               </a>
             </Button>
             <Button size="lg" asChild className="justify-start text-lg h-14">
@@ -81,12 +81,12 @@ export default function ConnectPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="mr-4 h-6 w-6" /> {t('instagram')}
+                <Instagram className="mr-4 size-8" /> {t('instagram')}
               </a>
             </Button>
             <Button size="lg" asChild className="justify-start text-lg h-14">
               <a href={links.website}>
-                <Globe className="mr-4 h-6 w-6" /> {t('website')}
+                <Globe className="mr-4 size-8" /> {t('website')}
               </a>
             </Button>
           </div>
