@@ -11,8 +11,8 @@ const WhatsAppIcon = () => (
   <Image
     src="/images/icons/whatsapp-black.svg"
     alt="WhatsApp"
-    width={32}
-    height={32}
+    width={24}
+    height={24}
   />
 );
 
@@ -58,7 +58,7 @@ export default function ConnectPage() {
           <div className="flex flex-col space-y-4">
             <Button size="lg" asChild className="justify-start text-lg h-14">
               <a href={links.call}>
-                <Phone className="mr-4 size-8" /> Call / വിളിക്കുക
+                <Phone className="mr-4 size-6" /> Call / വിളിക്കുക
               </a>
             </Button>
             <Button size="lg" asChild className="justify-start text-lg h-14">
@@ -75,24 +75,19 @@ export default function ConnectPage() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Instagram className="mr-4 size-8" /> Instagram / ഇൻസ്റ്റാഗ്രാം
+                <Instagram className="mr-4 size-6" /> Instagram / ഇൻസ്റ്റാഗ്രാം
               </a>
             </Button>
             <Button size="lg" asChild className="justify-start text-lg h-14">
               <a href={links.website}>
-                <Globe className="mr-4 size-8" /> Website / വെബ്സൈറ്റ്
+                <Globe className="mr-4 size-6" /> Website / വെബ്സൈറ്റ്
               </a>
             </Button>
           </div>
         </CardContent>
       </Card>
       <footer className="mt-8 text-center text-sm text-foreground/60">
-        <p>&copy; {new Date().getFullYear()} Jaqilin Makeover. All Rights Reserved.</p>
-        <p className="mt-2">
-            <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">About</a>
-            <span className="mx-2">|</span>
-            <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">Privacy Policy</a>
-        </p>
+        <p>&copy; {new Date().getFullYear()} Jaqilin Makeover. All Rights Reserved. | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">About</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">Privacy Policy</a></p>
       </footer>
     </div>
   );
