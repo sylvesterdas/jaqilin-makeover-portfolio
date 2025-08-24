@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     'LJS Works',
   ],
   alternates: {
-    canonical: '/',
+    canonical: 'https://www.jaqilinmakeover.com/',
   },
   openGraph: {
     title: 'Jaqilin Makeover | Professional Makeup Artist in Trivandrum',
