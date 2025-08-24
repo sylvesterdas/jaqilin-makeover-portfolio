@@ -61,7 +61,7 @@ export default function ConnectPage() {
   }, []);
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-background p-4 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center min-h-screen bg-background p-4 overflow-hidden" suppressHydrationWarning>
         {heroImages.map((image, index) => (
             <Image
             key={index}
