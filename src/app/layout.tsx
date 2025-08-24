@@ -33,13 +33,6 @@ export const metadata: Metadata = {
     'fashion show makeup artist',
     'Jaqilin Makeover',
   ],
-  alternates: {
-    canonical: '/',
-    languages: {
-      'en': '/en',
-      'ml': '/ml',
-    },
-  },
   openGraph: {
     title: 'Jaqilin Makeover | Professional Makeup Artist in Trivandrum',
     description: 'Elegant and professional makeup services for weddings, events, and fashion shows in and around Trivandrum.',
