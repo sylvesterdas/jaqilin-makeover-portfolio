@@ -68,7 +68,7 @@ export default function ConnectPage() {
             src={image.src}
             alt={image.alt}
             fill
-            className={`object-cover object-right transition-opacity duration-1000 ease-in-out ${
+            className={`object-cover object-center transition-opacity duration-1000 ease-in-out ${
                 index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
             data-ai-hint={image.hint}
