@@ -5,6 +5,7 @@ import './globals.css';
 import { cn } from '@/lib/utils';
 import ScrollToTop from '@/components/scroll-to-top';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.jaqilinmakeover.com'),
@@ -132,6 +133,7 @@ export default function RootLayout({
         <Toaster />
         <ScrollToTop />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
