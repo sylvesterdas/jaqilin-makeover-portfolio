@@ -48,6 +48,18 @@ export const metadata: Metadata = {
         height: 630,
         alt: 'Bridal makeup by Jaqilin Makeover',
       },
+      {
+        url: '/images/portfolio/weddings/1.jpg',
+        width: 1200,
+        height: 1800,
+        alt: 'Elegant bride with full makeup',
+      },
+      {
+        url: '/images/portfolio/hairstyles/1.jpg',
+        width: 1200,
+        height: 1800,
+        alt: 'Intricate bridal hairstyle',
+      },
     ],
     locale: 'en_US',
     type: 'website',
