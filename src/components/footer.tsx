@@ -1,6 +1,8 @@
 
+'use client';
 import { Instagram, Mail, Phone } from 'lucide-react';
 import EmailLink from './email-link';
+import { useEffect, useState } from 'react';
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg
@@ -17,7 +19,18 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 
 export default function Footer() {
-  const whatsappUrl = "https://wa.me/917356483404?text=Hello%20Jaqilin%20Makeover,%20I'd%20like%20to%20inquire%20about%20your%20services.";
+  const [whatsappUrl, setWhatsappUrl] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
+  useEffect(() => {
+    const num = '7356483404';
+    const internationalNum = `+91${num}`;
+    const text = "Hello%20Jaqilin%20Makeover,%20I'd%20like%20to%20inquire%20about%20your%20services.";
+    
+    setPhoneNumber(internationalNum);
+    setWhatsappUrl(`https://wa.me/91${num}?text=${text}`);
+  }, []);
+
   return (
     <footer className="bg-card border-t border-border/50">
       <div className="container mx-auto px-4 py-8">
@@ -31,16 +44,20 @@ export default function Footer() {
             <h3 className="font-headline text-xl font-semibold mb-2">Contact Me</h3>
             <ul className="space-y-2">
               <li>
-                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
-                  <WhatsAppIcon />
-                  <span>Message on WhatsApp</span>
-                </a>
+                {whatsappUrl && (
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
+                    <WhatsAppIcon />
+                    <span>Message on WhatsApp</span>
+                  </a>
+                )}
               </li>
               <li>
-                <a href="tel:+917356483404" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
-                  <Phone size={16} />
-                  <span>+91 73564 83404</span>
-                </a>
+                {phoneNumber && (
+                  <a href={`tel:${phoneNumber}`} className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
+                    <Phone size={16} />
+                    <span>{phoneNumber}</span>
+                  </a>
+                )}
               </li>
               <li>
                 <EmailLink

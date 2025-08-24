@@ -1,20 +1,24 @@
 
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 export default function CallPage() {
-  const phoneNumber = '+917356483404';
-  const telLink = `tel:${phoneNumber}`;
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [telLink, setTelLink] = useState('');
 
   useEffect(() => {
+    const num = '+917356483404';
+    setPhoneNumber(num);
+    const link = `tel:${num}`;
+    setTelLink(link);
     // Automatically trigger the call on page load.
-    window.location.href = telLink;
-  }, [telLink]);
+    window.location.href = link;
+  }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-background">
@@ -27,12 +31,14 @@ export default function CallPage() {
                 You should be redirected to your phone's dialer automatically. If not, please click the button below.
             </p>
             <div className="mt-8">
+              {telLink && (
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-accent text-lg px-8 py-6" asChild>
                     <a href={telLink}>
                         <Phone className="mr-2" />
                         Call {phoneNumber}
                     </a>
                 </Button>
+              )}
             </div>
           </div>
         </div>
