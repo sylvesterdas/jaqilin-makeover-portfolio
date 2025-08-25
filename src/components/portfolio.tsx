@@ -38,7 +38,7 @@ interface MediaItem {
 }
 
 
-function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioItems, onMediaClick: (media: MediaItem) => void }) {
+function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioItems, onMediaClick: (media: MediaItem, e: React.MouseEvent) => void }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {portfolioItems[category].map((item, index) => (
@@ -54,7 +54,7 @@ function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioI
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                 data-ai-hint={item.hint}
                 onContextMenu={(e) => e.preventDefault()}
-                onClick={() => onMediaClick(item)}
+                onClick={(e) => onMediaClick(item, e)}
               />
             ) : (
               <video
@@ -68,7 +68,7 @@ function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioI
                 playsInline
                 preload="auto"
                 onContextMenu={(e) => e.preventDefault()}
-                onClick={() => onMediaClick(item)}
+                onClick={(e) => onMediaClick(item, e)}
               >
                 Your browser does not support the video tag.
               </video>
@@ -83,6 +83,11 @@ function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioI
 export default function Portfolio() {
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
 
+  const handleMediaClick = (media: MediaItem, e: React.MouseEvent) => {
+    e.preventDefault();
+    setSelectedMedia(media);
+  };
+  
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -110,10 +115,10 @@ export default function Portfolio() {
             <TabsTrigger value="draping">Saree Draping</TabsTrigger>
             <TabsTrigger value="fashion">Fashion Shows</TabsTrigger>
           </TabsList>
-          <TabsContent value="weddings"><Gallery category="weddings" onMediaClick={setSelectedMedia} /></TabsContent>
-          <TabsContent value="hairstyles"><Gallery category="hairstyles" onMediaClick={setSelectedMedia} /></TabsContent>
-          <TabsContent value="draping"><Gallery category="draping" onMediaClick={setSelectedMedia} /></TabsContent>
-          <TabsContent value="fashion"><Gallery category="fashion" onMediaClick={setSelectedMedia} /></TabsContent>
+          <TabsContent value="weddings"><Gallery category="weddings" onMediaClick={handleMediaClick} /></TabsContent>
+          <TabsContent value="hairstyles"><Gallery category="hairstyles" onMediaClick={handleMediaClick} /></TabsContent>
+          <TabsContent value="draping"><Gallery category="draping" onMediaClick={handleMediaClick} /></TabsContent>
+          <TabsContent value="fashion"><Gallery category="fashion" onMediaClick={handleMediaClick} /></TabsContent>
         </Tabs>
       </div>
 
