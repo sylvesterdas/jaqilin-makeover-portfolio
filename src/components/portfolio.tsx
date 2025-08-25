@@ -44,6 +44,7 @@ function Gallery({ category, onImageClick }: { category: keyof typeof portfolioI
                 alt={item.alt}
                 width={600}
                 height={800}
+                priority
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                 data-ai-hint={item.hint}
                 onContextMenu={(e) => e.preventDefault()}
@@ -110,7 +111,7 @@ export default function Portfolio() {
 
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-in fade-in-0"
           onClick={() => setSelectedImage(null)}
         >
           <button 
@@ -119,7 +120,9 @@ export default function Portfolio() {
           >
             <X size={32} />
           </button>
-          <div className="relative w-[90vw] h-[90vh]">
+          <div className="relative w-[90vw] h-[90vh] animate-in fade-in-0 zoom-in-95"
+            onClick={(e) => e.stopPropagation()}
+          >
             <Image 
               src={selectedImage}
               alt="Fullscreen portfolio image"
