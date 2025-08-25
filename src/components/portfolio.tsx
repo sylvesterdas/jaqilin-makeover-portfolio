@@ -32,7 +32,13 @@ const portfolioItems = {
   ],
 };
 
-function Gallery({ category, onImageClick }: { category: keyof typeof portfolioItems, onImageClick: (src: string) => void }) {
+interface MediaItem {
+  type: 'image' | 'video';
+  src: string;
+}
+
+
+function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioItems, onMediaClick: (media: MediaItem) => void }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {portfolioItems[category].map((item, index) => (
@@ -48,19 +54,21 @@ function Gallery({ category, onImageClick }: { category: keyof typeof portfolioI
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                 data-ai-hint={item.hint}
                 onContextMenu={(e) => e.preventDefault()}
-                onClick={() => onImageClick(item.src)}
+                onClick={() => onMediaClick(item)}
               />
             ) : (
               <video
                 src={item.src}
                 width="600"
                 height="800"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover cursor-pointer transform group-hover:scale-110 transition-transform duration-500"
                 autoPlay
                 loop
                 muted
                 playsInline
+                preload="auto"
                 onContextMenu={(e) => e.preventDefault()}
+                onClick={() => onMediaClick(item)}
               >
                 Your browser does not support the video tag.
               </video>
@@ -73,12 +81,12 @@ function Gallery({ category, onImageClick }: { category: keyof typeof portfolioI
 }
 
 export default function Portfolio() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setSelectedImage(null);
+        setSelectedMedia(null);
       }
     };
     window.addEventListener('keydown', handleEsc);
@@ -102,34 +110,46 @@ export default function Portfolio() {
             <TabsTrigger value="draping">Saree Draping</TabsTrigger>
             <TabsTrigger value="fashion">Fashion Shows</TabsTrigger>
           </TabsList>
-          <TabsContent value="weddings"><Gallery category="weddings" onImageClick={setSelectedImage} /></TabsContent>
-          <TabsContent value="hairstyles"><Gallery category="hairstyles" onImageClick={setSelectedImage} /></TabsContent>
-          <TabsContent value="draping"><Gallery category="draping" onImageClick={setSelectedImage} /></TabsContent>
-          <TabsContent value="fashion"><Gallery category="fashion" onImageClick={setSelectedImage} /></TabsContent>
+          <TabsContent value="weddings"><Gallery category="weddings" onMediaClick={setSelectedMedia} /></TabsContent>
+          <TabsContent value="hairstyles"><Gallery category="hairstyles" onMediaClick={setSelectedMedia} /></TabsContent>
+          <TabsContent value="draping"><Gallery category="draping" onMediaClick={setSelectedMedia} /></TabsContent>
+          <TabsContent value="fashion"><Gallery category="fashion" onMediaClick={setSelectedMedia} /></TabsContent>
         </Tabs>
       </div>
 
-      {selectedImage && (
+      {selectedMedia && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-in fade-in-0"
-          onClick={() => setSelectedImage(null)}
+          onClick={() => setSelectedMedia(null)}
         >
           <button 
             className="absolute top-4 right-4 text-white z-50"
-            onClick={() => setSelectedImage(null)}
+            onClick={() => setSelectedMedia(null)}
           >
             <X size={32} />
           </button>
           <div className="relative w-[90vw] h-[90vh] animate-in fade-in-0 zoom-in-95"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image 
-              src={selectedImage}
-              alt="Fullscreen portfolio image"
-              fill
-              className="object-contain"
-              onContextMenu={(e) => e.preventDefault()}
-            />
+            {selectedMedia.type === 'image' ? (
+                <Image 
+                  src={selectedMedia.src}
+                  alt="Fullscreen portfolio image"
+                  fill
+                  className="object-contain"
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+              ) : (
+                <video 
+                  src={selectedMedia.src}
+                  className="w-full h-full object-contain"
+                  autoPlay
+                  controls
+                  loop
+                  onContextMenu={(e) => e.preventDefault()}
+                />
+              )
+            }
           </div>
         </div>
       )}
