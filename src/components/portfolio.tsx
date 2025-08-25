@@ -2,6 +2,9 @@
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useState, useEffect } from 'react';
+import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const portfolioItems = {
   weddings: [
@@ -29,7 +32,7 @@ const portfolioItems = {
   ],
 };
 
-function Gallery({ category }: { category: keyof typeof portfolioItems }) {
+function Gallery({ category, onImageClick }: { category: keyof typeof portfolioItems, onImageClick: (src: string) => void }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
       {portfolioItems[category].map((item, index) => (
@@ -41,9 +44,10 @@ function Gallery({ category }: { category: keyof typeof portfolioItems }) {
                 alt={item.alt}
                 width={600}
                 height={800}
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                 data-ai-hint={item.hint}
                 onContextMenu={(e) => e.preventDefault()}
+                onClick={() => onImageClick(item.src)}
               />
             ) : (
               <video
@@ -68,6 +72,21 @@ function Gallery({ category }: { category: keyof typeof portfolioItems }) {
 }
 
 export default function Portfolio() {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleEsc = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleEsc);
+
+    return () => {
+      window.removeEventListener('keydown', handleEsc);
+    };
+  }, []);
+
   return (
     <section id="portfolio" className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
@@ -82,12 +101,35 @@ export default function Portfolio() {
             <TabsTrigger value="draping">Saree Draping</TabsTrigger>
             <TabsTrigger value="fashion">Fashion Shows</TabsTrigger>
           </TabsList>
-          <TabsContent value="weddings"><Gallery category="weddings" /></TabsContent>
-          <TabsContent value="hairstyles"><Gallery category="hairstyles" /></TabsContent>
-          <TabsContent value="draping"><Gallery category="draping" /></TabsContent>
-          <TabsContent value="fashion"><Gallery category="fashion" /></TabsContent>
+          <TabsContent value="weddings"><Gallery category="weddings" onImageClick={setSelectedImage} /></TabsContent>
+          <TabsContent value="hairstyles"><Gallery category="hairstyles" onImageClick={setSelectedImage} /></TabsContent>
+          <TabsContent value="draping"><Gallery category="draping" onImageClick={setSelectedImage} /></TabsContent>
+          <TabsContent value="fashion"><Gallery category="fashion" onImageClick={setSelectedImage} /></TabsContent>
         </Tabs>
       </div>
+
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute top-4 right-4 text-white z-50"
+            onClick={() => setSelectedImage(null)}
+          >
+            <X size={32} />
+          </button>
+          <div className="relative w-[90vw] h-[90vh]">
+            <Image 
+              src={selectedImage}
+              alt="Fullscreen portfolio image"
+              fill
+              className="object-contain"
+              onContextMenu={(e) => e.preventDefault()}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
