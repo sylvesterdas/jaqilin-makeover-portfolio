@@ -144,8 +144,9 @@ export default function Portfolio() {
                   src={selectedMedia.src}
                   className="w-full h-full object-contain"
                   autoPlay
-                  controls
                   loop
+                  muted
+                  playsInline
                   onContextMenu={(e) => e.preventDefault()}
                 />
               )
