@@ -76,7 +76,7 @@ export default function Portfolio() {
           <p className="text-lg text-foreground/70 mt-2">A Glimpse of My Artistry</p>
         </div>
         <Tabs defaultValue="weddings" className="w-full">
-          <TabsList className="flex flex-wrap justify-center md:grid md:grid-cols-4 h-auto md:h-10 mb-8">
+          <TabsList className="flex flex-wrap justify-center md:grid md:grid-cols-4 h-auto mb-8">
             <TabsTrigger value="weddings">Wedding Makeovers</TabsTrigger>
             <TabsTrigger value="hairstyles">Hairstyles</TabsTrigger>
             <TabsTrigger value="draping">Saree Draping</TabsTrigger>
