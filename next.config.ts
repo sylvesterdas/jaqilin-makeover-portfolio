@@ -18,6 +18,8 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       }
     ],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
   },
   allowedDevOrigins: ['*.cluster-y3k7ko3fang56qzieg3trwgyfg.cloudworkstations.dev'],
 };

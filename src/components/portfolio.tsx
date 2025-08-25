@@ -51,6 +51,7 @@ function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioI
                 width={600}
                 height={800}
                 priority
+                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                 data-ai-hint={item.hint}
                 onContextMenu={(e) => e.preventDefault()}
@@ -141,6 +142,7 @@ export default function Portfolio() {
                   src={selectedMedia.src}
                   alt="Fullscreen portfolio image"
                   fill
+                  sizes="100vw"
                   className="object-contain"
                   onContextMenu={(e) => e.preventDefault()}
                 />
