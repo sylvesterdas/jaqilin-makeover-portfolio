@@ -142,7 +142,7 @@ export default function Portfolio() {
                   src={selectedMedia.src}
                   alt="Fullscreen portfolio image"
                   fill
-                  sizes="100vw"
+                  sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw"
                   className="object-contain"
                   onContextMenu={(e) => e.preventDefault()}
                 />
