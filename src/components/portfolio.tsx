@@ -9,9 +9,12 @@ import { cn } from '@/lib/utils';
 const portfolioItems = {
   weddings: [
     { type: 'image', src: '/images/portfolio/weddings/1.jpg', alt: 'Bride with elegant makeup', hint: 'bride makeup' },
-    { type: 'image', src: '/images/portfolio/weddings/2.jpg', alt: 'Close-up of bridal eye makeup', hint: 'bridal makeup' },
-    { type: 'image', src: '/images/portfolio/weddings/3.jpg', alt: 'Happy bride on her wedding day', hint: 'indian bride' },
-    { type: 'image', src: '/images/portfolio/weddings/4.jpg', alt: 'Bride showing her full wedding attire', hint: 'wedding dress' },
+    { type: 'image', src: '/images/portfolio/weddings/2.jpg', alt: 'Close-up of bridal eye makeup', hint: 'hindu bridal makeup' },
+    { type: 'image', src: '/images/portfolio/weddings/3.jpg', alt: 'Happy bride on her wedding day', hint: 'north indian bride' },
+    { type: 'image', src: '/images/portfolio/weddings/4.jpg', alt: 'Bride showing her full wedding attire', hint: 'hindu wedding look' },
+    { type: 'image', src: '/images/portfolio/weddings/wed-2.jpeg', alt: 'Bride showing her full temple look makeup', hint: 'temple look makeup' },
+    { type: 'image', src: '/images/portfolio/weddings/wed-1.jpg', alt: 'Christian Bride in her wedding attire', hint: 'wedding chritian girl' },
+    { type: 'image', src: '/images/portfolio/weddings/wed-3.jpeg', alt: 'Bride showing her full makeup', hint: 'hindu bridal makeup' },
   ],
   hairstyles: [
     { type: 'image', src: '/images/portfolio/hairstyles/1.jpg', alt: 'Elegant bridal hairstyle', hint: 'bridal hairstyle' },
@@ -19,16 +22,22 @@ const portfolioItems = {
     { type: 'image', src: '/images/portfolio/hairstyles/2.jpg', alt: 'Close-up of intricate hair design', hint: 'intricate hairstyle' },
     { type: 'video', src: '/videos/portfolio/hairstyles/2.mp4', alt: 'Video showcasing a beautiful hairstyle', hint: 'hairstyle showcase' },
     { type: 'image', src: '/images/portfolio/hairstyles/3.jpg', alt: 'Modern hairstyle for an event', hint: 'modern hairstyle' },
+    { type: 'image', src: '/images/portfolio/hairstyles/hair-1.jpeg', alt: 'Twist braid style for temple look', hint: 'braids hairstyle' },
+    { type: 'image', src: '/images/portfolio/hairstyles/4.jpg', alt: 'Braids for the Jack Sparow look', hint: 'braids hairstyle' },
   ],
   draping: [
     { type: 'image', src: '/images/portfolio/draping/1.jpg', alt: 'Woman in an elegantly draped saree', hint: 'indian saree' },
     { type: 'image', src: '/images/portfolio/draping/2.jpg', alt: 'Woman in an elegantly draped saree', hint: 'saree draping' },
     { type: 'image', src: '/images/portfolio/draping/3.jpg', alt: 'Woman in an elegantly draped saree', hint: 'kerala hindu bride saree draping' },
+    { type: 'image', src: '/images/portfolio/draping/sar-1.jpg', alt: 'Christian girl in an elegantly draped saree', hint: 'kerala christian bride saree draping' },
+    { type: 'image', src: '/images/portfolio/draping/sar-2.jpeg', alt: 'Temple look elegantly draped saree', hint: 'kerala hindu temple look saree draping' },
+    { type: 'image', src: '/images/portfolio/draping/sar-3.jpeg', alt: 'Hindu bride elegantly draped saree', hint: 'kerala hindu bridal saree draping' },
   ],
   fashion: [
     { type: 'image', src: '/images/portfolio/fashion/1.jpg', alt: 'Model with avant-garde fashion makeup', hint: 'fashion model' },
     { type: 'image', src: '/images/portfolio/fashion/2.jpg', alt: 'Model on a runway with cool hairstyle', hint: 'runway model' },
     { type: 'image', src: '/images/portfolio/fashion/3.jpg', alt: 'Model with avant-garde fashion makeup', hint: 'runway model' },
+    { type: 'image', src: '/images/portfolio/hairstyles/4.jpg', alt: 'Braids for the Jack Sparow look', hint: 'braids hairstyle' },
   ],
 };
 
