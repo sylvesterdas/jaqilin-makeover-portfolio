@@ -1,10 +1,11 @@
+
 'use client';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState, useEffect } from 'react';
-import { X } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Instagram, X } from 'lucide-react';
+import { Button } from './ui/button';
 
 const portfolioItems = {
   weddings: [
@@ -130,6 +131,14 @@ export default function Portfolio() {
           <TabsContent value="draping"><Gallery category="draping" onMediaClick={handleMediaClick} /></TabsContent>
           <TabsContent value="fashion"><Gallery category="fashion" onMediaClick={handleMediaClick} /></TabsContent>
         </Tabs>
+        <div className="text-center mt-12">
+          <Button size="lg" asChild>
+            <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer">
+              <Instagram className="mr-2 h-5 w-5" />
+              Show More on Instagram
+            </a>
+          </Button>
+        </div>
       </div>
 
       {selectedMedia && (
