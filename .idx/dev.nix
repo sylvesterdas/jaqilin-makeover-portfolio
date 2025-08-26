@@ -7,6 +7,7 @@
   packages = [
     pkgs.nodejs_20
     pkgs.corepack_22
+    pkgs.git-lfs
     pkgs.zulu
   ];
   # Sets environment variables in the workspace
