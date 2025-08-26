@@ -55,7 +55,7 @@ function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioI
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
                 data-ai-hint={item.hint}
                 onContextMenu={(e) => e.preventDefault()}
-                onClick={(e) => onMediaClick(item, e)}
+                onClick={(e) => onMediaClick(item as any, e)}
               />
             ) : (
               <video
@@ -69,7 +69,7 @@ function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioI
                 playsInline
                 preload="auto"
                 onContextMenu={(e) => e.preventDefault()}
-                onClick={(e) => onMediaClick(item, e)}
+                onClick={(e) => onMediaClick(item as any, e)}
               >
                 Your browser does not support the video tag.
               </video>
