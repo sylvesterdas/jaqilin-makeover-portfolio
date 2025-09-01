@@ -49,19 +49,19 @@ export default function CookieConsent() {
     )} data-state={showBanner ? 'visible' : 'hidden'}>
       <div className="container mx-auto flex items-center justify-between gap-4">
         <p className="text-sm text-foreground/80 flex-grow text-left">
-          We use cookies to analyze website traffic and improve your experience. See our{' '}
+          We use cookies to improve your experience. See our{' '}
           <Link href="/privacy-policy" className="underline hover:text-primary">
             Privacy Policy
           </Link>
           .
         </p>
-        <div className="flex-shrink-0 flex flex-col sm:flex-row gap-2">
-          <Button size="sm" onClick={() => handleDecision(true)}>
-            Accept
-          </Button>
-          <Button size="sm" variant="outline" onClick={() => handleDecision(false)}>
-            Reject
-          </Button>
+        <div className="flex-shrink-0 flex flex-col sm:flex-row items-end sm:items-center gap-x-4 gap-y-1">
+            <Button variant="link" size="sm" className="h-auto p-0 text-foreground" onClick={() => handleDecision(true)}>
+                Accept
+            </Button>
+            <Button variant="link" size="sm" className="h-auto p-0 text-foreground" onClick={() => handleDecision(false)}>
+                Reject
+            </Button>
         </div>
       </div>
     </div>
