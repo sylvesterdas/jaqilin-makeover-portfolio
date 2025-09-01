@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Globe, Instagram, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { event } from '@/lib/events';
+import type { Metadata } from 'next';
 
 const WhatsAppIcon = () => (
   <Image
@@ -30,6 +31,12 @@ const heroImages = [
     hint: 'bridal makeup',
   },
 ];
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/connect',
+  },
+};
 
 
 export default function ConnectPage() {
