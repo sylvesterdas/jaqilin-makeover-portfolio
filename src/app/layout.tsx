@@ -7,6 +7,7 @@ import ScrollToTop from '@/components/scroll-to-top';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import Analytics from '@/components/analytics';
+import CookieConsent from '@/components/cookie-consent';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.jaqilinmakeover.com'),
@@ -146,6 +147,7 @@ export default function RootLayout({
           <VercelAnalytics />
           <SpeedInsights />
           <Analytics />
+          <CookieConsent />
       </body>
     </html>
   );

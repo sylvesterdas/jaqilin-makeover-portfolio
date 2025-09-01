@@ -1,0 +1,69 @@
+
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Button } from '@/components/ui/button';
+import { cn } from '@/lib/utils';
+import Link from 'next/link';
+
+export const getCookieConsent = (): boolean | null => {
+  if (typeof window === 'undefined') {
+    return null;
+  }
+  const consent = localStorage.getItem('cookie_consent');
+  if (consent === null) {
+    // Default to consent if no choice has been made
+    return true; 
+  }
+  return JSON.parse(consent);
+};
+
+export default function CookieConsent() {
+  const [showBanner, setShowBanner] = useState(false);
+  
+  useEffect(() => {
+    // Only show banner if no decision has been made
+    if (localStorage.getItem('cookie_consent') === null) {
+      setShowBanner(true);
+    }
+  }, []);
+
+  const handleDecision = (accepted: boolean) => {
+    localStorage.setItem('cookie_consent', JSON.stringify(accepted));
+    setShowBanner(false);
+    // Reload to apply analytics changes
+    if (!accepted) {
+        window.location.reload();
+    }
+  };
+
+  if (!showBanner) {
+    return null;
+  }
+
+  return (
+    <div className={cn(
+      "fixed bottom-0 left-0 right-0 z-50 p-2 bg-card/80 backdrop-blur-sm border-t border-border/50",
+      "data-[state=visible]:animate-in data-[state=visible]:slide-in-from-bottom-full",
+      "data-[state=hidden]:animate-out data-[state=hidden]:slide-out-to-bottom-full"
+    )} data-state={showBanner ? 'visible' : 'hidden'}>
+      <div className="container mx-auto flex items-center justify-center text-center flex-wrap gap-4">
+        <p className="text-sm text-foreground/80">
+          We use cookies to analyze website traffic and improve your experience. By continuing to use this site, you consent to our use of cookies. See our{' '}
+          <Link href="/privacy-policy" className="underline hover:text-primary">
+            Privacy Policy
+          </Link>
+          .
+        </p>
+        <div className="flex gap-2">
+          <Button size="sm" onClick={() => handleDecision(true)}>
+            Accept
+          </Button>
+          <Button size="sm" variant="outline" onClick={() => handleDecision(false)}>
+            Reject
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}

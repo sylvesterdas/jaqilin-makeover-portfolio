@@ -2,9 +2,21 @@
 'use client';
 
 import Script from 'next/script';
+import { useEffect, useState } from 'react';
+import { getCookieConsent } from './cookie-consent';
 
 export default function Analytics() {
   const GA_TRACKING_ID = 'G-LW05M54Q9T';
+  const [consent, setConsent] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    setConsent(getCookieConsent());
+  }, []);
+
+  // Only render scripts if consent has not been rejected
+  if (consent === false) {
+    return null;
+  }
 
   return (
     <>
@@ -20,7 +32,9 @@ export default function Analytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}');
+            gtag('config', '${GA_TRACKING_ID}', {
+              'analytics_storage': 'granted'
+            });
           `,
         }}
       />
