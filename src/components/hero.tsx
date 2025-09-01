@@ -49,7 +49,7 @@ export default function Hero() {
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent md:bg-gradient-to-r md:from-black/80 md:via-black/30 md:to-transparent z-10" />
 
-      <div className="relative z-20 container mx-auto px-4 pb-12 md:pb-0 md:px-8">
+      <div className="relative z-20 container mx-auto px-4 pb-24 md:pb-0 md:px-8">
         <div className="max-w-xl">
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl text-primary drop-shadow-md">
             Jaqilin Makeover
