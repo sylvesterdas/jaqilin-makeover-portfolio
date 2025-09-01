@@ -38,6 +38,7 @@ export default function ConnectContent() {
     website: '/',
   });
   const [phoneNumber, setPhoneNumber] = useState('');
+  const [formattedPhoneNumber, setFormattedPhoneNumber] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -51,7 +52,9 @@ export default function ConnectContent() {
 
   useEffect(() => {
     const num = '+917356483404';
+    const formattedNum = '+91 73564 83404';
     setPhoneNumber(num);
+    setFormattedPhoneNumber(formattedNum);
     const whatsappText =
       "Hello%20Jaqilin%20Makeover,%20I'd%20like%20to%20inquire%20about%20your%20services.";
 
@@ -107,22 +110,22 @@ export default function ConnectContent() {
           <Card className="w-full max-w-sm bg-card/80 backdrop-blur-sm border-primary/20 shadow-lg">
             <CardContent className="p-6">
               <div className="flex flex-col space-y-4">
-                <Button size="lg" asChild className="justify-between text-lg h-16" onClick={() => handleEvent('click_call', 'Connect Page')}>
-                  <a href={links.call} className="flex items-center">
-                    <div className="flex items-center gap-4">
-                      <Phone className="size-6" /> 
+                <Button size="lg" asChild className="text-lg h-20" onClick={() => handleEvent('click_call', 'Connect Page')}>
+                  <a href={links.call} className="flex items-center justify-start gap-4 w-full">
+                    <Phone className="size-6 shrink-0" />
+                    <div className="flex flex-col items-start">
                       <span>Call / വിളിക്കുക</span>
+                      <span className="text-xs font-mono text-primary-foreground/70">{formattedPhoneNumber}</span>
                     </div>
-                    <span className="text-xs font-mono text-primary-foreground/70">{phoneNumber}</span>
                   </a>
                 </Button>
-                <Button size="lg" asChild className="justify-between text-lg h-16" onClick={() => handleEvent('click_whatsapp', 'Connect Page')}>
-                  <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center">
-                    <div className="flex items-center gap-4">
-                      <WhatsAppIcon />
+                <Button size="lg" asChild className="text-lg h-20" onClick={() => handleEvent('click_whatsapp', 'Connect Page')}>
+                  <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center justify-start gap-4 w-full">
+                     <WhatsAppIcon />
+                    <div className="flex flex-col items-start">
                       <span>WhatsApp</span>
+                      <span className="text-xs font-mono text-primary-foreground/70">{formattedPhoneNumber}</span>
                     </div>
-                    <span className="text-xs font-mono text-primary-foreground/70">{phoneNumber}</span>
                   </a>
                 </Button>
                 <Button size="lg" asChild className="justify-start text-lg h-14" onClick={() => handleEvent('click_instagram', 'Connect Page')}>
