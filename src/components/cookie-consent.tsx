@@ -47,15 +47,15 @@ export default function CookieConsent() {
       "data-[state=visible]:animate-in data-[state=visible]:slide-in-from-bottom-full",
       "data-[state=hidden]:animate-out data-[state=hidden]:slide-out-to-bottom-full"
     )} data-state={showBanner ? 'visible' : 'hidden'}>
-      <div className="container mx-auto flex items-center justify-between gap-4">
-        <p className="text-sm text-foreground/80 flex-grow text-left">
+      <div className="container mx-auto flex flex-col items-center sm:flex-row sm:justify-between gap-4">
+        <p className="text-sm text-foreground/80 flex-grow text-center sm:text-left">
           We use cookies to analyze website traffic and improve your experience. See our{' '}
           <Link href="/privacy-policy" className="underline hover:text-primary">
             Privacy Policy
           </Link>
           .
         </p>
-        <div className="flex-shrink-0 flex gap-2">
+        <div className="flex-shrink-0 flex sm:flex-row gap-2">
           <Button size="sm" onClick={() => handleDecision(true)}>
             Accept
           </Button>
