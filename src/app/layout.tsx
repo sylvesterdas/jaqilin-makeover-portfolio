@@ -4,8 +4,9 @@ import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import ScrollToTop from '@/components/scroll-to-top';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import Analytics from '@/components/analytics';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.jaqilinmakeover.com'),
@@ -142,8 +143,9 @@ export default function RootLayout({
           {children}
           <Toaster />
           <ScrollToTop />
-          <Analytics />
+          <VercelAnalytics />
           <SpeedInsights />
+          <Analytics />
       </body>
     </html>
   );
