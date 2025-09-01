@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { event } from '@/lib/events';
 
 const WhatsAppIcon = () => (
   <Image 
@@ -24,6 +25,15 @@ export default function Contact() {
     setWhatsappUrl(`https://wa.me/${number}?text=${text}`);
   }, []);
 
+  const handleWhatsAppClick = () => {
+    event({
+      action: 'click_whatsapp',
+      category: 'engagement',
+      label: 'Contact Section',
+      value: 1
+    });
+  };
+
   return (
     <section id="contact" className="py-16 md:py-24 bg-background">
       <div className="container mx-auto px-4">
@@ -36,7 +46,7 @@ export default function Contact() {
             <div className="mt-8">
               {whatsappUrl && (
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-accent text-lg px-8 py-6" asChild>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
                     <div className='mr-2'><WhatsAppIcon /></div>
                     Message on WhatsApp
                   </a>
@@ -52,3 +62,5 @@ export default function Contact() {
     </section>
   );
 }
+
+    

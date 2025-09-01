@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
+import { event } from "@/lib/events";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,6 +19,15 @@ export default function Header() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleBookNowClick = () => {
+    event({
+      action: 'click_whatsapp',
+      category: 'engagement',
+      label: 'Book Now Header',
+      value: 1
+    });
+  };
 
   return (
     <header className={cn(
@@ -40,10 +50,12 @@ export default function Header() {
             <a href="/#contact" className="text-foreground/80 hover:text-primary">Contact</a>
           </Button>
         </nav>
-        <Button asChild className="bg-primary hover:bg-accent text-primary-foreground">
+        <Button asChild className="bg-primary hover:bg-accent text-primary-foreground" onClick={handleBookNowClick}>
           <a href="https://wa.me/917356483404?text=Hello%20Jaqilin%20Makeover,%20I'd%20like%20to%20inquire%20about%20your%20services.">Book Now</a>
         </Button>
       </div>
     </header>
   );
 }
+
+    

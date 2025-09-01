@@ -4,6 +4,7 @@ import { Instagram, Mail, Phone } from 'lucide-react';
 import EmailLink from './email-link';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { event } from '@/lib/events';
 
 const WhatsAppIcon = () => (
     <Image 
@@ -29,6 +30,15 @@ export default function Footer() {
     setWhatsappUrl(`https://wa.me/91${num}?text=${text}`);
   }, []);
 
+  const handleEvent = (action: string, label: string) => {
+    event({
+      action: action,
+      category: 'engagement',
+      label: label,
+      value: 1
+    });
+  };
+
   return (
     <footer className="bg-card border-t border-border/50">
       <div className="container mx-auto px-4 py-8">
@@ -43,7 +53,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 {whatsappUrl && (
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_whatsapp', 'Footer')}>
                     <WhatsAppIcon />
                     <span>Message on WhatsApp</span>
                   </a>
@@ -51,25 +61,27 @@ export default function Footer() {
               </li>
               <li>
                 {phoneNumber && (
-                  <a href={`tel:${phoneNumber}`} className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
+                  <a href={`tel:${phoneNumber}`} className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_call', 'Footer')}>
                     <Phone size={16} />
                     <span>{phoneNumber}</span>
                   </a>
                 )}
               </li>
               <li>
-                <EmailLink
-                  user="contact"
-                  domain="jaqilinmakeover.com"
-                  icon={true}
-                  className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors"
-                />
+                <div onClick={() => handleEvent('click_email', 'Footer')}>
+                    <EmailLink
+                    user="contact"
+                    domain="jaqilinmakeover.com"
+                    icon={true}
+                    className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors"
+                    />
+                </div>
               </li>
             </ul>
           </div>
           <div>
             <h3 className="font-headline text-xl font-semibold mb-2">Follow Me</h3>
-            <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors">
+            <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_instagram', 'Footer')}>
               <Instagram size={16} />
               <span>@jaqilinmua</span>
             </a>
@@ -82,3 +94,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+    

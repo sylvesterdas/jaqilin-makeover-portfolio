@@ -6,6 +6,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState, useEffect } from 'react';
 import { Instagram, X } from 'lucide-react';
 import { Button } from './ui/button';
+import { event } from '@/lib/events';
 
 const portfolioItems = {
   weddings: [
@@ -112,6 +113,15 @@ export default function Portfolio() {
     };
   }, []);
 
+  const handleInstagramClick = () => {
+    event({
+        action: 'click_instagram',
+        category: 'engagement',
+        label: 'Portfolio Section',
+        value: 1,
+    });
+  };
+
   return (
     <section id="portfolio" className="py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
@@ -133,7 +143,7 @@ export default function Portfolio() {
         </Tabs>
         <div className="text-center mt-12">
           <Button size="lg" asChild>
-            <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" onClick={handleInstagramClick}>
               <Instagram className="mr-2 h-5 w-5" />
               Show More on Instagram
             </a>
@@ -182,3 +192,5 @@ export default function Portfolio() {
     </section>
   );
 }
+
+    

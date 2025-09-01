@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -6,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Globe, Instagram, Phone } from 'lucide-react';
 import Image from 'next/image';
+import { event } from '@/lib/events';
 
 const WhatsAppIcon = () => (
   <Image
@@ -60,6 +62,15 @@ export default function ConnectPage() {
     }));
   }, []);
 
+  const handleEvent = (action: string, label: string) => {
+    event({
+      action: action,
+      category: 'engagement',
+      label: label,
+      value: 1
+    });
+  };
+
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-background p-4 overflow-hidden">
         {heroImages.map((image, index) => (
@@ -96,12 +107,12 @@ export default function ConnectPage() {
           <Card className="w-full max-w-sm bg-card/80 backdrop-blur-sm border-primary/20 shadow-lg">
             <CardContent className="p-6">
               <div className="flex flex-col space-y-4">
-                <Button size="lg" asChild className="justify-start text-lg h-14">
+                <Button size="lg" asChild className="justify-start text-lg h-14" onClick={() => handleEvent('click_call', 'Connect Page')}>
                   <a href={links.call}>
                     <Phone className="mr-4 size-6" /> Call / വിളിക്കുക
                   </a>
                 </Button>
-                <Button size="lg" asChild className="justify-start text-lg h-14">
+                <Button size="lg" asChild className="justify-start text-lg h-14" onClick={() => handleEvent('click_whatsapp', 'Connect Page')}>
                   <a href={links.whatsapp} target="_blank" rel="noopener noreferrer">
                     <div className="mr-4">
                       <WhatsAppIcon />
@@ -109,7 +120,7 @@ export default function ConnectPage() {
                     WhatsApp / വാട്സാപ്പ്
                   </a>
                 </Button>
-                <Button size="lg" asChild className="justify-start text-lg h-14">
+                <Button size="lg" asChild className="justify-start text-lg h-14" onClick={() => handleEvent('click_instagram', 'Connect Page')}>
                   <a
                     href={links.instagram}
                     target="_blank"
@@ -133,3 +144,5 @@ export default function ConnectPage() {
     </div>
   );
 }
+
+    

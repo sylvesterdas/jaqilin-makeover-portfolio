@@ -7,10 +7,20 @@ import { Button } from '@/components/ui/button';
 import { Phone } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import { event } from '@/lib/events';
 
 export default function CallPage() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [telLink, setTelLink] = useState('');
+
+  const handleCallClick = () => {
+    event({
+        action: 'click_call',
+        category: 'engagement',
+        label: 'Call Page Button',
+        value: 1,
+    });
+  };
 
   useEffect(() => {
     const num = '+917356483404';
@@ -18,6 +28,7 @@ export default function CallPage() {
     const link = `tel:${num}`;
     setTelLink(link);
     // Automatically trigger the call on page load.
+    handleCallClick();
     window.location.href = link;
   }, []);
 
@@ -34,7 +45,7 @@ export default function CallPage() {
             <div className="mt-8">
               {telLink && (
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-accent text-lg px-8 py-6" asChild>
-                    <a href={telLink}>
+                    <a href={telLink} onClick={handleCallClick}>
                         <Phone className="mr-2" />
                         Call {phoneNumber}
                     </a>
@@ -48,3 +59,5 @@ export default function CallPage() {
     </div>
   );
 }
+
+    
