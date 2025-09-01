@@ -110,8 +110,8 @@ export default function ConnectContent() {
           <Card className="w-full max-w-sm bg-card/80 backdrop-blur-sm border-primary/20 shadow-lg">
             <CardContent className="p-6">
               <div className="flex flex-col space-y-4">
-                <Button size="lg" asChild className="text-lg h-20" onClick={() => handleEvent('click_call', 'Connect Page')}>
-                  <a href={links.call} className="flex items-center justify-start gap-4 w-full">
+                <Button size="lg" asChild className="text-lg h-20 justify-start" onClick={() => handleEvent('click_call', 'Connect Page')}>
+                  <a href={links.call} className="flex items-center gap-4 w-full">
                     <Phone className="size-6 shrink-0" />
                     <div className="flex flex-col items-start">
                       <span>Call / വിളിക്കുക</span>
@@ -119,11 +119,11 @@ export default function ConnectContent() {
                     </div>
                   </a>
                 </Button>
-                <Button size="lg" asChild className="text-lg h-20" onClick={() => handleEvent('click_whatsapp', 'Connect Page')}>
-                  <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center justify-start gap-4 w-full">
+                <Button size="lg" asChild className="text-lg h-20 justify-start" onClick={() => handleEvent('click_whatsapp', 'Connect Page')}>
+                  <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 w-full">
                      <WhatsAppIcon />
                     <div className="flex flex-col items-start">
-                      <span>WhatsApp</span>
+                      <span>WhatsApp / വാട്ട്‌സ്ആപ്പ്</span>
                       <span className="text-xs font-mono text-primary-foreground/70">{formattedPhoneNumber}</span>
                     </div>
                   </a>
