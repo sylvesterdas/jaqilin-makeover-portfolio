@@ -3,6 +3,13 @@ import EmailLink from '@/components/email-link';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/privacy-policy',
+  },
+};
 
 export default function PrivacyPolicyPage() {
   return (

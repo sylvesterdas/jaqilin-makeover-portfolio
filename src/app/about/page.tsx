@@ -7,6 +7,13 @@ import Header from '@/components/header';
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/about',
+  },
+};
 
 export default function AboutPage() {
   const [age, setAge] = useState<number | null>(null);

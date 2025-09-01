@@ -8,6 +8,13 @@ import { Phone } from 'lucide-react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import { event } from '@/lib/events';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: '/call',
+  },
+};
 
 export default function CallPage() {
   const [phoneNumber, setPhoneNumber] = useState('');
