@@ -30,10 +30,13 @@ export default function PrivacyPolicyPage() {
 
               <h2 className="font-headline text-2xl text-primary pt-4">2. Web Browser Cookies & Analytics</h2>
               <p>
-                Our Site may use "cookies" to enhance User experience. A User's web browser places cookies on their hard drive for record-keeping purposes and sometimes to track information about them.
+                Our Site uses "cookies" and similar technologies to enhance User experience and analyze site traffic. A cookie is a small file placed on your device.
               </p>
               <p>
-                In the future, we plan to use Google Analytics to help us understand how our Users engage with the Site. Google Analytics collects information such as how often users visit this site, what pages they visit when they do so, and what other sites they used prior to coming to this site. We will use the information we get from Google Analytics only to improve our Site and services. Google’s ability to use and share information collected by Google Analytics about your visits to this site is restricted by the Google Analytics Terms of Use and the Google Privacy Policy.
+                We use Google Analytics to help us understand how our Users engage with the Site. Google Analytics collects anonymous information such as how often users visit this site, what pages they visit, and general demographic data. We use this information solely to improve our Site and services. Google’s ability to use and share information collected by Google Analytics is restricted by the Google Analytics Terms of Use and the Google Privacy Policy.
+              </p>
+              <p>
+                In compliance with India's Digital Personal Data Protection (DPDP) Act, we ask for your consent to use these analytics cookies via a banner on our site. By default, we assume consent is given, but you have the clear option to reject. Your choice is stored in your browser's local storage and can be changed at any time by clearing your browser's data for this site.
               </p>
 
               <h2 className="font-headline text-2xl text-primary pt-4">3. How We Use Collected Information</h2>
@@ -42,7 +45,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul>
                 <li><strong>To provide customer service:</strong> Information you provide helps us respond to your customer service requests and support needs more efficiently.</li>
-                <li><strong>To personalize user experience:</strong> We may use information in the aggregate to understand how our Users as a group use the services and resources provided on our Site.</li>
+                <li><strong>To personalize user experience:</strong> We may use aggregated, anonymous analytics data to understand how our Users as a group use the services and resources provided on our Site.</li>
                 <li><strong>To send periodic communications:</strong> We use the contact information (phone number) to communicate with you regarding your inquiries, bookings, confirmations, reminders, and to provide details about our services.</li>
               </ul>
 
