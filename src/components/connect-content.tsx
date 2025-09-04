@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Globe, Instagram, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { event } from '@/lib/events';
+import WhatsAppIcon from './icons/whatsapp-icon';
 
 const heroImages = [
   {
@@ -112,7 +113,7 @@ export default function ConnectContent() {
                 </Button>
                 <Button size="lg" asChild className="text-lg h-20 justify-start" onClick={() => handleEvent('click_whatsapp', 'Connect Page')}>
                   <a href={links.whatsapp} className="flex items-center gap-4 w-full">
-                    <Image src="/images/whatsapp-icon.svg" alt="WhatsApp" width={24} height={24} className="size-6 shrink-0" />
+                    <WhatsAppIcon />
                     <div className="flex flex-col items-start">
                       <span>WhatsApp / വാട്ട്‌സ്ആപ്പ്</span>
                        <span className="text-xs font-mono text-primary-foreground/70">{formattedPhoneNumber}</span>
