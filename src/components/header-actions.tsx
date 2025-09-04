@@ -63,6 +63,7 @@ export default function HeaderActions() {
                       alt="Chat on WhatsApp"
                       width={140}
                       height={28}
+                      priority
                       data-ai-hint="whatsapp button small"
                       />
                   </a>
@@ -105,4 +106,3 @@ export default function HeaderActions() {
     </>
   );
 }
-
