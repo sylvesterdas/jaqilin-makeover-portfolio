@@ -1,20 +1,9 @@
 
 'use client';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
+import { Card, CardContent } from '@/components/ui/card';
 import { event } from '@/lib/events';
-
-const WhatsAppIcon = () => (
-  <Image 
-    src="/images/icons/whatsapp-black.svg" 
-    alt="WhatsApp" 
-    width={24} 
-    height={24} 
-  />
-);
-
 
 export default function Contact() {
   const [whatsappUrl, setWhatsappUrl] = useState('');
@@ -43,14 +32,18 @@ export default function Contact() {
             <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
               Contact me today to schedule your appointment or to get a personalized quote for your special day. I am excited to be a part of your beauty journey!
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex justify-center">
               {whatsappUrl && (
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-accent text-lg px-8 py-6" asChild>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
-                    <div className='mr-2'><WhatsAppIcon /></div>
-                    Message on WhatsApp
-                  </a>
-                </Button>
+                <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick} className="inline-block">
+                  <Image
+                    src="/images/WhatsAppButtonGreenLarge.svg"
+                    alt="Chat on WhatsApp"
+                    width={260}
+                    height={52}
+                    className="transition-transform hover:scale-105"
+                    data-ai-hint="whatsapp button"
+                  />
+                </a>
               )}
             </div>
             <p className="mt-6 text-sm text-foreground/60">
@@ -62,5 +55,3 @@ export default function Contact() {
     </section>
   );
 }
-
-    

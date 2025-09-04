@@ -6,17 +6,6 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { event } from '@/lib/events';
 
-const WhatsAppIcon = () => (
-    <Image 
-      src="/images/icons/whatsapp-black.svg" 
-      alt="WhatsApp" 
-      width={16} 
-      height={16} 
-      className="inline-block invert"
-    />
-);
-
-
 export default function Footer() {
   const [whatsappUrl, setWhatsappUrl] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
@@ -50,12 +39,17 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="font-headline text-xl font-semibold mb-2">Contact Me</h3>
-            <ul className="space-y-2">
+            <ul className="space-y-3">
               <li>
                 {whatsappUrl && (
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_whatsapp', 'Footer')}>
-                    <WhatsAppIcon />
-                    <span>Message on WhatsApp</span>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-block transition-transform hover:scale-105" onClick={() => handleEvent('click_whatsapp', 'Footer')}>
+                    <Image
+                      src="/images/WhatsAppButtonGreenSmall.svg"
+                      alt="Chat on WhatsApp"
+                      width={140}
+                      height={28}
+                      data-ai-hint="whatsapp button small"
+                    />
                   </a>
                 )}
               </li>
@@ -94,5 +88,3 @@ export default function Footer() {
     </footer>
   );
 }
-
-    

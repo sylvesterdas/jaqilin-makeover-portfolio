@@ -8,15 +8,6 @@ import { Globe, Instagram, Phone } from 'lucide-react';
 import Image from 'next/image';
 import { event } from '@/lib/events';
 
-const WhatsAppIcon = () => (
-  <Image
-    src="/images/icons/whatsapp-black.svg"
-    alt="WhatsApp"
-    width={24}
-    height={24}
-  />
-);
-
 const heroImages = [
   {
     src: '/images/hero-background.jpg',
@@ -119,15 +110,16 @@ export default function ConnectContent() {
                     </div>
                   </a>
                 </Button>
-                <Button size="lg" asChild className="text-lg h-20 justify-start" onClick={() => handleEvent('click_whatsapp', 'Connect Page')}>
-                  <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 w-full">
-                     <WhatsAppIcon />
-                    <div className="flex flex-col items-start">
-                      <span>WhatsApp / വാട്ട്‌സ്ആപ്പ്</span>
-                      <span className="text-xs font-mono text-primary-foreground/70">{formattedPhoneNumber}</span>
-                    </div>
-                  </a>
-                </Button>
+                <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => handleEvent('click_whatsapp', 'Connect Page')} className="inline-block transition-transform hover:scale-105">
+                  <Image
+                    src="/images/WhatsAppButtonGreenMedium.svg"
+                    alt="Chat on WhatsApp"
+                    width={336}
+                    height={64}
+                    className="w-full"
+                    data-ai-hint="whatsapp button"
+                  />
+                </a>
                 <Button size="lg" asChild className="justify-start text-lg h-14" onClick={() => handleEvent('click_instagram', 'Connect Page')}>
                   <a
                     href={links.instagram}
