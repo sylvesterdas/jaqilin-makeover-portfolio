@@ -66,7 +66,7 @@ export default function ConnectContent() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] bg-background p-4 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center min-h-[calc(100svh-4rem)] bg-background p-4 overflow-hidden">
         {heroImages.map((image, index) => (
             <Image
             key={index}
