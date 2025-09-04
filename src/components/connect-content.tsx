@@ -66,7 +66,7 @@ export default function ConnectContent() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-screen bg-background p-4 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center min-h-[calc(100vh-12rem)] bg-background p-4 overflow-hidden">
         {heroImages.map((image, index) => (
             <Image
             key={index}
@@ -110,16 +110,15 @@ export default function ConnectContent() {
                     </div>
                   </a>
                 </Button>
-                <a href={links.whatsapp} target="_blank" rel="noopener noreferrer" onClick={() => handleEvent('click_whatsapp', 'Connect Page')} className="inline-block transition-transform hover:scale-105">
-                  <Image
-                    src="/images/WhatsAppButtonGreenMedium.svg"
-                    alt="Chat on WhatsApp"
-                    width={336}
-                    height={64}
-                    className="w-full"
-                    data-ai-hint="whatsapp button"
-                  />
-                </a>
+                <Button size="lg" asChild className="text-lg h-20 justify-start" onClick={() => handleEvent('click_whatsapp', 'Connect Page')}>
+                  <a href={links.whatsapp} className="flex items-center gap-4 w-full">
+                    <Image src="/images/whatsapp-icon.svg" alt="WhatsApp" width={24} height={24} className="size-6 shrink-0" />
+                    <div className="flex flex-col items-start">
+                      <span>WhatsApp / വാട്ട്‌സ്ആപ്പ്</span>
+                       <span className="text-xs font-mono text-primary-foreground/70">{formattedPhoneNumber}</span>
+                    </div>
+                  </a>
+                </Button>
                 <Button size="lg" asChild className="justify-start text-lg h-14" onClick={() => handleEvent('click_instagram', 'Connect Page')}>
                   <a
                     href={links.instagram}
@@ -137,9 +136,6 @@ export default function ConnectContent() {
               </div>
             </CardContent>
           </Card>
-          <footer className="mt-8 text-center text-sm text-foreground/80 drop-shadow-sm">
-            <p>&copy; {new Date().getFullYear()} Jaqilin Makeover. All Rights Reserved. | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">About</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">Privacy Policy</a></p>
-          </footer>
       </div>
     </div>
   );
