@@ -52,8 +52,9 @@ export default function HeaderActions() {
       <div className="flex items-center gap-2">
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center gap-2">
-              <Button size="icon" variant="outline" onClick={() => setShowPhoneDialog(true)}>
+              <Button variant="outline" onClick={() => setShowPhoneDialog(true)}>
                   <Phone className="h-5 w-5" />
+                  <span className="ml-2">Call</span>
               </Button>
               {whatsappUrl && (
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick} className="inline-block transition-transform hover:scale-105">
