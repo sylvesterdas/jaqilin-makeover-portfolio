@@ -5,7 +5,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
-  title: 'Connect with Jaqilin Makeover',
+  title: 'Contact Jaqilin Makeover - Call, WhatsApp, or Instagram',
   description: 'Contact Jaqilin Makeover through Call, WhatsApp, Instagram, or our Website.',
   alternates: {
     canonical: '/connect',
