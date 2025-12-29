@@ -9,7 +9,7 @@ export default function Contact() {
   const [whatsappUrl, setWhatsappUrl] = useState('');
 
   useEffect(() => {
-    const number = '917356483404';
+    const number = '918075561227';
     const text = "Hello%20Jaqilin%20Makeover,%20I'd%20like%20to%20inquire%20about%20your%20services.";
     setWhatsappUrl(`https://wa.me/${number}?text=${text}`);
   }, []);

@@ -29,8 +29,8 @@ export default function ConnectContent() {
     instagram: 'https://www.instagram.com/jaqilinmua',
     website: '/',
   });
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [formattedPhoneNumber, setFormattedPhoneNumber] = useState('');
+  const [callPhoneNumber, setCallPhoneNumber] = useState('');
+  const [whatsappPhoneNumber, setWhatsappPhoneNumber] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -43,17 +43,17 @@ export default function ConnectContent() {
 
 
   useEffect(() => {
-    const num = '+917356483404';
-    const formattedNum = '+91 73564 83404';
-    setPhoneNumber(num);
-    setFormattedPhoneNumber(formattedNum);
+    const callNum = '+917356483404';
+    const whatsappNum = '+918075561227';
+    setCallPhoneNumber('+91 73564 83404');
+    setWhatsappPhoneNumber('+91 80755 61227');
     const whatsappText =
       "Hello%20Jaqilin%20Makeover,%20I'd%20like%20to%20inquire%20about%20your%20services.";
 
     setLinks((prev) => ({
       ...prev,
-      call: `tel:${num}`,
-      whatsapp: `https://wa.me/917356483404?text=${whatsappText}`,
+      call: `tel:${callNum}`,
+      whatsapp: `https://wa.me/918075561227?text=${whatsappText}`,
     }));
   }, []);
 
@@ -67,7 +67,7 @@ export default function ConnectContent() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-[100svh] bg-background p-4 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center min-h-svh bg-background p-4 overflow-hidden">
         {heroImages.map((image, index) => (
             <Image
             key={index}
@@ -107,7 +107,7 @@ export default function ConnectContent() {
                     <Phone className="size-6 shrink-0" />
                     <div className="flex flex-col items-start">
                       <span>Call / വിളിക്കുക</span>
-                      <span className="text-xs font-mono text-primary-foreground/70">{formattedPhoneNumber}</span>
+                      <span className="text-xs font-mono text-primary-foreground/70">{callPhoneNumber}</span>
                     </div>
                   </a>
                 </Button>
@@ -116,7 +116,7 @@ export default function ConnectContent() {
                     <WhatsAppIcon />
                     <div className="flex flex-col items-start">
                       <span>WhatsApp / വാട്ട്‌സ്ആപ്പ്</span>
-                       <span className="text-xs font-mono text-primary-foreground/70">{formattedPhoneNumber}</span>
+                       <span className="text-xs font-mono text-primary-foreground/70">{whatsappPhoneNumber}</span>
                     </div>
                   </a>
                 </Button>
