@@ -24,7 +24,7 @@ export default function HeaderActions() {
 
   useEffect(() => {
     const callNum = '+917356483404';
-    const whatsappNum = '918075561227';
+    const whatsappNum = '917356483404';
     const text = "Hello%20Jaqilin%20Makeover,%20I'd%20like%20to%20inquire%20about%20your%20services.";
     setWhatsappUrl(`https://wa.me/${whatsappNum}?text=${text}`);
     setPhoneNumber(callNum);

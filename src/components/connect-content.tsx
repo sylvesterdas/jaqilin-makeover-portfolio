@@ -44,16 +44,16 @@ export default function ConnectContent() {
 
   useEffect(() => {
     const callNum = '+917356483404';
-    const whatsappNum = '+918075561227';
+    const whatsappNum = '+917356483404';
     setCallPhoneNumber('+91 73564 83404');
-    setWhatsappPhoneNumber('+91 80755 61227');
+    setWhatsappPhoneNumber('+91 73564 83404');
     const whatsappText =
       "Hello%20Jaqilin%20Makeover,%20I'd%20like%20to%20inquire%20about%20your%20services.";
 
     setLinks((prev) => ({
       ...prev,
       call: `tel:${callNum}`,
-      whatsapp: `https://wa.me/918075561227?text=${whatsappText}`,
+      whatsapp: `https://wa.me/917356483404?text=${whatsappText}`,
     }));
   }, []);
 
@@ -67,7 +67,7 @@ export default function ConnectContent() {
   };
 
   return (
-    <div className="relative flex flex-col items-center justify-center min-h-svh bg-background p-4 overflow-hidden">
+    <div className="relative flex flex-col items-center justify-center min-h-[100svh] bg-background p-4 overflow-hidden">
         {heroImages.map((image, index) => (
             <Image
             key={index}
