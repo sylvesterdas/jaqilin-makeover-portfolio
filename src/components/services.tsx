@@ -14,7 +14,7 @@ const services = [
   },
   {
     icon: <Users className="w-8 h-8 text-primary" />,
-    title: "Guest Makeup",
+    title: "Guest / Family Makeup",
     description: "Elegant and beautiful makeup for bridesmaids, family, and guests attending the wedding.",
   },
   {
@@ -35,7 +35,8 @@ export default function Services() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="font-headline text-4xl md:text-5xl font-bold">Our Services</h2>
-          <p className="text-lg text-foreground/70 mt-2">Crafting beauty for every occasion.</p>
+          {/* <p className="text-lg text-foreground/70 mt-2">Crafting beauty for every occasion.</p> */}
+          <p className="text-sm text-foreground/70 mt-2 mx-8">Custom packages available based on function, timing, and number of people.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (

@@ -1,19 +1,18 @@
-
-'use client';
-import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { useState, useEffect } from 'react';
+"use client";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
 
 const heroImages = [
   {
-    src: '/images/hero-background.jpg',
-    alt: 'Background of a beautifully decorated wedding setting',
-    hint: 'bride makeup',
+    src: "/images/hero-background.jpg",
+    alt: "Background of a beautifully decorated wedding setting",
+    hint: "bride makeup",
   },
   {
-    src: '/images/hero-background1.jpg',
-    alt: 'Another beautiful makeup shot',
-    hint: 'bridal makeup',
+    src: "/images/hero-background1.jpg",
+    alt: "Another beautiful makeup shot",
+    hint: "bridal makeup",
   },
 ];
 
@@ -40,7 +39,7 @@ export default function Hero() {
           alt={image.alt}
           fill
           className={`object-cover object-right transition-opacity duration-1000 ease-in-out ${
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
+            index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
           data-ai-hint={image.hint}
           priority={index === 0}
@@ -51,33 +50,49 @@ export default function Hero() {
 
       <div className="relative z-20 container mx-auto px-4 pb-24 md:pb-0 md:px-8">
         <div className="max-w-xl">
-          <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl text-primary drop-shadow-md">
-            Jaqilin Makeover
+          <h1 className="font-headline text-4xl md:text-6xl lg:text-7xl text-primary drop-shadow-md">
+            Bridal Makeup Artist in Thiruvananthapuram
           </h1>
+
           <p className="mt-4 font-headline text-2xl md:text-3xl text-foreground">
-            Professional Makeup Artist
+            Natural, long-wear bridal makeup
           </p>
-           <p className="mt-1 font-body text-xl md:text-2xl text-foreground/90">
-            പ്രൊഫഷണൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്
+
+          <p className="mt-1 font-body text-lg md:text-xl text-foreground/90">
+            Hair styling & saree draping for weddings
           </p>
-          <p className="mt-2 text-lg md:text-xl text-foreground/80">
-            Based in Trivandrum
+
+          <p className="mt-2 font-body text-lg md:text-xl text-foreground/80">
+            Hindu • Christian • Muslim Brides <br />
+            Home & venue service
           </p>
-          <div className="mt-8 flex justify-center md:justify-start gap-4">
+
+          <p className="mt-3 font-body text-base md:text-lg text-foreground/70">
+            പ്രൊഫഷണൽ ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ് • തിരുവനന്തപുരം
+          </p>
+
+          <div className="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
             <Button
               size="lg"
               asChild
               className="bg-primary text-primary-foreground hover:bg-accent"
             >
-              <a href="#portfolio">View My Work</a>
+              <a
+                href="https://wa.me/917356483404"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Check Date Availability on WhatsApp
+              </a>
             </Button>
+
             <Button
               size="lg"
               variant="outline"
               asChild
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
             >
-              <a href="#contact">Book an Inquiry</a>
+              <a href="#portfolio">View Bridal Work</a>
             </Button>
           </div>
         </div>

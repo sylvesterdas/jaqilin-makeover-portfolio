@@ -1,75 +1,88 @@
-
-import type { Metadata } from 'next';
-import { Toaster } from '@/components/ui/toaster';
-import './globals.css';
-import { cn } from '@/lib/utils';
-import ScrollToTop from '@/components/scroll-to-top';
-import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
-import Analytics from '@/components/analytics';
-import CookieConsent from '@/components/cookie-consent';
+import type { Metadata } from "next";
+import { Toaster } from "@/components/ui/toaster";
+import { Alegreya, Belleza, Noto_Sans_Malayalam } from "next/font/google";
+import "./globals.css";
+import { cn } from "@/lib/utils";
+import ScrollToTop from "@/components/scroll-to-top";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import Analytics from "@/components/analytics";
+import CookieConsent from "@/components/cookie-consent";
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.jaqilinmakeover.com'),
-  title: 'Jaqilin Makeover | Professional Makeup Artist in Trivandrum',
+  metadataBase: new URL("https://www.jaqilinmakeover.com"),
+  title: "Jaqilin Makeover | Professional Makeup Artist in Trivandrum",
   description:
-    'Jaqilin Makeover offers professional wedding makeup, guest makeup, saree draping, and fashion show preparation services in Trivandrum, Kollam, and Nagercoil. Based in Trivandrum.',
+    "Jaqilin Makeover offers professional wedding makeup, guest makeup, saree draping, and fashion show preparation services in Trivandrum, Kollam, and Nagercoil. Based in Trivandrum.",
   keywords: [
-    'makeup artist in trivandrum',
-    'wedding makeup trivandrum',
-    'bridal makeup trivandrum',
-    'best makeup artist in trivandrum',
-    'freelance makeup artist trivandrum',
-    'makeup artist in kanjiramkulam',
-    'party makeup in trivandrum',
-    'engagement makeup trivandrum',
-    'saree draping services trivandrum',
-    'makeup artist in kollam',
-    'wedding makeup nagercoil',
-    'bridal makeup kollam',
-    'guest makeup nagercoil',
-    'saree draping services in kollam',
-    'professional makeup artist nagercoil',
-    'kerala wedding makeup',
-    'south indian bridal makeup',
-    'fashion show makeup artist',
-    'Jaqilin Makeover',
+    "makeup artist in trivandrum",
+    "wedding makeup trivandrum",
+    "bridal makeup trivandrum",
+    "best makeup artist in trivandrum",
+    "freelance makeup artist trivandrum",
+    "makeup artist in kanjiramkulam",
+    "party makeup in trivandrum",
+    "engagement makeup trivandrum",
+    "saree draping services trivandrum",
+    "makeup artist in kollam",
+    "wedding makeup nagercoil",
+    "bridal makeup kollam",
+    "guest makeup nagercoil",
+    "saree draping services in kollam",
+    "professional makeup artist nagercoil",
+    "kerala wedding makeup",
+    "south indian bridal makeup",
+    "fashion show makeup artist",
+    "Jaqilin Makeover",
   ],
   openGraph: {
-    title: 'Jaqilin Makeover | Professional Makeup Artist in Trivandrum',
-    description: 'Elegant and professional makeup services for weddings, events, and fashion shows in and around Trivandrum.',
-    url: 'https://www.jaqilinmakeover.com',
-    siteName: 'Jaqilin Makeover',
+    title: "Jaqilin Makeover | Professional Makeup Artist in Trivandrum",
+    description:
+      "Elegant and professional makeup services for weddings, events, and fashion shows in and around Trivandrum.",
+    url: "https://www.jaqilinmakeover.com",
+    siteName: "Jaqilin Makeover",
     images: [
       {
-        url: '/images/hero-background.jpg',
+        url: "/images/hero-background.jpg",
         width: 1200,
         height: 630,
-        alt: 'Bridal makeup by Jaqilin Makeover',
+        alt: "Bridal makeup by Jaqilin Makeover",
       },
       {
-        url: '/images/hero-background1.jpg',
+        url: "/images/hero-background1.jpg",
         width: 1200,
         height: 630,
-        alt: 'Stunning bridal look by Jaqilin Makeover',
+        alt: "Stunning bridal look by Jaqilin Makeover",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Jaqilin Makeover | Professional Makeup Artist in Trivandrum',
-    description: 'Elegant and professional makeup services for weddings, events, and fashion shows in and around Trivandrum.',
-    images: ['/images/hero-background.jpg'],
-    creator: '@jaqilinmua',
+    card: "summary_large_image",
+    title: "Jaqilin Makeover | Professional Makeup Artist in Trivandrum",
+    description:
+      "Elegant and professional makeup services for weddings, events, and fashion shows in and around Trivandrum.",
+    images: ["/images/hero-background.jpg"],
+    creator: "@jaqilinmua",
   },
   icons: {
-    icon: '/logo.png',
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
+
+const alegreya = Alegreya({ subsets: ["latin"], variable: "--font-alegreya" });
+const belleza = Belleza({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-belleza",
+});
+const notoMalayalam = Noto_Sans_Malayalam({
+  subsets: ["malayalam"],
+  variable: "--font-noto-malayalam",
+});
 
 export default function RootLayout({
   children,
@@ -77,77 +90,66 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const structuredData = {
-    '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Jaqilin Makeover',
-    image: 'https://www.jaqilinmakeover.com/logo.png',
-    '@id': 'https://www.jaqilinmakeover.com',
-    url: 'https://www.jaqilinmakeover.com',
-    telephone: '+91 73564 83404',
-    email: 'contact@jaqilinmakeover.com',
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Jaqilin Makeover",
+    image: "https://www.jaqilinmakeover.com/logo.png",
+    "@id": "https://www.jaqilinmakeover.com",
+    url: "https://www.jaqilinmakeover.com",
+    telephone: "+91 73564 83404",
+    email: "contact@jaqilinmakeover.com",
     address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Kanjiramkulam',
-      addressLocality: 'Trivandrum',
-      addressRegion: 'KL',
-      postalCode: '695524',
-      addressCountry: 'IN',
+      "@type": "PostalAddress",
+      streetAddress: "Kanjiramkulam",
+      addressLocality: "Trivandrum",
+      addressRegion: "KL",
+      postalCode: "695524",
+      addressCountry: "IN",
     },
     geo: {
-      '@type': 'GeoCoordinates',
+      "@type": "GeoCoordinates",
       latitude: 8.3934,
       longitude: 77.056,
     },
-    description: 'Professional makeup artist specializing in wedding makeovers, guest makeup, and saree draping.',
+    description:
+      "Professional makeup artist specializing in wedding makeovers, guest makeup, and saree draping.",
     openingHoursSpecification: [
       {
-        '@type': 'OpeningHoursSpecification',
+        "@type": "OpeningHoursSpecification",
         dayOfWeek: [
-          'Monday',
-          'Tuesday',
-          'Wednesday',
-          'Thursday',
-          'Friday',
-          'Saturday',
-          'Sunday',
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
         ],
-        opens: '09:00',
-        closes: '19:00',
+        opens: "09:00",
+        closes: "19:00",
       },
     ],
-    sameAs: ['https://www.instagram.com/jaqilinmua'],
+    sameAs: ["https://www.instagram.com/jaqilinmua"],
   };
 
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&family=Belleza&display=swap"
-          rel="stylesheet"
-        />
-         <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-      </head>
+    <html
+      lang="en"
+      className={`dark ${alegreya.variable} ${belleza.variable} ${notoMalayalam.variable}`}
+      suppressHydrationWarning
+    >
       <body
         className={cn(
-          'min-h-screen bg-background font-body text-foreground antialiased'
+          "min-h-screen bg-background font-body text-foreground antialiased",
         )}
       >
-          {children}
-          <Toaster />
-          <ScrollToTop />
-          <VercelAnalytics />
-          <SpeedInsights />
-          <Analytics />
-          <CookieConsent />
+        {children}
+        <Toaster />
+        <ScrollToTop />
+        <VercelAnalytics />
+        <SpeedInsights />
+        <Analytics />
+        <CookieConsent />
       </body>
     </html>
   );
