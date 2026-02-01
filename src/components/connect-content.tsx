@@ -120,8 +120,8 @@ export default function ConnectContent() {
         </div>
 
         {/* Contact Buttons */}
-        <Card className="w-full max-w-sm bg-card/80 backdrop-blur-sm border-primary/20 shadow-lg">
-          <CardContent className="p-6 space-y-4">
+        <Card className="w-full max-w-sm bg-card/65 backdrop-blur-md border-primary/15 shadow-md">
+          <CardContent className="p-5 space-y-3">
             {/* WhatsApp */}
             <Button
               size="lg"

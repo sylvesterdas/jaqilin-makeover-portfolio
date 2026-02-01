@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Toaster } from "@/components/ui/toaster";
 import { Alegreya, Belleza, Noto_Sans_Malayalam } from "next/font/google";
-import "./globals.css";
+import './globals.css';
 import { cn } from "@/lib/utils";
 import ScrollToTop from "@/components/scroll-to-top";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
@@ -11,34 +11,23 @@ import CookieConsent from "@/components/cookie-consent";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.jaqilinmakeover.com"),
-  title: "Jaqilin Makeover | Professional Makeup Artist in Trivandrum",
+  title: "Bridal Makeup Artist in Thiruvananthapuram | Jaqilin Makeover",
   description:
-    "Jaqilin Makeover offers professional wedding makeup, guest makeup, saree draping, and fashion show preparation services in Trivandrum, Kollam, and Nagercoil. Based in Trivandrum.",
+    "Professional bridal makeup artist in Thiruvananthapuram offering natural, long-wear makeup with hair styling & saree draping. Home & venue service. Book on WhatsApp.",
   keywords: [
-    "makeup artist in trivandrum",
-    "wedding makeup trivandrum",
+    "bridal makeup artist in thiruvananthapuram",
+    "wedding makeup artist trivandrum",
     "bridal makeup trivandrum",
-    "best makeup artist in trivandrum",
-    "freelance makeup artist trivandrum",
-    "makeup artist in kanjiramkulam",
-    "party makeup in trivandrum",
-    "engagement makeup trivandrum",
+    "home service bridal makeup",
+    "guest makeup thiruvananthapuram",
     "saree draping services trivandrum",
-    "makeup artist in kollam",
-    "wedding makeup nagercoil",
-    "bridal makeup kollam",
-    "guest makeup nagercoil",
-    "saree draping services in kollam",
-    "professional makeup artist nagercoil",
-    "kerala wedding makeup",
-    "south indian bridal makeup",
-    "fashion show makeup artist",
-    "Jaqilin Makeover",
+    "kerala bridal makeup artist",
+    "jaqilin makeover",
   ],
   openGraph: {
-    title: "Jaqilin Makeover | Professional Makeup Artist in Trivandrum",
+    title: "Bridal Makeup Artist in Thiruvananthapuram | Jaqilin Makeover",
     description:
-      "Elegant and professional makeup services for weddings, events, and fashion shows in and around Trivandrum.",
+      "Professional bridal makeup artist in Thiruvananthapuram offering natural, long-wear makeup with hair styling & saree draping. Home & venue service. Book on WhatsApp.",
     url: "https://www.jaqilinmakeover.com",
     siteName: "Jaqilin Makeover",
     images: [
@@ -91,7 +80,7 @@ export default function RootLayout({
 }>) {
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     name: "Jaqilin Makeover",
     image: "https://www.jaqilinmakeover.com/logo.png",
     "@id": "https://www.jaqilinmakeover.com",
@@ -134,7 +123,7 @@ export default function RootLayout({
 
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`dark ${alegreya.variable} ${belleza.variable} ${notoMalayalam.variable}`}
       suppressHydrationWarning
     >
@@ -144,6 +133,12 @@ export default function RootLayout({
         )}
       >
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData),
+          }}
+        />
         <Toaster />
         <ScrollToTop />
         <VercelAnalytics />
