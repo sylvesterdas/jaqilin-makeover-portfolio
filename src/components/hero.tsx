@@ -63,7 +63,7 @@ export default function Hero() {
 
           <p className="mt-3 sm:mt-4 font-headline text-xl sm:text-2xl md:text-3xl text-foreground">
             {inMalayalam
-              ? "നേച്ചുറൽ, ലോങ്-വെയർ ബ്രൈഡൽ മേക്കപ്പ്"
+              ? "നാചുറൽ, ലോങ്-വെയർ ബ്രൈഡൽ മേക്കപ്പ്"
               : "Natural, long-wear bridal makeup"}
           </p>
 
