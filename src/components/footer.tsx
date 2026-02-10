@@ -83,7 +83,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/50 text-center text-xs sm:text-sm text-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Jaqilin Makeover. {inMalayalam ? "എല്ലാ അവകാശങ്ങളും സംരക്ഷിതം." : "All Rights Reserved."} | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "അബൗട്ട്" : "About"}</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "സ്വകാര്യതാ നയം" : "Privacy Policy"}</a> | <a href="/terms" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "നിബന്ധനകൾ" : "Terms"}</a></p>
+          <p>&copy; {new Date().getFullYear()} Jaqilin Makeover. {inMalayalam ? "എല്ലാ അവകാശങ്ങളും സംരക്ഷിതം." : "All Rights Reserved."} | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "അബൗട്ട്" : "About"}</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "സ്വകാര്യതാ നയം" : "Privacy Policy"}</a> | <a href="/terms" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "നിബന്ധനകൾ" : "Terms"}</a> | <a href="/data-deletion" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "ഡാറ്റ ഡിലീഷൻ" : "Data Deletion"}</a></p>
         </div>
       </div>
     </footer>
