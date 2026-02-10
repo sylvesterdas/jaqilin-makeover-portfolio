@@ -29,13 +29,13 @@ export default function Header() {
         </a>
         <nav className="hidden xl:flex items-center space-x-4 shrink-0">
           <Button variant="link" asChild>
-            <a href="/#services" className="text-foreground hover:text-primary font-semibold text-sm lg:text-base">{inMalayalam ? "സേവനങ്ങൾ" : "Services"}</a>
+            <a href="/#services" className="text-foreground hover:text-primary font-semibold text-sm lg:text-base">Services</a>
           </Button>
           <Button variant="link" asChild>
-            <a href="/#portfolio" className="text-foreground hover:text-primary font-semibold text-sm lg:text-base">{inMalayalam ? "പോർട്ട്ഫോളിയോ" : "Portfolio"}</a>
+            <a href="/#portfolio" className="text-foreground hover:text-primary font-semibold text-sm lg:text-base">Portfolio</a>
           </Button>
           <Button variant="link" asChild>
-            <a href="/#contact" className="text-foreground hover:text-primary font-semibold text-sm lg:text-base">{inMalayalam ? "ബന്ധപ്പെടാൻ" : "Contact"}</a>
+            <a href="/#contact" className="text-foreground hover:text-primary font-semibold text-sm lg:text-base">Contact</a>
           </Button>
         </nav>
         <HeaderActions />

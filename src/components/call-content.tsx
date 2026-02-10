@@ -34,7 +34,14 @@ export default function CallContent() {
     <div className="container mx-auto px-4">
       <div className="max-w-md mx-auto">
          <h1 className="font-headline text-2xl sm:text-3xl md:text-4xl text-primary">
-          {inMalayalam ? "ജാകിലിൻ മേക്കോവറിനെ ബന്ധപ്പെടുന്നു" : "Contacting Jaqilin Makeover"}
+          {inMalayalam ? (
+            "ജാകിലിൻ മേക്കോവറിനെ ബന്ധപ്പെടുന്നു"
+          ) : (
+            <>
+              Contacting <span className="text-primary">Jaqilin</span>{" "}
+              <span className="text-foreground">Makeover</span>
+            </>
+          )}
          </h1>
         <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-foreground/80">
             {inMalayalam

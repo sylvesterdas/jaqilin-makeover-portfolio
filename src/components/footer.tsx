@@ -1,6 +1,6 @@
 
 'use client';
-import { Instagram, Mail, Phone } from 'lucide-react';
+import { Facebook, Instagram, Mail, Phone } from 'lucide-react';
 import EmailLink from './email-link';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -34,7 +34,10 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-6 sm:py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left">
           <div>
-            <h3 className="font-headline text-lg sm:text-xl font-bold text-primary mb-1 sm:mb-2">Jaqilin Makeover</h3>
+            <h3 className="font-headline text-lg sm:text-xl font-bold mb-1 sm:mb-2">
+              <span className="text-primary">Jaqilin</span>{" "}
+              <span className="text-foreground">Makeover</span>
+            </h3>
             <p className="text-sm sm:text-base text-foreground/70">LJS Works</p>
             <p className="text-sm sm:text-base text-foreground/70">{inMalayalam ? "തിരുവനന്തപുരം" : "Trivandrum"}</p>
           </div>
@@ -76,14 +79,20 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "ഫോളോ ചെയ്യൂ" : "Follow Me"}</h3>
-            <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_instagram', 'Footer')}>
-              <Instagram size={16} />
-              <span>@jaqilinmua</span>
-            </a>
+            <div className="space-y-2">
+              <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_instagram', 'Footer')}>
+                <Instagram size={16} />
+                <span>@jaqilinmua</span>
+              </a>
+              <a href="https://www.facebook.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_facebook', 'Footer')}>
+                <Facebook size={16} />
+                <span>/jaqilinmua</span>
+              </a>
+            </div>
           </div>
         </div>
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/50 text-center text-xs sm:text-sm text-foreground/60">
-          <p>&copy; {new Date().getFullYear()} Jaqilin Makeover. {inMalayalam ? "എല്ലാ അവകാശങ്ങളും സംരക്ഷിതം." : "All Rights Reserved."} | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "അബൗട്ട്" : "About"}</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "സ്വകാര്യതാ നയം" : "Privacy Policy"}</a> | <a href="/terms" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "നിബന്ധനകൾ" : "Terms"}</a> | <a href="/data-deletion" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "ഡാറ്റ ഡിലീഷൻ" : "Data Deletion"}</a></p>
+          <p>&copy; {new Date().getFullYear()} <span className="text-primary">Jaqilin</span> <span className="text-foreground">Makeover</span>. All Rights Reserved. | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">About</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">Privacy Policy</a> | <a href="/terms" className="hover:text-primary underline-offset-4 hover:underline">Terms</a> | <a href="/data-deletion" className="hover:text-primary underline-offset-4 hover:underline">Data Deletion</a></p>
         </div>
       </div>
     </footer>
