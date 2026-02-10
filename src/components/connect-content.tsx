@@ -80,11 +80,11 @@ export default function ConnectContent() {
           onContextMenu={(e) => e.preventDefault()}
         />
       ))}
-      <div className="absolute inset-0 bg-white/70 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/85 via-white/45 to-white/10 z-10" />
 
       <div className="relative z-20 flex flex-col items-center w-full">
         {/* Intro */}
-        <div className="flex flex-col items-center mb-6 sm:mb-8 px-5 sm:px-8 py-4 text-center w-full max-w-sm sm:max-w-md bg-gray-950/20 rounded-3xl">
+        <div className="flex flex-col items-center mb-6 sm:mb-8 px-5 sm:px-8 py-4 text-center w-full max-w-sm sm:max-w-md bg-white/60 rounded-3xl backdrop-blur-[4px] shadow-sm">
           <Image
             src="/logo.png"
             alt="Jaqilin Makeover Logo"
@@ -93,26 +93,35 @@ export default function ConnectContent() {
             className="rounded-full border-2 border-primary shadow-lg size-20 sm:size-24"
           />
 
-          <h1 className="mt-4 font-headline text-2xl sm:text-3xl text-primary drop-shadow-md text-balance">
-            {inMalayalam
-              ? "തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്"
-              : "Bridal Makeup Artist in Thiruvananthapuram"}
+          <h1 className="mt-4 font-headline text-2xl sm:text-3xl text-primary text-balance leading-tight">
+            {inMalayalam ? (
+              <>
+                <span className="block text-[1.2em]">ബ്രൈഡൽ</span>
+                <span className="block">മേക്കപ്പ് ആർട്ടിസ്റ്റ്</span>
+              </>
+            ) : (
+              "Bridal Makeup Artist"
+            )}
           </h1>
 
           <p className="mt-2 text-foreground/90 text-sm sm:text-base">
             {inMalayalam
-              ? "നേച്ചുറൽ, ലോങ്-വെയർ മേക്കപ്പ് + ഹെയർ സ്റ്റൈലിംഗ് & സാരി ഡ്രേപ്പിംഗ്"
-              : "Natural, long-wear makeup with hair styling & saree draping"}
+              ? "നാചുറൽ ബ്രൈഡൽ മേക്കപ്പ്"
+              : "Natural bridal makeup"}
           </p>
 
           <p className="mt-1 text-foreground/80 text-xs sm:text-sm">
-            {inMalayalam ? "വീട് & വേദി സർവീസ്" : "Home & venue service"}
+            {inMalayalam
+              ? "ഹെയർ സ്റ്റൈലിംഗ് • സാരി ഡ്രേപ്പിംഗ്"
+              : "Hair styling • saree draping"}
           </p>
 
-          <p className="mt-3 text-foreground/70 text-xs sm:text-sm">
-            {inMalayalam
-              ? "തീയതി + വേദി അയക്കൂ. ഞാൻ ഗൈഡ് ചെയ്യും."
-              : "Send date + venue. I’ll guide you."}
+          <p className="mt-1 text-foreground/70 text-xs sm:text-sm">
+            {inMalayalam ? "വീട് സർവീസ്" : "Home service"}
+          </p>
+
+          <p className="mt-1 text-foreground/60 text-xs sm:text-sm">
+            {inMalayalam ? "തിരുവനന്തപുരം" : "Thiruvananthapuram"}
           </p>
         </div>
 
@@ -157,8 +166,8 @@ export default function ConnectContent() {
                 <div className="flex flex-col items-start text-left">
                   <span className="font-medium leading-snug">
                     {inMalayalam
-                      ? "WhatsApp-ൽ തീയതി ചോദിക്കുക"
-                      : "Check Date on WhatsApp"}
+                      ? "WhatsApp-ൽ ചാറ്റ് ചെയ്യൂ"
+                      : "WhatsApp Now"}
                   </span>
                 </div>
               </a>
@@ -177,8 +186,8 @@ export default function ConnectContent() {
                 <div className="flex flex-col items-start text-left">
                   <span className="font-medium leading-snug">
                     {inMalayalam
-                      ? "ബുക്കിംഗിനായി വിളിക്കുക"
-                      : "Call for Booking Enquiry"}
+                      ? "വിളിക്കുക"
+                      : "Call Now"}
                   </span>
                   <span className="hidden sm:block text-xs text-foreground/60 leading-snug">
                     {callPhoneNumber}
@@ -206,7 +215,7 @@ export default function ConnectContent() {
                   <span className="font-medium leading-snug break-words max-w-full">
                     {inMalayalam
                       ? "Instagram-ൽ ബ്രൈഡൽ വർക്ക് കാണൂ"
-                      : "View Bridal Work on Instagram"}
+                      : "View Bridal Work"}
                   </span>
                 </div>
               </a>
@@ -225,7 +234,7 @@ export default function ConnectContent() {
                   <span className="font-medium leading-snug">
                     {inMalayalam
                       ? "സേവനങ്ങളും പോർട്ട്ഫോളിയോയും"
-                      : "View Services & Portfolio"}
+                      : "Services & Portfolio"}
                   </span>
                 </div>
               </a>

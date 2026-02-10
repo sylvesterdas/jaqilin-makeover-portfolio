@@ -25,9 +25,9 @@ export default function AboutContent() {
 
   return (
     <div className="container mx-auto px-4">
-      <Card className="overflow-hidden bg-card border-primary/20">
+      <Card className="overflow-hidden bg-card/70 border-border/60 shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
         <div className="grid md:grid-cols-2">
-          <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-[500px]">
+          <div className="relative min-h-[260px] sm:min-h-[320px] md:min-h-[520px]">
             <Image
               src="/images/profile.jpg"
               alt="Jaqilin S"
@@ -36,9 +36,12 @@ export default function AboutContent() {
               data-ai-hint="woman portrait"
               onContextMenu={(e) => e.preventDefault()}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
           </div>
           <div className="p-6 sm:p-8 md:p-12 flex flex-col justify-center">
-            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl text-primary">{inMalayalam ? "ജാകിലിനെ കുറിച്ച്" : "About Jaqilin"}</h1>
+            <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl text-primary text-balance">
+              {inMalayalam ? "ജാകിലിനെ കുറിച്ച്" : "About Jaqilin"}
+            </h1>
             <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-foreground/80">
               {inMalayalam
                 ? `എന്റെ പേര് ജാകിലിൻ എസ്. ${age !== null ? `${age} വയസ്സിൽ,` : ''} ജാകിലിൻ മേക്കോവറിന്റെ പിന്നിലുള്ള ആർട്ടിസ്റ്റ് ഞാൻ ആണ്.`
