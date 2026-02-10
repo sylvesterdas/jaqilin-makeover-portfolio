@@ -34,12 +34,12 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-6 sm:py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left">
           <div>
-            <h3 className="font-headline text-xl sm:text-2xl font-bold text-primary mb-1 sm:mb-2">Jaqilin Makeover</h3>
+            <h3 className="font-headline text-lg sm:text-xl font-bold text-primary mb-1 sm:mb-2">Jaqilin Makeover</h3>
             <p className="text-sm sm:text-base text-foreground/70">LJS Works</p>
             <p className="text-sm sm:text-base text-foreground/70">{inMalayalam ? "തിരുവനന്തപുരം" : "Trivandrum"}</p>
           </div>
           <div>
-            <h3 className="font-headline text-lg sm:text-xl font-semibold mb-2">{inMalayalam ? "ബന്ധപ്പെടാൻ" : "Contact Me"}</h3>
+            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "ബന്ധപ്പെടാൻ" : "Contact Me"}</h3>
             <ul className="space-y-3">
               <li>
                 {whatsappUrl && (
@@ -75,7 +75,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-headline text-lg sm:text-xl font-semibold mb-2">{inMalayalam ? "ഫോളോ ചെയ്യൂ" : "Follow Me"}</h3>
+            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "ഫോളോ ചെയ്യൂ" : "Follow Me"}</h3>
             <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_instagram', 'Footer')}>
               <Instagram size={16} />
               <span>@jaqilinmua</span>

@@ -2,11 +2,12 @@
 'use client';
 import Image from 'next/image';
 import { Card, CardContent } from '@/components/ui/card';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { useState, useEffect } from 'react';
 import { Instagram, X } from 'lucide-react';
 import { Button } from './ui/button';
 import { event } from '@/lib/events';
+import { useLocale } from "@/components/locale-provider";
+import { isMalayalam } from "@/lib/locale";
 
 const portfolioItems = {
   weddings: [
@@ -53,7 +54,7 @@ function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioI
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
       {portfolioItems[category].map((item, index) => (
-        <Card key={index} className="overflow-hidden border-border/50 group">
+        <Card key={index} className="overflow-hidden border-border/50 group rounded-2xl shadow-sm">
           <CardContent className="p-0 aspect-[9/16]">
             {item.type === 'image' ? (
               <Image
@@ -93,6 +94,8 @@ function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioI
 }
 
 export default function Portfolio() {
+  const { locale } = useLocale();
+  const inMalayalam = isMalayalam(locale);
   const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
 
   const handleMediaClick = (media: MediaItem, e: React.MouseEvent) => {
@@ -126,26 +129,64 @@ export default function Portfolio() {
     <section id="portfolio" className="py-12 sm:py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">Portfolio</h2>
-          <p className="text-base sm:text-lg text-foreground/70 mt-2">A Glimpse of My Artistry</p>
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">
+            {inMalayalam ? "പോർട്ട്ഫോളിയോ" : "Portfolio"}
+          </h2>
+          <p className="text-base sm:text-lg text-foreground/70 mt-2">
+            {inMalayalam ? "എന്റെ പുതിയ പ്രവൃത്തികൾ" : "A Glimpse of My Artistry"}
+          </p>
         </div>
-        <Tabs defaultValue="weddings" className="w-full">
-          <TabsList className="flex flex-wrap justify-center md:grid md:grid-cols-4 h-auto mb-6 sm:mb-8 gap-1">
-            <TabsTrigger value="weddings">Wedding Makeovers</TabsTrigger>
-            <TabsTrigger value="hairstyles">Hairstyles</TabsTrigger>
-            <TabsTrigger value="draping">Saree Draping</TabsTrigger>
-            <TabsTrigger value="fashion">Fashion Shows</TabsTrigger>
-          </TabsList>
-          <TabsContent value="weddings"><Gallery category="weddings" onMediaClick={handleMediaClick} /></TabsContent>
-          <TabsContent value="hairstyles"><Gallery category="hairstyles" onMediaClick={handleMediaClick} /></TabsContent>
-          <TabsContent value="draping"><Gallery category="draping" onMediaClick={handleMediaClick} /></TabsContent>
-          <TabsContent value="fashion"><Gallery category="fashion" onMediaClick={handleMediaClick} /></TabsContent>
-        </Tabs>
+        <div className="space-y-12 sm:space-y-16">
+          <div>
+            <div className="mb-4 sm:mb-6 flex items-center justify-between gap-4">
+              <h3 className="font-headline text-2xl sm:text-3xl text-primary">
+                {inMalayalam ? "വിവാഹ മേക്കപ്പ്" : "Wedding Makeovers"}
+              </h3>
+              <span className="hidden sm:inline-flex h-px flex-1 bg-border/60" />
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-background/40 p-3 sm:p-4 shadow-sm">
+              <Gallery category="weddings" onMediaClick={handleMediaClick} />
+            </div>
+          </div>
+          <div>
+            <div className="mb-4 sm:mb-6 flex items-center justify-between gap-4">
+              <h3 className="font-headline text-2xl sm:text-3xl text-primary">
+                {inMalayalam ? "ഹെയർ സ്റ്റൈൽ" : "Hairstyles"}
+              </h3>
+              <span className="hidden sm:inline-flex h-px flex-1 bg-border/60" />
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-background/40 p-3 sm:p-4 shadow-sm">
+              <Gallery category="hairstyles" onMediaClick={handleMediaClick} />
+            </div>
+          </div>
+          <div>
+            <div className="mb-4 sm:mb-6 flex items-center justify-between gap-4">
+              <h3 className="font-headline text-2xl sm:text-3xl text-primary">
+                {inMalayalam ? "സാരി ഡ്രേപ്പിംഗ്" : "Saree Draping"}
+              </h3>
+              <span className="hidden sm:inline-flex h-px flex-1 bg-border/60" />
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-background/40 p-3 sm:p-4 shadow-sm">
+              <Gallery category="draping" onMediaClick={handleMediaClick} />
+            </div>
+          </div>
+          <div>
+            <div className="mb-4 sm:mb-6 flex items-center justify-between gap-4">
+              <h3 className="font-headline text-2xl sm:text-3xl text-primary">
+                {inMalayalam ? "ഫാഷൻ ഷോ" : "Fashion Shows"}
+              </h3>
+              <span className="hidden sm:inline-flex h-px flex-1 bg-border/60" />
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-background/40 p-3 sm:p-4 shadow-sm">
+              <Gallery category="fashion" onMediaClick={handleMediaClick} />
+            </div>
+          </div>
+        </div>
         <div className="text-center mt-8 sm:mt-12">
           <Button size="lg" asChild>
             <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" onClick={handleInstagramClick}>
               <Instagram className="mr-2 h-5 w-5" />
-              Show More on Instagram
+              {inMalayalam ? "Instagram-ൽ കൂടുതൽ കാണൂ" : "Show More on Instagram"}
             </a>
           </Button>
         </div>

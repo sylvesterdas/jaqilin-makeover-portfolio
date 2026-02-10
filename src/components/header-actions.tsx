@@ -52,8 +52,8 @@ export default function HeaderActions() {
 
   return (
     <>
-      <div className="flex items-center gap-2">
-          <div className="hidden sm:flex items-center rounded-md border border-border/70 bg-card/60 p-1">
+      <div className="flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-2 py-1 shadow-sm backdrop-blur">
+          <div className="hidden md:flex items-center rounded-md border border-border/70 bg-card/60 p-1 mr-1">
             <Button
               size="sm"
               variant={inMalayalam ? "secondary" : "ghost"}
@@ -72,7 +72,7 @@ export default function HeaderActions() {
             </Button>
           </div>
           {/* Desktop Buttons */}
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden xl:flex items-center gap-2">
               <Button variant="outline" onClick={() => setShowPhoneDialog(true)}>
                   <Phone className="h-5 w-5" />
                   <span className="ml-2">{inMalayalam ? "വിളിക്കുക" : "Call"}</span>
@@ -82,17 +82,18 @@ export default function HeaderActions() {
                       <Image
                       src="/images/WhatsAppButtonGreenSmall.svg"
                       alt="Chat on WhatsApp"
-                      width={140}
-                      height={28}
+                      width={160}
+                      height={32}
                       priority
                       data-ai-hint="whatsapp button small"
+                      className="w-32 xl:w-40 h-auto"
                       />
                   </a>
               )}
           </div>
 
-          {/* Mobile Buttons */}
-          <div className="flex md:hidden items-center gap-2">
+          {/* Mobile/Tablet Buttons */}
+          <div className="flex xl:hidden items-center gap-2">
                 <Button size="icon" variant="ghost" asChild>
                   <a href={`tel:${phoneNumber}`} onClick={handleCallClick} aria-label={inMalayalam ? "വിളിക്കുക" : "Call"}>
                       <Phone className="h-6 w-6" />
