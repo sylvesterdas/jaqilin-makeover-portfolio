@@ -21,8 +21,8 @@ export default {
           "radial-gradient(ellipse at center, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        body: ['var(--font-alegreya)', 'var(--font-noto-malayalam)', 'serif'],
-        headline: ['var(--font-belleza)', 'var(--font-noto-malayalam)', 'sans-serif'],
+        body: ['var(--font-noto-serif)', 'var(--font-noto-malayalam)', 'serif'],
+        headline: ['var(--font-noto-serif)', 'var(--font-noto-malayalam)', 'serif'],
         code: ['monospace'],
       },
       colors: {
