@@ -51,7 +51,7 @@ interface MediaItem {
 
 function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioItems, onMediaClick: (media: MediaItem, e: React.MouseEvent) => void }) {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
       {portfolioItems[category].map((item, index) => (
         <Card key={index} className="overflow-hidden border-border/50 group">
           <CardContent className="p-0 aspect-[9/16]">
@@ -123,14 +123,14 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="py-16 md:py-24 bg-card">
+    <section id="portfolio" className="py-12 sm:py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="font-headline text-4xl md:text-5xl font-bold">Portfolio</h2>
-          <p className="text-lg text-foreground/70 mt-2">A Glimpse of My Artistry</p>
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">Portfolio</h2>
+          <p className="text-base sm:text-lg text-foreground/70 mt-2">A Glimpse of My Artistry</p>
         </div>
         <Tabs defaultValue="weddings" className="w-full">
-          <TabsList className="flex flex-wrap justify-center md:grid md:grid-cols-4 h-auto mb-8">
+          <TabsList className="flex flex-wrap justify-center md:grid md:grid-cols-4 h-auto mb-6 sm:mb-8 gap-1">
             <TabsTrigger value="weddings">Wedding Makeovers</TabsTrigger>
             <TabsTrigger value="hairstyles">Hairstyles</TabsTrigger>
             <TabsTrigger value="draping">Saree Draping</TabsTrigger>
@@ -141,7 +141,7 @@ export default function Portfolio() {
           <TabsContent value="draping"><Gallery category="draping" onMediaClick={handleMediaClick} /></TabsContent>
           <TabsContent value="fashion"><Gallery category="fashion" onMediaClick={handleMediaClick} /></TabsContent>
         </Tabs>
-        <div className="text-center mt-12">
+        <div className="text-center mt-8 sm:mt-12">
           <Button size="lg" asChild>
             <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" onClick={handleInstagramClick}>
               <Instagram className="mr-2 h-5 w-5" />
