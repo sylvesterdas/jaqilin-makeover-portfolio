@@ -25,6 +25,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     null,
   );
   const [visible, setVisible] = useState(9);
+  const [hovered, setHovered] = useState<string | null>(null)
   const startX = useRef(0)
 
   const currentIndex = selectedMedia
@@ -190,10 +191,16 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
             <div
               key={post.id}
               onClick={() => setSelectedMedia(post)}
+              onMouseEnter={() => setHovered(post.id)}
+              onMouseLeave={() => setHovered(null)}
               className="relative aspect-[4/5] overflow-hidden cursor-pointer group rounded-sm hover:rounded-md transition-all select-none group-hover:shadow-lg"
             >
               {post.media_type === "VIDEO" ? (
-                <AutoVideo src={post.media_url} poster={post.thumbnail_url} />
+                <AutoVideo
+                  src={post.media_url}
+                  poster={post.thumbnail_url}
+                  play={hovered === post.id}
+                />
               ) : (
                 <img
                   src={post.media_url}
@@ -208,15 +215,9 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
 
               {post.media_type === "VIDEO" && (
                 <div className="absolute top-2 right-2 text-white drop-shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Play size={20} fill="white" />
+                  <Play size={20} fill="white" className="text-white drop-shadow-lg animate-pulse" />
                 </div>
               )}
-
-              <div
-                className="absolute inset-0 z-10"
-                onContextMenu={(e) => e.preventDefault()}
-                onDragStart={(e) => e.preventDefault()}
-              />
 
               <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <div className="bg-black/60 backdrop-blur-sm p-1.5 rounded-full">
