@@ -221,13 +221,13 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
       {/* Fullscreen Viewer */}
       {selectedMedia && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-40 flex items-center justify-center bg-black/80 backdrop-blur-sm"
           onClick={() => setSelectedMedia(null)}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
           <button
-            className="absolute top-4 right-4 text-white"
+            className="absolute top-4 right-4 text-white z-50 p-2"
             onClick={() => setSelectedMedia(null)}
           >
             <X size={32} />
