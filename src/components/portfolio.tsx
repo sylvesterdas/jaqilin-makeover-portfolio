@@ -1,232 +1,267 @@
+"use client";
 
-'use client';
-import Image from 'next/image';
-import { Card, CardContent } from '@/components/ui/card';
-import { useState, useEffect } from 'react';
-import { Instagram, X } from 'lucide-react';
-import { Button } from './ui/button';
-import { event } from '@/lib/events';
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { Instagram, X, Play } from "lucide-react";
+import { Button } from "./ui/button";
+import { event } from "@/lib/events";
 import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
+import AutoVideo from "@/components/auto-video";
 
-const portfolioItems = {
-  weddings: [
-    { type: 'image', src: '/images/portfolio/weddings/1.jpg', alt: 'Bride with elegant makeup', hint: 'bride makeup' },
-    { type: 'image', src: '/images/portfolio/weddings/2.jpg', alt: 'Close-up of bridal eye makeup', hint: 'hindu bridal makeup' },
-    { type: 'image', src: '/images/portfolio/weddings/3.jpg', alt: 'Happy bride on her wedding day', hint: 'north indian bride' },
-    { type: 'image', src: '/images/portfolio/weddings/4.jpg', alt: 'Bride showing her full wedding attire', hint: 'hindu wedding look' },
-    { type: 'image', src: '/images/portfolio/weddings/wed-2.jpeg', alt: 'Bride showing her full temple look makeup', hint: 'temple look makeup' },
-    { type: 'image', src: '/images/portfolio/weddings/wed-1.jpg', alt: 'Christian Bride in her wedding attire', hint: 'wedding chritian girl' },
-    { type: 'image', src: '/images/portfolio/weddings/wed-3.jpeg', alt: 'Bride showing her full makeup', hint: 'hindu bridal makeup' },
-  ],
-  hairstyles: [
-    { type: 'image', src: '/images/portfolio/hairstyles/1.jpg', alt: 'Elegant bridal hairstyle', hint: 'bridal hairstyle' },
-    { type: 'video', src: '/videos/portfolio/hairstyles/1.mp4', alt: 'Video of a stylish hairdo', hint: 'hairstyle video' },
-    { type: 'image', src: '/images/portfolio/hairstyles/2.jpg', alt: 'Close-up of intricate hair design', hint: 'intricate hairstyle' },
-    { type: 'video', src: '/videos/portfolio/hairstyles/2.mp4', alt: 'Video showcasing a beautiful hairstyle', hint: 'hairstyle showcase' },
-    { type: 'image', src: '/images/portfolio/hairstyles/3.jpg', alt: 'Modern hairstyle for an event', hint: 'modern hairstyle' },
-    { type: 'image', src: '/images/portfolio/hairstyles/hair-1.jpeg', alt: 'Twist braid style for temple look', hint: 'braids hairstyle' },
-    { type: 'image', src: '/images/portfolio/hairstyles/4.jpg', alt: 'Braids for the Jack Sparow look', hint: 'braids hairstyle' },
-  ],
-  draping: [
-    { type: 'image', src: '/images/portfolio/draping/1.jpg', alt: 'Woman in an elegantly draped saree', hint: 'indian saree' },
-    { type: 'image', src: '/images/portfolio/draping/2.jpg', alt: 'Woman in an elegantly draped saree', hint: 'saree draping' },
-    { type: 'image', src: '/images/portfolio/draping/3.jpg', alt: 'Woman in an elegantly draped saree', hint: 'kerala hindu bride saree draping' },
-    { type: 'image', src: '/images/portfolio/draping/sar-1.jpg', alt: 'Christian girl in an elegantly draped saree', hint: 'kerala christian bride saree draping' },
-    { type: 'image', src: '/images/portfolio/draping/sar-2.jpeg', alt: 'Temple look elegantly draped saree', hint: 'kerala hindu temple look saree draping' },
-    { type: 'image', src: '/images/portfolio/draping/sar-3.jpeg', alt: 'Hindu bride elegantly draped saree', hint: 'kerala hindu bridal saree draping' },
-  ],
-  fashion: [
-    { type: 'image', src: '/images/portfolio/fashion/1.jpg', alt: 'Model with avant-garde fashion makeup', hint: 'fashion model' },
-    { type: 'image', src: '/images/portfolio/fashion/2.jpg', alt: 'Model on a runway with cool hairstyle', hint: 'runway model' },
-    { type: 'image', src: '/images/portfolio/fashion/3.jpg', alt: 'Model with avant-garde fashion makeup', hint: 'runway model' },
-    { type: 'image', src: '/images/portfolio/hairstyles/4.jpg', alt: 'Braids for the Jack Sparow look', hint: 'braids hairstyle' },
-  ],
-};
-
-interface MediaItem {
-  type: 'image' | 'video';
-  src: string;
+interface InstagramPost {
+  id: string;
+  media_url: string;
+  permalink: string;
+  media_type: string;
+  thumbnail_url?: string;
 }
 
-
-function Gallery({ category, onMediaClick }: { category: keyof typeof portfolioItems, onMediaClick: (media: MediaItem, e: React.MouseEvent) => void }) {
-  return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-      {portfolioItems[category].map((item, index) => (
-        <Card key={index} className="overflow-hidden border-border/50 group rounded-2xl shadow-sm">
-          <CardContent className="p-0 aspect-[9/16]">
-            {item.type === 'image' ? (
-              <Image
-                src={item.src}
-                alt={item.alt}
-                width={600}
-                height={800}
-                priority
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
-                className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 cursor-pointer"
-                data-ai-hint={item.hint}
-                onContextMenu={(e) => e.preventDefault()}
-                onClick={(e) => onMediaClick(item as any, e)}
-              />
-            ) : (
-              <video
-                src={item.src}
-                width="600"
-                height="800"
-                className="w-full h-full object-cover cursor-pointer transform group-hover:scale-110 transition-transform duration-500"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="auto"
-                onContextMenu={(e) => e.preventDefault()}
-                onClick={(e) => onMediaClick(item as any, e)}
-              >
-                Your browser does not support the video tag.
-              </video>
-            )}
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  );
-}
-
-export default function Portfolio() {
+export default function Portfolio({ data }: { data: InstagramPost[] }) {
   const { locale } = useLocale();
   const inMalayalam = isMalayalam(locale);
-  const [selectedMedia, setSelectedMedia] = useState<MediaItem | null>(null);
 
-  const handleMediaClick = (media: MediaItem, e: React.MouseEvent) => {
-    e.preventDefault();
-    setSelectedMedia(media);
-  };
+  const [selectedMedia, setSelectedMedia] = useState<InstagramPost | null>(
+    null,
+  );
+  const [visible, setVisible] = useState(9);
+
+  const currentIndex = selectedMedia
+    ? data.findIndex(p => p.id === selectedMedia.id)
+    : -1
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (!selectedMedia) return
+
+      if (["ArrowLeft", "ArrowRight"].includes(e.key)) {
+        e.preventDefault()
+      }
+
+      const index = data.findIndex(p => p.id === selectedMedia.id)
+
+      if (e.key === "ArrowRight" && index < data.length - 1) {
+        setSelectedMedia(data[index + 1])
+      }
+
+      if (e.key === "ArrowLeft" && index > 0) {
+        setSelectedMedia(data[index - 1])
+      }
+    }
+
+    window.addEventListener("keydown", handler)
+
+    return () => window.removeEventListener("keydown", handler)
+  }, [selectedMedia, data])
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        setSelectedMedia(null);
-      }
+      if (event.key === "Escape") setSelectedMedia(null);
     };
-    window.addEventListener('keydown', handleEsc);
 
-    return () => {
-      window.removeEventListener('keydown', handleEsc);
-    };
+    window.addEventListener("keydown", handleEsc);
+    return () => window.removeEventListener("keydown", handleEsc);
   }, []);
+
+  useEffect(() => {
+    const blockKeys = (e: KeyboardEvent) => {
+      if (
+        (e.ctrlKey && e.key === "s") ||
+        (e.ctrlKey && e.key === "u") ||
+        e.key === "F12"
+      ) {
+        e.preventDefault()
+      }
+    }
+
+    window.addEventListener("keydown", blockKeys)
+    return () => window.removeEventListener("keydown", blockKeys)
+  }, [])
+
+  useEffect(() => {
+    if (!selectedMedia) {
+      document.querySelectorAll("video").forEach(v => v.pause())
+    }
+  }, [selectedMedia])
+
+  useEffect(() => {
+    if (currentIndex >= 0 && currentIndex < data.length - 1) {
+      const img = new window.Image()
+      img.src = data[currentIndex + 1].media_url
+    }
+  }, [currentIndex, data])
+
+  useEffect(() => {
+    if (selectedMedia) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = ""
+    }
+  }, [selectedMedia])
+
+  let startX = 0
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    startX = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const endX = e.changedTouches[0].clientX
+    const diff = startX - endX
+
+    if (diff > 50 && currentIndex < data.length - 1)
+      setSelectedMedia(data[currentIndex + 1])
+
+    if (diff < -50 && currentIndex > 0)
+      setSelectedMedia(data[currentIndex - 1])
+  }
 
   const handleInstagramClick = () => {
     event({
-        action: 'click_instagram',
-        category: 'engagement',
-        label: 'Portfolio Section',
-        value: 1,
+      action: "click_instagram",
+      category: "engagement",
+      label: "Portfolio Section",
+      value: 1,
     });
   };
 
   return (
     <section id="portfolio" className="py-12 sm:py-16 md:py-24 bg-card">
       <div className="container mx-auto px-4">
+        {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">
             {inMalayalam ? "പോർട്ട്ഫോളിയോ" : "Portfolio"}
           </h2>
+
           <p className="text-base sm:text-lg text-foreground/70 mt-2">
-            {inMalayalam ? "എന്റെ പുതിയ പ്രവൃത്തികൾ" : "A Glimpse of My Artistry"}
+            {inMalayalam
+              ? "എന്റെ പുതിയ പ്രവൃത്തികൾ"
+              : "A Glimpse of My Artistry"}
           </p>
         </div>
-        <div className="space-y-12 sm:space-y-16">
-          <div>
-            <div className="mb-4 sm:mb-6 flex items-center justify-between gap-4">
-              <h3 className="font-headline text-2xl sm:text-3xl text-primary">
-                {inMalayalam ? "വിവാഹ മേക്കപ്പ്" : "Wedding Makeovers"}
-              </h3>
-              <span className="hidden sm:inline-flex h-px flex-1 bg-border/60" />
+
+        {/* Instagram Grid */}
+        <div className="grid grid-cols-3 gap-2 md:gap-3">
+          {data.slice(0, visible).map((post) => (
+            <div
+              key={post.id}
+              onClick={() => setSelectedMedia(post)}
+              className="relative aspect-[4/5] overflow-hidden cursor-pointer group rounded-sm hover:rounded-md transition-all select-none group-hover:shadow-lg"
+            >
+
+              {post.media_type === "VIDEO" ? (
+                <AutoVideo
+                  src={post.media_url}
+                  poster={post.thumbnail_url}
+                />
+              ) : (
+                <img
+                  src={post.media_url}
+                  loading="lazy"
+                  draggable={false}
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                />
+              )}
+
+              {/* hover overlay */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+
+              {/* reels icon */}
+              {post.media_type === "VIDEO" && (
+                <div className="absolute top-2 right-2 text-white drop-shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <Play size={20} fill="white" />
+                </div>
+              )}
+
+              <div className="absolute inset-0 z-10"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+              />
+
+              {/* instagram badge */}
+              <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                <div className="bg-black/60 backdrop-blur-sm p-1.5 rounded-full">
+                  <Instagram size={14} className="text-white" />
+                </div>
+              </div>
             </div>
-            <div className="rounded-2xl border border-border/60 bg-background/40 p-3 sm:p-4 shadow-sm">
-              <Gallery category="weddings" onMediaClick={handleMediaClick} />
-            </div>
-          </div>
-          <div>
-            <div className="mb-4 sm:mb-6 flex items-center justify-between gap-4">
-              <h3 className="font-headline text-2xl sm:text-3xl text-primary">
-                {inMalayalam ? "ഹെയർ സ്റ്റൈൽ" : "Hairstyles"}
-              </h3>
-              <span className="hidden sm:inline-flex h-px flex-1 bg-border/60" />
-            </div>
-            <div className="rounded-2xl border border-border/60 bg-background/40 p-3 sm:p-4 shadow-sm">
-              <Gallery category="hairstyles" onMediaClick={handleMediaClick} />
-            </div>
-          </div>
-          <div>
-            <div className="mb-4 sm:mb-6 flex items-center justify-between gap-4">
-              <h3 className="font-headline text-2xl sm:text-3xl text-primary">
-                {inMalayalam ? "സാരി ഡ്രേപ്പിംഗ്" : "Saree Draping"}
-              </h3>
-              <span className="hidden sm:inline-flex h-px flex-1 bg-border/60" />
-            </div>
-            <div className="rounded-2xl border border-border/60 bg-background/40 p-3 sm:p-4 shadow-sm">
-              <Gallery category="draping" onMediaClick={handleMediaClick} />
-            </div>
-          </div>
-          <div>
-            <div className="mb-4 sm:mb-6 flex items-center justify-between gap-4">
-              <h3 className="font-headline text-2xl sm:text-3xl text-primary">
-                {inMalayalam ? "ഫാഷൻ ഷോ" : "Fashion Shows"}
-              </h3>
-              <span className="hidden sm:inline-flex h-px flex-1 bg-border/60" />
-            </div>
-            <div className="rounded-2xl border border-border/60 bg-background/40 p-3 sm:p-4 shadow-sm">
-              <Gallery category="fashion" onMediaClick={handleMediaClick} />
-            </div>
-          </div>
+          ))}
         </div>
+
+        {/* Load More */}
+        {visible < data.length && (
+          <div className="text-center mt-10">
+            <Button onClick={() => setVisible((v) => v + 9)}>
+              {inMalayalam ? "കൂടുതൽ കാണുക" : "Load More"}
+            </Button>
+          </div>
+        )}
+
+        {/* Instagram Button */}
         <div className="text-center mt-8 sm:mt-12">
           <Button size="lg" asChild>
-            <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" onClick={handleInstagramClick}>
+            <a
+              href="https://www.instagram.com/jaqilinmua"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleInstagramClick}
+            >
               <Instagram className="mr-2 h-5 w-5" />
-              {inMalayalam ? "Instagram-ൽ കൂടുതൽ കാണൂ" : "Show More on Instagram"}
+
+              {inMalayalam
+                ? "Instagram-ൽ കൂടുതൽ കാണൂ"
+                : "Show More on Instagram"}
             </a>
           </Button>
         </div>
       </div>
 
+      {/* Fullscreen Viewer */}
       {selectedMedia && (
-        <div 
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm animate-in fade-in-0"
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm"
           onClick={() => setSelectedMedia(null)}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
-          <button 
-            className="absolute top-4 right-4 text-white z-50"
+          <button
+            className="absolute top-4 right-4 text-white"
             onClick={() => setSelectedMedia(null)}
           >
             <X size={32} />
           </button>
-          <div className="relative w-[90vw] h-[90vh] animate-in fade-in-0 zoom-in-95"
+
+          <div
+            className="relative w-[90vw] h-[90vh] cursor-pointer"
             onClick={(e) => e.stopPropagation()}
           >
-            {selectedMedia.type === 'image' ? (
-                <Image 
-                  src={selectedMedia.src}
-                  alt="Fullscreen portfolio image"
-                  fill
-                  sizes="(max-width: 768px) 75vw, (max-width: 1200px) 50vw"
-                  className="object-contain"
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              ) : (
-                <video 
-                  src={selectedMedia.src}
-                  className="w-full h-full object-contain"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  onContextMenu={(e) => e.preventDefault()}
-                />
-              )
-            }
+            {selectedMedia.media_type === "VIDEO" ? (
+              <video
+                src={selectedMedia.media_url}
+                className="w-full h-full object-contain"
+                preload="metadata"
+                autoPlay
+                loop
+                muted
+                controls
+                playsInline
+                controlsList="nodownload"
+                onContextMenu={(e) => e.preventDefault()}
+              />
+            ) : (
+              <Image
+                src={selectedMedia.media_url}
+                alt="Instagram post"
+                fill
+                priority
+                sizes="(max-width:768px) 75vw, (max-width:1200px) 50vw"
+                draggable={false}
+                onContextMenu={(e) => e.preventDefault()}
+                className="object-contain"
+              />
+            )}
           </div>
         </div>
       )}

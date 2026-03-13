@@ -6,6 +6,7 @@ import Portfolio from '@/components/portfolio';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
 import type { Metadata } from 'next';
+import { getInstagramPosts } from '@/lib/instagram';
 
 export const metadata: Metadata = {
   alternates: {
@@ -13,14 +14,17 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+
+  const posts = await getInstagramPosts();
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
         <Hero />
         <Services />
-        <Portfolio />
+        <Portfolio data={posts} />
         <Contact />
       </main>
       <Footer />
