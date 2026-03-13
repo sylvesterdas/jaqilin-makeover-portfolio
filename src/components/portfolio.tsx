@@ -99,6 +99,22 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     }
   }, [selectedMedia])
 
+  useEffect(() => {
+    if (!selectedMedia) return
+
+    const closeOnBack = () => {
+      setSelectedMedia(null)
+    }
+
+    window.history.pushState({ fullscreen: true }, "")
+
+    window.addEventListener("popstate", closeOnBack)
+
+    return () => {
+      window.removeEventListener("popstate", closeOnBack)
+    }
+  }, [selectedMedia])
+
   let startX = 0
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -221,14 +237,20 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
       {/* Fullscreen Viewer */}
       {selectedMedia && (
         <div
-          className="fixed inset-0 z-40 flex items-center justify-center bg-black/80 backdrop-blur-sm"
-          onClick={() => setSelectedMedia(null)}
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm touch-pan-y"
+          onClick={() => {
+            setSelectedMedia(null)
+            window.history.back()
+          }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
           <button
-            className="absolute top-4 right-4 text-white z-50 p-2"
-            onClick={() => setSelectedMedia(null)}
+            className="absolute top-4 right-4 text-white z-[110] p-2"
+            onClick={() => {
+              setSelectedMedia(null)
+              window.history.back()
+            }}
           >
             <X size={32} />
           </button>
