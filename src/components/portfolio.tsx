@@ -240,7 +240,6 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm touch-pan-y"
           onClick={() => {
             setSelectedMedia(null)
-            window.history.back()
           }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -249,7 +248,6 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
             className="absolute top-4 right-4 text-white z-[110] p-2"
             onClick={() => {
               setSelectedMedia(null)
-              window.history.back()
             }}
           >
             <X size={32} />
