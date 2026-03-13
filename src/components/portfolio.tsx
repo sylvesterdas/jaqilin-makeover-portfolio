@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Instagram, X, Play } from "lucide-react";
 import { Button } from "./ui/button";
 import { event } from "@/lib/events";
@@ -25,6 +25,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     null,
   );
   const [visible, setVisible] = useState(9);
+  const startX = useRef(0)
 
   const currentIndex = selectedMedia
     ? data.findIndex(p => p.id === selectedMedia.id)
@@ -38,25 +39,28 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
         e.preventDefault()
       }
 
-      const index = data.findIndex(p => p.id === selectedMedia.id)
-
-      if (e.key === "ArrowRight" && index < data.length - 1) {
-        setSelectedMedia(data[index + 1])
+      if (e.key === "ArrowRight" && currentIndex < data.length - 1) {
+        setSelectedMedia(data[currentIndex + 1])
       }
 
-      if (e.key === "ArrowLeft" && index > 0) {
-        setSelectedMedia(data[index - 1])
+      if (e.key === "ArrowLeft" && currentIndex > 0) {
+        setSelectedMedia(data[currentIndex - 1])
       }
     }
 
     window.addEventListener("keydown", handler)
 
     return () => window.removeEventListener("keydown", handler)
-  }, [selectedMedia, data])
+  }, [selectedMedia, data, currentIndex])
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setSelectedMedia(null);
+      if (event.key === "Escape") {
+        setSelectedMedia(null)
+        if (window.history.state?.fullscreen) {
+          window.history.back()
+        }
+      }
     };
 
     window.addEventListener("keydown", handleEsc);
@@ -86,16 +90,24 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
 
   useEffect(() => {
     if (currentIndex >= 0 && currentIndex < data.length - 1) {
-      const img = new window.Image()
-      img.src = data[currentIndex + 1].media_url
+      const next = data[currentIndex + 1]
+
+      if (next.media_type !== "VIDEO") {
+        const img = new window.Image()
+        img.src = next.media_url
+      }
     }
   }, [currentIndex, data])
 
   useEffect(() => {
+    const prev = document.body.style.overflow
+
     if (selectedMedia) {
       document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = ""
+    }
+
+    return () => {
+      document.body.style.overflow = prev
     }
   }, [selectedMedia])
 
@@ -115,15 +127,16 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     }
   }, [selectedMedia])
 
-  let startX = 0
-
   const handleTouchStart = (e: React.TouchEvent) => {
-    startX = e.touches[0].clientX
+    if (!selectedMedia) return
+    startX.current = e.touches[0].clientX
   }
 
   const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!selectedMedia) return
+
     const endX = e.changedTouches[0].clientX
-    const diff = startX - endX
+    const diff = startX.current - endX
 
     if (diff > 50 && currentIndex < data.length - 1)
       setSelectedMedia(data[currentIndex + 1])
@@ -209,7 +222,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
         {/* Load More */}
         {visible < data.length && (
           <div className="text-center mt-10">
-            <Button onClick={() => setVisible((v) => v + 9)}>
+            <Button onClick={() => setVisible((v) => Math.min(v + 9, data.length))}>
               {inMalayalam ? "കൂടുതൽ കാണുക" : "Load More"}
             </Button>
           </div>
@@ -237,28 +250,38 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
       {/* Fullscreen Viewer */}
       {selectedMedia && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm touch-pan-y"
-          onClick={() => {
-            setSelectedMedia(null)
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm touch-pan-y select-none overscroll-contain"
+          onClick={(e) => {
+            if (e.target === e.currentTarget) {
+              setSelectedMedia(null)
+              if (window.history.state?.fullscreen) {
+                window.history.back()
+              }
+            }
           }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
           <button
             className="absolute top-4 right-4 text-white z-[110] p-2"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation()
               setSelectedMedia(null)
+              if (window.history.state?.fullscreen) {
+                window.history.back()
+              }
             }}
           >
             <X size={32} />
           </button>
 
           <div
-            className="relative w-[90vw] h-[90vh] cursor-pointer"
+            className="relative w-[90vw] h-[90vh] cursor-ew-resize"
             onClick={(e) => e.stopPropagation()}
           >
             {selectedMedia.media_type === "VIDEO" ? (
               <video
+                key={selectedMedia.id}
                 src={selectedMedia.media_url}
                 className="w-full h-full object-contain"
                 preload="metadata"
@@ -272,6 +295,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
               />
             ) : (
               <Image
+                key={selectedMedia.id}
                 src={selectedMedia.media_url}
                 alt="Instagram post"
                 fill
