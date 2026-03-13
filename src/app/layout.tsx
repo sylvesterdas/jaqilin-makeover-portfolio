@@ -160,6 +160,9 @@ export default async function RootLayout({
       className={`${notoSerif.variable} ${notoMalayalam.variable}`}
       suppressHydrationWarning
     >
+      <head>
+        <meta property="fb:app_id" content="1408777984626519" />
+      </head>
       <body
         className={cn(
           "min-h-screen bg-background font-body text-foreground antialiased",
