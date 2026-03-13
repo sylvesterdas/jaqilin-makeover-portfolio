@@ -53,9 +53,9 @@ export default function Hero() {
       ))}
       <div className="absolute inset-0 bg-gradient-to-t from-white/85 via-white/45 to-white/10 md:bg-gradient-to-r md:from-white/80 md:via-white/40 md:to-white/10 z-10" />
 
-      <div className="relative z-20 container mx-auto px-4 pb-16 sm:pb-20 md:pb-0 md:px-8">
-        <div className="md:max-w-max rounded-2xl bg-white/60 p-4 px-2 sm:p-5 sm:px-3 md:p-6 md:px-4 backdrop-blur-[4px] shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
-          <h1 className="font-headline text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary text-balance leading-tight">
+      <div className="relative z-20 container mx-auto px-4 pb-10 sm:pb-14 md:pb-0 md:px-8">
+        <div className="max-w-[340px] mx-auto md:max-w-max rounded-2xl bg-white/60 p-3 px-2 sm:p-4 sm:px-3 md:p-6 md:px-4 backdrop-blur-[4px] shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+          <h1 className="font-headline text-xl sm:text-2xl md:text-4xl lg:text-5xl text-primary text-balance leading-[1.15]">
             {inMalayalam ? (
               <>
                 <span className="block text-[1.3em]">ബ്രൈഡൽ</span>
@@ -66,7 +66,7 @@ export default function Hero() {
             )}
           </h1>
 
-          <p className="mt-2 sm:mt-3 font-headline text-lg sm:text-xl md:text-2xl text-foreground/90">
+          <p className="mt-2 sm:mt-3 font-headline text-base sm:text-lg md:text-2xl text-foreground/90">
             {inMalayalam
               ? "നാചുറൽ ബ്രൈഡൽ മേക്കപ്പ്"
               : "Natural bridal makeup"}
@@ -89,7 +89,7 @@ export default function Hero() {
 
           <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3">
             <Button
-              size="lg"
+              size="default"
               asChild
               className="bg-primary text-primary-foreground hover:bg-accent w-full sm:w-auto"
             >
@@ -105,7 +105,7 @@ export default function Hero() {
             </Button>
 
             <Button
-              size="lg"
+              size="default"
               variant="outline"
               asChild
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"

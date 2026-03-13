@@ -47,10 +47,10 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-12 sm:py-16 md:py-24 bg-background">
+    <section id="services" className="py-8 sm:py-10 md:py-14 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">{inMalayalam ? "ഞങ്ങളുടെ സേവനങ്ങൾ" : "Our Services"}</h2>
+          <h2 className="font-headline text-2xl sm:text-3xl md:text-4xl font-bold">{inMalayalam ? "ഞങ്ങളുടെ സേവനങ്ങൾ" : "Our Services"}</h2>
           {/* <p className="text-lg text-foreground/70 mt-2">Crafting beauty for every occasion.</p> */}
           <p className="text-xs sm:text-sm text-foreground/70 mt-2 mx-4 sm:mx-8">
             {inMalayalam
@@ -58,20 +58,42 @@ export default function Services() {
               : "Custom packages available based on function, timing, and number of people."}
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <Card key={index} className="bg-card border-border/50 text-center p-5 sm:p-6 transform hover:scale-105 transition-transform duration-300">
-              <CardHeader className="items-center">
-                <div className="p-3 sm:p-4 bg-background rounded-full mb-3 sm:mb-4">
-                    {service.icon}
-                </div>
-                <CardTitle className="font-headline text-xl sm:text-2xl text-primary">{service.title}</CardTitle>
-              </CardHeader>
-              <CardDescription className="text-foreground/80 text-sm sm:text-base">
-                {service.description}
-              </CardDescription>
-            </Card>
-          ))}
+        <div className="max-w-2xl mx-auto mt-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-3 text-sm sm:text-base text-foreground/80">
+
+            <div className="flex items-center gap-2 py-1">
+              <Heart className="w-4 h-4 text-primary/80 shrink-0" />
+              <span>{inMalayalam ? "വിവാഹ മേക്കോവർ പാക്കേജുകൾ" : "Wedding makeover packages"}</span>
+            </div>
+
+            <div className="flex items-center gap-2 py-1">
+              <Gem className="w-4 h-4 text-primary/80 shrink-0" />
+              <span>{inMalayalam ? "എൻഗേജ്മെന്റ് & റിസപ്ഷൻ ലുക്ക്" : "Engagement & reception looks"}</span>
+            </div>
+
+            <div className="flex items-center gap-2 py-1">
+              <Users className="w-4 h-4 text-primary/80 shrink-0" />
+              <span>{inMalayalam ? "ഗസ്റ്റ് / ഫാമിലി മേക്കപ്പ്" : "Guest & family makeup"}</span>
+            </div>
+
+            <div className="flex items-center gap-2 py-1">
+              <Gem className="w-4 h-4 text-primary/80 shrink-0" />
+              <span>{inMalayalam ? "സാരി ഡ്രേപ്പിംഗ്" : "Saree draping"}</span>
+            </div>
+
+            <div className="flex items-center gap-2 py-1">
+              <Clapperboard className="w-4 h-4 text-primary/80 shrink-0" />
+              <span>{inMalayalam ? "ഫാഷൻ ഷോ മേക്കപ്പ്" : "Fashion show makeup"}</span>
+            </div>
+
+            <div className="flex items-center gap-2 py-1">
+              <Heart className="w-4 h-4 text-primary/80 shrink-0" />
+              <span>
+                {inMalayalam ? "ഹെയർ സ്റ്റൈലിംഗ്" : "Hair styling"}
+              </span>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
