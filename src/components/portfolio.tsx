@@ -31,6 +31,15 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     ? data.findIndex(p => p.id === selectedMedia.id)
     : -1
 
+  const closeModal = () => {
+    setSelectedMedia(null);
+
+    if (window.history.state?.fullscreen) {
+      window.history.back();
+    }
+  };
+
+  /* Keyboard navigation */
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (!selectedMedia) return
@@ -53,20 +62,19 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     return () => window.removeEventListener("keydown", handler)
   }, [selectedMedia, data, currentIndex])
 
+  /* Escape key */
   useEffect(() => {
-    const handleEsc = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setSelectedMedia(null)
-        if (window.history.state?.fullscreen) {
-          window.history.back()
-        }
+    const esc = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeModal();
       }
     };
 
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
+    window.addEventListener("keydown", esc);
+    return () => window.removeEventListener("keydown", esc);
   }, []);
 
+  /* Block devtools shortcuts */
   useEffect(() => {
     const blockKeys = (e: KeyboardEvent) => {
       if (
@@ -82,12 +90,14 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     return () => window.removeEventListener("keydown", blockKeys)
   }, [])
 
+  /* Pause videos when modal closes */
   useEffect(() => {
     if (!selectedMedia) {
-      document.querySelectorAll("#portfolio video").forEach((v) => v.pause())
+      document.querySelectorAll("#portfolio video").forEach((v) => (v as any).pause())
     }
   }, [selectedMedia])
 
+  /* Preload next image */
   useEffect(() => {
     if (currentIndex >= 0 && currentIndex < data.length - 1) {
       const next = data[currentIndex + 1]
@@ -99,6 +109,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     }
   }, [currentIndex, data])
 
+  /* Lock scroll when modal open */
   useEffect(() => {
     const prev = document.body.style.overflow
 
@@ -111,25 +122,21 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     }
   }, [selectedMedia])
 
+  /* Modal history handling */
   useEffect(() => {
     if (!selectedMedia) return
 
-    const closeOnBack = () => {
-      setSelectedMedia(null)
-    }
+    const closeOnBack = () => setSelectedMedia(null);
 
-    // push only one modal state
     if (!window.history.state?.fullscreen) {
       window.history.pushState({ fullscreen: true }, "")
     }
 
     window.addEventListener("popstate", closeOnBack)
-
-    return () => {
-      window.removeEventListener("popstate", closeOnBack)
-    }
+    return () => window.removeEventListener("popstate", closeOnBack)
   }, [selectedMedia])
 
+  /* Swipe navigation */
   const handleTouchStart = (e: React.TouchEvent) => {
     if (!selectedMedia) return
     startX.current = e.touches[0].clientX
@@ -141,11 +148,13 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     const endX = e.changedTouches[0].clientX
     const diff = startX.current - endX
 
-    if (diff > 50 && currentIndex < data.length - 1)
+    if (diff > 50 && currentIndex < data.length - 1) {
       setSelectedMedia(data[currentIndex + 1])
+    }
 
-    if (diff < -50 && currentIndex > 0)
+    if (diff < -50 && currentIndex > 0) {
       setSelectedMedia(data[currentIndex - 1])
+    }
   }
 
   const handleInstagramClick = () => {
@@ -159,20 +168,20 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
 
   return (
     <section id="portfolio" className="py-12 sm:py-16 md:py-24 bg-card">
+      {" "}
       <div className="container mx-auto px-4">
-        {/* Header */}
+        {/* Header */}{" "}
         <div className="text-center mb-8 sm:mb-12">
+          {" "}
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">
-            {inMalayalam ? "പോർട്ട്ഫോളിയോ" : "Portfolio"}
+            {inMalayalam ? "പോർട്ട്ഫോളിയോ" : "Portfolio"}{" "}
           </h2>
-
           <p className="text-base sm:text-lg text-foreground/70 mt-2">
             {inMalayalam
               ? "എന്റെ പുതിയ പ്രവൃത്തികൾ"
               : "A Glimpse of My Artistry"}
           </p>
         </div>
-
         {/* Instagram Grid */}
         <div className="grid grid-cols-3 gap-2 md:gap-3">
           {data.slice(0, visible).map((post) => (
@@ -181,12 +190,8 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
               onClick={() => setSelectedMedia(post)}
               className="relative aspect-[4/5] overflow-hidden cursor-pointer group rounded-sm hover:rounded-md transition-all select-none group-hover:shadow-lg"
             >
-
               {post.media_type === "VIDEO" ? (
-                <AutoVideo
-                  src={post.media_url}
-                  poster={post.thumbnail_url}
-                />
+                <AutoVideo src={post.media_url} poster={post.thumbnail_url} />
               ) : (
                 <img
                   src={post.media_url}
@@ -197,23 +202,21 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
                 />
               )}
 
-              {/* hover overlay */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
 
-              {/* reels icon */}
               {post.media_type === "VIDEO" && (
                 <div className="absolute top-2 right-2 text-white drop-shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <Play size={20} fill="white" />
                 </div>
               )}
 
-              <div className="absolute inset-0 z-10"
+              <div
+                className="absolute inset-0 z-10"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
               />
 
-              {/* instagram badge */}
-              <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+              <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
                 <div className="bg-black/60 backdrop-blur-sm p-1.5 rounded-full">
                   <Instagram size={14} className="text-white" />
                 </div>
@@ -221,16 +224,16 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
             </div>
           ))}
         </div>
-
         {/* Load More */}
         {visible < data.length && (
           <div className="text-center mt-10">
-            <Button onClick={() => setVisible((v) => Math.min(v + 9, data.length))}>
+            <Button
+              onClick={() => setVisible((v) => Math.min(v + 9, data.length))}
+            >
               {inMalayalam ? "കൂടുതൽ കാണുക" : "Load More"}
             </Button>
           </div>
         )}
-
         {/* Instagram Button */}
         <div className="text-center mt-8 sm:mt-12">
           <Button size="lg" asChild>
@@ -241,7 +244,6 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
               onClick={handleInstagramClick}
             >
               <Instagram className="mr-2 h-5 w-5" />
-
               {inMalayalam
                 ? "Instagram-ൽ കൂടുതൽ കാണൂ"
                 : "Show More on Instagram"}
@@ -249,18 +251,12 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
           </Button>
         </div>
       </div>
-
       {/* Fullscreen Viewer */}
       {selectedMedia && (
         <div
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm touch-pan-y select-none overscroll-contain"
           onClick={(e) => {
-            if (e.target === e.currentTarget) {
-              setSelectedMedia(null)
-              if (window.history.state?.fullscreen) {
-                window.history.back()
-              }
-            }
+            if (e.target === e.currentTarget) closeModal();
           }}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -268,11 +264,8 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
           <button
             className="absolute top-4 right-4 text-white z-[110] p-2"
             onClick={(e) => {
-              e.stopPropagation()
-              setSelectedMedia(null)
-              if (window.history.state?.fullscreen) {
-                window.history.back()
-              }
+              e.stopPropagation();
+              closeModal();
             }}
           >
             <X size={32} />
