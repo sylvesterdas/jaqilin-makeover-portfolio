@@ -84,7 +84,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
 
   useEffect(() => {
     if (!selectedMedia) {
-      document.querySelectorAll("video").forEach(v => v.pause())
+      document.querySelectorAll("#portfolio video").forEach((v) => v.pause())
     }
   }, [selectedMedia])
 
@@ -118,7 +118,10 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
       setSelectedMedia(null)
     }
 
-    window.history.pushState({ fullscreen: true }, "")
+    // push only one modal state
+    if (!window.history.state?.fullscreen) {
+      window.history.pushState({ fullscreen: true }, "")
+    }
 
     window.addEventListener("popstate", closeOnBack)
 
