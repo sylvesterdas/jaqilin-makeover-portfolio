@@ -64,6 +64,9 @@ export async function generateMetadata(): Promise<Metadata> {
       images: ["/images/hero-background.jpg"],
       creator: "@jaqilinmua",
     },
+    facebook: {
+      appId: '1408777984626519'
+    },
     icons: {
       icon: "/logo.png",
       shortcut: "/logo.png",

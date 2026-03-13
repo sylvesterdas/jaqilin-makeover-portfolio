@@ -102,7 +102,7 @@ export default function Portfolio() {
     e.preventDefault();
     setSelectedMedia(media);
   };
-  
+
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
@@ -233,5 +233,3 @@ export default function Portfolio() {
     </section>
   );
 }
-
-    
