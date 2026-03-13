@@ -93,7 +93,9 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
   /* Pause videos when modal closes */
   useEffect(() => {
     if (!selectedMedia) {
-      document.querySelectorAll("#portfolio video").forEach((v) => (v as any).pause())
+      document
+        .querySelectorAll<HTMLVideoElement>("#portfolio video")
+        .forEach((v) => v.pause());
     }
   }, [selectedMedia])
 
@@ -148,11 +150,13 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     const endX = e.changedTouches[0].clientX
     const diff = startX.current - endX
 
-    if (diff > 50 && currentIndex < data.length - 1) {
+    if (Math.abs(diff) < 50) return;
+
+    if (diff > 0 && currentIndex < data.length - 1) {
       setSelectedMedia(data[currentIndex + 1])
     }
 
-    if (diff < -50 && currentIndex > 0) {
+    if (diff < 0 && currentIndex > 0) {
       setSelectedMedia(data[currentIndex - 1])
     }
   }
@@ -168,13 +172,11 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
 
   return (
     <section id="portfolio" className="py-12 sm:py-16 md:py-24 bg-card">
-      {" "}
       <div className="container mx-auto px-4">
-        {/* Header */}{" "}
+        {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          {" "}
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">
-            {inMalayalam ? "പോർട്ട്ഫോളിയോ" : "Portfolio"}{" "}
+            {inMalayalam ? "പോർട്ട്ഫോളിയോ" : "Portfolio"}
           </h2>
           <p className="text-base sm:text-lg text-foreground/70 mt-2">
             {inMalayalam
