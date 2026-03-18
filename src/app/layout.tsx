@@ -48,10 +48,16 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Jaqilin Makeover",
       images: [
         {
-          url: "/images/hero-background.jpg",
+          url: "/images/og/og-main-1200x630.jpg",
           width: 1200,
           height: 630,
-          alt: "Bridal makeup by Jaqilin Makeover",
+          alt: "Bridal Makeup Artist in Thiruvananthapuram",
+        },
+        {
+          url: "/images/og/og-main-1200x1200.jpg",
+          width: 1200,
+          height: 1200,
+          alt: "Bridal Makeup Artist in Thiruvananthapuram",
         },
       ],
       locale: inMalayalam ? "ml_IN" : "en_IN",
@@ -61,7 +67,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: "summary_large_image",
       title,
       description,
-      images: ["/images/hero-background.jpg"],
+      images: ["/images/og/og-main-1200x630.jpg"],
       creator: "@jaqilinmua",
     },
     facebook: {
