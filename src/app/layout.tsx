@@ -21,6 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const description = inMalayalam
     ? "തിരുവനന്തപുരം, കാഞ്ഞിരംകുളം മേഖലയിലെ പ്രൊഫഷണൽ ബ്രൈഡൽ മേക്കപ്പ്. ലോങ്-വെയർ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ്. WhatsApp-ൽ ബുക്ക് ചെയ്യാം."
     : "Professional bridal makeup artist in Thiruvananthapuram offering natural, long-wear makeup with hair styling and saree draping. Home and venue service. Book on WhatsApp.";
+  const ogTitle =
+    "Bridal Makeup Artist in Thiruvananthapuram | Jaqilin Makeover";
+  const ogDescription =
+    "Professional bridal makeup artist in Thiruvananthapuram offering natural, long-wear makeup with hair styling and saree draping. Home and venue service. Book on WhatsApp.";
 
   return {
     metadataBase: new URL("https://www.jaqilinmakeover.com"),
@@ -42,8 +46,8 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: "/",
     },
     openGraph: {
-      title,
-      description,
+      title: ogTitle,
+      description: ogDescription,
       url: "https://www.jaqilinmakeover.com",
       siteName: "Jaqilin Makeover",
       images: [
@@ -65,8 +69,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: ogTitle,
+      description: ogDescription,
       images: ["/images/og/og-main-1200x630.jpg"],
       creator: "@jaqilinmua",
     },
@@ -168,6 +172,10 @@ export default async function RootLayout({
     >
       <head>
         <meta property="fb:app_id" content="1408777984626519" />
+        <meta
+          property="og:logo"
+          content="https://www.jaqilinmakeover.com/logo.png"
+        />
       </head>
       <body
         className={cn(
