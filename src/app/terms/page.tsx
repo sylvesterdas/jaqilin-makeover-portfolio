@@ -4,21 +4,32 @@ import Footer from "@/components/footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { isMalayalam } from "@/lib/locale";
 import { getRequestLocale } from "@/lib/locale-server";
+import { buildSocialMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
+  const englishTitle = "Terms and Conditions | Jaqilin Makeover";
+  const englishDescription =
+    "Terms and conditions for using Jaqilin Makeover website and services.";
+  const { openGraph, twitter } = buildSocialMetadata({
+    title: englishTitle,
+    description: englishDescription,
+    url: "https://www.jaqilinmakeover.com/terms",
+  });
 
   return {
     title: inMalayalam
       ? "ഉപയോഗ നിബന്ധനകൾ | ജാകിലിൻ മേക്കോവർ"
-      : "Terms and Conditions | Jaqilin Makeover",
+      : englishTitle,
     description: inMalayalam
       ? "ജാകിലിൻ മേക്കോവർ വെബ്സൈറ്റ് ഉപയോഗ നിബന്ധനകൾ."
-      : "Terms and conditions for using Jaqilin Makeover website and services.",
+      : englishDescription,
     alternates: {
       canonical: "/terms",
     },
+    openGraph,
+    twitter,
   };
 }
 

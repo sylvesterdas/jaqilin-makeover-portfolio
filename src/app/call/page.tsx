@@ -5,19 +5,29 @@ import CallContent from '@/components/call-content';
 import type { Metadata } from 'next';
 import { isMalayalam } from '@/lib/locale';
 import { getRequestLocale } from '@/lib/locale-server';
+import { buildSocialMetadata } from '@/lib/metadata';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
+  const englishTitle = 'Call Jaqilin Makeover';
+  const englishDescription = 'Contact Jaqilin Makeover directly by phone.';
+  const { openGraph, twitter } = buildSocialMetadata({
+    title: englishTitle,
+    description: englishDescription,
+    url: 'https://www.jaqilinmakeover.com/call',
+  });
 
   return {
-    title: inMalayalam ? 'ജാകിലിൻ മേക്കോവർ - ഫോൺ കോൾ' : 'Call Jaqilin Makeover',
+    title: inMalayalam ? 'ജാകിലിൻ മേക്കോവർ - ഫോൺ കോൾ' : englishTitle,
     description: inMalayalam
       ? 'ജാകിലിൻ മേക്കോവറുമായി നേരിട്ട് ഫോൺ വഴി ബന്ധപ്പെടുക.'
-      : 'Contact Jaqilin Makeover directly by phone.',
+      : englishDescription,
     alternates: {
       canonical: '/call',
     },
+    openGraph,
+    twitter,
   };
 }
 

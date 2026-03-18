@@ -6,21 +6,32 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import type { Metadata } from 'next';
 import { isMalayalam } from '@/lib/locale';
 import { getRequestLocale } from '@/lib/locale-server';
+import { buildSocialMetadata } from '@/lib/metadata';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
+  const englishTitle = 'Privacy Policy | Jaqilin Makeover';
+  const englishDescription =
+    'Privacy policy for Jaqilin Makeover website and services.';
+  const { openGraph, twitter } = buildSocialMetadata({
+    title: englishTitle,
+    description: englishDescription,
+    url: 'https://www.jaqilinmakeover.com/privacy-policy',
+  });
 
   return {
     title: inMalayalam
       ? 'സ്വകാര്യതാ നയം | ജാകിലിൻ മേക്കോവർ'
-      : 'Privacy Policy | Jaqilin Makeover',
+      : englishTitle,
     description: inMalayalam
       ? 'ജാകിലിൻ മേക്കോവറിന്റെ സ്വകാര്യതാ നയം.'
-      : 'Privacy policy for Jaqilin Makeover website and services.',
+      : englishDescription,
     alternates: {
       canonical: '/privacy-policy',
     },
+    openGraph,
+    twitter,
   };
 }
 

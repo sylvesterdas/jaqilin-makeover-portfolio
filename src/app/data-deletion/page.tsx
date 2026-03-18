@@ -4,21 +4,31 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Metadata } from "next";
 import { isMalayalam } from "@/lib/locale";
 import { getRequestLocale } from "@/lib/locale-server";
+import { buildSocialMetadata } from "@/lib/metadata";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
+  const englishTitle = "Data Deletion | Jaqilin Makeover";
+  const englishDescription = "Instructions for requesting data deletion.";
+  const { openGraph, twitter } = buildSocialMetadata({
+    title: englishTitle,
+    description: englishDescription,
+    url: "https://www.jaqilinmakeover.com/data-deletion",
+  });
 
   return {
     title: inMalayalam
       ? "ഡാറ്റ ഡിലീഷൻ | ജാകിലിൻ മേക്കോവർ"
-      : "Data Deletion | Jaqilin Makeover",
+      : englishTitle,
     description: inMalayalam
       ? "ഡാറ്റ ഡിലീഷൻ അഭ്യർത്ഥിക്കാൻ വേണ്ട മാർഗ്ഗനിർദ്ദേശങ്ങൾ."
-      : "Instructions for requesting data deletion.",
+      : englishDescription,
     alternates: {
       canonical: "/data-deletion",
     },
+    openGraph,
+    twitter,
   };
 }
 
