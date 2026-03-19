@@ -19,9 +19,9 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 
   return {
-    title: inMalayalam ? 'ജാകിലിൻ മേക്കോവർ - ഫോൺ കോൾ' : englishTitle,
+    title: inMalayalam ? 'Jaqilin Makeover Call' : englishTitle,
     description: inMalayalam
-      ? 'ജാകിലിൻ മേക്കോവറുമായി നേരിട്ട് ഫോൺ വഴി ബന്ധപ്പെടുക.'
+      ? 'Call ചെയ്യൂ.'
       : englishDescription,
     alternates: {
       canonical: '/call',

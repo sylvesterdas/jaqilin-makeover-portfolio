@@ -39,10 +39,10 @@ export default function Footer() {
               <span className="text-foreground">Makeover</span>
             </h3>
             <p className="text-sm sm:text-base text-foreground/70">LJS Works</p>
-            <p className="text-sm sm:text-base text-foreground/70">{inMalayalam ? "തിരുവനന്തപുരം" : "Trivandrum"}</p>
+            <p className="text-sm sm:text-base text-foreground/70">{inMalayalam ? "TVM" : "Trivandrum"}</p>
           </div>
           <div>
-            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "ബന്ധപ്പെടാൻ" : "Contact Me"}</h3>
+            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "Contact" : "Contact Me"}</h3>
             <ul className="space-y-3">
               <li>
                 {whatsappUrl && (
@@ -78,7 +78,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "ഫോളോ ചെയ്യൂ" : "Follow Me"}</h3>
+            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "Follow" : "Follow Me"}</h3>
             <div className="space-y-2">
               <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_instagram', 'Footer')}>
                 <Instagram size={16} />

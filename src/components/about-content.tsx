@@ -45,9 +45,8 @@ export default function AboutContent() {
             <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-foreground/80">
               {inMalayalam ? (
                 <>
-                  എന്റെ പേര് ജാകിലിൻ എസ്.{" "}
-                  {age !== null ? `${age} വയസ്സിൽ,` : ""} ജാകിലിൻ മേക്കോവറിന്റെ
-                  പിന്നിലുള്ള ആർട്ടിസ്റ്റ് ഞാൻ ആണ്.
+                  ഞാൻ ജാകിലിൻ എസ്.{" "}
+                  {age !== null ? `${age} വയസ്സ്.` : ""} Jaqilin Makeover‑ലെ artist ആണ്.
                 </>
               ) : (
                 <>
@@ -62,11 +61,10 @@ export default function AboutContent() {
             <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-foreground/80">
               {inMalayalam ? (
                 <>
-                  കാഞ്ഞിരംകുളം, തിരുവനന്തപുരം ആസ്ഥാനമായി വിവാഹങ്ങൾക്കും പ്രത്യേക
-                  ചടങ്ങുകൾക്കുമായി പ്രൊഫഷണൽ മേക്കപ്പ് സേവനം നൽകുന്നു.{" "}
+                  Kanjiramkulam, TVM base. Weddings & functions‑ക്ക് makeup.{" "}
                   <span className="text-primary">Jaqilin</span>{" "}
-                  <span className="text-foreground">Makeover</span>, LJS Works
-                  (UDYAM-KL-12-0112903) എന്ന രജിസ്റ്റർ ചെയ്ത സ്ഥാപനത്തിന്റെ ഭാഗമാണ്.
+                  <span className="text-foreground">Makeover</span> = LJS Works
+                  (UDYAM-KL-12-0112903).
                 </>
               ) : (
                 <>
@@ -83,7 +81,7 @@ export default function AboutContent() {
             </p>
             <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-foreground/80">
               {inMalayalam
-                ? "നിങ്ങൾ ആത്മവിശ്വാസത്തോടെ, മനോഹരമായി, നിങ്ങളുടെ പ്രത്യേക നിമിഷത്തിന് റെഡിയായി അനുഭവപ്പെടുക എന്നതാണ് എന്റെ ലക്ഷ്യം."
+                ? "Confident ആയി ready ആക്കുക ആണ് goal."
                 : "My goal is to make you feel confident, beautiful, and ready for your spotlight moment."}
             </p>
           </div>

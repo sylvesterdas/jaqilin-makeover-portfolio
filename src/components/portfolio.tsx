@@ -177,11 +177,11 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
           <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">
-            {inMalayalam ? "പോർട്ട്ഫോളിയോ" : "Portfolio"}
+            {inMalayalam ? "Portfolio" : "Portfolio"}
           </h2>
           <p className="text-base sm:text-lg text-foreground/70 mt-2">
             {inMalayalam
-              ? "എന്റെ പുതിയ പ്രവൃത്തികൾ"
+              ? "പുതിയ work"
               : "A Glimpse of My Artistry"}
           </p>
         </div>
@@ -233,7 +233,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
             <Button
               onClick={() => setVisible((v) => Math.min(v + 9, data.length))}
             >
-              {inMalayalam ? "കൂടുതൽ കാണുക" : "Load More"}
+              {inMalayalam ? "കൂടുതൽ" : "Load More"}
             </Button>
           </div>
         )}
@@ -248,7 +248,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
             >
               <Instagram className="mr-2 h-5 w-5" />
               {inMalayalam
-                ? "Instagram-ൽ കൂടുതൽ കാണൂ"
+                ? "Instagram more"
                 : "Show More on Instagram"}
             </a>
           </Button>

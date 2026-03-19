@@ -21,10 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: inMalayalam
-      ? 'ജാകിലിൻ മേക്കോവർ - WhatsApp / Call ബന്ധപ്പെടാം'
+      ? 'Jaqilin Makeover - WhatsApp / Call'
       : englishTitle,
     description: inMalayalam
-      ? 'വിവാഹ മേക്കപ്പ് ഇൻക്വയറിയ്ക്കായി WhatsApp അല്ലെങ്കിൽ ഫോൺ വഴി ബന്ധപ്പെടാം.'
+      ? 'WhatsApp അല്ലെങ്കിൽ Call.'
       : englishDescription,
     alternates: {
       canonical: '/connect',

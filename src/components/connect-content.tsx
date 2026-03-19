@@ -106,22 +106,22 @@ export default function ConnectContent() {
 
           <p className="mt-2 text-foreground/90 text-sm sm:text-base">
             {inMalayalam
-              ? "നാചുറൽ ബ്രൈഡൽ മേക്കപ്പ്"
+              ? "നാചുറൽ bridal makeup"
               : "Natural bridal makeup"}
           </p>
 
           <p className="mt-1 text-foreground/80 text-xs sm:text-sm">
             {inMalayalam
-              ? "ഹെയർ സ്റ്റൈലിംഗ് • സാരി ഡ്രേപ്പിംഗ്"
+              ? "Hair styling • Saree draping"
               : "Hair styling • saree draping"}
           </p>
 
           <p className="mt-1 text-foreground/70 text-xs sm:text-sm">
-            {inMalayalam ? "വീട് സർവീസ്" : "Home service"}
+            {inMalayalam ? "Home service" : "Home service"}
           </p>
 
           <p className="mt-1 text-foreground/60 text-xs sm:text-sm">
-            {inMalayalam ? "തിരുവനന്തപുരം" : "Thiruvananthapuram"}
+            {inMalayalam ? "TVM" : "Thiruvananthapuram"}
           </p>
         </div>
 
@@ -166,7 +166,7 @@ export default function ConnectContent() {
                 <div className="flex flex-col items-start text-left">
                   <span className="font-medium leading-snug">
                     {inMalayalam
-                      ? "WhatsApp-ൽ ചാറ്റ് ചെയ്യൂ"
+                      ? "WhatsApp chat"
                       : "WhatsApp Now"}
                   </span>
                 </div>
@@ -185,9 +185,7 @@ export default function ConnectContent() {
                 <Phone className="size-6 shrink-0 mt-1" />
                 <div className="flex flex-col items-start text-left">
                   <span className="font-medium leading-snug">
-                    {inMalayalam
-                      ? "വിളിക്കുക"
-                      : "Call Now"}
+                    {inMalayalam ? "Call" : "Call Now"}
                   </span>
                   <span className="hidden sm:block text-xs text-foreground/60 leading-snug">
                     {callPhoneNumber}
@@ -214,7 +212,7 @@ export default function ConnectContent() {
                 <div className="flex flex-col items-start text-left min-w-0 max-w-full">
                   <span className="font-medium leading-snug break-words max-w-full">
                     {inMalayalam
-                      ? "Instagram-ൽ ബ്രൈഡൽ വർക്ക് കാണൂ"
+                      ? "Instagram work"
                       : "View Bridal Work"}
                   </span>
                 </div>
@@ -233,7 +231,7 @@ export default function ConnectContent() {
                 <div className="flex flex-col items-start text-left">
                   <span className="font-medium leading-snug">
                     {inMalayalam
-                      ? "സേവനങ്ങളും പോർട്ട്ഫോളിയോയും"
+                      ? "Services & Portfolio"
                       : "Services & Portfolio"}
                   </span>
                 </div>

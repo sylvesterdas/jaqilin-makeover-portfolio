@@ -75,7 +75,7 @@ export default function HeaderActions() {
           <div className="hidden xl:flex items-center gap-2">
               <Button variant="outline" onClick={() => setShowPhoneDialog(true)}>
                   <Phone className="h-5 w-5" />
-                  <span className="ml-2">{inMalayalam ? "വിളിക്കുക" : "Call"}</span>
+                  <span className="ml-2">{inMalayalam ? "Call" : "Call"}</span>
               </Button>
               {whatsappUrl && (
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick} className="inline-block transition-transform hover:scale-105">
@@ -95,7 +95,7 @@ export default function HeaderActions() {
           {/* Mobile/Tablet Buttons */}
           <div className="flex xl:hidden items-center gap-2">
                 <Button size="icon" variant="ghost" asChild>
-                  <a href={`tel:${phoneNumber}`} onClick={handleCallClick} aria-label={inMalayalam ? "വിളിക്കുക" : "Call"}>
+                  <a href={`tel:${phoneNumber}`} onClick={handleCallClick} aria-label={inMalayalam ? "Call" : "Call"}>
                       <Phone className="h-6 w-6" />
                   </a>
               </Button>
@@ -115,13 +115,13 @@ export default function HeaderActions() {
       <AlertDialog open={showPhoneDialog} onOpenChange={setShowPhoneDialog}>
           <AlertDialogContent>
               <AlertDialogHeader>
-              <AlertDialogTitle className="font-headline text-2xl text-primary">{inMalayalam ? "കോൺടാക്റ്റ് നമ്പർ" : "Contact Number"}</AlertDialogTitle>
+              <AlertDialogTitle className="font-headline text-2xl text-primary">{inMalayalam ? "Contact number" : "Contact Number"}</AlertDialogTitle>
               </AlertDialogHeader>
               <div className="text-center text-2xl font-mono tracking-widest py-4">
                   {DISPLAY_PHONE_NUMBER}
               </div>
               <AlertDialogFooter>
-              <AlertDialogCancel>{inMalayalam ? "അടയ്ക്കുക" : "Close"}</AlertDialogCancel>
+              <AlertDialogCancel>{inMalayalam ? "Close" : "Close"}</AlertDialogCancel>
               </AlertDialogFooter>
           </AlertDialogContent>
       </AlertDialog>

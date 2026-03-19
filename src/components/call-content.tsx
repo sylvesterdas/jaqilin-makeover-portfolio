@@ -35,7 +35,7 @@ export default function CallContent() {
       <div className="max-w-md mx-auto">
          <h1 className="font-headline text-2xl sm:text-3xl md:text-4xl text-primary">
           {inMalayalam ? (
-            "ജാകിലിൻ മേക്കോവറിനെ ബന്ധപ്പെടുന്നു"
+            "Jaqilin Makeover Call"
           ) : (
             <>
               Contacting <span className="text-primary">Jaqilin</span>{" "}
@@ -45,7 +45,7 @@ export default function CallContent() {
          </h1>
         <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-foreground/80">
             {inMalayalam
-              ? "കോൾ ചെയ്യാൻ താഴെയുള്ള ബട്ടൺ അമർത്തുക."
+              ? "Call button അമർത്തൂ."
               : "Tap the button below to call directly."}
         </p>
         <div className="mt-6 sm:mt-8">
@@ -53,7 +53,7 @@ export default function CallContent() {
             <Button size="lg" className="w-full sm:w-auto bg-primary text-primary-foreground hover:bg-accent text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6" asChild>
                 <a href={telLink} onClick={handleCallClick}>
                     <Phone className="mr-2" />
-                    {inMalayalam ? `വിളിക്കുക ${DISPLAY_PHONE_NUMBER}` : `Call ${phoneNumber}`}
+                    {inMalayalam ? `Call ${DISPLAY_PHONE_NUMBER}` : `Call ${phoneNumber}`}
                 </a>
             </Button>
           )}

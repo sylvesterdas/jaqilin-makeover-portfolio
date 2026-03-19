@@ -17,10 +17,10 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
   const title = inMalayalam
-    ? "തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ് | ജാകിലിൻ മേക്കോവർ"
+    ? "TVM ബ്രൈഡൽ മേക്കപ്പ് | ജാകിലിൻ മേക്കോവർ"
     : "Bridal Makeup Artist in Thiruvananthapuram | Jaqilin Makeover";
   const description = inMalayalam
-    ? "തിരുവനന്തപുരം, കാഞ്ഞിരംകുളം മേഖലയിലെ പ്രൊഫഷണൽ ബ്രൈഡൽ മേക്കപ്പ്. ലോങ്-വെയർ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ്. WhatsApp-ൽ ബുക്ക് ചെയ്യാം."
+    ? "TVM bridal makeup, hair styling, saree draping. WhatsApp booking."
     : "Professional bridal makeup artist in Thiruvananthapuram offering natural, long-wear makeup with hair styling and saree draping. Home and venue service. Book on WhatsApp.";
   const { openGraph, twitter } = buildSocialMetadata();
 
@@ -37,7 +37,7 @@ export async function generateMetadata(): Promise<Metadata> {
       "saree draping services trivandrum",
       "kerala bridal makeup artist",
       "jaqilin makeover",
-      "തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ്",
+      "TVM ബ്രൈഡൽ മേക്കപ്പ്",
       "കാഞ്ഞിരംകുളം മേക്കപ്പ് ആർട്ടിസ്റ്റ്",
     ],
     alternates: {
@@ -96,7 +96,7 @@ export default async function RootLayout({
       longitude: 77.056,
     },
     description: inMalayalam
-      ? "തിരുവനന്തപുരം മേഖലയിലെ ബ്രൈഡൽ മേക്കപ്പ്, ഗസ്റ്റ് മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ് സേവനങ്ങൾ."
+      ? "TVM bridal makeup, hair styling, saree draping."
       : "Professional makeup artist specializing in wedding makeovers, guest makeup, and saree draping.",
     areaServed: [
       "Thiruvananthapuram",

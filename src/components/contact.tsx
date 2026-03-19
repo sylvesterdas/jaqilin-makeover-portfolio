@@ -32,11 +32,11 @@ export default function Contact() {
         <Card className="bg-card border-primary/50 shadow-lg shadow-primary/10">
           <CardContent className="p-6 sm:p-8 md:p-12 text-center">
             <h2 className="font-headline text-2xl sm:text-3xl md:text-5xl font-bold text-primary">
-              {inMalayalam ? "നിങ്ങളുടെ വിവാഹ ലുക്ക് റെഡിയാണോ?" : "Ready for Your Makeover?"}
+              {inMalayalam ? "Wedding look ready?" : "Ready for Your Makeover?"}
             </h2>
             <p className="mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-foreground/80">
               {inMalayalam
-                ? "തീയതിയും വേദിയും ഫംഗ്ഷൻ വിവരങ്ങളും അയക്കൂ. വിവാഹദിനത്തിന് അനുയോജ്യമായ ലുക്ക് ഞാൻ നിർദ്ദേശിക്കും."
+                ? "Date, venue details send ചെയ്യൂ."
                 : "Share your wedding date, venue, and function details. I can guide you with the right package and look."}
             </p>
             <div className="mt-6 sm:mt-8 flex justify-center">
@@ -55,8 +55,8 @@ export default function Contact() {
             </div>
             <p className="mt-5 sm:mt-6 text-xs sm:text-sm text-foreground/60">
               {inMalayalam
-                ? "സേവനമേഖല: തിരുവനന്തപുരം, കൊല്ലം, നാഗർകോവിൽ, സമീപ പ്രദേശങ്ങൾ."
-                : "Serving Trivandrum, Kollam, Nagercoil, and surrounding areas."}
+                ? "Service area: Thiruvananthapuram only."
+                : "Serving Thiruvananthapuram only."}
             </p>
           </CardContent>
         </Card>

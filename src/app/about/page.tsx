@@ -21,10 +21,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: inMalayalam
-      ? 'ജാകിലിനെ കുറിച്ച് | ജാകിലിൻ മേക്കോവർ'
+      ? 'About | ജാകിലിൻ മേക്കോവർ'
       : englishTitle,
     description: inMalayalam
-      ? 'തിരുവനന്തപുരം കാഞ്ഞിരംകുളം ആസ്ഥാനമായി പ്രവർത്തിക്കുന്ന ജാകിലിൻ മേക്കോവറിനെ കുറിച്ച് അറിയൂ.'
+      ? 'TVM base makeup artist. Weddings & functions.'
       : englishDescription,
     alternates: {
       canonical: '/about',

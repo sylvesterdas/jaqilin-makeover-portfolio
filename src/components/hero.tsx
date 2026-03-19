@@ -68,23 +68,21 @@ export default function Hero() {
 
           <p className="mt-2 sm:mt-3 font-headline text-base sm:text-lg md:text-2xl text-foreground/90">
             {inMalayalam
-              ? "നാചുറൽ ബ്രൈഡൽ മേക്കപ്പ്"
+              ? "നാചുറൽ bridal makeup"
               : "Natural bridal makeup"}
           </p>
 
           <p className="mt-1 font-body text-sm sm:text-base md:text-lg text-foreground/80">
             {inMalayalam
-              ? "ഹെയർ സ്റ്റൈലിംഗ് • സാരി ഡ്രേപ്പിംഗ്"
+              ? "Hair styling • Saree draping"
               : "Hair styling • saree draping"}
           </p>
 
           <p className="mt-1 font-body text-sm sm:text-base text-foreground/60">
-            {inMalayalam ? "വീട് സർവീസ്" : "Home service"}
+            {inMalayalam ? "Home service" : "Home service"}
           </p>
           <p className="mt-1 font-body text-xs sm:text-sm text-foreground/60">
-            {inMalayalam
-              ? "തിരുവനന്തപുരം"
-              : "Thiruvananthapuram"}
+            {inMalayalam ? "TVM" : "Thiruvananthapuram"}
           </p>
 
           <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3">
@@ -99,7 +97,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
               >
                 {inMalayalam
-                  ? "WhatsApp-ൽ ചാറ്റ് ചെയ്യൂ"
+                  ? "WhatsApp chat"
                   : "WhatsApp Now"}
               </a>
             </Button>
@@ -111,7 +109,7 @@ export default function Hero() {
               className="border-primary text-primary hover:bg-primary hover:text-primary-foreground w-full sm:w-auto"
             >
               <a href="#portfolio">
-                {inMalayalam ? "ബ്രൈഡൽ വർക്ക് കാണൂ" : "View Work"}
+                {inMalayalam ? "Bridal work" : "View Work"}
               </a>
             </Button>
           </div>
