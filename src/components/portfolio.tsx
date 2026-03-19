@@ -2,19 +2,26 @@
 
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
-import { Instagram, X, Play } from "lucide-react";
+import { Instagram, X, Play, Copy } from "lucide-react";
 import { Button } from "./ui/button";
 import { event } from "@/lib/events";
 import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import AutoVideo from "@/components/auto-video";
 
-interface InstagramPost {
-  id: string;
+interface InstagramChild {
+  id?: string;
   media_url: string;
-  permalink: string;
   media_type: string;
   thumbnail_url?: string;
+}
+
+interface InstagramPost extends InstagramChild {
+  id: string;
+  permalink: string;
+  children?: {
+    data: InstagramChild[];
+  };
 }
 
 export default function Portfolio({ data }: { data: InstagramPost[] }) {
@@ -24,6 +31,8 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
   const [selectedMedia, setSelectedMedia] = useState<InstagramPost | null>(
     null,
   );
+  const [selectedChildIndex, setSelectedChildIndex] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
   const [visible, setVisible] = useState(9);
   const [hovered, setHovered] = useState<string | null>(null)
   const startX = useRef(0)
@@ -32,8 +41,16 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     ? data.findIndex(p => p.id === selectedMedia.id)
     : -1
 
+  const currentChildren = selectedMedia?.children?.data ?? []
+  const isCarousel = selectedMedia?.media_type === "CAROUSEL_ALBUM"
+  const currentChild = isCarousel
+    ? currentChildren[selectedChildIndex]
+    : undefined
+  const displayMedia = currentChild ?? selectedMedia
+
   const closeModal = () => {
     setSelectedMedia(null);
+    setSelectedChildIndex(0);
 
     if (window.history.state?.fullscreen) {
       window.history.back();
@@ -49,19 +66,38 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
         e.preventDefault()
       }
 
-      if (e.key === "ArrowRight" && currentIndex < data.length - 1) {
-        setSelectedMedia(data[currentIndex + 1])
+      if (e.key === "ArrowRight") {
+        if (isCarousel && selectedChildIndex < currentChildren.length - 1) {
+          setSelectedChildIndex((i) => i + 1)
+          return
+        }
+        if (currentIndex < data.length - 1) {
+          setSelectedMedia(data[currentIndex + 1])
+        }
       }
 
-      if (e.key === "ArrowLeft" && currentIndex > 0) {
-        setSelectedMedia(data[currentIndex - 1])
+      if (e.key === "ArrowLeft") {
+        if (isCarousel && selectedChildIndex > 0) {
+          setSelectedChildIndex((i) => i - 1)
+          return
+        }
+        if (currentIndex > 0) {
+          setSelectedMedia(data[currentIndex - 1])
+        }
       }
     }
 
     window.addEventListener("keydown", handler)
 
     return () => window.removeEventListener("keydown", handler)
-  }, [selectedMedia, data, currentIndex])
+  }, [
+    selectedMedia,
+    data,
+    currentIndex,
+    isCarousel,
+    selectedChildIndex,
+    currentChildren.length,
+  ])
 
   /* Escape key */
   useEffect(() => {
@@ -153,12 +189,24 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
 
     if (Math.abs(diff) < 50) return;
 
-    if (diff > 0 && currentIndex < data.length - 1) {
-      setSelectedMedia(data[currentIndex + 1])
+    if (diff > 0) {
+      if (isCarousel && selectedChildIndex < currentChildren.length - 1) {
+        setSelectedChildIndex((i) => i + 1)
+        return
+      }
+      if (currentIndex < data.length - 1) {
+        setSelectedMedia(data[currentIndex + 1])
+      }
     }
 
-    if (diff < 0 && currentIndex > 0) {
-      setSelectedMedia(data[currentIndex - 1])
+    if (diff < 0) {
+      if (isCarousel && selectedChildIndex > 0) {
+        setSelectedChildIndex((i) => i - 1)
+        return
+      }
+      if (currentIndex > 0) {
+        setSelectedMedia(data[currentIndex - 1])
+      }
     }
   }
 
@@ -187,45 +235,60 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
         </div>
         {/* Instagram Grid */}
         <div className="grid grid-cols-3 gap-2 md:gap-3">
-          {data.slice(0, visible).map((post) => (
-            <div
-              key={post.id}
-              onClick={() => setSelectedMedia(post)}
-              onMouseEnter={() => setHovered(post.id)}
-              onMouseLeave={() => setHovered(null)}
-              className="relative aspect-[4/5] overflow-hidden cursor-pointer group rounded-sm hover:rounded-md transition-all select-none group-hover:shadow-lg"
-            >
-              {post.media_type === "VIDEO" ? (
-                <AutoVideo
-                  src={post.media_url}
-                  poster={post.thumbnail_url}
-                  play={hovered === post.id}
-                />
-              ) : (
-                <img
-                  src={post.media_url}
-                  loading="lazy"
-                  draggable={false}
-                  onContextMenu={(e) => e.preventDefault()}
-                  className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                />
-              )}
+          {data.slice(0, visible).map((post) => {
+            const isPostCarousel = post.media_type === "CAROUSEL_ALBUM"
+            const postChild = isPostCarousel ? post.children?.data?.[0] : null
+            const postMedia = postChild ?? post
 
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+            return (
+              <div
+                key={post.id}
+                onClick={() => {
+                  setSelectedMedia(post)
+                  setSelectedChildIndex(0)
+                }}
+                onMouseEnter={() => setHovered(post.id)}
+                onMouseLeave={() => setHovered(null)}
+                className="relative aspect-[4/5] overflow-hidden cursor-pointer group rounded-sm hover:rounded-md transition-all select-none group-hover:shadow-lg"
+              >
+                {postMedia.media_type === "VIDEO" ? (
+                  <AutoVideo
+                    src={postMedia.media_url}
+                    poster={postMedia.thumbnail_url}
+                    play={hovered === post.id}
+                  />
+                ) : (
+                  <img
+                    src={postMedia.media_url}
+                    loading="lazy"
+                    draggable={false}
+                    onContextMenu={(e) => e.preventDefault()}
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                  />
+                )}
 
-              {post.media_type === "VIDEO" && (
-                <div className="absolute top-2 right-2 text-white drop-shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <Play size={20} fill="white" className="text-white drop-shadow-lg animate-pulse" />
-                </div>
-              )}
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
 
-              <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                <div className="bg-black/60 backdrop-blur-sm p-1.5 rounded-full">
-                  <Instagram size={14} className="text-white" />
+                {postMedia.media_type === "VIDEO" && (
+                  <div className="absolute top-2 right-2 text-white drop-shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Play size={20} fill="white" className="text-white drop-shadow-lg animate-pulse" />
+                  </div>
+                )}
+
+                {isPostCarousel && (
+                  <div className="absolute top-2 right-2 text-white drop-shadow opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <Copy size={18} className="text-white drop-shadow-lg" />
+                  </div>
+                )}
+
+                <div className="absolute bottom-2 left-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <div className="bg-black/60 backdrop-blur-sm p-1.5 rounded-full">
+                    <Instagram size={14} className="text-white" />
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
         {/* Load More */}
         {visible < data.length && (
@@ -275,27 +338,31 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
           </button>
 
           <div
-            className="relative w-[90vw] h-[90vh] cursor-ew-resize"
+            className="relative w-[90vw] h-[90vh] cursor-default"
             onClick={(e) => e.stopPropagation()}
           >
-            {selectedMedia.media_type === "VIDEO" ? (
+            {displayMedia?.media_type === "VIDEO" ? (
               <video
-                key={selectedMedia.id}
-                src={selectedMedia.media_url}
+                key={`${selectedMedia.id}-${selectedChildIndex}`}
+                src={displayMedia.media_url}
                 className="w-full h-full object-contain"
                 preload="metadata"
                 autoPlay
                 loop
-                muted
+                muted={isMuted}
                 controls
                 playsInline
                 controlsList="nodownload"
+                onVolumeChange={(e) => {
+                  const target = e.currentTarget
+                  setIsMuted(target.muted)
+                }}
                 onContextMenu={(e) => e.preventDefault()}
               />
             ) : (
               <Image
-                key={selectedMedia.id}
-                src={selectedMedia.media_url}
+                key={`${selectedMedia.id}-${selectedChildIndex}`}
+                src={displayMedia?.media_url ?? selectedMedia.media_url}
                 alt="Instagram post"
                 fill
                 priority
@@ -304,6 +371,21 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
                 onContextMenu={(e) => e.preventDefault()}
                 className="object-contain"
               />
+            )}
+
+            {isCarousel && currentChildren.length > 1 && (
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                {currentChildren.map((_, i) => (
+                  <button
+                    key={`${selectedMedia.id}-dot-${i}`}
+                    className={`h-2 w-2 rounded-full ${
+                      i === selectedChildIndex ? "bg-white" : "bg-white/40"
+                    }`}
+                    onClick={() => setSelectedChildIndex(i)}
+                    aria-label={`Media ${i + 1}`}
+                  />
+                ))}
+              </div>
             )}
           </div>
         </div>

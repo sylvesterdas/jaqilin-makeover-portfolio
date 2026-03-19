@@ -7,15 +7,27 @@ import { cn } from '@/lib/utils';
 import HeaderActions from "./header-actions";
 import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
+import { useEffect, useState } from "react";
 
 
 export default function Header() {
   const { locale } = useLocale();
   const inMalayalam = isMalayalam(locale);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const updateScroll = () => {
+      setIsScrolled(window.scrollY > 8);
+    };
+    updateScroll();
+    window.addEventListener("scroll", updateScroll, { passive: true });
+    return () => window.removeEventListener("scroll", updateScroll);
+  }, []);
 
   return (
     <header className={cn(
-      "fixed top-0 z-50 w-full transition-all duration-300"
+      "fixed top-0 z-50 w-full transition-all duration-300",
+      isScrolled && "bg-card/70 backdrop-blur-md border-b border-border/60 shadow-sm"
     )}>
       <div className="container flex h-14 sm:h-16 max-w-screen-2xl items-center justify-between gap-3 px-4">
         <a href="/" className="flex min-w-0 items-center gap-2 font-headline text-lg sm:text-2xl font-bold text-primary drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">

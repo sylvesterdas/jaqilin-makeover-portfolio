@@ -52,76 +52,92 @@ export default function HeaderActions() {
 
   return (
     <>
-      <div className="flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-2 py-1 shadow-sm backdrop-blur">
-          <div className="hidden md:flex items-center rounded-md border border-border/70 bg-card/60 p-1 mr-1">
-            <Button
-              size="sm"
-              variant={inMalayalam ? "secondary" : "ghost"}
-              className="h-7 px-2 text-xs"
-              onClick={() => setLocale("ml-IN")}
-            >
-              ML
-            </Button>
-            <Button
-              size="sm"
-              variant={!inMalayalam ? "secondary" : "ghost"}
-              className="h-7 px-2 text-xs"
-              onClick={() => setLocale("en-IN")}
-            >
-              EN
-            </Button>
-          </div>
-          {/* Desktop Buttons */}
-          <div className="hidden xl:flex items-center gap-2">
-              <Button variant="outline" onClick={() => setShowPhoneDialog(true)}>
-                  <Phone className="h-5 w-5" />
-                  <span className="ml-2">{inMalayalam ? "Call" : "Call"}</span>
-              </Button>
-              {whatsappUrl && (
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick} className="inline-block transition-transform hover:scale-105">
-                      <Image
-                      src="/images/WhatsAppButtonGreenSmall.svg"
-                      alt="Chat on WhatsApp"
-                      width={160}
-                      height={32}
-                      priority
-                      data-ai-hint="whatsapp button small"
-                      className="w-32 xl:w-40 h-auto"
-                      />
-                  </a>
-              )}
-          </div>
+      <div className="flex items-center gap-2">
+        <div className="hidden md:flex items-center rounded-md border border-border/70 p-1 mr-1">
+          <Button
+            size="sm"
+            variant={inMalayalam ? "secondary" : "ghost"}
+            className="h-7 px-2 text-xs"
+            onClick={() => setLocale("ml-IN")}
+          >
+            ML
+          </Button>
+          <Button
+            size="sm"
+            variant={!inMalayalam ? "secondary" : "ghost"}
+            className="h-7 px-2 text-xs"
+            onClick={() => setLocale("en-IN")}
+          >
+            EN
+          </Button>
+        </div>
 
-          {/* Mobile/Tablet Buttons */}
-          <div className="flex xl:hidden items-center gap-2">
-                <Button size="icon" variant="ghost" asChild>
-                  <a href={`tel:${phoneNumber}`} onClick={handleCallClick} aria-label={inMalayalam ? "Call" : "Call"}>
-                      <Phone className="h-6 w-6" />
-                  </a>
-              </Button>
-              {whatsappUrl && (
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" onClick={handleWhatsAppClick}>
-                      <Image
-                          src="/images/icons/whatsapp.svg"
-                          alt="Chat on WhatsApp"
-                          width={28}
-                          height={28}
-                          data-ai-hint="whatsapp icon"
-                      />
-                  </a>
-              )}
-          </div>
+        <div className="flex items-center gap-2">
+          <Button
+            size="sm"
+            variant="outline"
+            className="hidden h-9 px-3 sm:inline-flex"
+            onClick={() => setShowPhoneDialog(true)}
+          >
+            <Phone className="h-4 w-4" />
+            <span className="ml-2 hidden sm:inline">
+              {inMalayalam ? "വിളിക്കുക" : "Call"}
+            </span>
+          </Button>
+
+          {whatsappUrl && (
+            <Button
+              size="sm"
+              className="h-9 bg-emerald-600 px-3 text-white hover:bg-emerald-700"
+              asChild
+            >
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleWhatsAppClick}
+              >
+                <Image
+                  src="/images/icons/whatsapp.svg"
+                  alt="WhatsApp"
+                  width={18}
+                  height={18}
+                  data-ai-hint="whatsapp icon"
+                  className="mr-2"
+                />
+                <span className="hidden sm:inline">
+                  {inMalayalam ? "വാട്ട്സ്ആപ്പ്" : "WhatsApp"}
+                </span>
+              </a>
+            </Button>
+          )}
+
+          <Button
+            size="icon"
+            variant="ghost"
+            className="h-9 w-9 xl:hidden"
+            asChild
+          >
+            <a
+              href={`tel:${phoneNumber}`}
+              onClick={handleCallClick}
+              aria-label={inMalayalam ? "വിളിക്കുക" : "Call"}
+            >
+              <Phone className="h-5 w-5" />
+            </a>
+          </Button>
+        </div>
       </div>
       <AlertDialog open={showPhoneDialog} onOpenChange={setShowPhoneDialog}>
           <AlertDialogContent>
               <AlertDialogHeader>
-              <AlertDialogTitle className="font-headline text-2xl text-primary">{inMalayalam ? "Contact number" : "Contact Number"}</AlertDialogTitle>
+              <AlertDialogTitle className="font-headline text-2xl text-primary">{inMalayalam ? "ബന്ധപ്പെടാനുള്ള നമ്പർ" : "Contact Number"}</AlertDialogTitle>
               </AlertDialogHeader>
               <div className="text-center text-2xl font-mono tracking-widest py-4">
                   {DISPLAY_PHONE_NUMBER}
               </div>
               <AlertDialogFooter>
-              <AlertDialogCancel>{inMalayalam ? "Close" : "Close"}</AlertDialogCancel>
+              <AlertDialogCancel>{inMalayalam ? "അടയ്ക്കുക" : "Close"}</AlertDialogCancel>
               </AlertDialogFooter>
           </AlertDialogContent>
       </AlertDialog>

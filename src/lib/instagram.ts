@@ -4,11 +4,21 @@ export interface InstagramPost {
   permalink: string
   media_type: string
   thumbnail_url?: string
+  children?: {
+    data: InstagramChild[]
+  }
+}
+
+export interface InstagramChild {
+  id: string
+  media_url: string
+  media_type: string
+  thumbnail_url?: string
 }
 
 export async function getInstagramPosts(): Promise<InstagramPost[]> {
   const res = await fetch(
-    `https://graph.instagram.com/me/media?fields=id,media_url,permalink,media_type,thumbnail_url&limit=50&access_token=${process.env.IG_TOKEN}`,
+    `https://graph.instagram.com/me/media?fields=id,media_url,permalink,media_type,thumbnail_url,children{media_url,media_type,thumbnail_url}&limit=50&access_token=${process.env.IG_TOKEN}`,
     { next: { revalidate: 3600 } }
   )
 
