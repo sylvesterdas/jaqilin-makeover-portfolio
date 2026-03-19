@@ -57,6 +57,20 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
     }
   };
 
+  /* Persist mute preference */
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const saved = window.localStorage.getItem("portfolioMuted")
+    if (saved === "true" || saved === "false") {
+      setIsMuted(saved === "true")
+    }
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    window.localStorage.setItem("portfolioMuted", String(isMuted))
+  }, [isMuted])
+
   /* Keyboard navigation */
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
