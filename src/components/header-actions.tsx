@@ -53,6 +53,25 @@ export default function HeaderActions() {
   return (
     <>
       <div className="flex items-center gap-2">
+        <div className="flex md:hidden items-center rounded-md border border-border/70 bg-background/70 p-1">
+          <Button
+            size="sm"
+            variant={inMalayalam ? "secondary" : "ghost"}
+            className="h-7 px-2 text-[11px]"
+            onClick={() => setLocale("ml-IN")}
+          >
+            ML
+          </Button>
+          <Button
+            size="sm"
+            variant={!inMalayalam ? "secondary" : "ghost"}
+            className="h-7 px-2 text-[11px]"
+            onClick={() => setLocale("en-IN")}
+          >
+            EN
+          </Button>
+        </div>
+
         <div className="hidden md:flex items-center rounded-md border border-border/70 p-1 mr-1">
           <Button
             size="sm"
@@ -76,11 +95,11 @@ export default function HeaderActions() {
           <Button
             size="sm"
             variant="outline"
-            className="hidden h-9 px-3 sm:inline-flex"
+            className="h-9 px-3"
             onClick={() => setShowPhoneDialog(true)}
           >
             <Phone className="h-4 w-4" />
-            <span className="ml-2 hidden sm:inline">
+            <span className="ml-2 hidden md:inline">
               {inMalayalam ? "വിളിക്കുക" : "Call"}
             </span>
           </Button>
@@ -112,20 +131,6 @@ export default function HeaderActions() {
             </Button>
           )}
 
-          <Button
-            size="icon"
-            variant="ghost"
-            className="h-9 w-9 xl:hidden"
-            asChild
-          >
-            <a
-              href={`tel:${phoneNumber}`}
-              onClick={handleCallClick}
-              aria-label={inMalayalam ? "വിളിക്കുക" : "Call"}
-            >
-              <Phone className="h-5 w-5" />
-            </a>
-          </Button>
         </div>
       </div>
       <AlertDialog open={showPhoneDialog} onOpenChange={setShowPhoneDialog}>

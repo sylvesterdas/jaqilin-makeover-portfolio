@@ -58,6 +58,16 @@ export default function Contact() {
                 ? "Service area: Thiruvananthapuram only."
                 : "Serving Thiruvananthapuram only."}
             </p>
+            <p className="mt-2 text-xs sm:text-sm">
+              <a
+                href="/bridal-makeup-artist-thiruvananthapuram"
+                className="font-medium text-primary underline-offset-4 hover:underline"
+              >
+                {inMalayalam
+                  ? "തിരുവനന്തപുരം ജില്ല സേവന വിശദാംശങ്ങൾ കാണൂ"
+                  : "See bridal service area in Thiruvananthapuram"}
+              </a>
+            </p>
           </CardContent>
         </Card>
       </div>

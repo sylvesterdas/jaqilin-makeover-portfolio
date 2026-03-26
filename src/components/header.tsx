@@ -25,10 +25,12 @@ export default function Header() {
   }, []);
 
   return (
-    <header className={cn(
-      "fixed top-0 z-50 w-full transition-all duration-300",
-      isScrolled && "bg-card/70 backdrop-blur-md border-b border-border/60 shadow-sm"
-    )}>
+    <header
+      className={cn(
+        "fixed top-0 z-50 w-full transition-all duration-300",
+        isScrolled && "bg-card/70 backdrop-blur-md border-b border-border/60 shadow-sm"
+      )}
+    >
       <div className="container flex h-14 sm:h-16 max-w-screen-2xl items-center justify-between gap-3 px-4">
         <a href="/" className="flex min-w-0 items-center gap-2 font-headline text-lg sm:text-2xl font-bold text-primary drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
           <span className="inline-flex items-center justify-center rounded-md bg-black p-1">

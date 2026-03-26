@@ -60,29 +60,44 @@ export default function Hero() {
               <>
                 <span className="block text-[1.3em]">ബ്രൈഡൽ</span>
                 <span className="block">മേക്കപ്പ് ആർട്ടിസ്റ്റ്</span>
+                <span className="mt-1 block text-sm font-body text-foreground/80 sm:text-base md:text-lg">
+                  തിരുവനന്തപുരം | Trivandrum
+                </span>
               </>
             ) : (
-              "Bridal Makeup Artist"
+              <>
+                <span className="block md:hidden">
+                  Bridal Makeup Artist in Thiruvananthapuram
+                </span>
+                <span className="hidden md:block">
+                  Bridal Makeup Artist
+                </span>
+                <span className="hidden md:block">
+                  in Thiruvananthapuram
+                </span>
+              </>
             )}
           </h1>
 
           <p className="mt-2 sm:mt-3 font-headline text-base sm:text-lg md:text-2xl text-foreground/90">
             {inMalayalam
-              ? "നാചുറൽ bridal makeup"
-              : "Natural bridal makeup"}
+              ? "Natural bridal makeup for weddings"
+              : "Natural bridal and wedding makeup"}
           </p>
 
           <p className="mt-1 font-body text-sm sm:text-base md:text-lg text-foreground/80">
             {inMalayalam
-              ? "Hair styling • Saree draping"
-              : "Hair styling • saree draping"}
+              ? "Hair styling • Saree draping • Guest makeup"
+              : "Hair styling • saree draping • guest makeup"}
           </p>
 
           <p className="mt-1 font-body text-sm sm:text-base text-foreground/60">
-            {inMalayalam ? "Home service" : "Home service"}
+            {inMalayalam ? "Home service available" : "Home and venue service"}
           </p>
           <p className="mt-1 font-body text-xs sm:text-sm text-foreground/60">
-            {inMalayalam ? "TVM" : "Thiruvananthapuram"}
+            {inMalayalam
+              ? "തിരുവനന്തപുരം ജില്ലയിലുടനീളം"
+              : "Serving Thiruvananthapuram and nearby areas"}
           </p>
 
           <div className="mt-4 sm:mt-5 flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3">

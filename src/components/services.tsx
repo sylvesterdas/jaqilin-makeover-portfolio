@@ -54,8 +54,8 @@ export default function Services() {
           {/* <p className="text-lg text-foreground/70 mt-2">Crafting beauty for every occasion.</p> */}
           <p className="text-xs sm:text-sm text-foreground/70 mt-2 mx-4 sm:mx-8">
             {inMalayalam
-              ? "Custom packages available."
-              : "Custom packages available based on function, timing, and number of people."}
+              ? "Bridal makeup, wedding makeup, hairstyling, saree draping എന്നിവയ്ക്ക് custom packages available."
+              : "Custom packages for bridal makeup, wedding functions, hairstyling, saree draping, and guest makeup in Thiruvananthapuram."}
           </p>
         </div>
         <div className="max-w-2xl mx-auto mt-6">
@@ -63,12 +63,12 @@ export default function Services() {
 
             <div className="flex items-center gap-2 py-1">
               <Heart className="w-4 h-4 text-primary/80 shrink-0" />
-              <span>{inMalayalam ? "Wedding packages" : "Wedding makeover packages"}</span>
+              <span>{inMalayalam ? "Wedding / bridal packages" : "Wedding and bridal makeup packages"}</span>
             </div>
 
             <div className="flex items-center gap-2 py-1">
               <Gem className="w-4 h-4 text-primary/80 shrink-0" />
-              <span>{inMalayalam ? "Engagement & Reception" : "Engagement & reception looks"}</span>
+              <span>{inMalayalam ? "Engagement & Reception" : "Engagement and reception makeup"}</span>
             </div>
 
             <div className="flex items-center gap-2 py-1">
@@ -78,7 +78,7 @@ export default function Services() {
 
             <div className="flex items-center gap-2 py-1">
               <Gem className="w-4 h-4 text-primary/80 shrink-0" />
-              <span>{inMalayalam ? "Saree draping" : "Saree draping"}</span>
+              <span>{inMalayalam ? "Saree draping" : "Saree draping service"}</span>
             </div>
 
             <div className="flex items-center gap-2 py-1">
@@ -89,7 +89,7 @@ export default function Services() {
             <div className="flex items-center gap-2 py-1">
               <Heart className="w-4 h-4 text-primary/80 shrink-0" />
               <span>
-                {inMalayalam ? "Hair styling" : "Hair styling"}
+                {inMalayalam ? "Hair styling" : "Bridal hair styling"}
               </span>
             </div>
 

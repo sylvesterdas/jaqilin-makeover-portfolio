@@ -6,6 +6,8 @@ import AboutContent from '@/components/about-content';
 import { isMalayalam } from '@/lib/locale';
 import { getRequestLocale } from '@/lib/locale-server';
 import { buildSocialMetadata } from '@/lib/metadata';
+import StructuredData from '@/components/structured-data';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
@@ -35,10 +37,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function AboutPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+  ]);
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow pt-20 sm:pt-24 md:pt-32">
+        <StructuredData data={breadcrumbSchema} />
         <AboutContent />
       </main>
       <Footer />

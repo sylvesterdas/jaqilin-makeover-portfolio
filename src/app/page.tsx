@@ -10,6 +10,8 @@ import { getInstagramPosts } from '@/lib/instagram';
 import { getRequestLocale } from '@/lib/locale-server';
 import { isMalayalam } from '@/lib/locale';
 import { buildSocialMetadata } from '@/lib/metadata';
+import StructuredData from '@/components/structured-data';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
@@ -41,11 +43,15 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function Home() {
   const posts = await getInstagramPosts();
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+  ]);
 
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
+        <StructuredData data={breadcrumbSchema} />
         <Hero />
         <Services />
         <Portfolio data={posts} />

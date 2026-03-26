@@ -5,6 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { isMalayalam } from "@/lib/locale";
 import { getRequestLocale } from "@/lib/locale-server";
 import { buildSocialMetadata } from "@/lib/metadata";
+import StructuredData from "@/components/structured-data";
+import { buildBreadcrumbSchema } from "@/lib/schema";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
@@ -34,10 +36,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function TermsPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: "Home", path: "/" },
+    { name: "Terms", path: "/terms" },
+  ]);
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow pt-20 sm:pt-24 md:pt-32">
+        <StructuredData data={breadcrumbSchema} />
         <div className="container mx-auto px-4">
           <Card className="bg-card border-primary/20">
             <CardHeader>

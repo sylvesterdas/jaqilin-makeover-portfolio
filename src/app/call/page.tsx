@@ -6,6 +6,8 @@ import type { Metadata } from 'next';
 import { isMalayalam } from '@/lib/locale';
 import { getRequestLocale } from '@/lib/locale-server';
 import { buildSocialMetadata } from '@/lib/metadata';
+import StructuredData from '@/components/structured-data';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
@@ -32,10 +34,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function CallPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Call', path: '/call' },
+  ]);
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow flex items-center justify-center text-center pt-20 sm:pt-24 md:pt-32">
+        <StructuredData data={breadcrumbSchema} />
         <CallContent />
       </main>
       <Footer />

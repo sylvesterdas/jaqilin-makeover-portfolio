@@ -7,6 +7,8 @@ import type { Metadata } from 'next';
 import { isMalayalam } from '@/lib/locale';
 import { getRequestLocale } from '@/lib/locale-server';
 import { buildSocialMetadata } from '@/lib/metadata';
+import StructuredData from '@/components/structured-data';
+import { buildBreadcrumbSchema } from '@/lib/schema';
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
@@ -36,10 +38,16 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default function PrivacyPolicyPage() {
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Privacy Policy', path: '/privacy-policy' },
+  ]);
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow pt-20 sm:pt-24 md:pt-32">
+        <StructuredData data={breadcrumbSchema} />
         <div className="container mx-auto px-4">
           <Card className="bg-card border-primary/20">
             <CardHeader>

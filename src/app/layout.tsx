@@ -76,41 +76,27 @@ export default async function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://www.jaqilinmakeover.com/#business",
     name: "Jaqilin Makeover",
-    image: "https://www.jaqilinmakeover.com/logo.png",
-    "@id": "https://www.jaqilinmakeover.com",
     url: "https://www.jaqilinmakeover.com",
+    image: "https://www.jaqilinmakeover.com/logo.png",
     telephone: "+91 73564 83404",
     email: "contact@jaqilinmakeover.com",
+    priceRange: "₹",
+    description: inMalayalam
+      ? "തിരുവനന്തപുരംയും സമീപ പ്രദേശങ്ങളും ഉൾപ്പെടുത്തി ബ്രൈഡൽ മേക്കപ്പ്, ഗസ്റ്റ് മേക്കപ്പ്, ഹെയർസ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ് സേവനങ്ങൾ നൽകുന്ന ഫ്രീലാൻസ് മേക്കപ്പ് ആർട്ടിസ്റ്റ്."
+      : "Freelance bridal makeup artist offering bridal makeup, guest makeup, hairstyling, and saree draping services in Thiruvananthapuram and nearby areas.",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Kanjiramkulam",
-      addressLocality: "Trivandrum",
-      addressRegion: "KL",
+      addressLocality: "Thiruvananthapuram",
+      addressRegion: "Kerala",
       postalCode: "695524",
       addressCountry: "IN",
     },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 8.3934,
-      longitude: 77.056,
+    areaServed: {
+      "@type": "AdministrativeArea",
+      name: "Kerala",
     },
-    description: inMalayalam
-      ? "TVM bridal makeup, hair styling, saree draping."
-      : "Professional makeup artist specializing in wedding makeovers, guest makeup, and saree draping.",
-    areaServed: [
-      "Thiruvananthapuram",
-      "Kanjiramkulam",
-      "Neyyattinkara",
-      "Kerala",
-    ],
-    priceRange: "₹",
-    serviceType: [
-      "Bridal Makeup",
-      "Guest Makeup",
-      "Hair Styling",
-      "Saree Draping",
-    ],
     inLanguage: ["ml-IN", "en-IN"],
     openingHoursSpecification: [
       {
@@ -128,6 +114,40 @@ export default async function RootLayout({
         closes: "19:00",
       },
     ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Services",
+      itemListElement: [
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Bridal Makeup",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Guest Makeup",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Hair Styling",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Saree Draping",
+          },
+        },
+      ],
+    },
     sameAs: [
       "https://www.instagram.com/jaqilinmua/",
       "https://www.facebook.com/jaqilinmua",
