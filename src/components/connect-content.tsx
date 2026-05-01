@@ -10,6 +10,7 @@ import WhatsAppIcon from "./icons/whatsapp-icon";
 import { useLocale } from "@/components/locale-provider";
 import { getWhatsAppUrl, CALL_NUMBER, DISPLAY_PHONE_NUMBER } from "@/lib/contact-links";
 import { isMalayalam } from "@/lib/locale";
+import StudioLocation from "@/components/studio-location";
 
 const heroImages = [
   {
@@ -239,6 +240,10 @@ export default function ConnectContent() {
             </Button>
           </CardContent>
         </Card>
+
+        <div className="mt-4 w-full">
+          <StudioLocation />
+        </div>
       </div>
     </div>
   );

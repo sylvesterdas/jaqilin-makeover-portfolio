@@ -7,6 +7,7 @@ import { event } from '@/lib/events';
 import { useLocale } from '@/components/locale-provider';
 import { getWhatsAppUrl } from '@/lib/contact-links';
 import { isMalayalam } from '@/lib/locale';
+import StudioLocation from '@/components/studio-location';
 
 export default function Contact() {
   const { locale } = useLocale();
@@ -55,9 +56,10 @@ export default function Contact() {
             </div>
             <p className="mt-5 sm:mt-6 text-xs sm:text-sm text-foreground/60">
               {inMalayalam
-                ? "Service area: Thiruvananthapuram only."
-                : "Serving Thiruvananthapuram only."}
+                ? "Studio: Kanjiramkulam, Thiruvananthapuram."
+                : "Studio: Kanjiramkulam, Thiruvananthapuram."}
             </p>
+            <StudioLocation compact />
             <p className="mt-2 text-xs sm:text-sm">
               <a
                 href="/bridal-makeup-artist-thiruvananthapuram"
