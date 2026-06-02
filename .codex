@@ -1,0 +1,9 @@
+Project notes for Codex
+
+- Instagram portfolio media is fetched with the server-side IG_TOKEN environment variable.
+- Meta webhook verification is handled by /api/instagram/webhook.
+- The webhook verify token must be configured as IG_WEBHOOK_VERIFY_TOKEN in local and Vercel environments.
+- The scheduled GitHub Action refreshes IG_TOKEN in Vercel production on the 1st and 15th of each month.
+- GitHub Actions requires repository secrets VERCEL_TOKEN and IG_TOKEN.
+- GitHub Actions requires repository variables VERCEL_ORG_ID and VERCEL_PROJECT_ID.
+- Do not commit real access tokens, Vercel OIDC tokens, or .env files.
