@@ -1,0 +1,90 @@
+name: Refresh Instagram Token
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 1,15 * *"
+
+permissions:
+  contents: read
+
+jobs:
+  refresh-instagram-token:
+    name: Refresh Instagram token in Vercel
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_ORG_ID: ${{ vars.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ vars.VERCEL_PROJECT_ID }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      IG_TOKEN_FALLBACK: ${{ secrets.IG_TOKEN }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Validate configuration
+        run: |
+          test -n "$VERCEL_TOKEN" || { echo "Missing VERCEL_TOKEN secret"; exit 1; }
+          test -n "$VERCEL_ORG_ID" || { echo "Missing VERCEL_ORG_ID repository variable"; exit 1; }
+          test -n "$VERCEL_PROJECT_ID" || { echo "Missing VERCEL_PROJECT_ID repository variable"; exit 1; }
+          test -n "$IG_TOKEN_FALLBACK" || { echo "Missing IG_TOKEN secret"; exit 1; }
+
+      - name: Link Vercel project
+        run: |
+          mkdir -p .vercel
+          printf '{"orgId":"%s","projectId":"%s"}\n' "$VERCEL_ORG_ID" "$VERCEL_PROJECT_ID" > .vercel/project.json
+
+      - name: Install Vercel CLI
+        run: npm install --global vercel
+
+      - name: Pull current production environment
+        run: vercel env pull .env.vercel --environment=production --yes --token="$VERCEL_TOKEN"
+
+      - name: Refresh token with Instagram
+        id: refresh
+        run: |
+          node <<'NODE'
+          const fs = require("fs");
+
+          const envFile = fs.readFileSync(".env.vercel", "utf8");
+          const match = envFile.match(/^IG_TOKEN=(?:"([^"]*)"|'([^']*)'|([^\n\r]*))/m);
+          const currentToken =
+            match?.[1] ?? match?.[2] ?? match?.[3] ?? process.env.IG_TOKEN_FALLBACK;
+
+          if (!currentToken) {
+            throw new Error("IG_TOKEN was not found in Vercel production environment");
+          }
+
+          const url = new URL("https://graph.instagram.com/refresh_access_token");
+          url.searchParams.set("grant_type", "ig_refresh_token");
+          url.searchParams.set("access_token", currentToken.trim());
+
+          fetch(url)
+            .then(async (response) => {
+              const body = await response.json();
+
+              if (!response.ok || !body.access_token) {
+                throw new Error(`Instagram token refresh failed: ${JSON.stringify(body)}`);
+              }
+
+              fs.appendFileSync(process.env.GITHUB_OUTPUT, `token=${body.access_token}\n`);
+              fs.appendFileSync(process.env.GITHUB_OUTPUT, `expires_in=${body.expires_in ?? ""}\n`);
+            })
+            .catch((error) => {
+              console.error(error);
+              process.exit(1);
+            });
+          NODE
+
+      - name: Replace IG_TOKEN in Vercel production
+        run: |
+          vercel env rm IG_TOKEN production --yes --token="$VERCEL_TOKEN"
+          printf '%s' "${{ steps.refresh.outputs.token }}" | vercel env add IG_TOKEN production --token="$VERCEL_TOKEN"
+
+      - name: Redeploy production
+        run: vercel deploy --prod --yes --token="$VERCEL_TOKEN"
+
+      - name: Report refresh result
+        run: |
+          echo "Instagram token refreshed."
+          echo "New token lifetime from Instagram: ${{ steps.refresh.outputs.expires_in }} seconds."
