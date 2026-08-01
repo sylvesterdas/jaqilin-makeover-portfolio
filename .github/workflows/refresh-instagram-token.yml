@@ -36,7 +36,7 @@ jobs:
         run: |
           vercel link \
             --yes \
-            --team="$VERCEL_ORG_ID" \
+            --scope="jaqilin-ss-projects" \
             --project="$VERCEL_PROJECT_ID" \
             --token="$VERCEL_TOKEN"
 
