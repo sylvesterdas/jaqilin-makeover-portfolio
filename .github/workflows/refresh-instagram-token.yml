@@ -29,13 +29,16 @@ jobs:
           test -n "$VERCEL_PROJECT_ID" || { echo "Missing VERCEL_PROJECT_ID repository variable"; exit 1; }
           test -n "$IG_TOKEN_FALLBACK" || { echo "Missing IG_TOKEN secret"; exit 1; }
 
+      - name: Install Vercel CLI
+        run: npm install --global vercel@58.4.4
+
       - name: Link Vercel project
         run: |
-          mkdir -p .vercel
-          printf '{"orgId":"%s","projectId":"%s"}\n' "$VERCEL_ORG_ID" "$VERCEL_PROJECT_ID" > .vercel/project.json
-
-      - name: Install Vercel CLI
-        run: npm install --global vercel
+          vercel link \
+            --yes \
+            --team="$VERCEL_ORG_ID" \
+            --project="$VERCEL_PROJECT_ID" \
+            --token="$VERCEL_TOKEN"
 
       - name: Pull current production environment
         run: vercel env pull .env.vercel --environment=production --yes --token="$VERCEL_TOKEN"
