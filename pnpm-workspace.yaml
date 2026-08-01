@@ -1,3 +1,9 @@
+allowBuilds:
+  '@firebase/util': true
+  '@vercel/speed-insights': true
+  esbuild: true
+  protobufjs: true
+  sharp: true
 onlyBuiltDependencies:
   - '@firebase/util'
   - '@vercel/speed-insights'
