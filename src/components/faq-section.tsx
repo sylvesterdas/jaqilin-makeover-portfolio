@@ -50,7 +50,15 @@ export default function FaqSection() {
         : "What makeup products & brands do you use? Are they skin-safe?",
       a: inMalayalam
         ? "Estée Lauder, NARS, MAC, Huda Beauty തുടങ്ങിയ ലോകോത്തര പ്രീമിയം ബ്രാൻഡുകൾ മാത്രമാണ് ഞങ്ങൾ ഉപയോഗിക്കുന്നത്. ഓരോ വധുവിന്റെയും സ്കിൻ ടൈപ്പിനും (ഓയ്‌ലി, ഡ്രൈ, സെൻസിറ്റീവ്) ഹെയർ ടൈപ്പിനും അനുയോജ്യമായ പ്രോഡക്റ്റുകൾ കൃത്യമായി തിരഞ്ഞെടുക്കുന്നു. ക്വാളിറ്റിയിൽ യാതൊരു വിട്ടുവീഴ്ചയുമില്ലാതെ, സ്കിന്നിന് പൂർണ്ണ സുരക്ഷിതത്വവും ദീർഘനേരം നിൽക്കുന്ന നാച്ചുറൽ ഗ്ലോയും ഉറപ്പുനൽകുന്നു."
-        : "We exclusively use premium, internationally acclaimed brands such as Estée Lauder, NARS, MAC, and Huda Beauty. We strictly customize products to match your exact skin type (sensitive, dry, oily) and hair texture with zero compromise on quality or hygiene, guaranteeing a skin-safe, long-lasting, and sweat-resistant bridal radiance.",
+        : "We exclusively use premium, internationally acclaimed brands such as Estée Lauder, NARS, MAC, and Huda Beauty. We strictly customize products to match your exact skin type (sensitive, dry, oily) and hair texture with zero compromise on quality, guaranteeing a skin-safe, long-lasting, and sweat-resistant bridal radiance.",
+    },
+    {
+      q: inMalayalam
+        ? "ഹൈജീൻ (Hygiene) & ബ്രഷുകൾ എങ്ങനെയാണ് വൃത്തിയാക്കുന്നത്?"
+        : "What are your hygiene and tool sanitization standards?",
+      a: inMalayalam
+        ? "ഹൈജീനിൽ ഞങ്ങൾ 100% കർശനമായ മാനദണ്ഡങ്ങൾ പാലിക്കുന്നു. ഓരോ ക്ലയന്റിനുശേഷവും എല്ലാ മേക്കപ്പ് ബ്രഷുകളും ടൂളുകളും ആഴത്തിൽ കഴുകി പൂർണ്ണമായി സാനിറ്റൈസ് ചെയ്ത് അണുവിമുക്തമാക്കിയ ശേഷം (Sterilized) മാത്രമേ അടുത്ത ആൾക്കായി ഉപയോഗിക്കൂ. ഒരു ക്ലയന്റിൽ ഉപയോഗിച്ച ബ്രഷുകൾ വൃത്തിയാക്കാതെ മറ്റൊരാളിൽ ഒരിക്കലും നേരിട്ട് ഉപയോഗിക്കാറില്ല. കൂടാതെ ക്രീമുകളും ലിക്വിഡുകളും നേരിട്ട് തൊടാതെ സാനിറ്റൈസ് ചെയ്ത സ്റ്റെയിൻലെസ്സ് സ്റ്റീൽ പാലറ്റുകൾ ഉപയോഗിച്ചാണ് എടുക്കുന്നത്. അതിനാൽ ചർമ്മത്തിൽ അണുബാധയോ അലർജിയോ ഉണ്ടാകില്ല എന്ന് ഉറപ്പുനൽകുന്നു."
+        : "We maintain strict hospital-grade hygiene protocols. No brush, blender, or tool is EVER reused on another client without being deep-cleaned, sterilized, and sanitized. We never double-dip into original cosmetic containers; all products are hygienically scooped onto sanitized stainless-steel mixing palettes. This guarantees 100% skin safety, zero cross-contamination, and total comfort even for the most sensitive skin.",
     },
   ];
 

@@ -55,6 +55,11 @@ export default function AboutContent() {
               </p>
               <p>
                 {inMalayalam
+                  ? "Estée Lauder, NARS, MAC തുടങ്ങിയ പ്രീമിയം ബ്രാൻഡുകൾ മാത്രമാണ് ഉപയോഗിക്കുന്നത്. ഓരോ ക്ലയന്റിനുശേഷവും എല്ലാ ബ്രഷുകളും ടൂളുകളും 100% അണുവിമുക്തമാക്കി (Sterilized & Sanitized) പൂർണ്ണ ഹൈജീനോടെ മാത്രമാണ് ഉപയോഗിക്കുന്നത്. ചർമ്മത്തിൽ യാതൊരു അലർജിയും ഉണ്ടാകില്ല."
+                  : "We exclusively use luxury, skin-friendly cosmetics (Estée Lauder, NARS, MAC) with strict hygiene standards: every brush and tool is thoroughly sterilized and sanitized before each client to guarantee zero cross-contamination and complete skin safety."}
+              </p>
+              <p>
+                {inMalayalam
                   ? "Jaqilin Makeover എന്നത് രജിസ്റ്റർ ചെയ്ത സ്ഥാപനമാണ് (LJS Works, UDYAM-KL-12-0112903). വിവാഹദിനത്തിൽ യാതൊരു ടെൻഷനുമില്ലാതെ വധുവിനും കുടുംബത്തിനും സന്തോഷകരമായ ഒരുക്കമാണ് ഞങ്ങളുടെ ഉറപ്പ്."
                   : "Jaqilin Makeover operates under LJS Works, a registered Indian enterprise (UDYAM-KL-12-0112903). Our mission is to make every bride feel confident, radiant, and stress-free on her big day."}
               </p>
