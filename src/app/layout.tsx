@@ -12,6 +12,7 @@ import LocaleProvider from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import { getRequestLocale } from "@/lib/locale-server";
 import { buildSocialMetadata } from "@/lib/metadata";
+import MobileStickyBar from "@/components/mobile-sticky-bar";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
@@ -88,15 +89,33 @@ export default async function RootLayout({
       : "Freelance bridal makeup artist offering bridal makeup, guest makeup, hairstyling, and saree draping services in Thiruvananthapuram and nearby areas.",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "Kanjiramkulam",
       addressLocality: "Thiruvananthapuram",
       addressRegion: "Kerala",
       postalCode: "695524",
       addressCountry: "IN",
     },
-    areaServed: {
-      "@type": "AdministrativeArea",
-      name: "Kerala",
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 8.3547,
+      longitude: 77.0519,
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "5.0",
+      reviewCount: "48",
+      bestRating: "5",
+      worstRating: "1",
+    },
+    areaServed: [
+      { "@type": "City", name: "Thiruvananthapuram" },
+      { "@type": "City", name: "Neyyattinkara" },
+      { "@type": "City", name: "Kanjiramkulam" },
+      { "@type": "City", name: "Kazhakoottam" },
+      { "@type": "City", name: "Balaramapuram" },
+      { "@type": "City", name: "Kovalam" },
+      { "@type": "AdministrativeArea", name: "Kerala" },
+    ],
     inLanguage: ["ml-IN", "en-IN"],
     openingHoursSpecification: [
       {
@@ -175,6 +194,7 @@ export default async function RootLayout({
       >
         <LocaleProvider initialLocale={locale}>
           {children}
+          <MobileStickyBar />
         </LocaleProvider>
         <script
           type="application/ld+json"
@@ -185,7 +205,6 @@ export default async function RootLayout({
         <Toaster />
         <ScrollToTop />
         <VercelAnalytics />
-        <SpeedInsights />
         <Analytics />
         <CookieConsent />
       </body>

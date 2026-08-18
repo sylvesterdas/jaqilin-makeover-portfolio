@@ -49,6 +49,7 @@ export default function Contact() {
                     width={260}
                     height={52}
                     className="w-56 sm:w-64 h-auto transition-transform hover:scale-105"
+                    style={{ width: "auto", height: "auto" }}
                     data-ai-hint="whatsapp button"
                   />
                 </a>

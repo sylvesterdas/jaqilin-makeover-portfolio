@@ -238,13 +238,16 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold">
-            {inMalayalam ? "Portfolio" : "Portfolio"}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider mb-2">
+            <span>📸 @jaqilinmua</span>
+          </div>
+          <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+            {inMalayalam ? "ബ്രൈഡൽ വർക്കുകൾ" : "Bridal Portfolio"}
           </h2>
           <p className="text-base sm:text-lg text-foreground/70 mt-2">
             {inMalayalam
-              ? "പുതിയ work"
-              : "A Glimpse of My Artistry"}
+              ? "യഥാർത്ഥ വധുക്കൾക്കായി ചെയ്ത മേക്കപ്പ്, ഹെയർ & സാരി ഡ്രേപ്പിംഗ് വർക്കുകൾ"
+              : "A glimpse of recent wedding looks, hairstyles & saree draping artistry"}
           </p>
         </div>
         {/* Instagram Grid */}
@@ -274,6 +277,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
                 ) : (
                   <img
                     src={postMedia.media_url}
+                    alt="Bridal Makeup Look by Jaqilin Makeover Thiruvananthapuram"
                     loading="lazy"
                     draggable={false}
                     onContextMenu={(e) => e.preventDefault()}

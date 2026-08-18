@@ -89,13 +89,27 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "Follow" : "Follow Me"}</h3>
-            <div className="space-y-2">
-              <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_instagram', 'Footer')}>
+            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "സേവന മേഖലകൾ" : "Service Areas"}</h3>
+            <p className="text-xs sm:text-sm text-foreground/75 leading-relaxed mb-3">
+              {inMalayalam
+                ? "തിരുവനന്തപുരം ജില്ലയിലെ പ്രധാന സ്ഥലങ്ങളിൽ ഹോം & വെന്യൂ സർവീസ് ലഭ്യമാണ്:"
+                : "Home & venue bridal makeover services available across Thiruvananthapuram:"}
+            </p>
+            <div className="flex flex-wrap gap-1.5 justify-center md:justify-start text-xs text-foreground/70">
+              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Trivandrum City</span>
+              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Neyyattinkara</span>
+              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kanjiramkulam</span>
+              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kazhakoottam</span>
+              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Balaramapuram</span>
+              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kovalam</span>
+              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kattakada</span>
+            </div>
+            <div className="mt-4 space-y-2">
+              <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_instagram', 'Footer')}>
                 <Instagram size={16} />
                 <span>@jaqilinmua</span>
               </a>
-              <a href="https://www.facebook.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_facebook', 'Footer')}>
+              <a href="https://www.facebook.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_facebook', 'Footer')}>
                 <Facebook size={16} />
                 <span>/jaqilinmua</span>
               </a>
@@ -103,6 +117,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/50 text-center text-xs sm:text-sm text-foreground/60">
+          <p className="mb-1 text-xs text-primary font-medium">✨ Lakmé Certified Bridal Makeup Artist | Thiruvananthapuram, Kerala</p>
           <p>&copy; {new Date().getFullYear()} <span className="text-primary">Jaqilin</span> <span className="text-foreground">Makeover</span>. All Rights Reserved. | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">About</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">Privacy Policy</a> | <a href="/terms" className="hover:text-primary underline-offset-4 hover:underline">Terms</a> | <a href="/data-deletion" className="hover:text-primary underline-offset-4 hover:underline">Data Deletion</a></p>
         </div>
       </div>

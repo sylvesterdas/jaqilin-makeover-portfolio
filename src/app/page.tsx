@@ -1,8 +1,13 @@
 
 import Header from '@/components/header';
 import Hero from '@/components/hero';
+import StatsBar from '@/components/stats-bar';
 import Services from '@/components/services';
+import BridalConcierge from '@/components/bridal-concierge';
+import BookingSteps from '@/components/booking-steps';
 import Portfolio from '@/components/portfolio';
+import Testimonials from '@/components/testimonials';
+import FaqSection from '@/components/faq-section';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
 import type { Metadata } from 'next';
@@ -53,8 +58,13 @@ export default async function Home() {
       <main className="flex-grow">
         <StructuredData data={breadcrumbSchema} />
         <Hero />
+        <StatsBar />
         <Services />
+        <BridalConcierge />
+        <BookingSteps />
         <Portfolio data={posts} />
+        <Testimonials />
+        <FaqSection />
         <Contact />
       </main>
       <Footer />

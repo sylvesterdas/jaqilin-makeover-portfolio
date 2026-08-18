@@ -11,3 +11,7 @@ function getWhatsAppMessage(locale: Locale): string {
 export function getWhatsAppUrl(locale: Locale): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(getWhatsAppMessage(locale))}`;
 }
+
+export function getPhoneTelUrl(): string {
+  return `tel:${CALL_NUMBER}`;
+}
