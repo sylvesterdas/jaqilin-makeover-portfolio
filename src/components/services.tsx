@@ -197,6 +197,18 @@ export default function Services() {
                       <span>{inMalayalam ? "ലഭ്യത ചോദിക്കൂ" : "Inquire Availability"}</span>
                     </a>
                   </Button>
+
+                  {service.id === "saree-draping" && (
+                    <div className="mt-3 text-center">
+                      <a
+                        href="/saree-draping-trivandrum"
+                        className="text-xs text-primary font-medium hover:underline inline-flex items-center gap-1"
+                      >
+                        <span>{inMalayalam ? "സാരി ഡ്രേപ്പിംഗ് വിശദാംശങ്ങൾ കാണൂ" : "View Saree Draping & Box Pleating Details"}</span>
+                        <span>→</span>
+                      </a>
+                    </div>
+                  )}
                 </CardContent>
               </Card>
             );

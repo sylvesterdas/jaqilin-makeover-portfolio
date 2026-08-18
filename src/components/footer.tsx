@@ -40,16 +40,28 @@ export default function Footer() {
             </h3>
             <p className="text-sm sm:text-base text-foreground/70">LJS Works</p>
             <p className="text-sm sm:text-base text-foreground/70">{inMalayalam ? "TVM" : "Trivandrum"}</p>
-            <p className="mt-2 text-sm">
-              <a
-                href="/bridal-makeup-artist-thiruvananthapuram"
-                className="text-primary underline-offset-4 hover:underline"
-              >
-                {inMalayalam
-                  ? "തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ്"
-                  : "Bridal makeup in Thiruvananthapuram"}
-              </a>
-            </p>
+            <div className="mt-2 space-y-1 text-sm">
+              <div>
+                <a
+                  href="/bridal-makeup-artist-thiruvananthapuram"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  {inMalayalam
+                    ? "തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ്"
+                    : "Bridal Makeup in Thiruvananthapuram"}
+                </a>
+              </div>
+              <div>
+                <a
+                  href="/saree-draping-trivandrum"
+                  className="text-primary underline-offset-4 hover:underline"
+                >
+                  {inMalayalam
+                    ? "സാരി ഡ്രേപ്പിംഗ് സർവീസ്"
+                    : "Saree Draping Services Trivandrum"}
+                </a>
+              </div>
+            </div>
           </div>
           <div>
             <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "Contact" : "Contact Me"}</h3>
