@@ -19,15 +19,45 @@ export default function BridalConcierge() {
     { id: "saree", label: inMalayalam ? "സാരി ഡ്രേപ്പിംഗ്" : "Saree Draping", full: "Saree Draping & Styling" },
   ];
 
-  const locations = [
-    "Thiruvananthapuram City",
-    "Neyyattinkara",
-    "Kanjiramkulam",
-    "Kazhakoottam",
-    "Balaramapuram",
-    "Kovalam / Vizhinjam",
-    "Other Location",
+  const locationGroups = [
+    {
+      group: inMalayalam ? "⭐ കാഞ്ഞിരംകുളം & സമീപ പ്രദേശങ്ങൾ (10 km)" : "⭐ Kanjiramkulam & 10 km Radius",
+      items: [
+        "Kanjiramkulam (Studio Base)",
+        "Nellimoodu",
+        "Poovar",
+        "Balaramapuram",
+        "Vizhinjam",
+        "Kovalam",
+        "Venganoor",
+        "Thirupuram",
+      ],
+    },
+    {
+      group: inMalayalam ? "📍 നെയ്യാറ്റിൻകര & കാട്ടാക്കട മേഖലകൾ" : "📍 Neyyattinkara & Kattakada Regions",
+      items: [
+        "Neyyattinkara",
+        "Amaravila",
+        "Parassala",
+        "Kattakada",
+        "Malayinkeezhu",
+        "Maranalloor",
+        "Vellarada",
+      ],
+    },
+    {
+      group: inMalayalam ? "🏛️ തിരുവനന്തപുരം സിറ്റി & മറ്റ് പ്രദേശങ്ങൾ" : "🏛️ Trivandrum City & Wider Hubs",
+      items: [
+        "Trivandrum City (Central)",
+        "Nemom / Pravachambalam",
+        "Kazhakoottam / Technopark",
+        "Attingal / Nedumangad",
+        "Other Kerala Location",
+      ],
+    },
   ];
+
+  const allLocations = locationGroups.flatMap((g) => g.items);
 
   const guestCounts = [
     { id: "1", label: inMalayalam ? "വധു മാത്രം" : "Bride Only" },
@@ -36,7 +66,7 @@ export default function BridalConcierge() {
   ];
 
   const [selectedEvent, setSelectedEvent] = useState(eventTypes[0]);
-  const [selectedLocation, setSelectedLocation] = useState(locations[0]);
+  const [selectedLocation, setSelectedLocation] = useState(allLocations[0]);
   const [selectedGuests, setSelectedGuests] = useState(guestCounts[0]);
 
   const generateWhatsAppMessage = () => {
@@ -112,26 +142,36 @@ Could you please share your package details and availability?`;
             <div>
               <label className="flex items-center gap-2 font-headline text-sm sm:text-base font-semibold text-foreground mb-3">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span>2. {inMalayalam ? "സ്ഥലം / മണ്ഡപം" : "Event / Venue Location"}</span>
+                <span>2. {inMalayalam ? "സ്ഥലം / മണ്ഡപം (തിരഞ്ഞെടുക്കുക)" : "Select Venue / Event Location"}</span>
               </label>
-              <div className="flex flex-wrap gap-2 sm:gap-3">
-                {locations.map((loc) => {
-                  const isSelected = selectedLocation === loc;
-                  return (
-                    <button
-                      key={loc}
-                      type="button"
-                      onClick={() => setSelectedLocation(loc)}
-                      className={`px-3.5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all ${
-                        isSelected
-                          ? "bg-primary text-primary-foreground shadow-md"
-                          : "bg-background border border-border/80 text-foreground/80 hover:border-primary/50"
-                      }`}
-                    >
-                      {loc}
-                    </button>
-                  );
-                })}
+
+              <div className="space-y-3">
+                {locationGroups.map((group, gIdx) => (
+                  <div key={gIdx} className="p-3 rounded-2xl bg-background/50 border border-border/50">
+                    <p className="text-[11px] sm:text-xs font-semibold text-primary mb-2 uppercase tracking-wide">
+                      {group.group}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
+                      {group.items.map((loc) => {
+                        const isSelected = selectedLocation === loc;
+                        return (
+                          <button
+                            key={loc}
+                            type="button"
+                            onClick={() => setSelectedLocation(loc)}
+                            className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all ${
+                              isSelected
+                                ? "bg-primary text-primary-foreground shadow-md font-semibold scale-105"
+                                : "bg-card border border-border/80 text-foreground/80 hover:border-primary/50"
+                            }`}
+                          >
+                            {loc}
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 

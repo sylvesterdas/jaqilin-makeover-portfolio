@@ -81,48 +81,43 @@ export default function ConnectContent() {
           onContextMenu={(e) => e.preventDefault()}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/85 via-white/45 to-white/10 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/85 via-background/45 to-transparent z-10" />
 
       <div className="relative z-20 flex flex-col items-center w-full">
         {/* Intro */}
-        <div className="flex flex-col items-center mb-6 sm:mb-8 px-5 sm:px-8 py-4 text-center w-full max-w-sm sm:max-w-md bg-white/60 rounded-3xl backdrop-blur-[4px] shadow-sm">
+        <div className="flex flex-col items-center mb-6 sm:mb-8 px-5 sm:px-8 py-5 text-center w-full max-w-sm sm:max-w-md bg-card/75 rounded-3xl backdrop-blur-md border border-primary/25 shadow-lg">
           <Image
             src="/logo.png"
             alt="Jaqilin Makeover Logo"
             width={96}
             height={96}
-            className="rounded-full border-2 border-primary shadow-lg size-20 sm:size-24"
+            className="rounded-full border-2 border-primary shadow-md size-20 sm:size-24"
           />
 
-          <h1 className="mt-4 font-headline text-2xl sm:text-3xl text-primary text-balance leading-tight">
-            {inMalayalam ? (
-              <>
-                <span className="block text-[1.2em]">ബ്രൈഡൽ</span>
-                <span className="block">മേക്കപ്പ് ആർട്ടിസ്റ്റ്</span>
-              </>
-            ) : (
-              "Bridal Makeup Artist"
-            )}
+          <div className="mt-3 inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-primary/10 text-primary text-[11px] font-semibold uppercase tracking-wider">
+            <span>✨ Lakmé Certified Artist</span>
+          </div>
+
+          <h1 className="mt-2 font-headline text-2xl sm:text-3xl text-foreground font-bold leading-tight">
+            {inMalayalam ? "ജാകിലിൻ മേക്കോവർ" : "Jaqilin Makeover"}
           </h1>
 
-          <p className="mt-2 text-foreground/90 text-sm sm:text-base">
+          <p className="mt-1 text-primary text-sm sm:text-base font-semibold">
             {inMalayalam
-              ? "നാചുറൽ bridal makeup"
-              : "Natural bridal makeup"}
+              ? "ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്"
+              : "Bridal Makeup Artist"}
           </p>
 
-          <p className="mt-1 text-foreground/80 text-xs sm:text-sm">
+          <p className="mt-1.5 text-foreground/80 text-xs sm:text-sm">
             {inMalayalam
-              ? "Hair styling • Saree draping"
-              : "Hair styling • saree draping"}
+              ? "ഹെയർ സ്റ്റൈലിംഗ് • സാരി ഡ്രേപ്പിംഗ് • ഗസ്റ്റ് മേക്കപ്പ്"
+              : "Hair styling • Saree draping • Guest makeup"}
           </p>
 
-          <p className="mt-1 text-foreground/70 text-xs sm:text-sm">
-            {inMalayalam ? "Home service" : "Home service"}
-          </p>
-
-          <p className="mt-1 text-foreground/60 text-xs sm:text-sm">
-            {inMalayalam ? "TVM" : "Thiruvananthapuram"}
+          <p className="mt-1 text-foreground/60 text-xs">
+            {inMalayalam
+              ? "കാഞ്ഞിരംകുളം സ്റ്റുഡിയോ • തിരുവനന്തപുരം ജില്ലയിലുടനീളം ഹോം സർവീസ്"
+              : "Kanjiramkulam Studio • Home & Venue Service in Trivandrum"}
           </p>
         </div>
 

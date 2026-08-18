@@ -9,14 +9,23 @@ const whatsappUrl =
   "https://wa.me/917356483404?text=Hi%2C%20I%20want%20to%20check%20availability%20for%20bridal%20makeup%20in%20Thiruvananthapuram.";
 
 const localities = [
+  "Kanjiramkulam",
+  "Nellimoodu",
+  "Poovar",
+  "Balaramapuram",
+  "Vizhinjam",
+  "Kovalam",
+  "Venganoor",
+  "Thirupuram",
+  "Neyyattinkara",
+  "Amaravila",
+  "Parassala",
+  "Kattakada",
+  "Malayinkeezhu",
+  "Maranalloor",
+  "Vellarada",
   "Thiruvananthapuram",
   "Kazhakoottam",
-  "Neyyattinkara",
-  "Kattakada",
-  "Balaramapuram",
-  "Kovalam",
-  "Vellarada",
-  "Kanjiramkulam",
 ];
 
 export default function BridalMakeupTvmContent() {

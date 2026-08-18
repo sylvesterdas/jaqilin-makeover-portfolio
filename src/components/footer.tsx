@@ -92,17 +92,44 @@ export default function Footer() {
             <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "സേവന മേഖലകൾ" : "Service Areas"}</h3>
             <p className="text-xs sm:text-sm text-foreground/75 leading-relaxed mb-3">
               {inMalayalam
-                ? "തിരുവനന്തപുരം ജില്ലയിലെ പ്രധാന സ്ഥലങ്ങളിൽ ഹോം & വെന്യൂ സർവീസ് ലഭ്യമാണ്:"
-                : "Home & venue bridal makeover services available across Thiruvananthapuram:"}
+                ? "കാഞ്ഞിരംകുളം & 10 km ചുറ്റളവിലും, നെയ്യാറ്റിൻകര, കാട്ടാക്കട, തിരുവനന്തപുരം മേഖലകളിലും സർവീസ് ലഭ്യമാണ്:"
+                : "Studio in Kanjiramkulam with home/venue bridal service across South Kerala:"}
             </p>
-            <div className="flex flex-wrap gap-1.5 justify-center md:justify-start text-xs text-foreground/70">
-              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Trivandrum City</span>
-              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Neyyattinkara</span>
-              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kanjiramkulam</span>
-              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kazhakoottam</span>
-              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Balaramapuram</span>
-              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kovalam</span>
-              <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kattakada</span>
+            <div className="space-y-2 text-xs text-foreground/70">
+              <div>
+                <span className="font-semibold text-primary block mb-1">{inMalayalam ? "⭐ കാഞ്ഞിരംകുളം & 10 km ചുറ്റളവ്:" : "⭐ Kanjiramkulam & 10 km Radius:"}</span>
+                <div className="flex flex-wrap gap-1">
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kanjiramkulam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Nellimoodu</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Poovar</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Balaramapuram</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Vizhinjam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kovalam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Venganoor</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Thirupuram</span>
+                </div>
+              </div>
+              <div>
+                <span className="font-semibold text-foreground/80 block mb-1">{inMalayalam ? "📍 നെയ്യാറ്റിൻകര & കാട്ടാക്കട:" : "📍 Neyyattinkara & Kattakada:"}</span>
+                <div className="flex flex-wrap gap-1">
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Neyyattinkara</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Amaravila</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Parassala</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kattakada</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Malayinkeezhu</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Maranalloor</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Vellarada</span>
+                </div>
+              </div>
+              <div>
+                <span className="font-semibold text-foreground/80 block mb-1">{inMalayalam ? "🏛️ തിരുവനന്തപുരം സിറ്റി & മറ്റ് പ്രദേശങ്ങൾ:" : "🏛️ Trivandrum City & Extended:"}</span>
+                <div className="flex flex-wrap gap-1">
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Trivandrum City</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Nemom</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kazhakoottam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Attingal</span>
+                </div>
+              </div>
             </div>
             <div className="mt-4 space-y-2">
               <a href="https://www.instagram.com/jaqilinmua" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center md:justify-start gap-2 text-sm text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_instagram', 'Footer')}>
