@@ -56,15 +56,19 @@ jobs:
             const envFile = fs.readFileSync(".env.vercel", "utf8");
             const match = envFile.match(/^IG_TOKEN=(?:"([^"]*)"|'([^']*)'|([^\n\r]*))/m);
             const extracted = match?.[1] ?? match?.[2] ?? match?.[3] ?? "";
-            currentToken = extracted.trim().replace(/^["']|["']$/g, "");
+            const val = extracted.trim().replace(/^["']|["']$/g, "");
+            // Vercel CLI masks sensitive environment variables with "[SENSITIVE]"
+            if (val && val !== "[SENSITIVE]" && !val.startsWith("[SENSITIVE")) {
+              currentToken = val;
+            }
           }
 
           if (!currentToken && process.env.IG_TOKEN_FALLBACK) {
             currentToken = process.env.IG_TOKEN_FALLBACK.trim().replace(/^["']|["']$/g, "");
           }
 
-          if (!currentToken) {
-            throw new Error("IG_TOKEN was not found in Vercel production environment or IG_TOKEN_FALLBACK secret");
+          if (!currentToken || currentToken === "[SENSITIVE]") {
+            throw new Error("Valid IG_TOKEN was not found (received [SENSITIVE] or empty value). Please ensure IG_TOKEN repository secret is set in GitHub.");
           }
 
           const maskedPrefix = currentToken.substring(0, Math.min(8, currentToken.length));
