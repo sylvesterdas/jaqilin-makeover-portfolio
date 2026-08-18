@@ -46,11 +46,11 @@ export default function FaqSection() {
     },
     {
       q: inMalayalam
-        ? "എന്തൊക്കെ മേക്കപ്പ് പ്രോഡക്റ്റുകളാണ് ഉപയോഗിക്കുന്നത്?"
-        : "What makeup products and brands do you use?",
+        ? "എന്തൊക്കെ മേക്കപ്പ് ബ്രാൻഡുകളാണ് ഉപയോഗിക്കുന്നത്? സ്കിന്നിന് സുരക്ഷിതമാണോ?"
+        : "What makeup products & brands do you use? Are they skin-safe?",
       a: inMalayalam
-        ? "ഹൈ-ക്വാളിറ്റി, സ്കിൻ-ഫ്രണ്ട്‌ലി ആയ പ്രൊഫഷണൽ ബ്രാൻഡുകളാണ് ഉപയോഗിക്കുന്നത്. എല്ലാത്തരം സ്കിൻ ടൈപ്പുകൾക്കും അനുയോജ്യവും, വിവാഹദിനം മുഴുവൻ നീണ്ടുനിൽക്കുന്ന ലോങ്ങ്-വെയർ ഫിനിഷ് നൽകുന്നതുമാണ്."
-        : "We strictly use professional, skin-friendly, and high-quality cosmetics suited for South Indian skin tones to deliver a flawless, sweat-resistant, and natural long-lasting finish.",
+        ? "Estée Lauder, NARS, MAC, Huda Beauty തുടങ്ങിയ ലോകോത്തര പ്രീമിയം ബ്രാൻഡുകൾ മാത്രമാണ് ഞങ്ങൾ ഉപയോഗിക്കുന്നത്. ഓരോ വധുവിന്റെയും സ്കിൻ ടൈപ്പിനും (ഓയ്‌ലി, ഡ്രൈ, സെൻസിറ്റീവ്) ഹെയർ ടൈപ്പിനും അനുയോജ്യമായ പ്രോഡക്റ്റുകൾ കൃത്യമായി തിരഞ്ഞെടുക്കുന്നു. ക്വാളിറ്റിയിൽ യാതൊരു വിട്ടുവീഴ്ചയുമില്ലാതെ, സ്കിന്നിന് പൂർണ്ണ സുരക്ഷിതത്വവും ദീർഘനേരം നിൽക്കുന്ന നാച്ചുറൽ ഗ്ലോയും ഉറപ്പുനൽകുന്നു."
+        : "We exclusively use premium, internationally acclaimed brands such as Estée Lauder, NARS, MAC, and Huda Beauty. We strictly customize products to match your exact skin type (sensitive, dry, oily) and hair texture with zero compromise on quality or hygiene, guaranteeing a skin-safe, long-lasting, and sweat-resistant bridal radiance.",
     },
   ];
 
