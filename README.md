@@ -89,6 +89,22 @@ Every **1st and 15th of the month at 00:00 UTC**, the pipeline:
 
 ---
 
+---
+
+## 👨‍💻 Engineering & Architectural Highlights
+
+This project serves as a showcase of modern full-stack web engineering best practices:
+
+* **⚡ Next.js 16 (Turbopack) & React 19**: Server Components with sub-100ms cold compiles and fast incremental builds.
+* **🔄 Zero-Maintenance Token Rotation**: Custom GitHub Actions cron pipeline using Meta Graph API and Vercel CLI to securely rotate tokens without exposing credentials or manual interventions.
+* **🎯 Conversion-First UX Design**: Built with frictionless lead capture mechanics (interactive bridal concierge, persistent thumb-reach mobile action bar, and localized pre-filled WhatsApp templates).
+* **🌐 Enterprise-Grade SEO Architecture**:
+  * Semantic HTML5 with microdata and dynamic metadata generation.
+  * Injected JSON-LD schemas (`ProfessionalService`, `BreadcrumbList`, `FAQPage`, `AggregateRating`) for rich search engine result snippets and local pack rankings.
+* **🚀 Performance & Accessibility**: Optimized media with Next.js Image component, lazy loading, zero layout shift (CLS: 0), and accessible ARIA attributes.
+
+---
+
 ## 🗺️ Service Coverage & Location Hubs
 
 Home and venue bridal makeover services are provided across **Thiruvananthapuram District**, including:
@@ -97,7 +113,17 @@ Home and venue bridal makeover services are provided across **Thiruvananthapuram
 
 ---
 
+## 👤 Author & Developer
+
+**Sylvester Das**  
+*Full-Stack Engineer*  
+* GitHub: [@sylvesterdas](https://github.com/sylvesterdas)  
+* Project: [Jaqilin Makeover Website & Portfolio](https://www.jaqilinmakeover.com)
+
+---
+
 ## 📄 License & Attribution
 
 All rights reserved © **Jaqilin Makeover / LJS Works**.  
-Artistry & Photography by **Jaqilin** ([@jaqilinmua](https://www.instagram.com/jaqilinmua/)).
+Artistry & Makeup by **Jaqilin** ([@jaqilinmua](https://www.instagram.com/jaqilinmua/)).
+Designed & Developed by **Sylvester Das**.
