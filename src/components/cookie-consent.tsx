@@ -15,7 +15,17 @@ export const getCookieConsent = (): boolean | null => {
     // Default to consent if no choice has been made
     return true; 
   }
-  return JSON.parse(consent);
+  if (consent === 'granted' || consent === 'true') {
+    return true;
+  }
+  if (consent === 'denied' || consent === 'false') {
+    return false;
+  }
+  try {
+    return Boolean(JSON.parse(consent));
+  } catch {
+    return true;
+  }
 };
 
 export default function CookieConsent() {

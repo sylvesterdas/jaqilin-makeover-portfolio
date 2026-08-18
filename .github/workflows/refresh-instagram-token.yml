@@ -103,10 +103,14 @@ jobs:
             });
           NODE
 
-      - name: Replace IG_TOKEN in Vercel production
+      - name: Replace IG_TOKEN in Vercel environments (production, preview, development)
         run: |
-          vercel env rm IG_TOKEN production --yes --token="$VERCEL_TOKEN"
+          vercel env rm IG_TOKEN production --yes --token="$VERCEL_TOKEN" || true
           printf '%s' "${{ steps.refresh.outputs.token }}" | vercel env add IG_TOKEN production --token="$VERCEL_TOKEN"
+          vercel env rm IG_TOKEN preview --yes --token="$VERCEL_TOKEN" || true
+          printf '%s' "${{ steps.refresh.outputs.token }}" | vercel env add IG_TOKEN preview --token="$VERCEL_TOKEN"
+          vercel env rm IG_TOKEN development --yes --token="$VERCEL_TOKEN" || true
+          printf '%s' "${{ steps.refresh.outputs.token }}" | vercel env add IG_TOKEN development --token="$VERCEL_TOKEN"
 
       - name: Redeploy production
         run: vercel deploy --prod --yes --token="$VERCEL_TOKEN"

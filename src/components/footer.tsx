@@ -62,6 +62,7 @@ export default function Footer() {
                       alt="Chat on WhatsApp"
                       width={140}
                       height={28}
+                      style={{ width: "auto", height: "auto" }}
                       data-ai-hint="whatsapp button small"
                     />
                   </a>
