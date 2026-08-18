@@ -180,8 +180,10 @@ export default function Services() {
                     onClick={() => {
                       event({
                         action: "click_service_inquiry",
-                        category: "engagement",
+                        category: "conversion",
                         label: service.title,
+                        service_name: service.title,
+                        placement: "services_grid",
                         value: 1,
                       });
                     }}

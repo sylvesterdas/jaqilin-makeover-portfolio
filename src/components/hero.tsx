@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useLocale } from "@/components/locale-provider";
 import { getWhatsAppUrl } from "@/lib/contact-links";
 import { isMalayalam } from "@/lib/locale";
+import { event } from "@/lib/events";
 
 const heroImages = [
   {
@@ -102,6 +103,15 @@ export default function Hero() {
               size="lg"
               asChild
               className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm w-full sm:w-auto text-sm sm:text-base"
+              onClick={() => {
+                event({
+                  action: "click_whatsapp",
+                  category: "conversion",
+                  label: "Hero Check Date CTA",
+                  placement: "hero_section",
+                  value: 1,
+                });
+              }}
             >
               <a
                 href={getWhatsAppUrl(locale)}
@@ -119,6 +129,15 @@ export default function Hero() {
               variant="outline"
               asChild
               className="border-primary/50 text-foreground hover:bg-primary hover:text-primary-foreground font-semibold w-full sm:w-auto text-sm sm:text-base"
+              onClick={() => {
+                event({
+                  action: "click_view_work",
+                  category: "navigation",
+                  label: "Hero View Work",
+                  placement: "hero_section",
+                  value: 1,
+                });
+              }}
             >
               <a href="#portfolio">
                 {inMalayalam ? "വർക്കുകൾ കാണൂ" : "View Bridal Work"}

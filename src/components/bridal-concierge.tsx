@@ -85,6 +85,10 @@ Could you please share your package details and availability?`;
       action: "submit_concierge",
       category: "conversion",
       label: `${selectedEvent.id}_${selectedLocation}`,
+      ceremony_type: selectedEvent.label,
+      location_selected: selectedLocation,
+      guest_count: selectedGuests.label,
+      placement: "bridal_concierge",
       value: 1,
     });
   };

@@ -15,8 +15,9 @@ export default function MobileStickyBar() {
   const handleWhatsAppClick = () => {
     event({
       action: "click_whatsapp",
-      category: "engagement",
+      category: "conversion",
       label: "Mobile Sticky Bar",
+      placement: "mobile_sticky_bar",
       value: 1,
     });
   };
@@ -24,8 +25,9 @@ export default function MobileStickyBar() {
   const handleCallClick = () => {
     event({
       action: "click_call",
-      category: "engagement",
+      category: "conversion",
       label: "Mobile Sticky Bar",
+      placement: "mobile_sticky_bar",
       value: 1,
     });
   };
