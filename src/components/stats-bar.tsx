@@ -16,7 +16,7 @@ export default function StatsBar() {
       icon: Sparkles,
     },
     {
-      number: "7+",
+      number: "2+",
       label: inMalayalam ? "വർഷത്തെ പരിചയം" : "Years Experience",
       subtext: inMalayalam ? "Lakmé അക്കാദമി ട്രെയിൻഡ്" : "Lakmé Certified Artist",
       icon: Award,

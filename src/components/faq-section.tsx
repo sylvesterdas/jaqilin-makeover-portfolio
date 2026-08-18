@@ -46,11 +46,11 @@ export default function FaqSection() {
     },
     {
       q: inMalayalam
-        ? "മേക്കപ്പ് ട്രയൽ (Trial Session) ലഭ്യമാണോ?"
-        : "Can I book a trial makeup session?",
+        ? "എന്തൊക്കെ മേക്കപ്പ് പ്രോഡക്റ്റുകളാണ് ഉപയോഗിക്കുന്നത്?"
+        : "What makeup products and brands do you use?",
       a: inMalayalam
-        ? "അതെ! കാഞ്ഞിരംകുളത്തുള്ള സ്റ്റുഡിയോയിൽ വെച്ച് ട്രയൽ സെഷൻ നടത്താവുന്നതാണ്. സ്കിൻ ടോൺ, ഹെയർസ്റ്റൈൽ, സാരി എന്നിവയ്ക്ക് അനുയോജ്യമായ ലുക്ക് മുൻകൂട്ടി ഉറപ്പാക്കാം."
-        : "Yes! Trial sessions can be arranged at our Kanjiramkulam studio to test skin shade matching, hair style ideas, and ensure you feel 100% confident for your big day.",
+        ? "ഹൈ-ക്വാളിറ്റി, സ്കിൻ-ഫ്രണ്ട്‌ലി ആയ പ്രൊഫഷണൽ ബ്രാൻഡുകളാണ് ഉപയോഗിക്കുന്നത്. എല്ലാത്തരം സ്കിൻ ടൈപ്പുകൾക്കും അനുയോജ്യവും, വിവാഹദിനം മുഴുവൻ നീണ്ടുനിൽക്കുന്ന ലോങ്ങ്-വെയർ ഫിനിഷ് നൽകുന്നതുമാണ്."
+        : "We strictly use professional, skin-friendly, and high-quality cosmetics suited for South Indian skin tones to deliver a flawless, sweat-resistant, and natural long-lasting finish.",
     },
   ];
 

@@ -27,7 +27,7 @@ export default function Services() {
         : "Classic Kerala Muhurtham look with HD long-lasting finish & flower setting",
       features: [
         inMalayalam ? "HD സ്വെറ്റ്-പ്രൂഫ് & വാട്ടർ-റെസിസ്റ്റന്റ് ബ്രൈഡൽ ബേസ്" : "HD sweat-proof & waterproof bridal base",
-        inMalayalam ? "മുല്ലപ്പൂവ്, നെറ്റിപ്പട്ടം, ജ്വല്ലറി സെറ്റിംഗ്" : "Traditional jasmine flower & temple jewellery setting",
+        inMalayalam ? "മുല്ലപ്പൂവ്, നെറ്റിച്ചുട്ടി, ജ്വല്ലറി സെറ്റിംഗ്" : "Traditional jasmine flower, nettichutti & jewellery setting",
         inMalayalam ? "പെർഫെക്റ്റ് കസവ് സാരി ബോക്സ് പ്ലീറ്റിംഗ്" : "Precision Kasavu saree pleating & draping",
         inMalayalam ? "മുഴുവൻ ദിവസവും നിൽക്കുന്ന നാച്ചുറൽ ഫിനിഷ്" : "All-day radiance without looking heavy or cakey",
       ],
@@ -39,11 +39,11 @@ export default function Services() {
       badge: inMalayalam ? "ലക്ഷ്വറി വെഡിങ്" : "Church Wedding",
       title: inMalayalam ? "ക്രിസ്ത്യൻ ചർച്ച് ബ്രൈഡൽ" : "Christian Bridal & Veil",
       subtitle: inMalayalam
-        ? "വെഡിങ് ഗൗണിനും സാരിക്കും ഇണങ്ങുന്ന റോമാന്റിക് ഡ്യൂയി ലുക്ക്"
+        ? "വെഡിങ് ഗൗണിനും സാരിക്കും ഇണങ്ങുന്ന എലഗന്റ് ഡ്യൂയി ലുക്ക്"
         : "Graceful bridal veil styling, modern hair updos & soft glam finish",
       features: [
         inMalayalam ? "വെയിൽ & ടിയാര പെർഫെക്റ്റ് ഫിക്സിംഗ്" : "Bridal veil & tiara secure placement",
-        inMalayalam ? "റോമാന്റിക് ഹെയർ ബൺ / സോഫ്റ്റ് വേവ്സ് സ്റ്റൈലിംഗ്" : "Elegant hair bun or Hollywood soft waves",
+        inMalayalam ? "ബ്രൈഡൽ ഹെയർ അപ്ഡൂ / സോഫ്റ്റ് വേവ്സ് സ്റ്റൈലിംഗ്" : "Bridal hair updo or Hollywood soft waves",
         inMalayalam ? "ഫോട്ടോജെനിക് ഡ്യൂയി ഫിനിഷ്" : "Camera-ready luminous skin radiance",
         inMalayalam ? "വെഡിങ് സാരി / ഗൗൺ സ്റ്റൈലിംഗ് സപ്പോർട്ട്" : "Gown or wedding saree draping support",
       ],
@@ -59,7 +59,7 @@ export default function Services() {
         : "Sculpted eye artistry, royal dupatta setting & high-impact reception glow",
       features: [
         inMalayalam ? "സ്കൾപ്റ്റഡ് ഐ ആർട്ടിസ്ട്രി & ലാഷസ്" : "Signature eye artistry with lash styling",
-        inMalayalam ? "ദുപ്പട്ട / ഹിജാബ് റോയൽ ഡ്രേപ്പിംഗ്" : "Secure dupatta & hijab styling draping",
+        inMalayalam ? "റോയൽ ദുപ്പട്ട ഡ്രേപ്പിംഗ് & സെറ്റിംഗ്" : "Secure royal dupatta styling & draping",
         inMalayalam ? "ലൈറ്റ്-റീഫ്ലക്റ്റിംഗ് റിസപ്ഷൻ ഗ്ലോ" : "Evening light-reflecting reception glow",
         inMalayalam ? "ഹെവി ലെഹങ്ക / സാരി അഡ്ജസ്റ്റ്മെന്റ്" : "Heavy bridal lehenga & saree setting",
       ],

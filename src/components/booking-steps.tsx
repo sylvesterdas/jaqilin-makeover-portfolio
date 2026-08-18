@@ -22,10 +22,10 @@ export default function BookingSteps() {
     {
       step: "02",
       icon: Sparkles,
-      title: inMalayalam ? "ലുക്ക് പ്ലാനിംഗ് & ട്രയൽ" : "2. Look Planning & Trial",
+      title: inMalayalam ? "ലുക്ക് പ്ലാനിംഗ് & കൺസൾട്ടേഷൻ" : "2. Look Planning & Consultation",
       description: inMalayalam
-        ? "സാരി, ആഭരണങ്ങൾ, സ്കിൻ ടോൺ എന്നിവയ്ക്ക് ഇണങ്ങുന്ന മേക്കപ്പും ഹെയർസ്റ്റൈലും മുൻകൂട്ടി തീരുമാനിക്കാം. സ്റ്റുഡിയോ ട്രയലും ലഭ്യമാണ്."
-        : "Finalize your dream hairstyle, jewellery placement, and skin shade matching. Studio trials are available at Kanjiramkulam.",
+        ? "സാരി, ആഭരണങ്ങൾ, സ്കിൻ ടോൺ എന്നിവയ്ക്ക് ഇണങ്ങുന്ന മേക്കപ്പും ഹെയർസ്റ്റൈലും മുൻകൂട്ടി ചർച്ച ചെയ്ത് തീരുമാനിക്കാം."
+        : "Finalize your dream hairstyle, jewellery placement, and customized look based on your attire and ceremony timing.",
     },
     {
       step: "03",

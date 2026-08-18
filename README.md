@@ -110,11 +110,11 @@ This project serves as a showcase of modern full-stack web engineering best prac
 Home and venue bridal makeover services are provided across **Thiruvananthapuram District & South Kerala**:
 
 * **⭐ Primary Studio & 10 km Local Radius (Preferred Base)**:  
-  **Kanjiramkulam (Studio Base)** • **Nellimoodu** • **Poovar** • **Balaramapuram** • **Vizhinjam** • **Kovalam** • **Venganoor** • **Thirupuram**
+  **Kanjiramkulam (Studio Base)** • **Nellimoodu** • **Poovar** • **Balaramapuram** • **Vizhinjam** • **Kovalam** • **Azhimala** • **Chowara** • **Nellikkakuzhi** • **Kannaravila** • **Venganoor** • **Thirupuram**
 * **📍 Neyyattinkara & Kattakada Taluk Regions**:  
-  **Neyyattinkara Town** • **Amaravila** • **Parassala** • **Kattakada** • **Malayinkeezhu** • **Maranalloor** • **Vellarada**
+  **Neyyattinkara Town** • **Amaravila** • **Parassala** • **Kattakada** • **Malayinkeezhu** • **Maranalloor** • **Kallikkadu** • **Peyyad** • **Perukavu** • **Vellarada**
 * **🏛️ Trivandrum City & Extended District Hubs**:  
-  **Thiruvananthapuram City (Central / Kowdiar / Pattom)** • **Nemom / Pravachambalam** • **Kazhakoottam / Technopark** • **Attingal / Nedumangad**
+  **Thampanoor** • **Palayam** • **Kowdiar** • **Sasthamangalam** • **Peroorkada** • **Thirumala** • **Pappanamcode** • **Kaimanam** • **Karamana** • **Vellayani** • **Nemom** • **Kochu Veli** • **Kazhakoottam / Technopark** • **Chirayinkeezhu** • **Kadakkavoor** • **Anjengo** • **Attingal** • **Nedumangad**
 
 ---
 

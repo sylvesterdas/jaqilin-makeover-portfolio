@@ -95,9 +95,9 @@ export default function Footer() {
                 ? "കാഞ്ഞിരംകുളം & 10 km ചുറ്റളവിലും, നെയ്യാറ്റിൻകര, കാട്ടാക്കട, തിരുവനന്തപുരം മേഖലകളിലും സർവീസ് ലഭ്യമാണ്:"
                 : "Studio in Kanjiramkulam with home/venue bridal service across South Kerala:"}
             </p>
-            <div className="space-y-2 text-xs text-foreground/70">
+            <div className="space-y-2.5 text-xs text-foreground/70">
               <div>
-                <span className="font-semibold text-primary block mb-1">{inMalayalam ? "⭐ കാഞ്ഞിരംകുളം & 10 km ചുറ്റളവ്:" : "⭐ Kanjiramkulam & 10 km Radius:"}</span>
+                <span className="font-semibold text-primary block mb-1">{inMalayalam ? "⭐ കാഞ്ഞിരംകുളം & 10 km ചുറ്റളവ് (സ്റ്റുഡിയോ ബേസ്):" : "⭐ Kanjiramkulam & 10 km Radius (Studio Base):"}</span>
                 <div className="flex flex-wrap gap-1">
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kanjiramkulam</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Nellimoodu</span>
@@ -105,12 +105,16 @@ export default function Footer() {
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Balaramapuram</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Vizhinjam</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kovalam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Azhimala</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Chowara</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Nellikkakuzhi</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kannaravila</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Venganoor</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Thirupuram</span>
                 </div>
               </div>
               <div>
-                <span className="font-semibold text-foreground/80 block mb-1">{inMalayalam ? "📍 നെയ്യാറ്റിൻകര & കാട്ടാക്കട:" : "📍 Neyyattinkara & Kattakada:"}</span>
+                <span className="font-semibold text-foreground/80 block mb-1">{inMalayalam ? "📍 നെയ്യാറ്റിൻകര & കാട്ടാക്കട മേഖലകൾ:" : "📍 Neyyattinkara & Kattakada Regions:"}</span>
                 <div className="flex flex-wrap gap-1">
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Neyyattinkara</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Amaravila</span>
@@ -118,16 +122,33 @@ export default function Footer() {
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kattakada</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Malayinkeezhu</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Maranalloor</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kallikkadu</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Peyyad</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Perukavu</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Vellarada</span>
                 </div>
               </div>
               <div>
-                <span className="font-semibold text-foreground/80 block mb-1">{inMalayalam ? "🏛️ തിരുവനന്തപുരം സിറ്റി & മറ്റ് പ്രദേശങ്ങൾ:" : "🏛️ Trivandrum City & Extended:"}</span>
+                <span className="font-semibold text-foreground/80 block mb-1">{inMalayalam ? "🏛️ തിരുവനന്തപുരം സിറ്റി & മറ്റ് പ്രദേശങ്ങൾ:" : "🏛️ Trivandrum City & Extended Hubs:"}</span>
                 <div className="flex flex-wrap gap-1">
-                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Trivandrum City</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Thampanoor</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Palayam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kowdiar</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Sasthamangalam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Peroorkada</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Thirumala</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Pappanamcode</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kaimanam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Karamana</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Vellayani</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Nemom</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kochu Veli</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kazhakoottam</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Chirayinkeezhu</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Kadakkavoor</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Anjengo</span>
                   <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Attingal</span>
+                  <span className="px-2 py-0.5 rounded-md bg-background border border-border/60">Nedumangad</span>
                 </div>
               </div>
             </div>
