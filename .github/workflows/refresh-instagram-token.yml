@@ -1,6 +1,9 @@
 name: Refresh Instagram Token
 
 on:
+  schedule:
+    # Run at 00:00 UTC on the 1st and 15th of every month
+    - cron: '0 0 1,15 * *'
   workflow_dispatch:
 
 permissions:
@@ -47,29 +50,48 @@ jobs:
           node <<'NODE'
           const fs = require("fs");
 
-          const envFile = fs.readFileSync(".env.vercel", "utf8");
-          const match = envFile.match(/^IG_TOKEN=(?:"([^"]*)"|'([^']*)'|([^\n\r]*))/m);
-          const currentToken =
-            match?.[1] ?? match?.[2] ?? match?.[3] ?? process.env.IG_TOKEN_FALLBACK;
+          let currentToken = "";
 
-          if (!currentToken) {
-            throw new Error("IG_TOKEN was not found in Vercel production environment");
+          if (fs.existsSync(".env.vercel")) {
+            const envFile = fs.readFileSync(".env.vercel", "utf8");
+            const match = envFile.match(/^IG_TOKEN=(?:"([^"]*)"|'([^']*)'|([^\n\r]*))/m);
+            const extracted = match?.[1] ?? match?.[2] ?? match?.[3] ?? "";
+            currentToken = extracted.trim().replace(/^["']|["']$/g, "");
           }
 
+          if (!currentToken && process.env.IG_TOKEN_FALLBACK) {
+            currentToken = process.env.IG_TOKEN_FALLBACK.trim().replace(/^["']|["']$/g, "");
+          }
+
+          if (!currentToken) {
+            throw new Error("IG_TOKEN was not found in Vercel production environment or IG_TOKEN_FALLBACK secret");
+          }
+
+          const maskedPrefix = currentToken.substring(0, Math.min(8, currentToken.length));
+          console.log(`Found token with prefix: ${maskedPrefix}... (length: ${currentToken.length})`);
+
+          const isGraphApiToken = currentToken.startsWith("EAA");
           const url = new URL("https://graph.instagram.com/refresh_access_token");
           url.searchParams.set("grant_type", "ig_refresh_token");
-          url.searchParams.set("access_token", currentToken.trim());
+          url.searchParams.set("access_token", currentToken);
+
+          if (isGraphApiToken) {
+            console.warn("Notice: Token starts with 'EAA' (Meta Graph API). Legacy graph.instagram.com endpoint may reject this token.");
+          }
 
           fetch(url)
             .then(async (response) => {
               const body = await response.json();
 
               if (!response.ok || !body.access_token) {
+                console.error("Meta API Response status:", response.status);
+                console.error("Meta API Response body:", JSON.stringify(body, null, 2));
                 throw new Error(`Instagram token refresh failed: ${JSON.stringify(body)}`);
               }
 
               fs.appendFileSync(process.env.GITHUB_OUTPUT, `token=${body.access_token}\n`);
               fs.appendFileSync(process.env.GITHUB_OUTPUT, `expires_in=${body.expires_in ?? ""}\n`);
+              console.log("Token successfully refreshed!");
             })
             .catch((error) => {
               console.error(error);
