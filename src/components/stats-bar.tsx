@@ -10,7 +10,7 @@ export default function StatsBar() {
 
   const stats = [
     {
-      number: "500+",
+      number: "100+",
       label: inMalayalam ? "വിവാഹ മേക്കോവറുകൾ" : "Brides Styled",
       subtext: inMalayalam ? "തൃപ്തികരമായ അനുഭവം" : "Across South Kerala",
       icon: Sparkles,
