@@ -31,7 +31,7 @@ export default function Testimonials() {
     {
       name: inMalayalam ? "സായൂജ്യ" : "Sayoojya",
       functionType: inMalayalam ? "ബ്രൈഡൽ മേക്കപ്പ്" : "Bridal Makeover",
-      location: inMalayalam ? "കഴക്കൂട്ടം" : "Kazhakoottam",
+      location: inMalayalam ? "നേമം" : "Nemom",
       comment: inMalayalam
         ? "മേക്കപ്പ് വളരെ നന്നായിരുന്നു, കണ്ട എല്ലാവർക്കും ഒരുപാട് ഇഷ്ടമായി. കൂടെ സംസാരിച്ചിരുന്നപ്പോൾ തന്നെ ടെൻഷൻ ഒക്കെ മാറി നല്ല stress-free ആയി ഇരിക്കാൻ പറ്റി. മേക്കപ്പ് നല്ല long-lasting ആയിരുന്നു. Thank you so much chechi!"
         : "The makeup was really nice and everyone loved it! Jaqilin chechi was so friendly and chatting with her kept me completely calm and stress-free throughout. The look was truly long-lasting. Thank you so much!",
