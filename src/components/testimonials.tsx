@@ -12,29 +12,29 @@ export default function Testimonials() {
   const reviews = [
     {
       name: inMalayalam ? "അഞ്ജലി കൃഷ്ണ" : "Anjali Krishna",
-      functionType: inMalayalam ? "ഹിന്ദു വെഡിങ് & റിസപ്ഷൻ" : "Hindu Wedding & Reception",
+      functionType: inMalayalam ? "ഹിന്ദു വെഡിങ് & മുഹൂർത്തം" : "Hindu Wedding & Muhurtham",
       location: inMalayalam ? "തിരുവനന്തപുരം" : "Thiruvananthapuram",
       comment: inMalayalam
-        ? "മേക്കപ്പ് വളരെ natural ആയിരുന്നു. ഫോട്ടോസിലും വളരെ ഭംഗിയായി തോന്നി. വൈകുന്നേരം വരെ യാതൊരു കേടുപാടും കൂടാതെ ഫ്രഷ് ആയി നിന്നു. സാരി ഡ്രേപ്പിങ്ങും പെർഫെക്റ്റ് ആയിരുന്നു!"
-        : "Jaqilin gave me the exact natural bridal glow I wanted! The makeup stayed fresh through the morning muhurtham and reception without feeling heavy. Her saree draping was absolutely neat and comfortable.",
+        ? "മേക്കപ്പ് വളരെ natural ആയിരുന്നു, ഫോട്ടോസിലും ഒറിജിനൽ ലുക്ക് കിട്ടി. മുഹൂർത്തം മുതൽ റിസപ്ഷൻ കഴിയും വരെ ഒരു കേടും കൂടാതെ ഫ്രഷ് ആയി നിന്നു. സാരി ഡ്രേപ്പിങ്ങും ഒരുപാട് കംഫർട്ടബിൾ ആയിരുന്നു!"
+        : "The makeup felt so natural and photographed beautifully without looking heavy. It stayed fresh from the morning muhurtham all the way through the reception. Her saree draping was super neat and comfortable!",
       rating: 5,
     },
     {
       name: inMalayalam ? "മരിയ തോമസ്" : "Maria Thomas",
-      functionType: inMalayalam ? "ക്രിസ്ത്യൻ ചർച്ച് വെഡിങ്" : "Christian Church Wedding",
+      functionType: inMalayalam ? "ക്രിസ്ത്യൻ ബ്രൈഡൽ മേക്കപ്പ്" : "Christian Bridal Makeover",
       location: inMalayalam ? "നെയ്യാറ്റിൻകര" : "Neyyattinkara",
       comment: inMalayalam
-        ? "വെഡിങ് സാരിയും വെയിലും സെറ്റ് ചെയ്ത രീതി വളരെ മനോഹരമായിരുന്നു. കൃത്യസമയത്ത് വേദിയിൽ എത്തി എല്ലാം വളരെ ശാന്തമായി പൂർത്തിയാക്കി. എല്ലാവരും അഭിനന്ദിച്ചു!"
-        : "She styled my veil and gown hairstyle beautifully! Arrived at the venue right on time and made the morning calm and stress-free. Received so many compliments from my family.",
+        ? "വെഡിങ് സാരിയും വെയിലും സെറ്റ് ചെയ്ത രീതി വളരെ മനോഹരമായിരുന്നു. കൃത്യസമയത്ത് വേദിയിൽ എത്തി എല്ലാം വളരെ ശാന്തമായി ചെയ്തു തന്നു. വീട്ടുകാർക്കും ഫ്രണ്ട്സിനും ഒരുപാട് ഇഷ്ടമായി!"
+        : "She styled my bridal saree, veil, and hair so gracefully! Arrived right on time at the venue and made the entire morning calm and stress-free. Received so many compliments from my family.",
       rating: 5,
     },
     {
-      name: inMalayalam ? "ഫാത്തിമ നസ്‌റീൻ" : "Fathima Nasreen",
-      functionType: inMalayalam ? "നിക്കாஹ் & മന്ത്രകോടി ലുക്ക്" : "Nikah & Reception",
+      name: inMalayalam ? "സായൂജ്യ" : "Sayoojya",
+      functionType: inMalayalam ? "ബ്രൈഡൽ മേക്കപ്പ്" : "Bridal Makeover",
       location: inMalayalam ? "കഴക്കൂട്ടം" : "Kazhakoottam",
       comment: inMalayalam
-        ? "എന്റെ സ്കിൻ ടോണിന് അനുയോജ്യമായ പെർഫെക്റ്റ് ഷെയ്ഡ് ആയിരുന്നു. കൺഫ്യൂഷൻ ഇല്ലാതെ ലുക്ക് സെലക്ട് ചെയ്യാൻ സഹായിച്ചു. സഹോദരിമാർക്കും ചെയ്ത ഗസ്റ്റ് മേക്കപ്പും മികച്ചതായിരുന്നു."
-        : "Very professional and friendly artist. The shade matching was spot on for my skin tone. She also did guest makeup for my mother and sisters, which was graceful and elegant.",
+        ? "മേക്കപ്പ് വളരെ നന്നായിരുന്നു, കണ്ട എല്ലാവർക്കും ഒരുപാട് ഇഷ്ടമായി. കൂടെ സംസാരിച്ചിരുന്നപ്പോൾ തന്നെ ടെൻഷൻ ഒക്കെ മാറി നല്ല stress-free ആയി ഇരിക്കാൻ പറ്റി. മേക്കപ്പ് നല്ല long-lasting ആയിരുന്നു. Thank you so much chechi!"
+        : "The makeup was really nice and everyone loved it! Jaqilin chechi was so friendly and chatting with her kept me completely calm and stress-free throughout. The look was truly long-lasting. Thank you so much!",
       rating: 5,
     },
   ];
