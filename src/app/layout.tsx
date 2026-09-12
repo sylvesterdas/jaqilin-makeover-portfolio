@@ -109,7 +109,7 @@ export default async function RootLayout({
   const inMalayalam = isMalayalam(locale);
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
+    "@type": ["ProfessionalService", "BeautySalon"],
     "@id": "https://www.jaqilinmakeover.com/#business",
     name: "Jaqilin Makeover",
     url: "https://www.jaqilinmakeover.com",
@@ -118,11 +118,11 @@ export default async function RootLayout({
     email: "contact@jaqilinmakeover.com",
     priceRange: "₹",
     description: inMalayalam
-      ? "തിരുവനന്തപുരം, കാഞ്ഞിരംകുളം, നെയ്യാറ്റിൻകര, കാട്ടാക്കട, കോവളം ഉൾപ്പെടെയുള്ള പ്രദേശങ്ങളിൽ ബ്രൈഡൽ മേക്കപ്പ്, ഗസ്റ്റ് മേക്കപ്പ്, ഹെയർസ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ് സേവനങ്ങൾ നൽകുന്ന ഫ്രീലാൻസ് മേക്കപ്പ് ആർട്ടിസ്റ്റ്."
-      : "Freelance bridal makeup artist offering bridal makeup, guest makeup, hairstyling, and saree draping services across Kanjiramkulam, Neyyattinkara, Kattakada, Kowdiar, and all of Thiruvananthapuram.",
+      ? "തിരുവനന്തപുരം, കാഞ്ഞിരംകുളം, നെയ്യാറ്റിൻകര, കാട്ടാക്കട, കോവളം ഉൾപ്പെടെയുള്ള പ്രദേശങ്ങളിൽ ബ്രൈഡൽ ബ്യൂട്ടീഷ്യൻ, മേക്കപ്പ്, ഗസ്റ്റ് മേക്കപ്പ്, ഹെയർസ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ് സേവനങ്ങൾ നൽകുന്ന ഫ്രീലാൻസ് ബ്രൈഡൽ ആർട്ടിസ്റ്റ്."
+      : "Freelance bridal makeup artist and bridal beautician offering wedding makeup, pennorukkal, guest makeup, hairstyling, and saree draping services across Kanjiramkulam, Neyyattinkara, Kattakada, Kowdiar, and all of Thiruvananthapuram.",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Kanjiramkulam",
+      streetAddress: "Suku Cottage, Nellikakuzhi, Manaveli, Kanjiramkulam",
       addressLocality: "Thiruvananthapuram",
       addressRegion: "Kerala",
       postalCode: "695524",
@@ -130,9 +130,10 @@ export default async function RootLayout({
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 8.3547,
-      longitude: 77.0519,
+      latitude: 8.3599366,
+      longitude: 77.0607978,
     },
+    hasMap: "https://maps.google.com/maps?cid=16246917355789142726",
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "5.0",
@@ -236,6 +237,7 @@ export default async function RootLayout({
       ],
     },
     sameAs: [
+      "https://maps.google.com/maps?cid=16246917355789142726",
       "https://www.instagram.com/jaqilinmua/",
       "https://www.facebook.com/jaqilinmua",
       "https://www.wedmegood.com/profile/Jaqilin-Makeover-25886362",

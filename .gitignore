@@ -27,6 +27,8 @@
 service-account*.json
 *service-account*.json
 *.credentials.json
+client_secret*.json
+token*.json
 
 # debug
 npm-debug.log*

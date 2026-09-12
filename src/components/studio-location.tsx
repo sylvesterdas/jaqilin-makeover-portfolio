@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Navigation } from "lucide-react";
+import { MapPin, Navigation, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { event } from "@/lib/events";
 import { useLocale } from "@/components/locale-provider";
@@ -11,6 +11,12 @@ const MAP_IFRAME_URL =
 
 export const STUDIO_DIRECTIONS_URL =
   "https://www.google.com/maps/dir/?api=1&destination=8.3599453,77.0607636&travelmode=driving";
+
+export const GOOGLE_MAPS_CID_URL =
+  "https://maps.google.com/maps?cid=16246917355789142726";
+
+export const GOOGLE_REVIEW_URL =
+  "https://search.google.com/local/writereview?placeid=ChIJxeS3_CBpaaARxsrwVkGleOE";
 
 type StudioLocationProps = {
   compact?: boolean;
@@ -37,17 +43,37 @@ export default function StudioLocation({ compact = false }: StudioLocationProps)
             ? "Studio visit available. Home / venue bridal service ഉണ്ട്."
             : "Studio visit available. Home and venue bridal service also available."}
         </p>
-        <Button asChild variant="outline" size="sm" className="gap-2">
-          <a
-            href={STUDIO_DIRECTIONS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleDirectionsClick}
-          >
-            <Navigation className="size-4" />
-            {inMalayalam ? "ലൊക്കേഷൻ കാണൂ" : "Get Directions"}
-          </a>
-        </Button>
+        <div className="flex flex-wrap items-center justify-center gap-2">
+          <Button asChild variant="outline" size="sm" className="gap-2">
+            <a
+              href={STUDIO_DIRECTIONS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleDirectionsClick}
+            >
+              <Navigation className="size-4" />
+              {inMalayalam ? "ലൊക്കേഷൻ കാണൂ" : "Get Directions"}
+            </a>
+          </Button>
+          <Button asChild variant="outline" size="sm" className="gap-2 border-amber-500/30 text-foreground/80 hover:bg-amber-500/10">
+            <a
+              href={GOOGLE_REVIEW_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() =>
+                event({
+                  action: "click_google_review",
+                  category: "engagement",
+                  label: "Compact Contact Section",
+                  value: 1,
+                })
+              }
+            >
+              <Star className="size-3.5 fill-amber-500 text-amber-500" />
+              {inMalayalam ? "റിവ്യൂ ചെയ്യൂ (5.0 ★)" : "Review Us (5.0 ★)"}
+            </a>
+          </Button>
+        </div>
       </div>
     );
   }
@@ -81,17 +107,37 @@ export default function StudioLocation({ compact = false }: StudioLocationProps)
         </div>
       </div>
 
-      <Button asChild className="mt-4 h-auto w-full gap-2 py-3">
-        <a
-          href={STUDIO_DIRECTIONS_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={handleDirectionsClick}
-        >
-          <Navigation className="size-4" />
-          {inMalayalam ? "ലൊക്കേഷൻ കാണൂ" : "Get Directions"}
-        </a>
-      </Button>
+      <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+        <Button asChild className="h-auto w-full gap-2 py-3">
+          <a
+            href={STUDIO_DIRECTIONS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleDirectionsClick}
+          >
+            <Navigation className="size-4" />
+            {inMalayalam ? "ലൊക്കേഷൻ കാണൂ" : "Get Directions"}
+          </a>
+        </Button>
+        <Button asChild variant="outline" className="h-auto w-full gap-2 py-3 border-amber-500/40 hover:bg-amber-500/10">
+          <a
+            href={GOOGLE_REVIEW_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() =>
+              event({
+                action: "click_google_review",
+                category: "engagement",
+                label: "Connect Page Studio Location",
+                value: 1,
+              })
+            }
+          >
+            <Star className="size-4 fill-amber-500 text-amber-500" />
+            {inMalayalam ? "ഗൂഗിൾ റിവ്യൂ (5.0 ★)" : "Rate Us (5.0 ★)"}
+          </a>
+        </Button>
+      </div>
 
       <div className="mt-4 overflow-hidden rounded-xl border border-border bg-muted/40">
         <iframe

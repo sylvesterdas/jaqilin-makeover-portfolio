@@ -3,14 +3,14 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Globe, Instagram, Phone } from "lucide-react";
+import { Globe, Instagram, Phone, Star } from "lucide-react";
 import Image from "next/image";
 import { event } from "@/lib/events";
 import WhatsAppIcon from "./icons/whatsapp-icon";
 import { useLocale } from "@/components/locale-provider";
 import { getWhatsAppUrl, CALL_NUMBER, DISPLAY_PHONE_NUMBER } from "@/lib/contact-links";
 import { isMalayalam } from "@/lib/locale";
-import StudioLocation from "@/components/studio-location";
+import StudioLocation, { GOOGLE_REVIEW_URL } from "@/components/studio-location";
 
 const heroImages = [
   {
@@ -229,6 +229,36 @@ export default function ConnectContent() {
                     {inMalayalam
                       ? "Services & Portfolio"
                       : "Services & Portfolio"}
+                  </span>
+                </div>
+              </a>
+            </Button>
+
+            {/* Google Review */}
+            <Button
+              size="lg"
+              asChild
+              variant="outline"
+              className="h-auto py-3 sm:py-3.5 px-4 justify-start rounded-xl border-amber-500/35 hover:bg-amber-500/10"
+              onClick={() => handleEvent("click_google_review", "Connect Page")}
+            >
+              <a
+                href={GOOGLE_REVIEW_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-start gap-3 sm:gap-4 w-full"
+              >
+                <Star className="size-6 shrink-0 mt-1 text-amber-500 fill-amber-500" />
+                <div className="flex flex-col items-start text-left">
+                  <span className="font-medium leading-snug">
+                    {inMalayalam
+                      ? "ഗൂഗിൾ റിവ്യൂ ചെയ്യൂ (5.0 ★)"
+                      : "Review Us on Google (5.0 ★)"}
+                  </span>
+                  <span className="text-xs text-foreground/60 leading-snug">
+                    {inMalayalam
+                      ? "നിങ്ങളുടെ അനുഭവം പങ്കുവെക്കൂ"
+                      : "Rate your makeover experience"}
                   </span>
                 </div>
               </a>
