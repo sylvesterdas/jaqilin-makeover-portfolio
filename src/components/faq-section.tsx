@@ -5,6 +5,7 @@ import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import WhatsAppCta from "@/components/whatsapp-cta";
 
 export default function FaqSection() {
   const { locale } = useLocale();
@@ -133,6 +134,15 @@ export default function FaqSection() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-10 flex flex-col items-center gap-3 text-center">
+          <p className="text-sm sm:text-base text-foreground/75">
+            {inMalayalam ? "മറ്റെന്തെങ്കിലും അറിയണോ? WhatsApp-ൽ നേരിട്ട് ചോദിക്കൂ." : "Still have a question? Ask directly on WhatsApp."}
+          </p>
+          <WhatsAppCta placement="faq" variant="outline">
+            {inMalayalam ? "WhatsApp-ൽ ചോദിക്കൂ" : "Ask on WhatsApp"}
+          </WhatsAppCta>
         </div>
       </div>
     </section>

@@ -4,8 +4,10 @@ import { useState } from "react";
 import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import { Button } from "@/components/ui/button";
-import { Sparkles, MessageCircle, MapPin, Calendar, Users, Check } from "lucide-react";
-import { event } from "@/lib/events";
+import { Sparkles, MapPin, Calendar, CalendarDays, Users, Check } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/events";
+import { buildWhatsAppUrl } from "@/lib/contact-links";
+import WhatsAppGlyph from "@/components/icons/whatsapp-glyph";
 
 export default function BridalConcierge() {
   const { locale } = useLocale();
@@ -19,68 +21,25 @@ export default function BridalConcierge() {
     { id: "saree", label: inMalayalam ? "സാരി ഡ്രേപ്പിംഗ്" : "Saree Draping", full: "Saree Draping & Styling" },
   ];
 
-  const locationGroups = [
+  // Coarse area chips plus an optional free-text venue: one tap instead of
+  // hunting through dozens of place names, and no wrong preselected venue.
+  const areas = [
     {
-      group: inMalayalam ? "⭐ ഏറ്റവും പ്രിയപ്പെട്ട പ്രദേശം (കാഞ്ഞിരംകുളം & 10 km ചുറ്റളവ്)" : "⭐ Most Preferred (Kanjiramkulam & 10 km Radius)",
-      items: [
-        "Kanjiramkulam (Studio)",
-        "Nellimoodu",
-        "Poovar",
-        "Balaramapuram",
-        "Vizhinjam",
-        "Kovalam",
-        "Azhimala",
-        "Chowara",
-        "Nellikkakuzhi",
-        "Kannaravila",
-        "Venganoor",
-        "Thirupuram",
-        "Payattuvila",
-        "Kottukal",
-      ],
+      id: "south",
+      label: inMalayalam ? "കാഞ്ഞിരംകുളം / കോവളം / പൂവാർ ഭാഗം" : "Kanjiramkulam / Kovalam / Poovar area",
+      full: "Kanjiramkulam / Kovalam / Poovar area",
     },
     {
-      group: inMalayalam ? "📍 നെയ്യാറ്റിൻകര & കാട്ടാക്കട മേഖലകൾ" : "📍 Neyyattinkara & Kattakada Regions",
-      items: [
-        "Neyyattinkara",
-        "Amaravila",
-        "Parassala",
-        "Kattakada",
-        "Malayinkeezhu",
-        "Maranalloor",
-        "Kallikkadu",
-        "Peyyad",
-        "Perukavu",
-        "Poovachal",
-        "Vellarada",
-      ],
+      id: "neyyattinkara",
+      label: inMalayalam ? "നെയ്യാറ്റിൻകര / കാട്ടാക്കട ഭാഗം" : "Neyyattinkara / Kattakada area",
+      full: "Neyyattinkara / Kattakada area",
     },
     {
-      group: inMalayalam ? "🏛️ തിരുവനന്തപുരം സിറ്റി & മറ്റ് പ്രദേശങ്ങൾ" : "🏛️ Trivandrum City & Extended Hubs",
-      items: [
-        "Thampanoor / Central",
-        "Palayam",
-        "Kowdiar",
-        "Sasthamangalam",
-        "Peroorkada",
-        "Thirumala",
-        "Pappanamcode",
-        "Kaimanam",
-        "Karamana",
-        "Vellayani",
-        "Nemom / Pravachambalam",
-        "Kochu Veli",
-        "Kazhakoottam / Technopark",
-        "Chirayinkeezhu",
-        "Kadakkavoor",
-        "Anjengo (Anchuthengu)",
-        "Attingal / Nedumangad",
-        "Other Kerala Location",
-      ],
+      id: "city",
+      label: inMalayalam ? "തിരുവനന്തപുരം സിറ്റി / മറ്റ് സ്ഥലം" : "Trivandrum city / elsewhere",
+      full: "Trivandrum city / elsewhere",
     },
   ];
-
-  const allLocations = locationGroups.flatMap((g) => g.items);
 
   const guestCounts = [
     { id: "1", label: inMalayalam ? "വധു മാത്രം" : "Bride Only" },
@@ -89,30 +48,44 @@ export default function BridalConcierge() {
   ];
 
   const [selectedEvent, setSelectedEvent] = useState(eventTypes[0]);
-  const [selectedLocation, setSelectedLocation] = useState(allLocations[0]);
+  const [selectedAreaId, setSelectedAreaId] = useState<string | null>(null);
+  const [venue, setVenue] = useState("");
+  const [eventDate, setEventDate] = useState("");
   const [selectedGuests, setSelectedGuests] = useState(guestCounts[0]);
 
-  const generateWhatsAppMessage = () => {
-    return `Hi Jaqilin, I would like to check your availability for my wedding event:
-• Event Type: ${selectedEvent.full}
-• Location: ${selectedLocation}
-• People requiring makeup/styling: ${selectedGuests.label}
+  const selectedArea = areas.find((a) => a.id === selectedAreaId);
+  // <input type="date"> gives YYYY-MM-DD; Kerala customers read DD-MM-YYYY.
+  const displayDate = eventDate ? eventDate.split("-").reverse().join("-") : "";
+  const place = [venue.trim(), selectedArea?.label].filter(Boolean).join(", ");
 
-Could you please share your package details and availability?`;
+  const generateWhatsAppMessage = () => {
+    if (inMalayalam) {
+      return `ഹായ്, വെബ്സൈറ്റ് കണ്ടാണ് മെസ്സേജ് അയക്കുന്നത്. ഈ തീയതിയിൽ ലഭ്യമാണോ?
+• ചടങ്ങ്: ${selectedEvent.label}
+• തീയതി: ${displayDate}
+• സ്ഥലം: ${place}
+• മേക്കപ്പ് വേണ്ടവർ: ${selectedGuests.label}
+
+പാക്കേജ് വിവരങ്ങൾ അറിയിക്കാമോ?`;
+    }
+    return `Hi, I found your website and would like to check your availability:
+• Event: ${selectedEvent.full}
+• Date: ${displayDate}
+• Venue / place: ${place}
+• People needing makeup: ${selectedGuests.label}
+
+Could you please share package details?`;
   };
 
-  const whatsAppUrl = `https://wa.me/917356483404?text=${encodeURIComponent(generateWhatsAppMessage())}`;
+  const whatsAppUrl = buildWhatsAppUrl(generateWhatsAppMessage());
 
   const handleConciergeSubmit = () => {
-    event({
-      action: "submit_concierge",
-      category: "conversion",
-      label: `${selectedEvent.id}_${selectedLocation}`,
-      ceremony_type: selectedEvent.label,
-      location_selected: selectedLocation,
-      guest_count: selectedGuests.label,
-      placement: "bridal_concierge",
-      value: 1,
+    trackWhatsAppClick("concierge", {
+      locale,
+      ceremony_type: selectedEvent.id,
+      location_selected: selectedArea?.id ?? (venue.trim() ? "custom" : "none"),
+      guest_count: selectedGuests.id,
+      date_given: eventDate ? "yes" : "no",
     });
   };
 
@@ -165,48 +138,73 @@ Could you please share your package details and availability?`;
               </div>
             </div>
 
-            {/* Step 2: Location */}
+            {/* Step 2: Date */}
             <div>
-              <label className="flex items-center gap-2 font-headline text-sm sm:text-base font-semibold text-foreground mb-3">
-                <MapPin className="h-4 w-4 text-primary" />
-                <span>2. {inMalayalam ? "സ്ഥലം / മണ്ഡപം (തിരഞ്ഞെടുക്കുക)" : "Select Venue / Event Location"}</span>
+              <label
+                htmlFor="concierge-date"
+                className="flex items-center gap-2 font-headline text-sm sm:text-base font-semibold text-foreground mb-3"
+              >
+                <CalendarDays className="h-4 w-4 text-primary" />
+                <span>2. {inMalayalam ? "ചടങ്ങിന്റെ തീയതി" : "Event Date"}</span>
+                <span className="text-xs font-normal text-foreground/60">
+                  ({inMalayalam ? "അറിയാമെങ്കിൽ" : "if fixed"})
+                </span>
               </label>
+              <input
+                id="concierge-date"
+                type="date"
+                value={eventDate}
+                onChange={(e) => setEventDate(e.target.value)}
+                className="w-full sm:w-64 h-11 rounded-xl border border-border/80 bg-background px-4 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
+            </div>
 
-              <div className="space-y-3">
-                {locationGroups.map((group, gIdx) => (
-                  <div key={gIdx} className="p-3 rounded-2xl bg-background/50 border border-border/50">
-                    <p className="text-[11px] sm:text-xs font-semibold text-primary mb-2 uppercase tracking-wide">
-                      {group.group}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                      {group.items.map((loc) => {
-                        const isSelected = selectedLocation === loc;
-                        return (
-                          <button
-                            key={loc}
-                            type="button"
-                            onClick={() => setSelectedLocation(loc)}
-                            className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all ${
-                              isSelected
-                                ? "bg-primary text-primary-foreground shadow-md font-semibold scale-105"
-                                : "bg-card border border-border/80 text-foreground/80 hover:border-primary/50"
-                            }`}
-                          >
-                            {loc}
-                          </button>
-                        );
-                      })}
-                    </div>
-                  </div>
-                ))}
+            {/* Step 3: Location */}
+            <div>
+              <label
+                htmlFor="concierge-venue"
+                className="flex items-center gap-2 font-headline text-sm sm:text-base font-semibold text-foreground mb-3"
+              >
+                <MapPin className="h-4 w-4 text-primary" />
+                <span>3. {inMalayalam ? "സ്ഥലം / മണ്ഡപം" : "Venue / Place"}</span>
+              </label>
+              <div className="flex flex-wrap gap-2 sm:gap-3 mb-3">
+                {areas.map((area) => {
+                  const isSelected = selectedAreaId === area.id;
+                  return (
+                    <button
+                      key={area.id}
+                      type="button"
+                      aria-pressed={isSelected}
+                      onClick={() => setSelectedAreaId(isSelected ? null : area.id)}
+                      className={`flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all ${
+                        isSelected
+                          ? "bg-primary text-primary-foreground shadow-md"
+                          : "bg-background border border-border/80 text-foreground/80 hover:border-primary/50"
+                      }`}
+                    >
+                      {isSelected && <Check className="h-3.5 w-3.5" />}
+                      <span>{area.label}</span>
+                    </button>
+                  );
+                })}
               </div>
+              <input
+                id="concierge-venue"
+                type="text"
+                value={venue}
+                onChange={(e) => setVenue(e.target.value)}
+                maxLength={120}
+                placeholder={inMalayalam ? "ഓഡിറ്റോറിയം / പള്ളി / സ്ഥലം (ഓപ്ഷണൽ)" : "Auditorium, church or place (optional)"}
+                className="w-full h-11 rounded-xl border border-border/80 bg-background px-4 text-sm text-foreground placeholder:text-foreground/50 focus:outline-none focus:ring-2 focus:ring-primary/50"
+              />
             </div>
 
             {/* Step 3: Guest Count */}
             <div>
               <label className="flex items-center gap-2 font-headline text-sm sm:text-base font-semibold text-foreground mb-3">
                 <Users className="h-4 w-4 text-primary" />
-                <span>3. {inMalayalam ? "മേക്കപ്പ് ആവശ്യമുള്ള ആളുകളുടെ എണ്ണം" : "Makeup Count"}</span>
+                <span>4. {inMalayalam ? "മേക്കപ്പ് ആവശ്യമുള്ള ആളുകളുടെ എണ്ണം" : "Makeup Count"}</span>
               </label>
               <div className="flex flex-wrap gap-2 sm:gap-3">
                 {guestCounts.map((cnt) => {
@@ -233,7 +231,7 @@ Could you please share your package details and availability?`;
             <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
               <div className="text-xs sm:text-sm text-foreground/70 text-center sm:text-left">
                 <span className="font-semibold text-foreground">{inMalayalam ? "തിരഞ്ഞെടുത്തത്:" : "Selected:"}</span>{" "}
-                {selectedEvent.label} • {selectedLocation} ({selectedGuests.label})
+                {[selectedEvent.label, displayDate, place].filter(Boolean).join(" • ")} ({selectedGuests.label})
               </div>
 
               <Button
@@ -243,7 +241,7 @@ Could you please share your package details and availability?`;
                 onClick={handleConciergeSubmit}
               >
                 <a href={whatsAppUrl} target="_blank" rel="noopener noreferrer">
-                  <MessageCircle className="h-5 w-5 fill-white" />
+                  <WhatsAppGlyph />
                   <span>{inMalayalam ? "ലഭ്യത WhatsApp ൽ ചോദിക്കൂ" : "Check Date on WhatsApp"}</span>
                 </a>
               </Button>

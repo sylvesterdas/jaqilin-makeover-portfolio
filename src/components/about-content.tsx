@@ -3,7 +3,7 @@
 
 import { Card } from '@/components/ui/card';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import WhatsAppCta from '@/components/whatsapp-cta';
 import { useLocale } from '@/components/locale-provider';
 import { isMalayalam } from '@/lib/locale';
 
@@ -67,14 +67,7 @@ export default function AboutContent() {
 
             {/* CTAs */}
             <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="https://wa.me/917356483404?text=Hi%20Jaqilin%2C%20I%20would%20like%20to%20know%20more%20about%20your%20bridal%20packages."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 shadow-sm"
-              >
-                {inMalayalam ? "WhatsApp-ൽ സംസാരിക്കൂ" : "Chat on WhatsApp"}
-              </a>
+              <WhatsAppCta placement="landing:about" service={inMalayalam ? "ബ്രൈഡൽ മേക്കപ്പ്" : "bridal makeup"} />
               <a
                 href="/#portfolio"
                 className="inline-flex items-center justify-center rounded-full border border-primary/40 px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-primary hover:text-primary-foreground"

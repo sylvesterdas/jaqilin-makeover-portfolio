@@ -2,53 +2,18 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { useState, useEffect } from 'react';
-import { event } from "@/lib/events";
 import { Phone } from "lucide-react";
 import { useLocale } from "@/components/locale-provider";
-import { getWhatsAppUrl, CALL_NUMBER, DISPLAY_PHONE_NUMBER } from "@/lib/contact-links";
+import { getWhatsAppUrl, getPhoneTelUrl } from "@/lib/contact-links";
 import { isMalayalam } from "@/lib/locale";
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogFooter,
-  AlertDialogCancel,
-} from "@/components/ui/alert-dialog"
+import { trackCallClick, trackWhatsAppClick } from "@/lib/events";
+import WhatsAppGlyph from "@/components/icons/whatsapp-glyph";
 
 
 export default function HeaderActions() {
   const { locale, setLocale } = useLocale();
   const inMalayalam = isMalayalam(locale);
-  const [whatsappUrl, setWhatsappUrl] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [showPhoneDialog, setShowPhoneDialog] = useState(false);
-
-
-  useEffect(() => {
-    setWhatsappUrl(getWhatsAppUrl(locale));
-    setPhoneNumber(CALL_NUMBER);
-  }, [locale]);
-
-  const handleWhatsAppClick = () => {
-    event({
-      action: 'click_whatsapp',
-      category: 'engagement',
-      label: 'Book Now Header',
-      value: 1
-    });
-  };
-
-  const handleCallClick = () => {
-    event({
-        action: 'click_call',
-        category: 'engagement',
-        label: 'Call Header',
-        value: 1,
-    });
-  };
+  const whatsappUrl = getWhatsAppUrl(locale);
 
   return (
     <>
@@ -92,60 +57,34 @@ export default function HeaderActions() {
         </div>
 
         <div className="flex items-center gap-2">
-          <Button
-            size="sm"
-            variant="outline"
-            className="h-9 px-3"
-            onClick={() => setShowPhoneDialog(true)}
-          >
-            <Phone className="h-4 w-4" />
-            <span className="ml-2 hidden md:inline">
-              {inMalayalam ? "വിളിക്കുക" : "Call"}
-            </span>
+          <Button size="sm" variant="outline" className="h-9 px-3" asChild>
+            <a href={getPhoneTelUrl()} onClick={() => trackCallClick("header")}>
+              <Phone className="h-4 w-4" />
+              <span className="ml-2 hidden md:inline">
+                {inMalayalam ? "വിളിക്കുക" : "Call"}
+              </span>
+            </a>
           </Button>
 
-          {whatsappUrl && (
-            <Button
-              size="sm"
-              className="h-9 bg-emerald-600 px-3 text-white hover:bg-emerald-700"
-              asChild
+          <Button
+            size="sm"
+            className="h-9 bg-[#25D366] px-3 text-white hover:bg-[#1ebe5a]"
+            asChild
+          >
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackWhatsAppClick("header", { locale })}
             >
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={handleWhatsAppClick}
-              >
-                <Image
-                  src="/images/icons/whatsapp.svg"
-                  alt="WhatsApp"
-                  width={18}
-                  height={18}
-                  data-ai-hint="whatsapp icon"
-                  className="mr-2"
-                />
-                <span className="hidden sm:inline">
-                  {inMalayalam ? "വാട്ട്സ്ആപ്പ്" : "WhatsApp"}
-                </span>
-              </a>
-            </Button>
-          )}
-
+              <WhatsAppGlyph className="size-[18px]" />
+              <span className="hidden sm:inline">
+                {inMalayalam ? "വാട്ട്സ്ആപ്പ്" : "WhatsApp"}
+              </span>
+            </a>
+          </Button>
         </div>
       </div>
-      <AlertDialog open={showPhoneDialog} onOpenChange={setShowPhoneDialog}>
-          <AlertDialogContent>
-              <AlertDialogHeader>
-              <AlertDialogTitle className="font-headline text-2xl text-primary">{inMalayalam ? "ബന്ധപ്പെടാനുള്ള നമ്പർ" : "Contact Number"}</AlertDialogTitle>
-              </AlertDialogHeader>
-              <div className="text-center text-2xl font-mono tracking-widest py-4">
-                  {DISPLAY_PHONE_NUMBER}
-              </div>
-              <AlertDialogFooter>
-              <AlertDialogCancel>{inMalayalam ? "അടയ്ക്കുക" : "Close"}</AlertDialogCancel>
-              </AlertDialogFooter>
-          </AlertDialogContent>
-      </AlertDialog>
     </>
   );
 }

@@ -8,8 +8,6 @@ import BridalMakeupTvmContent from "@/components/bridal-makeup-tvm-content";
 
 const pageUrl =
   "https://www.jaqilinmakeover.com/bridal-makeup-artist-thiruvananthapuram";
-const whatsappUrl =
-  "https://wa.me/917356483404?text=Hi%2C%20I%20want%20to%20check%20availability%20for%20bridal%20makeup%20in%20Thiruvananthapuram.";
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();

@@ -4,9 +4,10 @@ import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import StructuredData from "@/components/structured-data";
 import { buildBreadcrumbSchema } from "@/lib/schema";
+import WhatsAppCta from "@/components/whatsapp-cta";
+import { getPhoneTelUrl, DISPLAY_PHONE_NUMBER } from "@/lib/contact-links";
+import { trackCallClick } from "@/lib/events";
 
-const whatsappUrl =
-  "https://wa.me/917356483404?text=Hi%2C%20I%20want%20to%20check%20availability%20for%20bridal%20makeup%20in%20Thiruvananthapuram.";
 
 const localities = [
   "Kanjiramkulam",
@@ -86,16 +87,7 @@ export default function BridalMakeupTvmContent() {
                 : "Freelance bridal makeup and wedding makeup services in Thiruvananthapuram for engagements, receptions, and family functions, with hairstyling and saree draping support at home or venue."}
             </p>
             <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                {inMalayalam
-                  ? "WhatsApp വഴി തീയതി ചോദിക്കൂ"
-                  : "Check Date on WhatsApp"}
-              </a>
+              <WhatsAppCta placement="landing:bridal-tvm" service={inMalayalam ? "ബ്രൈഡൽ മേക്കപ്പ്" : "bridal makeup in Thiruvananthapuram"} size="lg" />
               <a
                 href="/#portfolio"
                 className="inline-flex items-center justify-center rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
@@ -237,21 +229,15 @@ export default function BridalMakeupTvmContent() {
                 : "Send the wedding date, venue, function type, and number of people on WhatsApp for package guidance and availability confirmation."}
             </p>
             <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+              <WhatsAppCta placement="landing:bridal-tvm:end" service={inMalayalam ? "ബ്രൈഡൽ മേക്കപ്പ്" : "bridal makeup in Thiruvananthapuram"} size="lg">
+                {inMalayalam ? "WhatsApp ബുക്കിംഗ് ചോദിക്കൂ" : "WhatsApp Booking Inquiry"}
+              </WhatsAppCta>
               <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
-              >
-                {inMalayalam
-                  ? "WhatsApp ബുക്കിംഗ് ചോദിക്കൂ"
-                  : "WhatsApp Booking Inquiry"}
-              </a>
-              <a
-                href="tel:+917356483404"
+                href={getPhoneTelUrl()}
+                onClick={() => trackCallClick("landing:bridal-tvm")}
                 className="inline-flex items-center justify-center rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-primary-foreground"
               >
-                {inMalayalam ? "കോൾ ചെയ്യൂ" : "Call +91 73564 83404"}
+                {inMalayalam ? "കോൾ ചെയ്യൂ" : `Call ${DISPLAY_PHONE_NUMBER}`}
               </a>
             </div>
           </div>

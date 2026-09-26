@@ -2,9 +2,8 @@
 
 import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
-import { CalendarHeart, Sparkles, MapPinCheck, ArrowRight } from "lucide-react";
-import { getWhatsAppUrl } from "@/lib/contact-links";
-import { Button } from "@/components/ui/button";
+import { CalendarHeart, Sparkles, MapPinCheck } from "lucide-react";
+import WhatsAppCta from "@/components/whatsapp-cta";
 
 export default function BookingSteps() {
   const { locale } = useLocale();
@@ -86,20 +85,9 @@ export default function BookingSteps() {
         </div>
 
         <div className="mt-12 text-center">
-          <Button
-            asChild
-            size="lg"
-            className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 shadow-sm gap-2"
-          >
-            <a
-              href={getWhatsAppUrl(locale)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <span>{inMalayalam ? "തീയതി ലഭ്യത ചോദിക്കൂ" : "Check Date Availability on WhatsApp"}</span>
-              <ArrowRight className="h-4 w-4" />
-            </a>
-          </Button>
+          <WhatsAppCta placement="booking_steps" size="lg">
+            {inMalayalam ? "തീയതി ലഭ്യത ചോദിക്കൂ" : "Check Date Availability on WhatsApp"}
+          </WhatsAppCta>
         </div>
       </div>
     </section>

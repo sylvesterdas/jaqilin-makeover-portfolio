@@ -3,19 +3,19 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { useLocale } from "@/components/locale-provider";
-import { getWhatsAppUrl } from "@/lib/contact-links";
+import WhatsAppCta from "@/components/whatsapp-cta";
 import { isMalayalam } from "@/lib/locale";
 import { event } from "@/lib/events";
 
 const heroImages = [
   {
     src: "/images/hero-background.jpg",
-    alt: "Background of a beautifully decorated wedding setting",
+    alt: "Kerala bride with natural bridal makeup by Jaqilin Makeover, Thiruvananthapuram",
     hint: "bride makeup",
   },
   {
     src: "/images/hero-background1.jpg",
-    alt: "Another beautiful makeup shot",
+    alt: "Bridal makeup and hairstyle by Jaqilin Makeover, bridal makeup artist in Trivandrum",
     hint: "bridal makeup",
   },
 ];
@@ -48,7 +48,8 @@ export default function Hero() {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
           data-ai-hint={image.hint}
-          priority={index === 0}
+          preload={index === 0}
+          sizes="100vw"
           onContextMenu={(e) => e.preventDefault()}
         />
       ))}
@@ -99,30 +100,7 @@ export default function Hero() {
           </div>
 
           <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row flex-wrap justify-center md:justify-start gap-3">
-            <Button
-              size="lg"
-              asChild
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold shadow-sm w-full sm:w-auto text-sm sm:text-base"
-              onClick={() => {
-                event({
-                  action: "click_whatsapp",
-                  category: "conversion",
-                  label: "Hero Check Date CTA",
-                  placement: "hero_section",
-                  value: 1,
-                });
-              }}
-            >
-              <a
-                href={getWhatsAppUrl(locale)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {inMalayalam
-                  ? "WhatsApp വഴി തീയതി ചോദിക്കൂ"
-                  : "Check Date on WhatsApp"}
-              </a>
-            </Button>
+            <WhatsAppCta placement="hero" size="lg" className="w-full sm:w-auto" />
 
             <Button
               size="lg"

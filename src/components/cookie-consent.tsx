@@ -53,7 +53,8 @@ export default function CookieConsent() {
 
   return (
     <div className={cn(
-      "fixed bottom-0 left-0 right-0 z-50 p-2 bg-card/80 backdrop-blur-sm border-t border-border/50",
+      // Sits above the mobile WhatsApp/Call sticky bar instead of covering it.
+      "fixed bottom-16 md:bottom-0 left-0 right-0 z-50 p-2 bg-card/95 backdrop-blur-sm border-t border-border/50",
       "data-[state=visible]:animate-in data-[state=visible]:slide-in-from-bottom-full",
       "data-[state=hidden]:animate-out data-[state=hidden]:slide-out-to-bottom-full"
     )} data-state={showBanner ? 'visible' : 'hidden'}>

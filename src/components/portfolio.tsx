@@ -8,6 +8,20 @@ import { event } from "@/lib/events";
 import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import AutoVideo from "@/components/auto-video";
+import WhatsAppCta from "@/components/whatsapp-cta";
+
+const DEFAULT_ALT = "Bridal makeup look by Jaqilin Makeover, Thiruvananthapuram";
+
+// First line of the Instagram caption without hashtags/mentions, as alt text.
+function captionAlt(caption?: string): string {
+  const text = (caption ?? "")
+    .split("\n")[0]
+    .replace(/[#@][\p{L}\p{N}_.]+/gu, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!text) return DEFAULT_ALT;
+  return text.length > 120 ? `${text.slice(0, 117)}…` : text;
+}
 
 interface InstagramChild {
   id?: string;
@@ -19,6 +33,7 @@ interface InstagramChild {
 interface InstagramPost extends InstagramChild {
   id: string;
   permalink: string;
+  caption?: string;
   children?: {
     data: InstagramChild[];
   };
@@ -277,7 +292,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
                 ) : (
                   <img
                     src={postMedia.media_url}
-                    alt="Bridal Makeup Look by Jaqilin Makeover Thiruvananthapuram"
+                    alt={captionAlt(post.caption)}
                     loading="lazy"
                     draggable={false}
                     onContextMenu={(e) => e.preventDefault()}
@@ -319,8 +334,11 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
           </div>
         )}
         {/* Instagram Button */}
-        <div className="text-center mt-8 sm:mt-12">
-          <Button size="lg" asChild>
+        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <WhatsAppCta placement="portfolio" size="lg">
+            {inMalayalam ? "ഈ സ്റ്റൈൽ വേണോ? WhatsApp ചെയ്യൂ" : "Love these looks? WhatsApp us"}
+          </WhatsAppCta>
+          <Button size="lg" variant="outline" className="rounded-full" asChild>
             <a
               href="https://www.instagram.com/jaqilinmua"
               target="_blank"
@@ -329,7 +347,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
             >
               <Instagram className="mr-2 h-5 w-5" />
               {inMalayalam
-                ? "Instagram more"
+                ? "കൂടുതൽ Instagram-ൽ കാണൂ"
                 : "Show More on Instagram"}
             </a>
           </Button>
@@ -338,7 +356,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
       {/* Fullscreen Viewer */}
       {selectedMedia && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm touch-pan-y select-none overscroll-contain"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-4 bg-black/80 backdrop-blur-sm touch-pan-y select-none overscroll-contain"
           onClick={(e) => {
             if (e.target === e.currentTarget) closeModal();
           }}
@@ -356,7 +374,7 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
           </button>
 
           <div
-            className="relative w-[90vw] h-[90vh] cursor-default"
+            className="relative w-[90vw] h-[78vh] cursor-default"
             onClick={(e) => e.stopPropagation()}
           >
             {displayMedia?.media_type === "VIDEO" ? (
@@ -381,9 +399,9 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
               <Image
                 key={`${selectedMedia.id}-${selectedChildIndex}`}
                 src={displayMedia?.media_url ?? selectedMedia.media_url}
-                alt="Instagram post"
+                alt={captionAlt(selectedMedia.caption)}
                 fill
-                priority
+                preload
                 sizes="(max-width:768px) 75vw, (max-width:1200px) 50vw"
                 draggable={false}
                 onContextMenu={(e) => e.preventDefault()}
@@ -405,6 +423,21 @@ export default function Portfolio({ data }: { data: InstagramPost[] }) {
                 ))}
               </div>
             )}
+          </div>
+
+          <div className="z-[110]" onClick={(e) => e.stopPropagation()}>
+            <WhatsAppCta
+              placement="portfolio_viewer"
+              size="md"
+              className="shadow-lg whitespace-nowrap"
+              message={
+                inMalayalam
+                  ? `ഹായ്, വെബ്സൈറ്റിലെ ഈ ലുക്ക് ഇഷ്ടപ്പെട്ടു: ${selectedMedia.permalink}\nതീയതി: \nസ്ഥലം: `
+                  : `Hi, I loved this look on your website: ${selectedMedia.permalink}\nEvent date: \nVenue / place: `
+              }
+            >
+              {inMalayalam ? "ഈ ലുക്ക് ചോദിക്കൂ" : "Enquire about this look"}
+            </WhatsAppCta>
           </div>
         </div>
       )}

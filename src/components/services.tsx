@@ -4,17 +4,15 @@ import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Crown, Heart, CheckCircle2, MessageCircle, Gem, Users } from "lucide-react";
-import { event } from "@/lib/events";
+import { Sparkles, Crown, Heart, CheckCircle2, Gem, Users } from "lucide-react";
+import { trackWhatsAppClick } from "@/lib/events";
+import { getWhatsAppUrl } from "@/lib/contact-links";
+import WhatsAppGlyph from "@/components/icons/whatsapp-glyph";
 
 export default function Services() {
   const { locale } = useLocale();
   const inMalayalam = isMalayalam(locale);
 
-  const getServiceWhatsAppUrl = (serviceName: string) => {
-    const text = `Hi Jaqilin, I am inquiring about the "${serviceName}" package for my upcoming event. Could you please share availability and details?`;
-    return `https://wa.me/917356483404?text=${encodeURIComponent(text)}`;
-  };
 
   const services = [
     {
@@ -177,23 +175,16 @@ export default function Services() {
                         ? "bg-primary text-primary-foreground hover:bg-primary/90 shadow-sm"
                         : "bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground"
                     }`}
-                    onClick={() => {
-                      event({
-                        action: "click_service_inquiry",
-                        category: "conversion",
-                        label: service.title,
-                        service_name: service.title,
-                        placement: "services_grid",
-                        value: 1,
-                      });
-                    }}
+                    onClick={() =>
+                      trackWhatsAppClick(`services:${service.id}`, { service_name: service.title, locale })
+                    }
                   >
                     <a
-                      href={getServiceWhatsAppUrl(service.title)}
+                      href={getWhatsAppUrl(locale, { service: service.title })}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <MessageCircle className="h-4 w-4" />
+                      <WhatsAppGlyph className="size-4" />
                       <span>{inMalayalam ? "ലഭ്യത ചോദിക്കൂ" : "Inquire Availability"}</span>
                     </a>
                   </Button>

@@ -32,3 +32,13 @@ export const event = ({ action, category, label, value, ...rest }: GTagEvent) =>
     });
   }
 };
+
+// Every WhatsApp/call click goes through these so GA4 reports can be split by
+// `placement` (hero, header, sticky_bar, services:<name>, landing:<slug>, ...).
+export const trackWhatsAppClick = (placement: string, extra: Omit<GTagEvent, "action"> = {}) => {
+  event({ action: "click_whatsapp", category: "conversion", label: placement, placement, ...extra });
+};
+
+export const trackCallClick = (placement: string, extra: Omit<GTagEvent, "action"> = {}) => {
+  event({ action: "click_call", category: "conversion", label: placement, placement, ...extra });
+};

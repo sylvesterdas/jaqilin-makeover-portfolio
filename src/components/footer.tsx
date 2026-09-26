@@ -2,9 +2,8 @@
 'use client';
 import { Facebook, Instagram, Mail, Phone } from 'lucide-react';
 import EmailLink from './email-link';
-import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import { event } from '@/lib/events';
+import { event, trackCallClick, trackWhatsAppClick } from '@/lib/events';
 import { useLocale } from '@/components/locale-provider';
 import { getWhatsAppUrl, CALL_NUMBER, DISPLAY_PHONE_NUMBER } from '@/lib/contact-links';
 import { isMalayalam } from '@/lib/locale';
@@ -12,13 +11,8 @@ import { isMalayalam } from '@/lib/locale';
 export default function Footer() {
   const { locale } = useLocale();
   const inMalayalam = isMalayalam(locale);
-  const [whatsappUrl, setWhatsappUrl] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-
-  useEffect(() => {
-    setPhoneNumber(CALL_NUMBER);
-    setWhatsappUrl(getWhatsAppUrl(locale));
-  }, [locale]);
+  const whatsappUrl = getWhatsAppUrl(locale);
+  const phoneNumber = CALL_NUMBER;
 
   const handleEvent = (action: string, label: string) => {
     event({
@@ -68,7 +62,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 {whatsappUrl && (
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-block transition-transform hover:scale-105" onClick={() => handleEvent('click_whatsapp', 'Footer')}>
+                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-block transition-transform hover:scale-105" onClick={() => trackWhatsAppClick('footer', { locale })}>
                     <Image
                       src="/images/WhatsAppButtonGreenSmall.svg"
                       alt="Chat on WhatsApp"
@@ -82,7 +76,7 @@ export default function Footer() {
               </li>
               <li>
                 {phoneNumber && (
-                  <a href={`tel:${phoneNumber}`} className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => handleEvent('click_call', 'Footer')}>
+                  <a href={`tel:${phoneNumber}`} className="flex items-center justify-center md:justify-start gap-2 text-sm sm:text-base text-foreground/80 hover:text-primary transition-colors" onClick={() => trackCallClick('footer')}>
                     <Phone size={16} />
                     <span>{DISPLAY_PHONE_NUMBER}</span>
                   </a>

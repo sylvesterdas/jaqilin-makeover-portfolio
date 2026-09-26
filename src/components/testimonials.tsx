@@ -4,6 +4,7 @@ import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import { Star, Award, ShieldCheck, Heart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import WhatsAppCta from "@/components/whatsapp-cta";
 
 export default function Testimonials() {
   const { locale } = useLocale();
@@ -121,6 +122,13 @@ export default function Testimonials() {
             <h4 className="font-headline text-sm font-semibold">{inMalayalam ? "കംപ്ലീറ്റ് ബ്രൈഡൽ കെയർ" : "All-in-One Package"}</h4>
             <p className="text-xs text-foreground/60 mt-0.5">{inMalayalam ? "ഹെയർ + സാരി ഡ്രേപ്പിംഗ്" : "Makeup + Hair + Saree"}</p>
           </div>
+        </div>
+
+        <div className="mt-10 flex flex-col items-center gap-3 text-center">
+          <p className="text-sm sm:text-base text-foreground/75">
+            {inMalayalam ? "നിങ്ങളുടെ വിവാഹ തീയതി ഒഴിവുണ്ടോ എന്ന് അറിയണോ?" : "Want the same look for your wedding?"}
+          </p>
+          <WhatsAppCta placement="testimonials" />
         </div>
       </div>
     </section>

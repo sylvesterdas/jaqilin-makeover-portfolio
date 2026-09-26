@@ -3,13 +3,14 @@
 import { useLocale } from "@/components/locale-provider";
 import { isMalayalam } from "@/lib/locale";
 import { buildBreadcrumbSchema } from "@/lib/schema";
-import { Sparkles, CheckCircle2, MessageCircle, Phone, ArrowRight, ShieldCheck, Heart, Sparkle } from "lucide-react";
+import { Sparkles, CheckCircle2, Phone, ArrowRight, ShieldCheck, Heart, Sparkle } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { event } from "@/lib/events";
+import { trackCallClick, trackWhatsAppClick } from "@/lib/events";
+import { getPhoneTelUrl, getWhatsAppUrl } from "@/lib/contact-links";
+import WhatsAppCta from "@/components/whatsapp-cta";
+import WhatsAppGlyph from "@/components/icons/whatsapp-glyph";
 
-const whatsappUrl =
-  "https://wa.me/917356483404?text=Hi%20Jaqilin%2C%20I%20want%20to%20inquire%20about%20saree%20draping%20and%20box%20pleating%20services%20in%20Thiruvananthapuram.";
 
 const drapeStyles = [
   {
@@ -240,32 +241,20 @@ export default function SareeDrapingContent() {
 
           {/* Quick CTAs */}
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
-            <Button
+            <WhatsAppCta
+              placement="landing:saree-draping"
+              service={inMalayalam ? "സാരി ഡ്രേപ്പിംഗ്" : "saree draping / box pleating"}
               size="lg"
-              asChild
-              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold px-8 shadow-sm gap-2"
-              onClick={() => {
-                event({
-                  action: "click_whatsapp",
-                  category: "conversion",
-                  label: "Saree Draping Page WhatsApp",
-                  placement: "saree_draping_hero",
-                  value: 1,
-                });
-              }}
             >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="h-4 w-4" />
-                <span>{inMalayalam ? "സാരി ഡ്രേപ്പിംഗ് ബുക്ക് ചെയ്യൂ" : "Book Saree Draping on WhatsApp"}</span>
-              </a>
-            </Button>
+              {inMalayalam ? "സാരി ഡ്രേപ്പിംഗ് ബുക്ക് ചെയ്യൂ" : "Book Saree Draping on WhatsApp"}
+            </WhatsAppCta>
             <Button
               size="lg"
               variant="outline"
               asChild
               className="rounded-full border-primary/40 text-foreground hover:bg-primary hover:text-primary-foreground font-semibold px-6"
             >
-              <a href="tel:+917356483404">
+              <a href={getPhoneTelUrl()} onClick={() => trackCallClick("landing:saree-draping")}>
                 <Phone className="h-4 w-4 mr-2" />
                 <span>{inMalayalam ? "വിളിക്കുക: +91 73564 83404" : "Call +91 73564 83404"}</span>
               </a>
@@ -313,24 +302,15 @@ export default function SareeDrapingContent() {
                 </div>
 
                 <a
-                  href={`https://wa.me/917356483404?text=${encodeURIComponent(
-                    `Hi Jaqilin, I am interested in booking: ${style.title.en} in Thiruvananthapuram.`
-                  )}`}
+                  href={getWhatsAppUrl(locale, { service: inMalayalam ? style.title.ml : style.title.en })}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full py-2.5 px-4 rounded-xl bg-secondary text-secondary-foreground hover:bg-primary hover:text-primary-foreground text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5"
-                  onClick={() => {
-                    event({
-                      action: "click_service_inquiry",
-                      category: "conversion",
-                      label: style.title.en,
-                      service_name: style.title.en,
-                      placement: "saree_draping_cards",
-                      value: 1,
-                    });
-                  }}
+                  onClick={() =>
+                    trackWhatsAppClick("landing:saree-draping:style", { service_name: style.title.en, locale })
+                  }
                 >
-                  <MessageCircle className="h-3.5 w-3.5" />
+                  <WhatsAppGlyph className="size-3.5" />
                   <span>{inMalayalam ? "ഈ സ്റ്റൈൽ ചോദിക്കൂ" : "Inquire This Style"}</span>
                 </a>
               </div>
@@ -354,14 +334,13 @@ export default function SareeDrapingContent() {
                   : "We pre-pleat, iron, and box-fold your wedding sarees in advance. On your wedding day, simply wrap and pin in 5 minutes with zero stress or rush."}
               </p>
             </div>
-            <Button
-              asChild
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-full px-6 shadow-sm shrink-0"
+            <WhatsAppCta
+              placement="landing:saree-draping:pre-pleating"
+              service={inMalayalam ? "സാരി പ്രീ-പ്ലീറ്റിംഗ്" : "saree pre-pleating"}
+              className="shrink-0"
             >
-              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
-                <span>{inMalayalam ? "പ്രീ-പ്ലീറ്റിംഗ് വിവരങ്ങൾ ചോദിക്കൂ" : "Check Pre-Pleating Details"}</span>
-              </a>
-            </Button>
+              {inMalayalam ? "പ്രീ-പ്ലീറ്റിംഗ് വിവരങ്ങൾ ചോദിക്കൂ" : "Check Pre-Pleating Details"}
+            </WhatsAppCta>
           </div>
         </section>
 
@@ -398,6 +377,13 @@ export default function SareeDrapingContent() {
                 {loc}
               </span>
             ))}
+          </div>
+          <div className="mt-8 flex justify-center">
+            <WhatsAppCta
+              placement="landing:saree-draping:end"
+              service={inMalayalam ? "സാരി ഡ്രേപ്പിംഗ്" : "saree draping / box pleating"}
+              size="lg"
+            />
           </div>
         </section>
       </div>

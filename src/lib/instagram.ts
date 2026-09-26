@@ -2,6 +2,7 @@ export interface InstagramPost {
   id: string
   media_url: string
   permalink: string
+  caption?: string
   media_type: string
   thumbnail_url?: string
   children?: {
@@ -26,7 +27,7 @@ export async function getInstagramPosts(): Promise<InstagramPost[]> {
 
   try {
     const res = await fetch(
-      `https://graph.instagram.com/me/media?fields=id,media_url,permalink,media_type,thumbnail_url,children{media_url,media_type,thumbnail_url}&limit=50&access_token=${token}`,
+      `https://graph.instagram.com/me/media?fields=id,caption,media_url,permalink,media_type,thumbnail_url,children{media_url,media_type,thumbnail_url}&limit=50&access_token=${token}`,
       { next: { revalidate: 3600 } }
     )
 

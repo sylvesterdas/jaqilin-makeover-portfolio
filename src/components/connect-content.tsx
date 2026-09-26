@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Globe, Instagram, Phone, Star } from "lucide-react";
 import Image from "next/image";
-import { event } from "@/lib/events";
+import { event, trackCallClick, trackWhatsAppClick } from "@/lib/events";
 import WhatsAppIcon from "./icons/whatsapp-icon";
 import { useLocale } from "@/components/locale-provider";
-import { getWhatsAppUrl, CALL_NUMBER, DISPLAY_PHONE_NUMBER } from "@/lib/contact-links";
+import { getWhatsAppUrl, getPhoneTelUrl, DISPLAY_PHONE_NUMBER } from "@/lib/contact-links";
 import { isMalayalam } from "@/lib/locale";
 import StudioLocation, { GOOGLE_REVIEW_URL } from "@/components/studio-location";
 
@@ -28,13 +28,12 @@ const heroImages = [
 export default function ConnectContent() {
   const { locale, setLocale } = useLocale();
   const inMalayalam = isMalayalam(locale);
-  const [links, setLinks] = useState({
-    call: "",
-    whatsapp: "",
+  const links = {
+    call: getPhoneTelUrl(),
+    whatsapp: getWhatsAppUrl(locale),
     instagram: "https://www.instagram.com/jaqilinmua",
     website: "/",
-  });
-  const [callPhoneNumber, setCallPhoneNumber] = useState("");
+  };
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -43,18 +42,6 @@ export default function ConnectContent() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
-
-  useEffect(() => {
-    const callNum = CALL_NUMBER;
-
-    setCallPhoneNumber(DISPLAY_PHONE_NUMBER);
-
-    setLinks((prev) => ({
-      ...prev,
-      call: `tel:${callNum}`,
-      whatsapp: getWhatsAppUrl(locale),
-    }));
-  }, [locale]);
 
   const handleEvent = (action: string, label: string) => {
     event({
@@ -77,7 +64,7 @@ export default function ConnectContent() {
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
           data-ai-hint={image.hint}
-          priority={index === 0}
+          preload={index === 0}
           onContextMenu={(e) => e.preventDefault()}
         />
       ))}
@@ -151,7 +138,7 @@ export default function ConnectContent() {
               size="lg"
               asChild
               className="h-auto py-3.5 sm:py-4 px-4 justify-start rounded-xl"
-              onClick={() => handleEvent("click_whatsapp", "Connect Page")}
+              onClick={() => trackWhatsAppClick("connect", { locale })}
             >
               <a
                 target="_blank"
@@ -175,7 +162,7 @@ export default function ConnectContent() {
               asChild
               variant="outline"
               className="h-auto py-3.5 sm:py-4 px-4 justify-start rounded-xl"
-              onClick={() => handleEvent("click_call", "Connect Page")}
+              onClick={() => trackCallClick("connect")}
             >
               <a href={links.call} className="flex items-start gap-3 sm:gap-4 w-full">
                 <Phone className="size-6 shrink-0 mt-1" />
@@ -184,7 +171,7 @@ export default function ConnectContent() {
                     {inMalayalam ? "Call" : "Call Now"}
                   </span>
                   <span className="hidden sm:block text-xs text-foreground/60 leading-snug">
-                    {callPhoneNumber}
+                    {DISPLAY_PHONE_NUMBER}
                   </span>
                 </div>
               </a>
