@@ -23,11 +23,13 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: inMalayalam ? 'Jaqilin Makeover Call' : englishTitle,
     description: inMalayalam
-      ? 'Call ചെയ്യൂ.'
+      ? 'ബ്രൈഡൽ മേക്കപ്പ് ബുക്കിംഗിനായി Jaqilin Makeover-നെ നേരിട്ട് വിളിക്കൂ.'
       : englishDescription,
     alternates: {
       canonical: '/call',
     },
+    // Utility page for QR codes/links; the homepage and /connect carry the SEO.
+    robots: { index: false, follow: true },
     openGraph,
     twitter,
   };
