@@ -53,20 +53,97 @@ const localities = [
   "Thiruvananthapuram",
 ];
 
+const faqs = [
+  {
+    q: {
+      en: "Do you do makeup for Hindu, Christian, and Muslim weddings?",
+      ml: "ഹിന്ദു, ക്രിസ്ത്യൻ, മുസ്ലീം വിവാഹങ്ങൾക്ക് മേക്കപ്പ് ചെയ്യുമോ?",
+    },
+    a: {
+      en: "Yes. Looks are planned for Hindu Muhurtham, Christian church weddings with veil setting, and Muslim Nikah and reception functions, matched to your outfit, jewellery, and family traditions.",
+      ml: "അതെ. ഹിന്ദു മുഹൂർത്തം, ക്രിസ്ത്യൻ പള്ളി കല്യാണം (വെയിൽ സെറ്റിംഗ് ഉൾപ്പെടെ), മുസ്ലീം നിക്കാഹ്, റിസപ്ഷൻ എന്നിവയ്ക്ക് ഡ്രസ്സ്, ആഭരണങ്ങൾ, കുടുംബ രീതികൾ എന്നിവ നോക്കി ലുക്ക് തയ്യാറാക്കുന്നു.",
+    },
+  },
+  {
+    q: {
+      en: "Will the bridal makeup last in Kerala heat and humidity?",
+      ml: "ചൂടിലും വിയർപ്പിലും മേക്കപ്പ് നിലനിൽക്കുമോ?",
+    },
+    a: {
+      en: "The bridal base is HD, sweat-proof, and water-resistant, so it stays fresh through the ceremony, photos, and reception without looking heavy.",
+      ml: "HD സ്വെറ്റ്-പ്രൂഫ്, വാട്ടർ-റെസിസ്റ്റന്റ് ബ്രൈഡൽ ബേസ് ആണ് ഉപയോഗിക്കുന്നത്. ചടങ്ങിലും ഫോട്ടോയിലും റിസപ്ഷനിലും ഹെവി ആയി തോന്നാതെ ഫ്രഷ് ആയി നിൽക്കും.",
+    },
+  },
+  {
+    q: {
+      en: "How much does bridal makeup cost in Trivandrum?",
+      ml: "തിരുവനന്തപുരത്ത് ബ്രൈഡൽ മേക്കപ്പിന് എത്ര ചാർജ് ആകും?",
+    },
+    a: {
+      en: "It depends on the package — the number of functions, how many people need makeup, and the venue distance. Send your wedding date and venue on WhatsApp for an exact package quote.",
+      ml: "എത്ര ഫങ്ഷനുകൾ, എത്ര പേർക്ക് മേക്കപ്പ്, വേദിയിലേക്കുള്ള ദൂരം എന്നിവ അനുസരിച്ചാണ് പാക്കേജ് റേറ്റ്. വിവാഹ തീയതിയും സ്ഥലവും WhatsApp-ൽ അയച്ചാൽ കൃത്യമായ റേറ്റ് അറിയിക്കും.",
+    },
+  },
+  {
+    q: {
+      en: "Do you come to the bride's home or the wedding venue?",
+      ml: "വധുവിന്റെ വീട്ടിലോ വിവാഹ വേദിയിലോ വന്ന് മേക്കപ്പ് ചെയ്യുമോ?",
+    },
+    a: {
+      en: "Yes. Home and venue service is available across Thiruvananthapuram district, including Kanjiramkulam, Neyyattinkara, Balaramapuram, Kovalam, Kazhakoottam, and Attingal. Arrival is planned on time so the bride gets ready without rushing.",
+      ml: "അതെ. കാഞ്ഞിരംകുളം, നെയ്യാറ്റിൻകര, ബാലരാമപുരം, കോവളം, കഴക്കൂട്ടം, ആറ്റിങ്ങൽ ഉൾപ്പെടെ തിരുവനന്തപുരം ജില്ലയിലുടനീളം വീട്ടിലും വേദിയിലും സേവനം ലഭ്യമാണ്. വധുവിന് തിരക്കില്ലാതെ ഒരുങ്ങാൻ കൃത്യസമയത്ത് എത്തിച്ചേരും.",
+    },
+  },
+  {
+    q: {
+      en: "Is Jaqilin a certified makeup artist?",
+      ml: "ജാകിലിൻ സർട്ടിഫൈഡ് മേക്കപ്പ് ആർട്ടിസ്റ്റ് ആണോ?",
+    },
+    a: {
+      en: "Yes. Jaqilin is a Lakmé certified bridal makeup artist based in Kanjiramkulam, Thiruvananthapuram.",
+      ml: "അതെ. കാഞ്ഞിരംകുളം, തിരുവനന്തപുരം ആസ്ഥാനമായുള്ള Lakmé സർട്ടിഫൈഡ് ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ് ആണ് ജാകിലിൻ.",
+    },
+  },
+  {
+    q: {
+      en: "How do I book my wedding date?",
+      ml: "വിവാഹ തീയതി എങ്ങനെ ബുക്ക് ചെയ്യാം?",
+    },
+    a: {
+      en: "Send your wedding date, venue, function type, and the number of people who need makeup on WhatsApp. Availability and package details are shared there, and the date is confirmed once the package is agreed.",
+      ml: "വിവാഹ തീയതി, സ്ഥലം, ഫങ്ഷൻ, എത്ര പേർക്ക് മേക്കപ്പ് വേണം എന്നിവ WhatsApp-ൽ അയയ്ക്കൂ. ലഭ്യതയും പാക്കേജ് വിവരങ്ങളും അറിയിക്കും; പാക്കേജ് ഉറപ്പായാൽ തീയതി ബുക്ക് ചെയ്യാം.",
+    },
+  },
+];
+
 export default function BridalMakeupTvmContent() {
   const { locale } = useLocale();
   const inMalayalam = isMalayalam(locale);
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: "Home", path: "/" },
     {
-      name: "Bridal Makeup Artist in Thiruvananthapuram",
+      name: "Bridal Makeup Artist in Trivandrum",
       path: "/bridal-makeup-artist-thiruvananthapuram",
     },
   ]);
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: inMalayalam ? item.q.ml : item.q.en,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: inMalayalam ? item.a.ml : item.a.en,
+      },
+    })),
+  };
+
   return (
     <>
       <StructuredData data={breadcrumbSchema} />
+      <StructuredData data={faqSchema} />
 
       <section className="border-b border-border/50 bg-gradient-to-b from-primary/10 via-background to-background">
         <div className="container mx-auto px-4 py-12 sm:py-16">
@@ -74,12 +151,12 @@ export default function BridalMakeupTvmContent() {
             <p className="text-sm font-semibold uppercase tracking-[0.25em] text-primary/80">
               {inMalayalam
                 ? "തിരുവനന്തപുരം ജില്ലാ സേവനം"
-                : "Thiruvananthapuram District Service"}
+                : "Trivandrum (Thiruvananthapuram) District Service"}
             </p>
             <h1 className="mt-4 font-headline text-3xl font-bold leading-tight text-primary sm:text-4xl md:text-5xl">
               {inMalayalam
                 ? "തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്"
-                : "Bridal Makeup Artist in Thiruvananthapuram"}
+                : "Bridal Makeup Artist in Trivandrum"}
             </h1>
             <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-foreground/80 sm:text-lg">
               {inMalayalam
@@ -167,7 +244,7 @@ export default function BridalMakeupTvmContent() {
             <h2 className="font-headline text-2xl font-bold text-primary sm:text-3xl">
               {inMalayalam
                 ? "സേവനങ്ങൾ"
-                : "Popular Bridal and Wedding Makeup Services in Thiruvananthapuram"}
+                : "Popular Bridal and Wedding Makeup Services in Trivandrum"}
             </h2>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-border/60 p-4">
@@ -216,6 +293,26 @@ export default function BridalMakeupTvmContent() {
       </section>
 
       <section className="py-12 sm:py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="mb-8 text-center font-headline text-2xl font-bold text-primary sm:text-3xl">
+            {inMalayalam ? "ബ്രൈഡൽ മേക്കപ്പ് സംശയങ്ങൾ" : "Bridal Makeup FAQs"}
+          </h2>
+          <div className="mx-auto max-w-3xl space-y-4">
+            {faqs.map((faq) => (
+              <div key={faq.q.en} className="rounded-2xl border border-border/70 bg-card p-5 shadow-sm sm:p-6">
+                <h3 className="mb-2 font-headline text-base font-bold text-foreground sm:text-lg">
+                  {inMalayalam ? faq.q.ml : faq.q.en}
+                </h3>
+                <p className="text-sm leading-relaxed text-foreground/75">
+                  {inMalayalam ? faq.a.ml : faq.a.en}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-card/70 py-12 sm:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-4xl rounded-3xl border border-primary/25 bg-primary/5 p-6 text-center shadow-sm sm:p-10">
             <h2 className="font-headline text-2xl font-bold text-primary sm:text-3xl">

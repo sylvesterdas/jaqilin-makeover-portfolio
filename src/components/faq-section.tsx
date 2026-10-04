@@ -26,8 +26,16 @@ export default function FaqSection() {
         ? "വീട്ടിലോ വിവാഹ മണ്ഡപത്തിലോ നേരിട്ടെത്തി സർവീസ് ലഭ്യമാക്കുമോ?"
         : "Do you provide home and venue service in Thiruvananthapuram?",
       a: inMalayalam
-        ? "അതെ, തിരുവനന്തപുരം ജില്ലയിലുടനീളം (നെയ്യാറ്റിൻകര, കാഞ്ഞിരംകുളം, ബാലരാമപുരം, കഴക്കൂട്ടം, നെയ്യാറ്റിൻകര, വെള്ളറട തുടങ്ങിയ പ്രദേശങ്ങൾ ഉൾപ്പെടെ) വീട്ടിലോ മണ്ഡപത്തിലോ എത്തിച്ചേർന്ന് സേവനം നൽകുന്നു."
-        : "Yes, we travel to your home or wedding venue across Thiruvananthapuram district (including Kanjiramkulam, Neyyattinkara, Balaramapuram, Kazhakoottam, Kovalam, and nearby areas).",
+        ? "അതെ, തിരുവനന്തപുരം ജില്ലയിലുടനീളം (കാഞ്ഞിരംകുളം, നെയ്യാറ്റിൻകര, ബാലരാമപുരം, കോവളം, കഴക്കൂട്ടം, വെള്ളറട തുടങ്ങിയ പ്രദേശങ്ങൾ ഉൾപ്പെടെ) വീട്ടിലോ മണ്ഡപത്തിലോ എത്തിച്ചേർന്ന് സേവനം നൽകുന്നു."
+        : "Yes, we travel to your home or wedding venue across Thiruvananthapuram district (including Kanjiramkulam, Neyyattinkara, Balaramapuram, Kovalam, Kazhakoottam, Vellarada, and nearby areas).",
+    },
+    {
+      q: inMalayalam
+        ? "ബ്രൈഡൽ മേക്കപ്പിന് എത്ര ചാർജ് ആകും?"
+        : "How much does bridal makeup cost in Trivandrum?",
+      a: inMalayalam
+        ? "ചാർജ് പാക്കേജ് അനുസരിച്ച് മാറും — എത്ര ഫങ്ഷനുകൾ, എത്ര പേർക്ക് മേക്കപ്പ്, വേദിയിലേക്കുള്ള ദൂരം എന്നിവ നോക്കിയാണ് തീരുമാനിക്കുന്നത്. വിവാഹ തീയതിയും സ്ഥലവും WhatsApp-ൽ അയച്ചാൽ കൃത്യമായ പാക്കേജ് റേറ്റ് അറിയിക്കും."
+        : "The price depends on your package — the number of functions, how many people need makeup, and the venue distance. Send your wedding date and venue on WhatsApp for an exact package quote.",
     },
     {
       q: inMalayalam
@@ -50,16 +58,16 @@ export default function FaqSection() {
         ? "എന്തൊക്കെ മേക്കപ്പ് ബ്രാൻഡുകളാണ് ഉപയോഗിക്കുന്നത്? സ്കിന്നിന് സുരക്ഷിതമാണോ?"
         : "What makeup products & brands do you use? Are they skin-safe?",
       a: inMalayalam
-        ? "Estée Lauder, NARS, MAC, Huda Beauty തുടങ്ങിയ ലോകോത്തര പ്രീമിയം ബ്രാൻഡുകൾ മാത്രമാണ് ഞങ്ങൾ ഉപയോഗിക്കുന്നത്. ഓരോ വധുവിന്റെയും സ്കിൻ ടൈപ്പിനും (ഓയ്‌ലി, ഡ്രൈ, സെൻസിറ്റീവ്) ഹെയർ ടൈപ്പിനും അനുയോജ്യമായ പ്രോഡക്റ്റുകൾ കൃത്യമായി തിരഞ്ഞെടുക്കുന്നു. ക്വാളിറ്റിയിൽ യാതൊരു വിട്ടുവീഴ്ചയുമില്ലാതെ, സ്കിന്നിന് പൂർണ്ണ സുരക്ഷിതത്വവും ദീർഘനേരം നിൽക്കുന്ന നാച്ചുറൽ ഗ്ലോയും ഉറപ്പുനൽകുന്നു."
-        : "We exclusively use premium, internationally acclaimed brands such as Estée Lauder, NARS, MAC, and Huda Beauty. We strictly customize products to match your exact skin type (sensitive, dry, oily) and hair texture with zero compromise on quality, guaranteeing a skin-safe, long-lasting, and sweat-resistant bridal radiance.",
+        ? "Estée Lauder, NARS, MAC, Huda Beauty തുടങ്ങിയ നല്ല പ്രൊഫഷണൽ ബ്രാൻഡുകളാണ് ഉപയോഗിക്കുന്നത്. ഓരോ വധുവിന്റെയും സ്കിൻ ടൈപ്പ് (ഓയ്‌ലി, ഡ്രൈ, സെൻസിറ്റീവ്) നോക്കി അനുയോജ്യമായ പ്രോഡക്റ്റുകൾ തിരഞ്ഞെടുക്കുന്നു. സ്കിൻ അലർജി ഉണ്ടെങ്കിൽ മുൻകൂട്ടി അറിയിക്കുക."
+        : "We use trusted professional brands such as Estée Lauder, NARS, MAC, and Huda Beauty, and choose products to suit your skin type (oily, dry, or sensitive). If you have any skin allergies, please let us know in advance.",
     },
     {
       q: inMalayalam
         ? "ഹൈജീൻ (Hygiene) & ബ്രഷുകൾ എങ്ങനെയാണ് വൃത്തിയാക്കുന്നത്?"
         : "What are your hygiene and tool sanitization standards?",
       a: inMalayalam
-        ? "ഹൈജീനിൽ ഞങ്ങൾ 100% കർശനമായ മാനദണ്ഡങ്ങൾ പാലിക്കുന്നു. ഓരോ ക്ലയന്റിനുശേഷവും എല്ലാ മേക്കപ്പ് ബ്രഷുകളും ടൂളുകളും ആഴത്തിൽ കഴുകി പൂർണ്ണമായി സാനിറ്റൈസ് ചെയ്ത് അണുവിമുക്തമാക്കിയ ശേഷം (Sterilized) മാത്രമേ അടുത്ത ആൾക്കായി ഉപയോഗിക്കൂ. ഒരു ക്ലയന്റിൽ ഉപയോഗിച്ച ബ്രഷുകൾ വൃത്തിയാക്കാതെ മറ്റൊരാളിൽ ഒരിക്കലും നേരിട്ട് ഉപയോഗിക്കാറില്ല. കൂടാതെ ക്രീമുകളും ലിക്വിഡുകളും നേരിട്ട് തൊടാതെ സാനിറ്റൈസ് ചെയ്ത സ്റ്റെയിൻലെസ്സ് സ്റ്റീൽ പാലറ്റുകൾ ഉപയോഗിച്ചാണ് എടുക്കുന്നത്. അതിനാൽ ചർമ്മത്തിൽ അണുബാധയോ അലർജിയോ ഉണ്ടാകില്ല എന്ന് ഉറപ്പുനൽകുന്നു."
-        : "We maintain strict hospital-grade hygiene protocols. No brush, blender, or tool is EVER reused on another client without being deep-cleaned, sterilized, and sanitized. We never double-dip into original cosmetic containers; all products are hygienically scooped onto sanitized stainless-steel mixing palettes. This guarantees 100% skin safety, zero cross-contamination, and total comfort even for the most sensitive skin.",
+        ? "ഓരോ ആൾക്കും ശേഷം ബ്രഷുകളും ടൂളുകളും കഴുകി സാനിറ്റൈസ് ചെയ്താണ് അടുത്ത ആൾക്ക് ഉപയോഗിക്കുന്നത്. ക്രീമുകളും ലിക്വിഡുകളും ബോട്ടിലിൽ നിന്ന് നേരിട്ട് എടുക്കാതെ, വൃത്തിയുള്ള സ്റ്റീൽ പാലറ്റിലേക്ക് മാറ്റിയാണ് ഉപയോഗിക്കുന്നത്."
+        : "Brushes and tools are washed and sanitized before they are used on the next person. Creams and liquids are taken out onto a clean steel palette instead of being applied straight from the container.",
     },
   ];
 
