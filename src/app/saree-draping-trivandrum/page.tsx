@@ -23,10 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: inMalayalam
-      ? "സാരി ഡ്രേപ്പിംഗ് & ബോക്സ് പ്ലീറ്റിംഗ് തിരുവനന്തപുരം | ജാകിലിൻ മേക്കോവർ"
+      ? "Saree Draping Trivandrum | സാരി ഡ്രേപ്പിംഗ് | Jaqilin Makeover"
       : englishTitle,
     description: inMalayalam
-      ? "തിരുവനന്തപുരത്ത് പ്രൊഫഷണൽ കസവ് സാരി ബോക്സ് പ്ലീറ്റിംഗ്, കാഞ്ചീപുരം പട്ടുസാരി ഡ്രേപ്പിംഗ്, അഡ്വാൻസ് പ്രീ-പ്ലീറ്റിംഗ് സർവീസുകൾ. വാട്സാപ്പിൽ ബന്ധപ്പെടൂ."
+      ? "Saree draping in Trivandrum. തിരുവനന്തപുരത്ത് കസവ് സാരി ബോക്സ് പ്ലീറ്റിംഗ്, കാഞ്ചീപുരം പട്ടുസാരി ഡ്രേപ്പിംഗ്, അഡ്വാൻസ് പ്രീ-പ്ലീറ്റിംഗ്. WhatsApp-ൽ ബന്ധപ്പെടൂ."
       : englishDescription,
     keywords: [
       "saree draping services in thiruvananthapuram",

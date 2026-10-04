@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? 'ബന്ധപ്പെടുക | ജാകിലിൻ മേക്കോവർ Trivandrum'
       : englishTitle,
     description: inMalayalam
-      ? 'വിവാഹ തീയതി ഒഴിവുണ്ടോ എന്ന് അറിയാൻ WhatsApp അല്ലെങ്കിൽ Call ചെയ്യൂ: 73564 83404. തിരുവനന്തപുരം (Trivandrum) ബ്രൈഡൽ മേക്കപ്പ്.'
+      ? 'Book a bridal makeup artist in Trivandrum. വിവാഹ തീയതി ഒഴിവുണ്ടോ എന്ന് അറിയാൻ WhatsApp അല്ലെങ്കിൽ Call ചെയ്യൂ: 73564 83404.'
       : englishDescription,
     alternates: {
       canonical: '/connect',

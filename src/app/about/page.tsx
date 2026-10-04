@@ -26,7 +26,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? 'ജാകിലിനെ കുറിച്ച് | Trivandrum മേക്കപ്പ് ആർട്ടിസ്റ്റ്'
       : englishTitle,
     description: inMalayalam
-      ? 'തിരുവനന്തപുരം (Trivandrum) ആസ്ഥാനമായ Lakmé സർട്ടിഫൈഡ് ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്. വിവാഹം, എൻഗേജ്മെന്റ്, റിസപ്ഷൻ മേക്കപ്പ്.'
+      ? 'Bridal makeup artist in Trivandrum. തിരുവനന്തപുരം ആസ്ഥാനമായ Lakmé സർട്ടിഫൈഡ് ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്. വിവാഹം, എൻഗേജ്മെന്റ്, റിസപ്ഷൻ മേക്കപ്പ്.'
       : englishDescription,
     alternates: {
       canonical: '/about',
