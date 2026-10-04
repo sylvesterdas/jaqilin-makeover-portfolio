@@ -230,7 +230,7 @@ export default function SareeDrapingContent() {
           <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-bold text-foreground max-w-3xl mx-auto leading-tight text-balance">
             {inMalayalam
               ? "തിരുവനന്തപുരത്ത് പ്രൊഫഷണൽ സാരി ഡ്രേപ്പിംഗ് & ബോക്സ് പ്ലീറ്റിംഗ് സർവീസ്"
-              : "Bridal Saree Draping & Kasavu Box Pleating in Thiruvananthapuram"}
+              : "Bridal Saree Draping & Kasavu Box Pleating in Trivandrum"}
           </h1>
 
           <p className="mt-4 text-base sm:text-lg text-foreground/80 max-w-2xl mx-auto leading-relaxed">

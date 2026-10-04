@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { isMalayalam } from "@/lib/locale";
 import { getRequestLocale } from "@/lib/locale-server";
 import { buildSocialMetadata } from "@/lib/metadata";
@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const inMalayalam = isMalayalam(locale);
   const englishTitle = "Terms and Conditions | Jaqilin Makeover";
   const englishDescription =
-    "Terms and conditions for using Jaqilin Makeover website and services.";
+    "Terms and conditions for using the Jaqilin Makeover website and contacting a bridal makeup artist in Trivandrum by call, WhatsApp or Instagram.";
   const { openGraph, twitter } = buildSocialMetadata({
     title: englishTitle,
     description: englishDescription,
@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? "ഉപയോഗ നിബന്ധനകൾ | ജാകിലിൻ മേക്കോവർ"
       : englishTitle,
     description: inMalayalam
-      ? "ജാകിലിൻ മേക്കോവർ വെബ്സൈറ്റ് ഉപയോഗ നിബന്ധനകൾ."
+      ? "ജാകിലിൻ മേക്കോവർ (Trivandrum) വെബ്സൈറ്റ് ഉപയോഗവും Call, WhatsApp, Instagram വഴി ബന്ധപ്പെടുന്നതും സംബന്ധിച്ച നിബന്ധനകൾ."
       : englishDescription,
     alternates: {
       canonical: "/terms",
@@ -49,9 +49,9 @@ export default function TermsPage() {
         <div className="container mx-auto px-4">
           <Card className="bg-card border-primary/20">
             <CardHeader>
-              <CardTitle className="font-headline text-3xl sm:text-4xl md:text-5xl text-primary">
+              <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-semibold leading-none tracking-tight text-primary">
                 Terms and Conditions
-              </CardTitle>
+              </h1>
             </CardHeader>
             <CardContent className="prose prose-sm sm:prose-lg max-w-none text-foreground/80 space-y-4">
               <p>

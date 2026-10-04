@@ -18,11 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
   const title = inMalayalam
-    ? "TVM ബ്രൈഡൽ മേക്കപ്പ് | ജാകിലിൻ മേക്കോവർ"
-    : "Bridal Makeup Artist in Thiruvananthapuram | Jaqilin Makeover";
+    ? "ബ്രൈഡൽ മേക്കപ്പ് Trivandrum | ജാകിലിൻ മേക്കോവർ"
+    : "Bridal Makeup Artist in Trivandrum | Jaqilin Makeover";
   const description = inMalayalam
-    ? "TVM bridal makeup, hair styling, saree draping. WhatsApp booking."
-    : "Professional bridal makeup artist in Thiruvananthapuram offering natural, long-wear makeup with hair styling and saree draping. Home and venue service. Book on WhatsApp.";
+    ? "തിരുവനന്തപുരം (Trivandrum) ബ്രൈഡൽ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ്. വീട്ടിലും വേദിയിലും സർവീസ്. തീയതി WhatsApp-ൽ ചോദിക്കൂ."
+    : "Bridal makeup artist in Trivandrum (Thiruvananthapuram) for natural, long-wear wedding makeup, hair styling and saree draping. Home & venue service.";
   const { openGraph, twitter } = buildSocialMetadata();
 
   return {
@@ -36,7 +36,13 @@ export async function generateMetadata(): Promise<Metadata> {
       "home service bridal makeup kerala",
       "saree draping services trivandrum",
       "jaqilin makeover",
-      "bridal makeup neyyattinkara",
+      "makeup artist trivandrum",
+      "engagement makeup trivandrum",
+      "reception makeup trivandrum",
+      "hd bridal makeup trivandrum",
+      "kerala christian bridal makeup",
+      "kerala hindu bridal makeup",
+      "kerala muslim bridal makeup",
       "TVM ബ്രൈഡൽ മേക്കപ്പ്",
     ],
     alternates: {

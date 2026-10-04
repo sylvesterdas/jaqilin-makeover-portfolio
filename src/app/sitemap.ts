@@ -3,7 +3,7 @@ import { type MetadataRoute } from 'next';
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.jaqilinmakeover.com';
   // Bump when page content actually changes; new Date() made every build look like an update.
-  const lastModified = new Date('2026-09-26');
+  const lastModified = new Date('2026-10-04');
 
   return [
     {

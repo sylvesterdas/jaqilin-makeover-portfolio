@@ -2,7 +2,7 @@
 import EmailLink from '@/components/email-link';
 import Footer from '@/components/footer';
 import Header from '@/components/header';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import type { Metadata } from 'next';
 import { isMalayalam } from '@/lib/locale';
 import { getRequestLocale } from '@/lib/locale-server';
@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const inMalayalam = isMalayalam(locale);
   const englishTitle = 'Privacy Policy | Jaqilin Makeover';
   const englishDescription =
-    'Privacy policy for Jaqilin Makeover website and services.';
+    'How Jaqilin Makeover, a bridal makeup artist in Trivandrum, collects, uses and protects your details when you call, WhatsApp or use this website.';
   const { openGraph, twitter } = buildSocialMetadata({
     title: englishTitle,
     description: englishDescription,
@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? 'സ്വകാര്യതാ നയം | ജാകിലിൻ മേക്കോവർ'
       : englishTitle,
     description: inMalayalam
-      ? 'ജാകിലിൻ മേക്കോവറിന്റെ സ്വകാര്യതാ നയം.'
+      ? 'ജാകിലിൻ മേക്കോവർ (Trivandrum) നിങ്ങളുടെ ഫോൺ നമ്പർ, WhatsApp സന്ദേശങ്ങൾ, വെബ്സൈറ്റ് വിവരങ്ങൾ എങ്ങനെ ഉപയോഗിക്കുന്നു, സംരക്ഷിക്കുന്നു എന്നത്.'
       : englishDescription,
     alternates: {
       canonical: '/privacy-policy',
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
         <div className="container mx-auto px-4">
           <Card className="bg-card border-primary/20">
             <CardHeader>
-              <CardTitle className="font-headline text-3xl sm:text-4xl md:text-5xl text-primary">Privacy Policy</CardTitle>
+              <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-semibold leading-none tracking-tight text-primary">Privacy Policy</h1>
               <p className="text-xs sm:text-sm text-foreground/60 pt-2">Last Updated: {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
             </CardHeader>
             <CardContent className="prose prose-sm sm:prose-lg max-w-none text-foreground/80 space-y-4">

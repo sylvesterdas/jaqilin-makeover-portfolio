@@ -1,6 +1,6 @@
 import Footer from "@/components/footer";
 import Header from "@/components/header";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import type { Metadata } from "next";
 import { isMalayalam } from "@/lib/locale";
 import { getRequestLocale } from "@/lib/locale-server";
@@ -10,7 +10,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
   const englishTitle = "Data Deletion | Jaqilin Makeover";
-  const englishDescription = "Instructions for requesting data deletion.";
+  const englishDescription = "How to ask Jaqilin Makeover to delete your name, phone number and messages from our records. Email us and we will remove your data within 7 business days.";
   const { openGraph, twitter } = buildSocialMetadata({
     title: englishTitle,
     description: englishDescription,
@@ -22,11 +22,12 @@ export async function generateMetadata(): Promise<Metadata> {
       ? "ഡാറ്റ ഡിലീഷൻ | ജാകിലിൻ മേക്കോവർ"
       : englishTitle,
     description: inMalayalam
-      ? "ഡാറ്റ ഡിലീഷൻ അഭ്യർത്ഥിക്കാൻ വേണ്ട മാർഗ്ഗനിർദ്ദേശങ്ങൾ."
+      ? "നിങ്ങളുടെ പേര്, ഫോൺ നമ്പർ, സന്ദേശങ്ങൾ ഞങ്ങളുടെ രേഖകളിൽ നിന്ന് നീക്കം ചെയ്യാൻ ഇമെയിൽ അയയ്ക്കൂ. 7 പ്രവൃത്തി ദിവസത്തിനുള്ളിൽ ഡിലീറ്റ് ചെയ്യും."
       : englishDescription,
     alternates: {
       canonical: "/data-deletion",
     },
+    robots: { index: false, follow: true },
     openGraph,
     twitter,
   };
@@ -40,9 +41,9 @@ export default function DataDeletionPage() {
         <div className="container mx-auto px-4">
           <Card className="bg-card border-primary/20">
             <CardHeader>
-              <CardTitle className="font-headline text-3xl sm:text-4xl md:text-5xl text-primary">
+              <h1 className="font-headline text-3xl sm:text-4xl md:text-5xl font-semibold leading-none tracking-tight text-primary">
                 Data Deletion
-              </CardTitle>
+              </h1>
             </CardHeader>
             <CardContent className="prose prose-sm sm:prose-lg max-w-none text-foreground/80 space-y-4">
               <p>

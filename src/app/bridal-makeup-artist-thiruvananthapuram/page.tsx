@@ -13,9 +13,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
   const englishTitle =
-    "Bridal Makeup Artist in Thiruvananthapuram | Jaqilin Makeover";
+    "Bridal Makeup Trivandrum, Kerala Weddings | Jaqilin Makeover";
   const englishDescription =
-    "Freelance bridal makeup artist in Thiruvananthapuram for weddings, engagements, receptions, hairstyling, and saree draping. WhatsApp for date check and package details.";
+    "Freelance bridal makeup artist in Trivandrum (Thiruvananthapuram) for weddings, engagements, receptions, hairstyling and saree draping. WhatsApp for dates.";
   const { openGraph, twitter } = buildSocialMetadata({
     title: englishTitle,
     description: englishDescription,

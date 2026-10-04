@@ -76,7 +76,7 @@ export default function Hero() {
                   Bridal Makeup Artist
                 </span>
                 <span className="block text-foreground text-xl sm:text-2xl md:text-4xl mt-0.5">
-                  in Thiruvananthapuram
+                  in Trivandrum
                 </span>
               </>
             )}

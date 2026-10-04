@@ -12,9 +12,9 @@ import { buildBreadcrumbSchema } from '@/lib/schema';
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
-  const englishTitle = 'About Jaqilin | Jaqilin Makeover';
+  const englishTitle = 'About Jaqilin | Makeup Artist in Trivandrum';
   const englishDescription =
-    'Learn more about Jaqilin, the makeup artist behind Jaqilin Makeover in Trivandrum.';
+    'Meet Jaqilin, a Lakmé certified bridal makeup artist in Trivandrum, Kerala. Wedding, engagement and reception makeup with saree draping. Home service.';
   const { openGraph, twitter } = buildSocialMetadata({
     title: englishTitle,
     description: englishDescription,
@@ -23,10 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: inMalayalam
-      ? 'About | ജാകിലിൻ മേക്കോവർ'
+      ? 'ജാകിലിനെ കുറിച്ച് | Trivandrum മേക്കപ്പ് ആർട്ടിസ്റ്റ്'
       : englishTitle,
     description: inMalayalam
-      ? 'TVM base makeup artist. Weddings & functions.'
+      ? 'തിരുവനന്തപുരം (Trivandrum) ആസ്ഥാനമായ Lakmé സർട്ടിഫൈഡ് ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്. വിവാഹം, എൻഗേജ്മെന്റ്, റിസപ്ഷൻ മേക്കപ്പ്.'
       : englishDescription,
     alternates: {
       canonical: '/about',

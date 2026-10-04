@@ -11,9 +11,9 @@ const pageUrl = "https://www.jaqilinmakeover.com/saree-draping-trivandrum";
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
-  const englishTitle = "Saree Draping & Box Pleating Services in Thiruvananthapuram | Jaqilin Makeover";
+  const englishTitle = "Saree Draping in Trivandrum | Jaqilin Makeover";
   const englishDescription =
-    "Expert bridal saree draping, Kasavu box pleating, Kanchipuram silk saree styling, and advance pre-pleating services in Thiruvananthapuram, Kanjiramkulam, and Neyyattinkara.";
+    "Bridal saree draping in Trivandrum: Kasavu box pleating, Kanchipuram silk draping and advance pre-pleating. Home service across Thiruvananthapuram.";
 
   const { openGraph, twitter } = buildSocialMetadata({
     title: englishTitle,
@@ -36,7 +36,6 @@ export async function generateMetadata(): Promise<Metadata> {
       "saree pre pleating trivandrum",
       "kanchipuram saree draping trivandrum",
       "saree draping kanjiramkulam",
-      "saree draping neyyattinkara",
       "saree draping kattakada",
       "സാരി ഡ്രേപ്പിംഗ് തിരുവനന്തപുരം",
       "ബോക്സ് പ്ലീറ്റിംഗ് കേരള",

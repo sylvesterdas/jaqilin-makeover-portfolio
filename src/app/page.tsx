@@ -22,9 +22,9 @@ export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
   const englishTitle =
-    'Bridal Makeup Artist in Thiruvananthapuram | Jaqilin Makeover';
+    'Bridal Makeup Artist in Trivandrum | Jaqilin Makeover';
   const englishDescription =
-    'Professional bridal makeup artist in Thiruvananthapuram offering natural, long-wear makeup with hair styling and saree draping. Home and venue service. Book on WhatsApp.';
+    'Bridal makeup artist in Trivandrum (Thiruvananthapuram) for natural, long-wear wedding makeup, hair styling and saree draping. Home & venue service.';
   const { openGraph, twitter } = buildSocialMetadata({
     title: englishTitle,
     description: englishDescription,
@@ -33,10 +33,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: inMalayalam
-      ? 'TVM ബ്രൈഡൽ മേക്കപ്പ് | ജാകിലിൻ മേക്കോവർ'
+      ? 'ബ്രൈഡൽ മേക്കപ്പ് Trivandrum | ജാകിലിൻ മേക്കോവർ'
       : englishTitle,
     description: inMalayalam
-      ? 'TVM bridal makeup, hair styling, saree draping. WhatsApp booking.'
+      ? 'തിരുവനന്തപുരം (Trivandrum) ബ്രൈഡൽ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ്. വീട്ടിലും വേദിയിലും സർവീസ്. തീയതി WhatsApp-ൽ ചോദിക്കൂ.'
       : englishDescription,
     alternates: {
       canonical: '/',

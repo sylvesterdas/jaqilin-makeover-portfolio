@@ -12,9 +12,9 @@ import { buildBreadcrumbSchema } from '@/lib/schema';
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await getRequestLocale();
   const inMalayalam = isMalayalam(locale);
-  const englishTitle = 'Contact Jaqilin Makeover - Call, WhatsApp, or Instagram';
+  const englishTitle = 'Contact Jaqilin Makeover | Bridal Makeup Trivandrum';
   const englishDescription =
-    'Contact Jaqilin Makeover through call, WhatsApp, Instagram, or website.';
+    'Book a bridal makeup artist in Trivandrum. Call or WhatsApp +91 73564 83404 to check your wedding date, packages and home service availability.';
   const { openGraph, twitter } = buildSocialMetadata({
     title: englishTitle,
     description: englishDescription,
@@ -23,10 +23,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: inMalayalam
-      ? 'Jaqilin Makeover - WhatsApp / Call'
+      ? 'ബന്ധപ്പെടുക | ജാകിലിൻ മേക്കോവർ Trivandrum'
       : englishTitle,
     description: inMalayalam
-      ? 'WhatsApp അല്ലെങ്കിൽ Call.'
+      ? 'വിവാഹ തീയതി ഒഴിവുണ്ടോ എന്ന് അറിയാൻ WhatsApp അല്ലെങ്കിൽ Call ചെയ്യൂ: 73564 83404. തിരുവനന്തപുരം (Trivandrum) ബ്രൈഡൽ മേക്കപ്പ്.'
       : englishDescription,
     alternates: {
       canonical: '/connect',

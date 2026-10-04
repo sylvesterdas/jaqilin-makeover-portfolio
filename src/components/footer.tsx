@@ -28,10 +28,10 @@ export default function Footer() {
       <div className="container mx-auto px-4 py-6 sm:py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-center md:text-left">
           <div>
-            <h3 className="font-headline text-lg sm:text-xl font-bold mb-1 sm:mb-2">
+            <h2 className="font-headline text-lg sm:text-xl font-bold mb-1 sm:mb-2">
               <span className="text-primary">Jaqilin</span>{" "}
               <span className="text-foreground">Makeover</span>
-            </h3>
+            </h2>
             <p className="text-sm sm:text-base text-foreground/70">LJS Works</p>
             <p className="text-sm sm:text-base text-foreground/70">{inMalayalam ? "TVM" : "Trivandrum"}</p>
             <div className="mt-2 space-y-1 text-sm">
@@ -58,7 +58,7 @@ export default function Footer() {
             </div>
           </div>
           <div>
-            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "Contact" : "Contact Me"}</h3>
+            <h2 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "Contact" : "Contact Me"}</h2>
             <ul className="space-y-3">
               <li>
                 {whatsappUrl && (
@@ -95,7 +95,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "സേവന മേഖലകൾ" : "Service Areas"}</h3>
+            <h2 className="font-headline text-base sm:text-lg font-semibold mb-2">{inMalayalam ? "സേവന മേഖലകൾ" : "Service Areas"}</h2>
             <p className="text-xs sm:text-sm text-foreground/75 leading-relaxed mb-3">
               {inMalayalam
                 ? "കാഞ്ഞിരംകുളം & 10 km ചുറ്റളവിലും, നെയ്യാറ്റിൻകര, കാട്ടാക്കട, തിരുവനന്തപുരം മേഖലകളിലും സർവീസ് ലഭ്യമാണ്:"
@@ -172,7 +172,7 @@ export default function Footer() {
         </div>
         <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-border/50 text-center text-xs sm:text-sm text-foreground/60">
           <p className="mb-1 text-xs text-primary font-medium">✨ Lakmé Certified Bridal Makeup Artist | Thiruvananthapuram, Kerala</p>
-          <p>&copy; {new Date().getFullYear()} <span className="text-primary">Jaqilin</span> <span className="text-foreground">Makeover</span>. All Rights Reserved. | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">About</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">Privacy Policy</a> | <a href="/terms" className="hover:text-primary underline-offset-4 hover:underline">Terms</a> | <a href="/data-deletion" className="hover:text-primary underline-offset-4 hover:underline">Data Deletion</a></p>
+          <p>&copy; {new Date().getFullYear()} <span className="text-primary">Jaqilin</span> <span className="text-foreground">Makeover</span>. All Rights Reserved. | <a href="/about" className="hover:text-primary underline-offset-4 hover:underline">About</a> | <a href="/connect" className="hover:text-primary underline-offset-4 hover:underline">{inMalayalam ? "ബന്ധപ്പെടുക" : "Contact"}</a> | <a href="/privacy-policy" className="hover:text-primary underline-offset-4 hover:underline">Privacy Policy</a> | <a href="/terms" className="hover:text-primary underline-offset-4 hover:underline">Terms</a> | <a href="/data-deletion" className="hover:text-primary underline-offset-4 hover:underline">Data Deletion</a></p>
         </div>
       </div>
     </footer>
