@@ -27,7 +27,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ? "Bridal Makeup Artist in Trivandrum | ബ്രൈഡൽ മേക്കപ്പ് | Jaqilin Makeover"
       : englishTitle,
     description: inMalayalam
-      ? "തിരുവനന്തപുരം ജില്ലയിൽ ബ്രൈഡൽ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ് സേവനങ്ങൾ. തീയതി പരിശോധിക്കാൻ WhatsApp ചെയ്യൂ."
+      ? "Bridal makeup artist in Trivandrum for weddings. തിരുവനന്തപുരം ജില്ലയിൽ ബ്രൈഡൽ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ്. തീയതി പരിശോധിക്കാൻ WhatsApp ചെയ്യൂ."
       : englishDescription,
     alternates: {
       canonical: "/bridal-makeup-artist-thiruvananthapuram",

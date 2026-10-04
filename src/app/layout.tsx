@@ -21,7 +21,7 @@ export async function generateMetadata(): Promise<Metadata> {
     ? "ബ്രൈഡൽ മേക്കപ്പ് Trivandrum | ജാകിലിൻ മേക്കോവർ"
     : "Bridal Makeup Artist in Trivandrum | Jaqilin Makeover";
   const description = inMalayalam
-    ? "തിരുവനന്തപുരം (Trivandrum) ബ്രൈഡൽ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ്. വീട്ടിലും വേദിയിലും സർവീസ്. തീയതി WhatsApp-ൽ ചോദിക്കൂ."
+    ? "Bridal makeup artist in Trivandrum. തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ്. വീട്ടിലും വേദിയിലും സർവീസ്. തീയതി WhatsApp-ൽ ചോദിക്കൂ."
     : "Bridal makeup artist in Trivandrum (Thiruvananthapuram) for natural, long-wear wedding makeup, hair styling and saree draping. Home & venue service.";
   const { openGraph, twitter } = buildSocialMetadata();
 
