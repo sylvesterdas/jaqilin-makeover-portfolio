@@ -24,7 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     title: inMalayalam
-      ? "തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ് | ജാകിലിൻ മേക്കോവർ"
+      ? "Bridal Makeup Artist in Trivandrum | ബ്രൈഡൽ മേക്കപ്പ് | Jaqilin Makeover"
       : englishTitle,
     description: inMalayalam
       ? "തിരുവനന്തപുരം ജില്ലയിൽ ബ്രൈഡൽ മേക്കപ്പ്, ഹെയർ സ്റ്റൈലിംഗ്, സാരി ഡ്രേപ്പിംഗ് സേവനങ്ങൾ. തീയതി പരിശോധിക്കാൻ WhatsApp ചെയ്യൂ."

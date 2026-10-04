@@ -67,7 +67,7 @@ export default function Hero() {
               <>
                 <span className="text-primary block text-[1.15em]">ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്</span>
                 <span className="mt-1 block text-sm font-body font-medium text-foreground/80 sm:text-base md:text-lg">
-                  തിരുവനന്തപുരം | Trivandrum
+                  Bridal Makeup Artist in Trivandrum | തിരുവനന്തപുരം
                 </span>
               </>
             ) : (

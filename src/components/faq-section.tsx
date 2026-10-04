@@ -26,8 +26,8 @@ export default function FaqSection() {
         ? "വീട്ടിലോ വിവാഹ മണ്ഡപത്തിലോ നേരിട്ടെത്തി സർവീസ് ലഭ്യമാക്കുമോ?"
         : "Do you provide home and venue service in Thiruvananthapuram?",
       a: inMalayalam
-        ? "അതെ, തിരുവനന്തപുരം ജില്ലയിലുടനീളം (കാഞ്ഞിരംകുളം, നെയ്യാറ്റിൻകര, ബാലരാമപുരം, കോവളം, കഴക്കൂട്ടം, വെള്ളറട തുടങ്ങിയ പ്രദേശങ്ങൾ ഉൾപ്പെടെ) വീട്ടിലോ മണ്ഡപത്തിലോ എത്തിച്ചേർന്ന് സേവനം നൽകുന്നു."
-        : "Yes, we travel to your home or wedding venue across Thiruvananthapuram district (including Kanjiramkulam, Neyyattinkara, Balaramapuram, Kovalam, Kazhakoottam, Vellarada, and nearby areas).",
+        ? "അതെ, തിരുവനന്തപുരം ജില്ലയിലുടനീളം (കാഞ്ഞിരംകുളം, നെയ്യാറ്റിൻകര, ബാലരാമപുരം, കോവളം, കഴക്കൂട്ടം, വെള്ളറട തുടങ്ങിയ പ്രദേശങ്ങൾ ഉൾപ്പെടെ) വീട്ടിലോ മണ്ഡപത്തിലോ എത്തിച്ചേർന്ന് സേവനം നൽകുന്നു. വീട്ടിലോ വേദിയിലോ സൗകര്യമില്ലെങ്കിൽ, കാഞ്ഞിരംകുളത്തെ സ്റ്റുഡിയോയിൽ വന്ന് ഒരുങ്ങാം."
+        : "Yes, we travel to your home or wedding venue across Thiruvananthapuram district (including Kanjiramkulam, Neyyattinkara, Balaramapuram, Kovalam, Kazhakoottam, Vellarada, and nearby areas). If that's not convenient, the bride can get ready at our studio in Kanjiramkulam.",
     },
     {
       q: inMalayalam

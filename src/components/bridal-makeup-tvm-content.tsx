@@ -100,8 +100,8 @@ const faqs = [
       ml: "വധുവിന്റെ വീട്ടിലോ വിവാഹ വേദിയിലോ വന്ന് മേക്കപ്പ് ചെയ്യുമോ?",
     },
     a: {
-      en: "Yes. Home and venue service is available across Thiruvananthapuram district, including Kanjiramkulam, Neyyattinkara, Balaramapuram, Kovalam, Kazhakoottam, and Attingal. Arrival is planned on time so the bride gets ready without rushing.",
-      ml: "അതെ. കാഞ്ഞിരംകുളം, നെയ്യാറ്റിൻകര, ബാലരാമപുരം, കോവളം, കഴക്കൂട്ടം, ആറ്റിങ്ങൽ ഉൾപ്പെടെ തിരുവനന്തപുരം ജില്ലയിലുടനീളം വീട്ടിലും വേദിയിലും സേവനം ലഭ്യമാണ്. വധുവിന് തിരക്കില്ലാതെ ഒരുങ്ങാൻ കൃത്യസമയത്ത് എത്തിച്ചേരും.",
+      en: "Yes. Home and venue service is available across Thiruvananthapuram district, including Kanjiramkulam, Neyyattinkara, Balaramapuram, Kovalam, Kazhakoottam, and Attingal. Arrival is planned on time so the bride gets ready without rushing. If that's not convenient, the bride can get ready at our studio in Kanjiramkulam.",
+      ml: "അതെ. കാഞ്ഞിരംകുളം, നെയ്യാറ്റിൻകര, ബാലരാമപുരം, കോവളം, കഴക്കൂട്ടം, ആറ്റിങ്ങൽ ഉൾപ്പെടെ തിരുവനന്തപുരം ജില്ലയിലുടനീളം വീട്ടിലും വേദിയിലും സേവനം ലഭ്യമാണ്. വധുവിന് തിരക്കില്ലാതെ ഒരുങ്ങാൻ കൃത്യസമയത്ത് എത്തിച്ചേരും. വീട്ടിലോ വേദിയിലോ സൗകര്യമില്ലെങ്കിൽ, കാഞ്ഞിരംകുളത്തെ സ്റ്റുഡിയോയിൽ വന്ന് ഒരുങ്ങാം.",
     },
   },
   {
@@ -174,9 +174,16 @@ export default function BridalMakeupTvmContent() {
                 : "Trivandrum (Thiruvananthapuram) District Service"}
             </p>
             <h1 className="mt-4 font-headline text-3xl font-bold leading-tight text-primary sm:text-4xl md:text-5xl">
-              {inMalayalam
-                ? "തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്"
-                : "Bridal Makeup Artist in Trivandrum"}
+              {inMalayalam ? (
+                <>
+                  <span className="block">തിരുവനന്തപുരം ബ്രൈഡൽ മേക്കപ്പ് ആർട്ടിസ്റ്റ്</span>
+                  <span className="mt-2 block font-body text-base font-medium text-foreground/80 sm:text-lg md:text-xl">
+                    Bridal Makeup Artist in Trivandrum
+                  </span>
+                </>
+              ) : (
+                "Bridal Makeup Artist in Trivandrum"
+              )}
             </h1>
             <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-foreground/80 sm:text-lg">
               {inMalayalam
