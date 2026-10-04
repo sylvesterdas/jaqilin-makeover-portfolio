@@ -76,6 +76,16 @@ const faqs = [
   },
   {
     q: {
+      en: "Which makeup brands do you use?",
+      ml: "ഏതൊക്കെ മേക്കപ്പ് ബ്രാൻഡുകളാണ് ഉപയോഗിക്കുന്നത്?",
+    },
+    a: {
+      en: "Professional brands such as Estée Lauder, NARS, MAC, and Huda Beauty, chosen to suit the bride's skin type. Please mention any skin allergies in advance.",
+      ml: "Estée Lauder, NARS, MAC, Huda Beauty തുടങ്ങിയ പ്രൊഫഷണൽ ബ്രാൻഡുകൾ, വധുവിന്റെ സ്കിൻ ടൈപ്പ് നോക്കി തിരഞ്ഞെടുക്കുന്നു. സ്കിൻ അലർജി ഉണ്ടെങ്കിൽ മുൻകൂട്ടി അറിയിക്കുക.",
+    },
+  },
+  {
+    q: {
       en: "How much does bridal makeup cost in Trivandrum?",
       ml: "തിരുവനന്തപുരത്ത് ബ്രൈഡൽ മേക്കപ്പിന് എത്ര ചാർജ് ആകും?",
     },
@@ -106,12 +116,22 @@ const faqs = [
   },
   {
     q: {
+      en: "Do you offer a trial makeup session?",
+      ml: "ട്രയൽ മേക്കപ്പ് ചെയ്തു തരുമോ?",
+    },
+    a: {
+      en: "No, trial makeup is not offered. You can share photos of looks you like and your outfit on WhatsApp before the wedding, and the look is planned with you.",
+      ml: "ഇല്ല, ട്രയൽ മേക്കപ്പ് ഇല്ല. ഇഷ്ടപ്പെട്ട ലുക്കുകളുടെ ഫോട്ടോയും ഡ്രസ്സും വിവാഹത്തിന് മുൻപ് WhatsApp-ൽ അയച്ചാൽ, അതനുസരിച്ച് ലുക്ക് ഒരുമിച്ച് പ്ലാൻ ചെയ്യാം.",
+    },
+  },
+  {
+    q: {
       en: "How do I book my wedding date?",
       ml: "വിവാഹ തീയതി എങ്ങനെ ബുക്ക് ചെയ്യാം?",
     },
     a: {
-      en: "Send your wedding date, venue, function type, and the number of people who need makeup on WhatsApp. Availability and package details are shared there, and the date is confirmed once the package is agreed.",
-      ml: "വിവാഹ തീയതി, സ്ഥലം, ഫങ്ഷൻ, എത്ര പേർക്ക് മേക്കപ്പ് വേണം എന്നിവ WhatsApp-ൽ അയയ്ക്കൂ. ലഭ്യതയും പാക്കേജ് വിവരങ്ങളും അറിയിക്കും; പാക്കേജ് ഉറപ്പായാൽ തീയതി ബുക്ക് ചെയ്യാം.",
+      en: "Send your wedding date, venue, function type, and the number of people who need makeup on WhatsApp. Availability and package details are shared there, and the date is booked with an advance of at least 20% of the total quote.",
+      ml: "വിവാഹ തീയതി, സ്ഥലം, ഫങ്ഷൻ, എത്ര പേർക്ക് മേക്കപ്പ് വേണം എന്നിവ WhatsApp-ൽ അയയ്ക്കൂ. ലഭ്യതയും പാക്കേജ് വിവരങ്ങളും അറിയിക്കും; ആകെ റേറ്റിന്റെ കുറഞ്ഞത് 20% അഡ്വാൻസ് നൽകി തീയതി ബുക്ക് ചെയ്യാം.",
     },
   },
 ];

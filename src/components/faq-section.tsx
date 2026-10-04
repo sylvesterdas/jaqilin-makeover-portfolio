@@ -18,8 +18,8 @@ export default function FaqSection() {
         ? "ബ്രൈഡൽ മേക്കപ്പിനായി എത്ര ദിവസം മുൻപ് ബുക്ക് ചെയ്യണം?"
         : "How early should I book my bridal makeup date?",
       a: inMalayalam
-        ? "വിവാഹ സീസണിൽ തീയതികൾ വേഗത്തിൽ ബുക്കാകുന്നതിനാൽ 2 മുതൽ 4 മാസം മുൻപ് തന്നെ തീയതി ഉറപ്പാക്കുന്നത് നല്ലതാണ്. എന്നിരുന്നാലും അടുത്തുള്ള തീയതികളിലെ ലഭ്യത WhatsApp വഴി ചോദിക്കാവുന്നതാണ്."
-        : "During peak Kerala wedding seasons, dates get booked 2 to 4 months in advance. However, you can check immediate date availability on WhatsApp anytime.",
+        ? "വിവാഹ സീസണിൽ തീയതികൾ വേഗത്തിൽ ബുക്കാകുന്നതിനാൽ 2 മുതൽ 4 മാസം മുൻപ് തന്നെ തീയതി ഉറപ്പാക്കുന്നത് നല്ലതാണ്. എന്നിരുന്നാലും അടുത്തുള്ള തീയതികളിലെ ലഭ്യത WhatsApp വഴി ചോദിക്കാവുന്നതാണ്. ആകെ റേറ്റിന്റെ കുറഞ്ഞത് 20% അഡ്വാൻസ് നൽകിയാണ് തീയതി ബുക്ക് ചെയ്യുന്നത്."
+        : "During peak Kerala wedding seasons, dates get booked 2 to 4 months in advance. However, you can check immediate date availability on WhatsApp anytime. A date is booked with an advance of at least 20% of the total quote.",
     },
     {
       q: inMalayalam
@@ -44,6 +44,14 @@ export default function FaqSection() {
       a: inMalayalam
         ? "ഫ്രഷ് & ലോങ്ങ്-വെയർ ബ്രൈഡൽ മേക്കപ്പ്, ഹൈ-ക്വാളിറ്റി ഹെയർ സ്റ്റൈലിംഗ് (പൂക്കൾ, ഓർണമെന്റ്സ് സെറ്റിംഗ് ഉൾപ്പെടെ), പെർഫെക്റ്റ് സാരി ഡ്രേപ്പിംഗ് / ലെഹങ്ക സെറ്റിംഗ് എന്നിവ പാക്കേജിൽ ഉൾപ്പെടുന്നു."
         : "Our complete bridal package includes long-wearing bridal makeup tailored to your skin tone, bridal hairstyling (with veil/flower/jewellery setting), and expert saree draping or lehenga styling.",
+    },
+    {
+      q: inMalayalam
+        ? "ട്രയൽ മേക്കപ്പ് ചെയ്തു തരുമോ?"
+        : "Do you offer a trial makeup session?",
+      a: inMalayalam
+        ? "ഇല്ല, ട്രയൽ മേക്കപ്പ് ഇല്ല. ഇഷ്ടപ്പെട്ട ലുക്കുകളുടെ ഫോട്ടോയും ഡ്രസ്സും വിവാഹത്തിന് മുൻപ് WhatsApp-ൽ അയച്ചാൽ, അതനുസരിച്ച് ലുക്ക് ഒരുമിച്ച് പ്ലാൻ ചെയ്യാം."
+        : "No, trial makeup is not offered. You can share photos of looks you like and your outfit on WhatsApp before the wedding, and the look is planned with you.",
     },
     {
       q: inMalayalam
